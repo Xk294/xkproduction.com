@@ -137,21 +137,32 @@
 
 <script setup lang="ts">
 useSeoMeta({
-  title: 'Giới Thiệu XKStudio - Phòng Thu Âm & Âm Thanh Ánh Sáng Chuyên Nghiệp',
-  description: 'XKStudio — Phòng thu âm và media production chương nghiệp. Hơn 7 năm đồng hành cùng 2000+ dự án âm nhạc, 30+ đối tác, 50+ học viên đào tạo. Founder: Nguyễn Xuân Kiệt — Music Producer & Sound Engineer.',
-  ogTitle: 'Giới Thiệu XKStudio - Phòng Thu Âm & Media Production',
-  ogDescription: 'Khám phá câu chuyện XKStudio: Hơn 7 năm xây dựng, 2000+ dự án, đội ngũ Founder Nguyễn Xuân Kiệt và sứ mệnh nâng tầm âm nhạc Việt.',
-  ogImage: '/images/founder-kiet.jpg',
-  ogImageAlt: 'Nguyễn Xuân Kiệt - Founder & Music Producer XKStudio',
+  title: 'Giới Thiệu XKProduction - Phòng Thu Âm & Âm Thanh Ánh Sáng Chuyên Nghiệp',
+  description: 'XKProduction — Phòng thu âm và media production chương nghiệp. Hơn 7 năm đồng hành cùng 2000+ dự án âm nhạc, 30+ đối tác, 50+ học viên đào tạo. Founder: Nguyễn Xuân Kiệt — Music Producer & Sound Engineer.',
+  ogTitle: 'Giới Thiệu XKProduction - Phòng Thu Âm & Media Production',
+  ogDescription: 'Khám phá câu chuyện XKProduction: Hơn 7 năm xây dựng, 2000+ dự án, đội ngũ Founder Nguyễn Xuân Kiệt và sứ mệnh nâng tầm âm nhạc Việt.',
+  ogImage: 'https://xkproduction.com/images/founder-kiet.jpg',
+  ogImageWidth: '1200',
+  ogImageHeight: '630',
+  ogImageAlt: 'Nguyễn Xuân Kiệt - Founder & Music Producer XKProduction',
+  ogUrl: 'https://xkproduction.com/about',
   twitterCard: 'summary_large_image',
-  keywords: 'giới thiệu XKStudio, Nguyễn Xuân Kiệt, founder XKStudio, music producer, phòng thu âm chuyên nghiệp, về chúng tôi'
+  twitterImage: 'https://xkproduction.com/images/founder-kiet.jpg',
+  keywords: 'giới thiệu XKProduction, Nguyễn Xuân Kiệt, founder XKProduction, music producer, phòng thu âm chuyên nghiệp, về chúng tôi'
 })
 
 useSchemaOrg([
   defineWebPage({
-    name: 'Giới Thiệu XKStudio - Phòng Thu Âm & Âm Thanh Ánh Sáng',
-    description: 'Tìm hiểu về XKStudio - Phòng thu âm, hoà âm phối khí, sân khấu sự kiện & âm thanh ánh sáng. Đội ngũ kỹ thuật viên giàu kinh nghiệm.'
+    name: 'Giới Thiệu XKProduction',
+    description: 'Tìm hiểu về XKProduction, Founder Nguyễn Xuân Kiệt và hành trình kiến tạo âm thanh chuyên nghiệp. Đội ngũ kỹ thuật viên giàu kinh nghiệm.'
   }),
+  {
+    '@type': 'BreadcrumbList',
+    'itemListElement': [
+      { '@type': 'ListItem', 'position': 1, 'name': 'Trang chủ', 'item': 'https://xkproduction.com' },
+      { '@type': 'ListItem', 'position': 2, 'name': 'Giới Thiệu XKProduction', 'item': 'https://xkproduction.com/about' }
+    ]
+  },
   definePerson({
     name: 'Nguyễn Xuân Kiệt',
     jobTitle: 'Founder & Music Producer',

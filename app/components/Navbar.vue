@@ -30,9 +30,9 @@
       </ul>
 
       <!-- CENTER: Logo -->
-      <NuxtLink to="/" class="logo" title="XKStudio - Phòng Thu Âm Chuyên Nghiệp" aria-label="XKStudio trang chủ">
-        <img src="/images/xk-logo.png" alt="XKStudio Logo" class="logo-img" />
-        <span class="logo-text">XKStudio</span>
+      <NuxtLink to="/" class="logo" title="XKProduction - Phòng Thu Âm Chuyên Nghiệp" aria-label="XKProduction trang chủ">
+        <img src="/images/xk-logo-new.jpg" alt="XKProduction Logo" class="logo-img" />
+        <span class="logo-text">XKProduction</span>
       </NuxtLink>
 
       <!-- RIGHT: Liên hệ / Info -->
@@ -200,7 +200,7 @@ onMounted(() => {
 .logo-img {
   width: 38px;
   height: 38px;
-  object-fit: contain;
+  object-fit: cover;
   border-radius: 50%;
   flex-shrink: 0;
   border: 1.5px solid rgba(26,140,255,0.25);

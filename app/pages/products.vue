@@ -62,21 +62,57 @@
 
 <script setup lang="ts">
 useSeoMeta({
-  title: 'Sản phẩm Âm nhạc tiêu biểu - XKStudio',
-  description: 'Các dự án âm nhạc tiêu biểu do XKStudio thực hiện: Hoà âm phối khí, mix & master cho nghệ sĩ Revan, Howl, Phương Thanh Tuyền... Nâng tầm sản phẩm âm nhạc của bạn.',
-  ogTitle: 'Sản phẩm Âm nhạc tiêu biểu - XKStudio',
-  ogDescription: 'Nghe các tác phẩm thực tế do XKStudio sản xuất: Hoà âm phối khí, mixing & mastering, thu âm chuyên nghiệp cho 2000+ dự án.',
-  ogImage: '/images/hero-studio.png',
-  ogImageAlt: 'Sản phẩm âm nhạc XKStudio - Hoà âm phối khí & Mix Master',
+  title: 'Sản phẩm Âm nhạc tiêu biểu - XKProduction',
+  description: 'Các dự án âm nhạc tiêu biểu do XKProduction thực hiện: Hoà âm phối khí, mix & master cho nghệ sĩ Revan, Howl, Phương Thanh Tuyền... Nâng tầm sản phẩm âm nhạc của bạn.',
+  ogTitle: 'Sản phẩm Âm nhạc tiêu biểu - XKProduction',
+  ogDescription: 'Nghe các tác phẩm thực tế do XKProduction sản xuất: Hoà âm phối khí, mixing & mastering, thu âm chuyên nghiệp cho 2000+ dự án.',
+  ogImage: 'https://xkproduction.com/images/xk-logo-new.jpg',
+  ogImageWidth: '1200',
+  ogImageHeight: '630',
+  ogImageAlt: 'Sản phẩm âm nhạc XKProduction - Hoà âm phối khí & Mix Master',
+  ogUrl: 'https://xkproduction.com/products',
   twitterCard: 'summary_large_image',
-  keywords: 'XKStudio, sản phẩm âm nhạc, dự án âm nhạc, hoà âm phối khí, thu âm chuyên nghiệp, mixing, mastering'
+  twitterImage: 'https://xkproduction.com/images/xk-logo-new.jpg',
+  keywords: 'XKProduction, sản phẩm âm nhạc, dự án âm nhạc, hoà âm phối khí, thu âm chuyên nghiệp, mixing, mastering'
 })
 
 useSchemaOrg([
   defineWebPage({
     name: 'Sản phẩm tiêu biểu',
-    description: 'Các sản phẩm âm nhạc tiêu biểu do XKStudio thực hiện: Thu âm, mixing, mastering và hòa âm phối khí tại Việt Nam.'
-  })
+    description: 'Các sản phẩm âm nhạc tiêu biểu do XKProduction thực hiện: Thu âm, mixing, mastering và hòa âm phối khí tại Việt Nam.'
+  }),
+  {
+    '@type': 'BreadcrumbList',
+    'itemListElement': [
+      { '@type': 'ListItem', 'position': 1, 'name': 'Trang chủ', 'item': 'https://xkproduction.com' },
+      { '@type': 'ListItem', 'position': 2, 'name': 'Sản phẩm Âm nhạc Tiêu biểu', 'item': 'https://xkproduction.com/products' }
+    ]
+  },
+  // MusicRecording schema cho từng sản phẩm âm nhạc
+  {
+    '@type': 'MusicRecording',
+    'name': 'Chẳng Muốn Nói Nhiều Lời',
+    'byArtist': { '@type': 'MusicGroup', 'name': 'Revan' },
+    'producer': { '@type': 'Person', 'name': 'Nguyễn Xuân Kiệt', 'url': 'https://xkproduction.com' },
+    'url': 'https://www.youtube.com/watch?v=IxlFvQQP_4c',
+    'inAlbum': { '@type': 'MusicAlbum', 'name': 'Chẳng Muốn Nói Nhiều Lời - Single', 'datePublished': '2025' }
+  },
+  {
+    '@type': 'MusicRecording',
+    'name': 'Love Dự Phòng',
+    'byArtist': { '@type': 'MusicGroup', 'name': 'Howl' },
+    'producer': { '@type': 'Person', 'name': 'Nguyễn Xuân Kiệt', 'url': 'https://xkproduction.com' },
+    'url': 'https://www.youtube.com/watch?v=OCnKTCslJUU',
+    'inAlbum': { '@type': 'MusicAlbum', 'name': 'Love Dự Phòng - Single', 'datePublished': '2025' }
+  },
+  {
+    '@type': 'MusicRecording',
+    'name': 'Lý Do Bắt Đầu',
+    'byArtist': { '@type': 'MusicGroup', 'name': 'Revan' },
+    'producer': { '@type': 'Person', 'name': 'Nguyễn Xuân Kiệt', 'url': 'https://xkproduction.com' },
+    'url': 'https://www.youtube.com/watch?v=vzfr1ddayYY',
+    'inAlbum': { '@type': 'MusicAlbum', 'name': 'Lý Do Bắt Đầu - Single', 'datePublished': '2025' }
+  }
 ])
 
 const activeCategory = ref('Tất cả')

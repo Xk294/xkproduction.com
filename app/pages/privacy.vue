@@ -13,7 +13,7 @@
 
         <div class="policy-card">
           <h2><i class="fa-solid fa-circle-info"></i> 1. Giới thiệu</h2>
-          <p>XKStudio (<strong>xkproduction.com</strong>) cam kết bảo vệ quyền riêng tư của bạn. Chính sách này mô tả cách chúng tôi thu thập, sử dụng và bảo vệ thông tin cá nhân khi bạn sử dụng website và dịch vụ của chúng tôi.</p>
+          <p>XKProduction (<strong>xkproduction.com</strong>) cam kết bảo vệ quyền riêng tư của bạn. Chính sách này mô tả cách chúng tôi thu thập, sử dụng và bảo vệ thông tin cá nhân khi bạn sử dụng website và dịch vụ của chúng tôi.</p>
         </div>
 
         <div class="policy-card">
@@ -45,7 +45,7 @@
 
         <div class="policy-card">
           <h2><i class="fa-solid fa-lock"></i> 5. Bảo mật dữ liệu</h2>
-          <p>Website sử dụng kết nối HTTPS (SSL/TLS) để mã hóa dữ liệu truyền tải. Thông tin của bạn chỉ được truy cập bởi đội ngũ XKStudio với mục đích phục vụ yêu cầu của bạn.</p>
+          <p>Website sử dụng kết nối HTTPS (SSL/TLS) để mã hóa dữ liệu truyền tải. Thông tin của bạn chỉ được truy cập bởi đội ngũ XKProduction với mục đích phục vụ yêu cầu của bạn.</p>
         </div>
 
         <div class="policy-card">
@@ -90,10 +90,10 @@
 
 <script setup lang="ts">
 useSeoMeta({
-  title: 'Chính sách Bảo mật - XKStudio',
-  description: 'Chính sách bảo mật của XKStudio xkproduction.com — Cách thu thập, sử dụng và bảo vệ thông tin cá nhân của khách hàng.',
-  ogTitle: 'Chính sách Bảo mật - XKStudio',
-  ogDescription: 'Tìm hiểu cách XKStudio bảo vệ thông tin cá nhân của bạn khi sử dụng dịch vụ thu âm và form liên hệ.',
+  title: 'Chính sách Bảo mật - XKProduction',
+  description: 'Chính sách bảo mật của XKProduction xkproduction.com — Cách thu thập, sử dụng và bảo vệ thông tin cá nhân của khách hàng.',
+  ogTitle: 'Chính sách Bảo mật - XKProduction',
+  ogDescription: 'Tìm hiểu cách XKProduction bảo vệ thông tin cá nhân của bạn khi sử dụng dịch vụ thu âm và form liên hệ.',
   robots: 'noindex, follow',
 })
 </script>

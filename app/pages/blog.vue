@@ -75,27 +75,96 @@
 
 <script setup lang="ts">
 useSeoMeta({
-  title: 'Blog & Kiến Thức Âm Nhạc - Mẹo Thu Âm, Mix Master | XKStudio',
-  description: 'Blog kiến thức âm nhạc từ XKStudio: Hướng dẫn thu âm tại nhà, mẹo mixing mastering, cách hoà âm phối khí, bảng giá phòng thu âm Bình Phước. Cập nhật mỗi tuần.',
-  ogTitle: 'Blog Kiến Thức Âm Nhạc - XKStudio',
-  ogDescription: 'Chia sẻ kinh nghiệm thu âm, mix master, hoà âm phối khí và kiến thức sản xuất âm nhạc chuyên nghiệp từ XKStudio.',
-  ogImage: '/images/hero-studio.png',
-  ogImageAlt: 'Blog kiến thức âm nhạc XKStudio',
+  title: 'Blog & Kiến Thức Âm Nhạc - Mẹo Thu Âm, Mix Master | XKProduction',
+  description: 'Blog kiến thức âm nhạc từ XKProduction: Hướng dẫn thu âm tại nhà, mẹo mixing mastering, cách hoà âm phối khí, bảng giá phòng thu âm Bình Phước. Cập nhật mỗi tuần.',
+  ogTitle: 'Blog Kiến Thức Âm Nhạc - XKProduction',
+  ogDescription: 'Chia sẻ kinh nghiệm thu âm, mix master, hoà âm phối khí và kiến thức sản xuất âm nhạc chuyên nghiệp từ XKProduction.',
+  ogImage: 'https://xkproduction.com/images/blog-thu-am-gia.jpg',
+  ogImageWidth: '1200',
+  ogImageHeight: '630',
+  ogImageAlt: 'Blog kiến thức âm nhạc XKProduction',
+  ogUrl: 'https://xkproduction.com/blog',
   twitterCard: 'summary_large_image',
-  keywords: 'blog âm nhạc, kiến thức thu âm, hướng dẫn mix master, cách hoà âm phối khí, phòng thu âm Bình Phước, thu âm bài hát giá bao nhiêu, mix master giá rẻ, hòa âm phối khí online, XKStudio blog'
+  twitterImage: 'https://xkproduction.com/images/blog-thu-am-gia.jpg',
+  keywords: 'blog âm nhạc, kiến thức thu âm, hướng dẫn mix master, cách hoà âm phối khí, phòng thu âm Bình Phước, thu âm bài hát giá bao nhiêu, mix master giá rẻ, hòa âm phối khí online, XKProduction blog'
 })
 
 useSchemaOrg([
   defineWebPage({
-    name: 'Blog & Kiến Thức Âm Nhạc - XKStudio',
-    description: 'Blog chia sẻ kiến thức về thu âm, mixing, mastering và sản xuất âm nhạc từ đội ngũ XKStudio.'
+    name: 'Blog & Kiến Thức Âm Nhạc - XKProduction',
+    description: 'Blog chia sẻ kiến thức về thu âm, mixing, mastering và sản xuất âm nhạc từ đội ngũ XKProduction.'
   }),
   {
     '@type': 'BreadcrumbList',
     'itemListElement': [
       { '@type': 'ListItem', 'position': 1, 'name': 'Trang chủ', 'item': 'https://xkproduction.com' },
-      { '@type': 'ListItem', 'position': 2, 'name': 'Blog', 'item': 'https://xkproduction.com/blog' }
+      { '@type': 'ListItem', 'position': 2, 'name': 'Blog & Kiến Thức Âm Nhạc', 'item': 'https://xkproduction.com/blog' }
     ]
+  },
+  // BlogPosting schema cho từng bài viết (boost SEO mạnh)
+  {
+    '@type': 'BlogPosting',
+    'headline': 'Thu Âm Bài Hát Giá Bao Nhiêu? Bảng Giá Chi Tiết 2026',
+    'description': 'Tổng hợp bảng giá thu âm bài hát mới nhất. Thu âm từ 350.000₫ tại XKStudio Bình Phước.',
+    'image': 'https://xkproduction.com/images/blog-thu-am-gia.jpg',
+    'author': { '@type': 'Organization', 'name': 'XKStudio', 'url': 'https://xkproduction.com' },
+    'publisher': {
+      '@type': 'Organization',
+      'name': 'XKStudio',
+      'logo': { '@type': 'ImageObject', 'url': 'https://xkproduction.com/images/xk-logo-new.jpg' }
+    },
+    'datePublished': '2026-04-28',
+    'dateModified': '2026-04-28',
+    'url': 'https://xkproduction.com/blog',
+    'keywords': 'thu âm bài hát, giá thu âm, bảng giá thu âm, XKStudio Bình Phước'
+  },
+  {
+    '@type': 'BlogPosting',
+    'headline': 'Mix Master Là Gì? Hướng Dẫn Từ A-Z Cho Người Mới',
+    'description': 'Hiểu rõ quy trình mixing và mastering — hai bước quan trọng nhất quyết định chất lượng bản nhạc.',
+    'image': 'https://xkproduction.com/images/blog-mix-master.jpg',
+    'author': { '@type': 'Person', 'name': 'Nguyễn Xuân Kiệt', 'url': 'https://xkproduction.com/about' },
+    'publisher': {
+      '@type': 'Organization',
+      'name': 'XKStudio',
+      'logo': { '@type': 'ImageObject', 'url': 'https://xkproduction.com/images/xk-logo-new.jpg' }
+    },
+    'datePublished': '2026-04-20',
+    'dateModified': '2026-04-20',
+    'url': 'https://xkproduction.com/blog',
+    'keywords': 'mix master, mixing mastering, mix master giá rẻ, mixing mastering online'
+  },
+  {
+    '@type': 'BlogPosting',
+    'headline': 'Hoà Âm Phối Khí Online — Quy Trình & Chi Phí',
+    'description': 'Tìm hiểu quy trình hoà âm phối khí online chuyên nghiệp và bảng giá chi tiết tại XKStudio.',
+    'image': 'https://xkproduction.com/images/blog-hoa-am.jpg',
+    'author': { '@type': 'Organization', 'name': 'XKStudio', 'url': 'https://xkproduction.com' },
+    'publisher': {
+      '@type': 'Organization',
+      'name': 'XKStudio',
+      'logo': { '@type': 'ImageObject', 'url': 'https://xkproduction.com/images/xk-logo-new.jpg' }
+    },
+    'datePublished': '2026-04-15',
+    'dateModified': '2026-04-15',
+    'url': 'https://xkproduction.com/blog',
+    'keywords': 'hoà âm phối khí, hoà âm phối khí online, phối nhạc online, nhạc nền bài hát'
+  },
+  {
+    '@type': 'BlogPosting',
+    'headline': 'Phòng Thu Âm Bình Phước — Tại Sao Chọn XKStudio?',
+    'description': 'Khám phá lý do XKStudio trở thành phòng thu âm được nhiều nghệ sĩ tin tưởng nhất tại Bình Phước.',
+    'image': 'https://xkproduction.com/images/blog-phong-thu.jpg',
+    'author': { '@type': 'Person', 'name': 'Nguyễn Xuân Kiệt', 'url': 'https://xkproduction.com/about' },
+    'publisher': {
+      '@type': 'Organization',
+      'name': 'XKStudio',
+      'logo': { '@type': 'ImageObject', 'url': 'https://xkproduction.com/images/xk-logo-new.jpg' }
+    },
+    'datePublished': '2026-04-25',
+    'dateModified': '2026-04-25',
+    'url': 'https://xkproduction.com/blog',
+    'keywords': 'phòng thu âm Bình Phước, studio Bình Phước, thu âm Bình Phước'
   }
 ])
 

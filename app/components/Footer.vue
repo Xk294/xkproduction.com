@@ -5,16 +5,16 @@
 
         <!-- Brand Column -->
         <div class="footer-column footer-brand">
-          <NuxtLink to="/" class="footer-logo-wrap" aria-label="XKStudio trang chủ">
-            <img src="/images/xk-logo.png" alt="XKStudio Logo" class="footer-logo-img" />
-            <span class="footer-logo-text" itemprop="name">XKStudio</span>
+          <NuxtLink to="/" class="footer-logo-wrap" aria-label="XKProduction trang chủ">
+            <img src="/images/xk-logo-new.jpg" alt="XKProduction Logo" class="footer-logo-img" />
+            <span class="footer-logo-text" itemprop="name">XKProduction</span>
           </NuxtLink>
           <p itemprop="description">Phòng thu âm chuyên nghiệp — Hoà âm phối khí — Mix & Master chuẩn quốc tế — Sân khấu sự kiện & Âm thanh ánh sáng trọn gói.</p>
-          <div class="social-links" aria-label="Mạng xã hội XKStudio">
-            <a href="https://www.facebook.com/ngxkiet" title="Facebook XKStudio" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
-            <a href="https://www.youtube.com/@Xkstudio29" title="YouTube XKStudio" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
-            <a href="https://www.tiktok.com/@xkstudio" title="TikTok XKStudio" target="_blank" rel="noopener noreferrer" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
-            <a href="https://zalo.me/0355356294" title="Zalo XKStudio" target="_blank" rel="noopener noreferrer" aria-label="Zalo"><i class="fa-solid fa-comment"></i></a>
+          <div class="social-links" aria-label="Mạng xã hội XKProduction">
+            <a href="https://www.facebook.com/ngxkiet" title="Facebook XKProduction" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="https://www.youtube.com/@Xkstudio29" title="YouTube XKProduction" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+            <a href="https://www.tiktok.com/@xkstudio" title="TikTok XKProduction" target="_blank" rel="noopener noreferrer" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+            <a href="https://zalo.me/0355356294" title="Zalo XKProduction" target="_blank" rel="noopener noreferrer" aria-label="Zalo"><i class="fa-solid fa-comment"></i></a>
           </div>
         </div>
 
@@ -56,7 +56,7 @@
               </a>
             </li>
             <li>
-              <a href="mailto:xkstudio29@gmail.com" itemprop="email" title="Email XKStudio">
+              <a href="mailto:xkstudio29@gmail.com" itemprop="email" title="Email XKProduction">
                 <i class="fa-solid fa-envelope"></i>
                 <span>xkstudio29@gmail.com</span>
               </a>
@@ -81,7 +81,7 @@
       </div>
 
       <div class="footer-bottom">
-        <p>© {{ new Date().getFullYear() }} <strong>XKStudio</strong> — <a href="https://xkproduction.com">xkproduction.com</a>. Tất cả quyền được bảo lưu.</p>
+        <p>© {{ new Date().getFullYear() }} <strong>XKProduction</strong> — <a href="https://xkproduction.com">xkproduction.com</a>. Tất cả quyền được bảo lưu.</p>
         <p class="footer-tagline">Chạm đến trái tim bằng âm thanh 🎵</p>
       </div>
     </div>
@@ -126,7 +126,7 @@
 }
 .footer-logo-img {
   width: 40px; height: 40px;
-  object-fit: contain; border-radius: 50%;
+  object-fit: cover; border-radius: 50%;
   filter: drop-shadow(0 0 8px rgba(26,140,255,0.5));
   transition: filter 0.3s ease;
 }

@@ -3,13 +3,13 @@ export default defineNuxtConfig({
   compatibilityDate: '2026-04-17',
   devtools: { enabled: true },
 
-  modules: ['@nuxtjs/sitemap', '@nuxtjs/robots'],
+  modules: ['@nuxtjs/sitemap', '@nuxtjs/robots', 'nuxt-schema-org'],
 
   // === SITE CONFIG — giữ nguyên ===
   site: {
     url: 'https://xkproduction.com',
-    name: 'XKStudio — Phòng Thu Âm Chuyên Nghiệp',
-    description: 'XKStudio — Phòng thu âm chuyên nghiệp tại Bình Phước & Đồng Nai. Hoà âm phối khí chuẩn quốc tế, Mix & Master Spotify-compliant, Thu âm chuyên nghiệp từ 350K, Quay MV/TVC, Cho thuê Sound & Lighting sự kiện. 7+ năm kinh nghiệm, 2000+ dự án thành công.',
+    name: 'XKProduction — Phòng Thu Âm Chuyên Nghiệp',
+    description: 'XKProduction — Phòng thu âm chuyên nghiệp tại Bình Phước & Đồng Nai. Hoà âm phối khí chuẩn quốc tế, Mix & Master Spotify-compliant, Thu âm chuyên nghiệp từ 350K, Quay MV/TVC, Cho thuê Sound & Lighting sự kiện. 7+ năm kinh nghiệm, 2000+ dự án thành công.',
     defaultLocale: 'vi',
     trailingSlash: false,
     indexable: true,
@@ -20,20 +20,82 @@ export default defineNuxtConfig({
     strictNuxtContentPaths: false,
     zeroRuntime: true,
     urls: [
-      { loc: '/',          priority: 1,    changefreq: 'weekly'  },
-      { loc: '/services',  priority: 0.9,  changefreq: 'weekly'  },
-      { loc: '/courses',   priority: 0.9,  changefreq: 'monthly' },
-      { loc: '/live-band', priority: 0.8,  changefreq: 'monthly' },
-      { loc: '/products',  priority: 0.8,  changefreq: 'weekly'  },
-      { loc: '/about',     priority: 0.7,  changefreq: 'monthly' },
-      { loc: '/contact',   priority: 0.8,  changefreq: 'monthly' },
-      { loc: '/faq',       priority: 0.7,  changefreq: 'monthly' },
-      { loc: '/blog',      priority: 0.8,  changefreq: 'weekly'  },
-      { loc: '/privacy',   priority: 0.3,  changefreq: 'yearly'  },
+      {
+        loc: '/',
+        priority: 1,
+        changefreq: 'weekly',
+        lastmod: new Date().toISOString().split('T')[0],
+        images: [
+          { loc: 'https://xkproduction.com/images/xk-logo-new.jpg', title: 'XKStudio - Phòng Thu Âm Chuyên Nghiệp Bình Phước', caption: 'Logo phòng thu âm chuyên nghiệp XKStudio' },
+          { loc: 'https://xkproduction.com/images/founder-kiet.jpg', title: 'Nguyễn Xuân Kiệt - Founder XKStudio', caption: 'Founder & Music Producer XKStudio' }
+        ]
+      },
+      {
+        loc: '/services',
+        priority: 0.9,
+        changefreq: 'weekly',
+        lastmod: new Date().toISOString().split('T')[0],
+        images: [{ loc: 'https://xkproduction.com/images/xk-logo-new.jpg', title: 'Bảng giá dịch vụ thu âm XKStudio', caption: 'Bảng giá thu âm, mix master, hoà âm phối khí' }]
+      },
+      {
+        loc: '/courses',
+        priority: 0.9,
+        changefreq: 'monthly',
+        lastmod: new Date().toISOString().split('T')[0],
+        images: [{ loc: 'https://xkproduction.com/images/xk-logo-new.jpg', title: 'Khoá học Music Producer tại XKStudio', caption: 'Đào tạo Music Producer, Mixing & Mastering' }]
+      },
+      {
+        loc: '/live-band',
+        priority: 0.8,
+        changefreq: 'monthly',
+        lastmod: new Date().toISOString().split('T')[0],
+        images: [{ loc: 'https://xkproduction.com/images/quocchi-2.jpg', title: 'Âm thanh ánh sáng sự kiện XKStudio', caption: 'Cho thuê âm thanh ánh sáng sân khấu chuyên nghiệp' }]
+      },
+      {
+        loc: '/products',
+        priority: 0.8,
+        changefreq: 'weekly',
+        lastmod: new Date().toISOString().split('T')[0],
+        images: [
+          { loc: 'https://xkproduction.com/images/revan.jpg', title: 'Revan - Tác phẩm XKStudio', caption: 'Sản phẩm âm nhạc tiêu biểu của XKStudio' },
+          { loc: 'https://xkproduction.com/images/howl.jpg', title: 'Howl - Tác phẩm XKStudio', caption: 'Portfolio sản phẩm âm nhạc XKStudio' }
+        ]
+      },
+      {
+        loc: '/about',
+        priority: 0.7,
+        changefreq: 'monthly',
+        lastmod: new Date().toISOString().split('T')[0],
+        images: [{ loc: 'https://xkproduction.com/images/founder-kiet.jpg', title: 'Nguyễn Xuân Kiệt - Founder XKStudio', caption: 'Founder & Music Producer XKStudio' }]
+      },
+      {
+        loc: '/contact',
+        priority: 0.8,
+        changefreq: 'monthly',
+        lastmod: new Date().toISOString().split('T')[0]
+      },
+      {
+        loc: '/faq',
+        priority: 0.7,
+        changefreq: 'monthly',
+        lastmod: new Date().toISOString().split('T')[0]
+      },
+      {
+        loc: '/blog',
+        priority: 0.8,
+        changefreq: 'weekly',
+        lastmod: new Date().toISOString().split('T')[0],
+        images: [
+          { loc: 'https://xkproduction.com/images/blog-thu-am-gia.jpg', title: 'Thu Âm Bài Hát Giá Bao Nhiêu 2026', caption: 'Bảng giá thu âm chuyên nghiệp' },
+          { loc: 'https://xkproduction.com/images/blog-mix-master.jpg', title: 'Mix Master là gì', caption: 'Hướng dẫn mixing và mastering' }
+        ]
+      },
+      { loc: '/privacy', priority: 0.3, changefreq: 'yearly', lastmod: '2025-01-01' },
     ],
   },
   robots: {
-    disallow: ['/cdn-cgi/'],
+    disallow: ['/cdn-cgi/', '/_nuxt/'],
+    allow: ['/$', '/*.html$'],
   },
 
   // === APP HEAD — giữ nguyên ===
@@ -49,21 +111,20 @@ export default defineNuxtConfig({
         { property: 'og:locale', content: 'vi_VN' },
         { property: 'og:locale:alternate', content: 'en_US' },
         { property: 'og:type', content: 'website' },
-        { property: 'og:site_name', content: 'XKStudio' },
+        { property: 'og:site_name', content: 'XKProduction' },
         { name: 'twitter:card', content: 'summary_large_image' },
         { name: 'twitter:site', content: '@xkstudio29' },
         { name: 'twitter:creator', content: '@xkstudio29' },
         { name: 'apple-mobile-web-app-capable', content: 'yes' },
         { name: 'apple-mobile-web-app-status-bar-style', content: 'black-translucent' },
-        { name: 'apple-mobile-web-app-title', content: 'XKStudio' },
-        { name: 'application-name', content: 'XKStudio' },
+        { name: 'apple-mobile-web-app-title', content: 'XKProduction' },
+        { name: 'application-name', content: 'XKProduction' },
         { name: 'msapplication-TileColor', content: '#06080f' },
       ],
       link: [
-        { rel: 'icon', type: 'image/png', href: '/images/xk-logo.png' },
-        { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-        { rel: 'apple-touch-icon', href: '/images/xk-logo.png' },
-        { rel: 'canonical', href: 'https://xkproduction.com' },
+        { rel: 'icon', type: 'image/x-icon', href: '/favicon_ultimate_dark.ico' },
+        { rel: 'apple-touch-icon', sizes: '180x180', href: '/images/xk-logo-new.jpg' },
+        // Canonical được handle động ở từng page
         // Preconnect — tăng tốc font và CDN
         { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
         { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: '' },
@@ -110,6 +171,13 @@ export default defineNuxtConfig({
           'X-Content-Type-Options': 'nosniff',
           'X-Frame-Options': 'SAMEORIGIN',
           'Referrer-Policy': 'strict-origin-when-cross-origin',
+          'Permissions-Policy': 'camera=(), microphone=(), geolocation=()',
+          'X-Robots-Tag': 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1',
+        }
+      },
+      '/privacy': {
+        headers: {
+          'X-Robots-Tag': 'noindex, follow'
         }
       }
     }

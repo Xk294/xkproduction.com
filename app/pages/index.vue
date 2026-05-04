@@ -1,9 +1,7 @@
 <template>
 <div class="home-page">
-  <!-- KT2: IMMERSIVE BACKGROUND -->
-  <div class="immersive-bg">
-    <img src="/images/hero-studio.png" alt="Không gian phòng thu âm chuyên nghiệp XKStudio" aria-hidden="true" />
-  </div>
+  <!-- KT2: IMMERSIVE BACKGROUND (CSS thuần - không dùng ảnh AI) -->
+  <div class="immersive-bg" aria-hidden="true"></div>
 
   <!-- TWO-COLUMN DASHBOARD -->
   <div class="dashboard reveal-on-scroll">
@@ -235,21 +233,22 @@
 
 <script setup lang="ts">
 useSeoMeta({
-  title: 'XKStudio — Phòng Thu Âm Chuyên Nghiệp | Hoà Âm Phối Khí | Mix Master | Bình Phước',
-  description: 'XKStudio — Phòng thu âm chuyên nghiệp tại Bình Phước: Thu âm bài hát từ 350.000₫, hoà âm phối khí, mix & master chuẩn Spotify, quay MV/TVC, cho thuê âm thanh ánh sáng sân khấu sự kiện trọn gói. Hơn 2000 dự án hoàn thiện. Hotline: 0355.356.294',
-  ogTitle: 'XKStudio — Phòng Thu Âm Chuyên Nghiệp | Mix Master | Hoà Âm | Sân Khấu',
-  ogDescription: 'Phòng thu âm chuyên nghiệp XKStudio: Thu âm bài hát, hoà âm phối khí, mix & master chuẩn quốc tế, quay MV/TVC & cho thuê âm thanh ánh sáng sự kiện. 2000+ dự án thành công. Hotline: 0355.356.294.',
-  ogImage: 'https://xkproduction.com/images/hero-studio.png',
+  title: 'XKproduction - Phòng Thu Âm Chuyên Nghiệp | Mixing | Mastering | Mv Tvc | Sản Xuất Âm Nhạc',
+  description: 'XKProduction — Phòng thu âm chuyên nghiệp tại Bình Phước: Thu âm bài hát từ 350.000₫, hoà âm phối khí, mix & master chuẩn Spotify, quay MV/TVC, cho thuê âm thanh ánh sáng sân khấu sự kiện trọn gói. Hơn 2000 dự án hoàn thiện. Hotline: 0355.356.294',
+  ogTitle: 'XKProduction — Phòng Thu Âm Chuyên Nghiệp | Mix Master | Hoà Âm | Sân Khấu',
+  ogDescription: 'Phòng thu âm chuyên nghiệp XKProduction: Thu âm bài hát, hoà âm phối khí, mix & master chuẩn quốc tế, quay MV/TVC & cho thuê âm thanh ánh sáng sự kiện. 2000+ dự án thành công. Hotline: 0355.356.294.',
+  ogImage: 'https://xkproduction.com/images/xk-logo-new.jpg',
   ogImageWidth: '1200',
   ogImageHeight: '630',
-  ogImageAlt: 'XKStudio - Phòng thu âm chuyên nghiệp tại Bình Phước',
+  ogImageAlt: 'XKProduction - Phòng thu âm chuyên nghiệp tại Bình Phước',
   ogType: 'website',
+  ogUrl: 'https://xkproduction.com',
   twitterCard: 'summary_large_image',
-  twitterTitle: 'XKStudio — Phòng Thu Âm & Mix Master Chuyên Nghiệp',
-  twitterDescription: 'Thu âm bài hát từ 350k, hoà âm phối khí, mix master chuẩn Spotify tại XKStudio. Hotline: 0355.356.294',
-  twitterImage: 'https://xkproduction.com/images/hero-studio.png',
-  keywords: 'XKStudio, xkproduction.com, phòng thu âm, phòng thu âm chuyên nghiệp, thu âm bài hát, hoà âm phối khí, mix master, mixing mastering, sân khấu sự kiện, âm thanh ánh sáng, quay mv, quay tvc, phòng thu âm bình phước, phòng thu âm uy tín, bảng giá thu âm, studio bình phước, nhạc sĩ, sản xuất âm nhạc',
-  author: 'Nguyễn Xuân Kiệt - XKStudio',
+  twitterTitle: 'XKProduction — Phòng Thu Âm & Mix Master Chuyên Nghiệp',
+  twitterDescription: 'Thu âm bài hát từ 350k, hoà âm phối khí, mix master chuẩn Spotify tại XKProduction. Hotline: 0355.356.294',
+  twitterImage: 'https://xkproduction.com/images/xk-logo-new.jpg',
+  keywords: 'XKProduction, xkproduction.com, phòng thu âm, phòng thu âm chuyên nghiệp, thu âm bài hát, hoà âm phối khí, mix master, mixing mastering, sân khấu sự kiện, âm thanh ánh sáng, quay mv, quay tvc, phòng thu âm bình phước, phòng thu âm uy tín, bảng giá thu âm, studio bình phước, nhạc sĩ, sản xuất âm nhạc',
+  author: 'Nguyễn Xuân Kiệt - XKProduction',
   robots: 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1',
   viewport: 'width=device-width, initial-scale=1'
 })
@@ -259,9 +258,10 @@ useSchemaOrg([
     description: 'Phòng thu âm chuyên nghiệp XKStudio: Thu âm bài hát, mix & master chuẩn Spotify, hoà âm phối khí, quay MV/TVC tại Bình Phước. 2000+ dự án thành công.'
   }),
   defineLocalBusiness({
-    name: 'XKStudio',
-    image: 'https://xkproduction.com/images/hero-studio.png',
-    logo: 'https://xkproduction.com/images/xk-logo.png',
+    '@id': 'https://xkproduction.com/#localbusiness',
+    name: 'XKProduction',
+    image: 'https://xkproduction.com/images/xk-logo-new.jpg',
+    logo: 'https://xkproduction.com/images/xk-logo-new.jpg',
     telephone: '+84355356294',
     email: 'xkstudio29@gmail.com',
     url: 'https://xkproduction.com',
@@ -365,15 +365,7 @@ onMounted(() => {
   
   document.querySelectorAll('.reveal-on-scroll').forEach(el => revealObserver.observe(el))
   
-  /* === PARALLAX SCROLL EFFECT === */
-  const handleScroll = () => {
-    const scrolled = window.scrollY
-    const imgBg = document.querySelector('.immersive-bg img') as HTMLElement
-    if (imgBg) {
-      imgBg.style.transform = `scale(1.1) translateY(${scrolled * 0.35}px)`
-    }
-  }
-  window.addEventListener('scroll', handleScroll, { passive: true })
+  /* === PARALLAX SCROLL EFFECT - removed (no bg image) === */
 })
 
 const stats = [
@@ -573,21 +565,21 @@ const testimonials = [
   padding-top: 72px;
 }
 
-/* === IMMERSIVE BG === */
+/* === IMMERSIVE BG (CSS gradient - no image) === */
 .immersive-bg {
   position: fixed; top: 0; left: 0;
   width: 100%; height: 100%;
   z-index: 0; pointer-events: none;
-}
-.immersive-bg img {
-  width: 100%; height: 100%; object-fit: cover;
-  filter: blur(8px) brightness(0.13) saturate(1.4);
-  transform: scale(1.1);
+  background:
+    radial-gradient(ellipse 80% 60% at 20% 30%, rgba(26,140,255,0.08) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 80% at 80% 70%, rgba(0,229,192,0.06) 0%, transparent 60%),
+    radial-gradient(ellipse 100% 100% at 50% 0%, rgba(139,92,246,0.05) 0%, transparent 50%),
+    linear-gradient(180deg, #06080f 0%, #080b14 100%);
   animation: bgDrift 18s ease-in-out infinite alternate;
 }
 @keyframes bgDrift {
-  0%   { filter: blur(8px)  brightness(0.13) saturate(1.4); transform: scale(1.10); }
-  100% { filter: blur(12px) brightness(0.10) saturate(1.7); transform: scale(1.15); }
+  0%   { opacity: 0.85; }
+  100% { opacity: 1; }
 }
 
 /* === GLASS CARD BASE === */

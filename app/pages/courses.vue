@@ -110,20 +110,24 @@
 
 <script setup lang="ts">
 useSeoMeta({
-  title: 'Khoá học Music Producer, Mixing & Mastering - XKStudio',
-  description: 'Khoá học đào tạo Music Producer tại XKStudio: Hoà âm phối khí, Mixing, Mastering chuyên nghiệp. Học 1 kèm 1, thực hành trên dự án thật. Từ 3.000.000₫/khoá.',
-  ogTitle: 'Khoá học Music Producer & Kỹ thuật viên Thu âm - XKStudio',
+  title: 'Khoá học Music Producer, Mixing & Mastering - XKProduction',
+  description: 'Khoá học đào tạo Music Producer tại XKProduction: Hoà âm phối khí, Mixing, Mastering chuyên nghiệp. Học 1 kèm 1, thực hành trên dự án thật. Từ 3.000.000₫/khoá.',
+  ogTitle: 'Khoá học Music Producer & Kỹ thuật viên Thu âm - XKProduction',
   ogDescription: 'Đào tạo Music Producer, hoà âm phối khí, mixing & mastering chuyên nghiệp. Học 1 kèm 1, lớp tối đa 3 người, có chứng nhận. Hotline: 0355.356.294',
-  ogImage: '/images/hero-studio.png',
-  ogImageAlt: 'Khoá học Music Producer & Mixing Mastering tại XKStudio',
+  ogImage: 'https://xkproduction.com/images/xk-logo-new.jpg',
+  ogImageWidth: '1200',
+  ogImageHeight: '630',
+  ogImageAlt: 'Khoá học Music Producer & Mixing Mastering tại XKProduction',
+  ogUrl: 'https://xkproduction.com/courses',
   twitterCard: 'summary_large_image',
-  keywords: 'khoá học music producer, học mixing mastering, khoá học hoà âm phối khí, đào tạo kỹ thuật viên thu âm, XKStudio, học âm nhạc, music producer hcm'
+  twitterImage: 'https://xkproduction.com/images/xk-logo-new.jpg',
+  keywords: 'khoá học music producer, học mixing mastering, khoá học hoà âm phối khí, đào tạo kỹ thuật viên thu âm, XKProduction, học âm nhạc, music producer hcm'
 })
 
 useSchemaOrg([
   defineWebPage({
-    name: 'Khoá học Music Producer, Mixing & Mastering Chuyên Nghiệp - XKStudio',
-    description: 'Khoá học đào tạo Music Producer chuyên nghiệp — Hoà âm phối khí, mixing & mastering tại XKStudio.'
+    name: 'Khoá học Music Producer, Mixing & Mastering Chuyên Nghiệp - XKProduction',
+    description: 'Khoá học đào tạo Music Producer chuyên nghiệp — Hoà âm phối khí, mixing & mastering tại XKProduction.'
   }),
   defineCourse({
     name: 'Khoá học Hoà Âm Phối Khí',

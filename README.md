@@ -123,7 +123,7 @@ After:  "Đặt Lịch Ngay" + Pulsing light + 3D effect
 
 ### 🔧 Thay Đổi Kỹ Thuật
 
-1. **Tối ưu ảnh:** Chạy script `optimize-images.sh` sử dụng `sips` (macOS native tool)
+1. **Tối ưu ảnh:** Chạy script `scripts/optimize-images.sh` sử dụng `sips` (macOS native tool)
    - Max width: 1920px (phù hợp responsive design)
    - Giữ chất lượng từ 80-85% (không nhận ra sự khác biệt)
    - Tất cả ảnh đã được resize và nén

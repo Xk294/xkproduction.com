@@ -3,7 +3,7 @@
 # Image Optimization Script using sips (macOS native tool)
 # This script compresses JPEG and PNG images while maintaining quality
 
-IMG_DIR="/Volumes/DATA/DEV/Xkstudio-dev/public/images"
+IMG_DIR="$(cd "$(dirname "$0")/.." && pwd)/public/images"
 TEMP_DIR="${IMG_DIR}/.optimized"
 MAX_WIDTH=1920  # Max width for responsive images
 QUALITY=80      # JPEG quality (0-100)

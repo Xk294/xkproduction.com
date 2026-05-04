@@ -145,21 +145,32 @@
 
 <script setup lang="ts">
 useSeoMeta({
-  title: 'Bảng giá Thu âm, Mix & Master, Hoà âm Phối khí, Live Band & Sự kiện - XKStudio',
-  description: 'Bảng giá XKStudio: Thu âm từ 350.000₫, Mixing & Mastering từ 300.000₫, Hoà âm phối khí từ 1.500.000₫, Live Band & Âm thanh sự kiện theo yêu cầu. Minh bạch, không phát sinh. Hotline: 0355.356.294',
-  ogTitle: 'Bảng giá Dịch vụ Thu âm, Mix & Master, Live Band & Sự kiện - XKStudio',
-  ogDescription: 'Thu âm từ 350k, mix master từ 300k, hoà âm từ 1.5tr, live band & âm thanh sự kiện trọn gói tại XKStudio. Minh bạch, không phát sinh. Hotline: 0355.356.294',
-  ogImage: '/images/hero-studio.png',
-  ogImageAlt: 'Bảng giá dịch vụ phòng thu âm XKStudio',
+  title: 'Bảng giá Thu âm, Mix & Master, Hoà âm Phối khí, Live Band & Sự kiện - XKProduction',
+  description: 'Bảng giá XKProduction: Thu âm từ 350.000₫, Mixing & Mastering từ 300.000₫, Hoà âm phối khí từ 1.500.000₫, Live Band & Âm thanh sự kiện theo yêu cầu. Minh bạch, không phát sinh. Hotline: 0355.356.294',
+  ogTitle: 'Bảng giá Dịch vụ Thu âm, Mix & Master, Live Band & Sự kiện - XKProduction',
+  ogDescription: 'Thu âm từ 350k, mix master từ 300k, hoà âm từ 1.5tr, live band & âm thanh sự kiện trọn gói tại XKProduction. Minh bạch, không phát sinh. Hotline: 0355.356.294',
+  ogImage: 'https://xkproduction.com/images/xk-logo-new.jpg',
+  ogImageWidth: '1200',
+  ogImageHeight: '630',
+  ogImageAlt: 'Bảng giá dịch vụ phòng thu âm XKProduction',
+  ogUrl: 'https://xkproduction.com/services',
   twitterCard: 'summary_large_image',
-  keywords: 'bảng giá thu âm, giá mix master, giá hoà âm phối khí, live band giá rẻ, cho thuê âm thanh ánh sáng, ban nhạc sự kiện, phòng thu âm chuyên nghiệp, XKStudio, bảng giá mixing mastering, dịch vụ thu âm hcm, báo giá sự kiện'
+  twitterImage: 'https://xkproduction.com/images/xk-logo-new.jpg',
+  keywords: 'bảng giá thu âm, giá mix master, giá hoà âm phối khí, live band giá rẻ, cho thuê âm thanh ánh sáng, ban nhạc sự kiện, phòng thu âm chuyên nghiệp, XKProduction, bảng giá mixing mastering, dịch vụ thu âm hcm, báo giá sự kiện'
 })
 
 useSchemaOrg([
   defineWebPage({
-    name: 'Bảng giá Thu âm, Mix & Master, Hoà âm Phối khí - XKStudio',
-    description: 'Bảng giá chi tiết dịch vụ phòng thu âm, mixing mastering, hoà âm phối khí, quay MV/TVC mới nhất tại XKStudio.'
+    name: 'Bảng giá Thu âm, Mix & Master, Hoà âm Phối khí - XKProduction',
+    description: 'Bảng giá chi tiết dịch vụ phòng thu âm, mixing mastering, hoà âm phối khí, quay MV/TVC mới nhất tại XKProduction.'
   }),
+  {
+    '@type': 'BreadcrumbList',
+    'itemListElement': [
+      { '@type': 'ListItem', 'position': 1, 'name': 'Trang chủ', 'item': 'https://xkproduction.com' },
+      { '@type': 'ListItem', 'position': 2, 'name': 'Dịch vụ & Bảng giá', 'item': 'https://xkproduction.com/services' }
+    ]
+  },
   defineProduct({
     name: 'Dịch vụ Thu âm Bài Hát Chuyên Nghiệp',
     description: 'Thu âm bài hát chuyên nghiệp tại XKStudio — Cơ Bản, Nâng Cao, Pro và Cao Cấp.',

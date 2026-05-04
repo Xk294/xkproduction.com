@@ -147,27 +147,32 @@
 
 <script setup lang="ts">
 useSeoMeta({
-  title: 'Liên hệ & Đặt lịch Thu âm, Mix Master - XKStudio',
-  description: 'Liên hệ XKStudio để đặt lịch thu âm bài hát, tư vấn mixing/mastering, hoà âm phối khí. Hotline: 0355.356.294. Phản hồi trong 24 giờ.',
-  ogTitle: 'Liên hệ Đặt lịch Thu âm & Tư vấn Dịch vụ - XKStudio',
+  title: 'Liên hệ & Đặt lịch Thu âm, Mix Master - XKProduction',
+  description: 'Liên hệ XKProduction để đặt lịch thu âm bài hát, tư vấn mixing/mastering, hoà âm phối khí. Hotline: 0355.356.294. Phản hồi trong 24 giờ.',
+  ogTitle: 'Liên hệ Đặt lịch Thu âm & Tư vấn Dịch vụ - XKProduction',
   ogDescription: 'Hotline: 0355.356.294 | Zalo: 0355.356.294 | Email: xkstudio29@gmail.com. Đặt lịch thu âm, tư vấn mix master & hoà âm phối khí chuyên nghiệp.',
-  ogImage: '/images/hero-studio.png',
-  ogImageAlt: 'Liên hệ XKStudio đặt lịch thu âm',
+  ogImage: 'https://xkproduction.com/images/xk-logo-new.jpg',
+  ogImageWidth: '1200',
+  ogImageHeight: '630',
+  ogImageAlt: 'Liên hệ XKProduction đặt lịch thu âm',
+  ogUrl: 'https://xkproduction.com/contact',
   twitterCard: 'summary_large_image',
-  keywords: 'liên hệ XKStudio, đặt lịch thu âm, hotline phòng thu, tư vấn mix master, zalo XKStudio, địa chỉ phòng thu'
+  twitterImage: 'https://xkproduction.com/images/xk-logo-new.jpg',
+  keywords: 'liên hệ XKProduction, đặt lịch thu âm, hotline phòng thu, tư vấn mix master, zalo XKProduction, địa chỉ phòng thu'
 })
 
 useSchemaOrg([
   defineWebPage({
-    name: 'Liên hệ & Đặt lịch - XKStudio',
-    description: 'Liên hệ XKStudio để đặt lịch thu âm, tư vấn mixing/mastering bài hát chuyên nghiệp.'
+    name: 'Liên hệ & Đặt lịch - XKProduction',
+    description: 'Liên hệ XKProduction để đặt lịch thu âm, tư vấn mixing/mastering bài hát chuyên nghiệp.'
   }),
   defineLocalBusiness({
-    name: 'XKStudio',
+    '@id': 'https://xkproduction.com/#localbusiness',
+    name: 'XKProduction',
     telephone: '+84355356294',
     email: 'xkstudio29@gmail.com',
     url: 'https://xkproduction.com',
-    image: 'https://xkproduction.com/images/hero-studio.png',
+    image: 'https://xkproduction.com/images/xk-logo-new.jpg',
     address: {
       streetAddress: 'QL14 km25 xã Nghĩa Trung, Huyện Bù Đăng',
       addressLocality: 'Bình Phước',

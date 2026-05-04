@@ -27,18 +27,22 @@
 
 <script setup lang="ts">
 useSeoMeta({
-  title: 'Hỏi & Đáp - Câu hỏi thường gặp về Thu âm, Mix Master | XKStudio',
-  description: 'Giải đáp câu hỏi về giá thu âm (từ 350k), quy trình, thời gian hoàn thành, nhận mix master online, phát hành Spotify... tại XKStudio.',
-  ogTitle: 'Câu hỏi thường gặp về Dịch vụ Thu âm & Mix Master - XKStudio',
-  ogDescription: 'Tìm hiểu về giá thu âm, quy trình, hỗ trợ online, phát hành Spotify & các dịch vụ tại XKStudio.',
-  ogImage: '/images/hero-studio.png',
+  title: 'Hỏi & Đáp - Câu hỏi thường gặp về Thu âm, Mix Master | XKProduction',
+  description: 'Giải đáp câu hỏi về giá thu âm (từ 350k), quy trình, thời gian hoàn thành, nhận mix master online, phát hành Spotify... tại XKProduction.',
+  ogTitle: 'Câu hỏi thường gặp về Dịch vụ Thu âm & Mix Master - XKProduction',
+  ogDescription: 'Tìm hiểu về giá thu âm, quy trình, hỗ trợ online, phát hành Spotify & các dịch vụ tại XKProduction.',
+  ogImage: 'https://xkproduction.com/images/xk-logo-new.jpg',
+  ogImageWidth: '1200',
+  ogImageHeight: '630',
+  ogUrl: 'https://xkproduction.com/faq',
   twitterCard: 'summary_large_image',
-  keywords: 'faq thu âm, câu hỏi phòng thu, giá thu âm bao nhiêu, mix master online, phát hành Spotify, XKStudio'
+  twitterImage: 'https://xkproduction.com/images/xk-logo-new.jpg',
+  keywords: 'faq thu âm, câu hỏi phòng thu, giá thu âm bao nhiêu, mix master online, phát hành Spotify, XKProduction'
 })
 
 useSchemaOrg([
   defineWebPage({
-    name: 'Câu hỏi thường gặp - XKStudio',
+    name: 'Câu hỏi thường gặp - XKProduction',
     description: 'Giải đáp các câu hỏi về dịch vụ thu âm, mixing, mastering, hòa âm phối khí và sản xuất MV tại XKStudio.'
   }),
   {
