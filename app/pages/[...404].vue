@@ -13,7 +13,7 @@
       </div>
 
       <h1>Trang không tồn tại</h1>
-      <p class="sub">Có vẻ bạn đang tìm kiếm một nốt nhạc chưa được ghi âm.<br/>Hãy quay lại và khám phá XKStudio nhé!</p>
+      <p class="sub">Có vẻ bạn đang tìm kiếm một nốt nhạc chưa được ghi âm.<br/>Hãy quay lại và khám phá XKProduction nhé!</p>
 
       <!-- Quick nav -->
       <div class="quick-links">
@@ -44,8 +44,8 @@
 
 <script setup lang="ts">
 useSeoMeta({
-  title: '404 — Trang không tồn tại | XKStudio',
-  description: 'Trang bạn tìm kiếm không tồn tại. Quay lại trang chủ XKStudio để khám phá dịch vụ thu âm, mix master và âm thanh ánh sáng.',
+  title: '404 — Trang không tồn tại | XKProduction',
+  description: 'Trang bạn tìm kiếm không tồn tại. Quay lại trang chủ XKProduction để khám phá dịch vụ thu âm, mix master và âm thanh ánh sáng.',
   robots: 'noindex, follow'
 })
 </script>

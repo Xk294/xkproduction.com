@@ -5,7 +5,7 @@
       <div class="max-width">
         <div class="hero-tag">SOUND & LIGHT · LIVE BAND · SỰ KIỆN</div>
         <h1>Quốc Chí Sound & Lighting</h1>
-        <p class="hero-subtitle">Giải pháp Âm thanh, Ánh sáng & Ban nhạc chuyên nghiệp cho mọi sự kiện.<br/>Đối tác chiến lược của XKStudio trong lĩnh vực event & biểu diễn trực tiếp.</p>
+        <p class="hero-subtitle">Giải pháp Âm thanh, Ánh sáng & Ban nhạc chuyên nghiệp cho mọi sự kiện.<br/>Đối tác chiến lược của XKProduction trong lĩnh vực event & biểu diễn trực tiếp.</p>
       </div>
     </section>
 
@@ -60,10 +60,10 @@
         <h2 class="lb-gallery-title">Hình ảnh thực tế</h2>
         <div class="lb-gallery-grid">
           <div class="lb-gallery-item">
-            <img src="/images/quocchi-2.jpg" alt="Hệ thống âm thanh ánh sáng sân khấu sự kiện XKStudio - Quốc Chí Sound & Lighting" />
+            <img src="/images/quocchi-2.jpg" alt="Hệ thống âm thanh ánh sáng sân khấu sự kiện XKProduction - Quốc Chí Sound & Lighting" />
           </div>
           <div class="lb-gallery-item">
-            <img src="/images/quocchi-3.jpg" alt="Ban nhạc live biểu chuyên nghiệp tại sự kiện - XKStudio" />
+            <img src="/images/quocchi-3.jpg" alt="Ban nhạc live biểu chuyên nghiệp tại sự kiện - XKProduction" />
           </div>
           <div class="lb-gallery-item">
             <img src="/images/quocchi-3.jpg" alt="Thiết kế sân khấu và lắp đặt âm thanh ánh sáng chuyên nghiệp" />
@@ -173,7 +173,7 @@ useSeoMeta({
 useSchemaOrg([
   defineWebPage({
     name: 'Cho thuê Âm thanh Ánh sáng & Sân khấu Sự kiện - XKProduction',
-    description: 'Cho thuê âm thanh, ánh sáng sân khấu & ban nhạc live chuyên nghiệp cho mọi sự kiện tại XKStudio.'
+    description: 'Cho thuê âm thanh, ánh sáng sân khấu & ban nhạc live chuyên nghiệp cho mọi sự kiện tại XKProduction.'
   }),
   {
     '@type': 'BreadcrumbList',
@@ -185,17 +185,17 @@ useSchemaOrg([
   defineProduct({
     name: 'Dịch vụ Cho Thuê Âm Thanh Sân Khấu',
     description: 'Hệ thống loa line array, sub, monitor chuyên nghiệp cho mọi không gian sự kiện.',
-    provider: { name: 'XKStudio', url: 'https://xkproduction.com' }
+    provider: { name: 'XKProduction', url: 'https://xkproduction.com' }
   }),
   defineProduct({
     name: 'Dịch vụ Cho Thuê Ánh Sáng Sân Khấu',
     description: 'Thiết kế ánh sáng sân khấu từ cổ điển đến hiện đại: moving head, LED par, laser show, màn hình LED.',
-    provider: { name: 'XKStudio', url: 'https://xkproduction.com' }
+    provider: { name: 'XKProduction', url: 'https://xkproduction.com' }
   }),
   defineProduct({
     name: 'Dịch vụ Ban Nhạc Live Sự Kiện',
     description: 'Cung cấp ban nhạc live chuyên nghiệp: Acoustic duo, full band 5-7 thành viên, DJ & MC cho mọi loại sự kiện.',
-    provider: { name: 'XKStudio', url: 'https://xkproduction.com' }
+    provider: { name: 'XKProduction', url: 'https://xkproduction.com' }
   })
 ])
 
@@ -298,6 +298,30 @@ const packages = [
   color: var(--primary);
   margin-bottom: 2rem;
   background: rgba(26, 140, 255, 0.06);
+}
+
+/* QC Logo */
+.qc-logo-wrap {
+  margin: 0 auto 2rem;
+  display: flex;
+  justify-content: center;
+}
+.qc-logo {
+  width: 220px;
+  height: 220px;
+  object-fit: contain;
+  border-radius: 50%;
+  box-shadow: 0 0 60px rgba(255, 165, 0, 0.3), 0 0 120px rgba(255, 165, 0, 0.1);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  animation: logoFloat 4s ease-in-out infinite;
+}
+.qc-logo:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 80px rgba(255, 165, 0, 0.5), 0 0 160px rgba(255, 165, 0, 0.2);
+}
+@keyframes logoFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
 }
 
 .page-hero h1 {

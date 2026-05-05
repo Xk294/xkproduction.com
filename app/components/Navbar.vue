@@ -2,19 +2,19 @@
   <!-- Scroll Progress Bar -->
   <div class="scroll-progress" :style="{ width: scrollProgress + '%' }" aria-hidden="true"></div>
 
-  <nav class="navbar" :class="{ scrolled: isScrolled }" role="navigation" aria-label="Điều hướng chính XKStudio">
+  <nav class="navbar" :class="{ scrolled: isScrolled }" role="navigation" aria-label="Điều hướng chính XKProduction">
     <div class="nav-container">
       <!-- LEFT: Quảng bá -->
       <ul class="nav-group nav-left" role="list">
         <li>
-          <NuxtLink to="/services" class="nav-link" title="Dịch vụ & Bảng giá Thu âm XKStudio" :aria-current="$route.path === '/services' ? 'page' : undefined">
+          <NuxtLink to="/services" class="nav-link" title="Dịch vụ & Bảng giá Thu âm XKProduction" :aria-current="$route.path === '/services' ? 'page' : undefined">
             <span class="nav-icon"><i class="fa-solid fa-microphone-lines"></i></span>
             <span class="nav-text">Dịch vụ</span>
             <span class="nav-indicator" aria-hidden="true"></span>
           </NuxtLink>
         </li>
         <li>
-          <NuxtLink to="/products" class="nav-link" title="Tác phẩm nổi bật của XKStudio" :aria-current="$route.path === '/products' ? 'page' : undefined">
+          <NuxtLink to="/products" class="nav-link" title="Tác phẩm nổi bật của XKProduction" :aria-current="$route.path === '/products' ? 'page' : undefined">
             <span class="nav-icon"><i class="fa-solid fa-compact-disc"></i></span>
             <span class="nav-text">Sản phẩm</span>
             <span class="nav-indicator" aria-hidden="true"></span>
@@ -52,7 +52,7 @@
           </NuxtLink>
         </li>
         <li>
-          <NuxtLink to="/about" class="nav-link" title="Giới thiệu về XKStudio" :aria-current="$route.path === '/about' ? 'page' : undefined">
+          <NuxtLink to="/about" class="nav-link" title="Giới thiệu về XKProduction" :aria-current="$route.path === '/about' ? 'page' : undefined">
             <span class="nav-icon"><i class="fa-solid fa-circle-info"></i></span>
             <span class="nav-text">Giới Thiệu</span>
             <span class="nav-indicator" aria-hidden="true"></span>
@@ -60,7 +60,7 @@
         </li>
         <li class="nav-separator" aria-hidden="true"></li>
         <li>
-          <NuxtLink to="/contact" class="nav-link nav-cta" title="Liên hệ đặt lịch thu âm XKStudio" :aria-current="$route.path === '/contact' ? 'page' : undefined">
+          <NuxtLink to="/contact" class="nav-link nav-cta" title="Liên hệ đặt lịch thu âm XKProduction" :aria-current="$route.path === '/contact' ? 'page' : undefined">
             <span class="nav-icon"><i class="fa-solid fa-phone"></i></span>
             <span class="nav-text">Đặt Lịch Ngay</span>
             <span class="nav-pulse" aria-hidden="true"></span>

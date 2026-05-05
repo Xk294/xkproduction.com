@@ -2,7 +2,7 @@
   <div>
     <section class="page-hero">
       <div class="max-width">
-        <h1>Giới Thiệu XKStudio</h1>
+        <h1>Giới Thiệu XKProduction</h1>
         <p class="page-hero-sub">Câu chuyện và sứ mệnh đằng sau những dự án âm nhạc</p>
       </div>
     </section>
@@ -13,7 +13,7 @@
         <div class="grid-2" style="gap: 3rem; margin-top: 3rem;">
           <div>
             <p style="color: var(--text-light); line-height: 1.8; font-size: 1.05rem; margin-bottom: 1.5rem;">
-              XKStudio được thành lập với sứ mệnh đơn giản: tạo ra một không gian nơi các nghệ sĩ, nhà sản xuất và doanh nghiệp có thể hiện thực hoá ý tưởng âm thanh của mình một cách chuyên nghiệp và hiệu quả nhất.
+              XKProduction được thành lập với sứ mệnh đơn giản: tạo ra một không gian nơi các nghệ sĩ, nhà sản xuất và doanh nghiệp có thể hiện thực hoá ý tưởng âm thanh của mình một cách chuyên nghiệp và hiệu quả nhất.
             </p>
             <p style="color: var(--text-light); line-height: 1.8; font-size: 1.05rem;">
               Trải qua hơn 7 năm, chúng tôi đã hoàn thiện kỹ năng, đầu tư vào thiết bị hiện đại và xây dựng đội ngũ gồm các kỹ thuật viên, producer và mix engineer có tư duy sáng tạo, kinh nghiệm thực chiến trên thị trường Việt Nam.
@@ -22,7 +22,7 @@
           <div style="background: linear-gradient(135deg, rgba(0,212,255,0.08) 0%, rgba(139,92,246,0.08) 100%); border-radius: 12px; padding: 2.5rem; border: 1px solid rgba(255,255,255,0.05); display: flex; align-items: center; justify-content: center; min-height: 280px;">
             <div style="text-align: center;">
               <div style="margin-bottom: 1.5rem;">
-                <img src="/images/founder-kiet.jpg" alt="Nguyễn Xuân Kiệt - Founder & Music Producer tại XKStudio" style="width: 120px; height: 120px; border-radius: 50%; object-fit: cover; border: 3px solid var(--primary); box-shadow: 0 0 20px rgba(0, 162, 255, 0.2);" />
+                <img src="/images/founder-kiet.jpg" alt="Nguyễn Xuân Kiệt - Founder & Music Producer tại XKProduction" style="width: 120px; height: 120px; border-radius: 50%; object-fit: cover; border: 3px solid var(--primary); box-shadow: 0 0 20px rgba(0, 162, 255, 0.2);" />
               </div>
               <p style="color: var(--text-muted); font-size: 0.95rem;">Hơn 7 năm đồng hành cùng nghệ sĩ & doanh nghiệp Việt Nam</p>
             </div>
@@ -35,21 +35,21 @@
     <section id="artists" class="artists-section">
       <div class="max-width">
         <div class="section-title">
-          <h2>Nghệ Sĩ Đã Tin Tưởng XKStudio</h2>
-          <p>Những giọng ca tài năng đã chọn XKStudio để hiện thực hóa âm nhạc của mình</p>
+          <h2>Nghệ Sĩ Đã Tin Tưởng XKProduction</h2>
+          <p>Những giọng ca tài năng đã chọn XKProduction để hiện thực hóa âm nhạc của mình</p>
         </div>
         <div class="artists-grid">
           <!-- Cao Thành Lâm -->
           <div class="artist-card">
             <div class="artist-photo-wrap">
-              <img src="/images/cao-thanh-lam.jpg" alt="Cao Thành Lâm - Singer tại XKStudio Bình Phước" class="artist-photo" loading="lazy" />
+              <img src="/images/cao-thanh-lam.jpg" alt="Cao Thành Lâm - Singer tại XKProduction Bình Phước" class="artist-photo" loading="lazy" />
               <div class="artist-photo-glow"></div>
             </div>
             <div class="artist-info">
               <strong class="artist-name">Cao Thành Lâm</strong>
               <span class="artist-role"><i class="fa-solid fa-microphone"></i> Singer</span>
               <blockquote class="artist-quote">
-                "XKStudio hiểu điều mà nhiều studio không có — sự tôn trọng giọng hát tự nhiên. Mỗi session ở đây đều thoải mái và hiệu quả, chắc chắn sẽ quay lại."
+                "XKProduction hiểu điều mà nhiều studio không có — sự tôn trọng giọng hát tự nhiên. Mỗi session ở đây đều thoải mái và hiệu quả, chắc chắn sẽ quay lại."
               </blockquote>
             </div>
           </div>
@@ -57,14 +57,14 @@
           <!-- Revan -->
           <div class="artist-card">
             <div class="artist-photo-wrap">
-              <img src="/images/revan.jpg" alt="Revan - Rapper tại XKStudio" class="artist-photo" loading="lazy" />
+              <img src="/images/revan.jpg" alt="Revan - Rapper tại XKProduction" class="artist-photo" loading="lazy" />
               <div class="artist-photo-glow"></div>
             </div>
             <div class="artist-info">
               <strong class="artist-name">Revan</strong>
               <span class="artist-role"><i class="fa-solid fa-music"></i> Nghệ Sĩ / Rapper</span>
               <blockquote class="artist-quote">
-                "XKStudio là nơi đầu tiên mình cảm thấy âm nhạc thực sự được lắng nghe. Từ tư vấn concept đến bản mix hoàn thiện — mọi chi tiết đều được chăm chút."
+                "XKProduction là nơi đầu tiên mình cảm thấy âm nhạc thực sự được lắng nghe. Từ tư vấn concept đến bản mix hoàn thiện — mọi chi tiết đều được chăm chút."
               </blockquote>
             </div>
           </div>
@@ -72,7 +72,7 @@
           <!-- Howl -->
           <div class="artist-card">
             <div class="artist-photo-wrap">
-              <img src="/images/howl.jpg" alt="Howl - Rapper tại XKStudio" class="artist-photo" loading="lazy" />
+              <img src="/images/howl.jpg" alt="Howl - Rapper tại XKProduction" class="artist-photo" loading="lazy" />
               <div class="artist-photo-glow"></div>
             </div>
             <div class="artist-info">
@@ -87,14 +87,14 @@
           <!-- Fesu -->
           <div class="artist-card">
             <div class="artist-photo-wrap">
-              <img src="/images/fesu.jpg" alt="Fesu - Singer tại XKStudio" class="artist-photo" loading="lazy" />
+              <img src="/images/fesu.jpg" alt="Fesu - Singer tại XKProduction" class="artist-photo" loading="lazy" />
               <div class="artist-photo-glow"></div>
             </div>
             <div class="artist-info">
               <strong class="artist-name">Fesu</strong>
               <span class="artist-role"><i class="fa-solid fa-microphone"></i> Singer</span>
               <blockquote class="artist-quote">
-                "XKStudio có một điều mà không phải studio nào cũng có — sự kiên nhẫn. Không rush, không qua loa. Sản phẩm ra lò chất lượng, mình tự hào chia sẻ."
+                "XKProduction có một điều mà không phải studio nào cũng có — sự kiên nhẫn. Không rush, không qua loa. Sản phẩm ra lò chất lượng, mình tự hào chia sẻ."
               </blockquote>
             </div>
           </div>
@@ -166,8 +166,8 @@ useSchemaOrg([
   definePerson({
     name: 'Nguyễn Xuân Kiệt',
     jobTitle: 'Founder & Music Producer',
-    worksFor: { name: 'XKStudio', url: 'https://xkproduction.com' },
-    description: 'Music Producer & Sound Engineer với hơn 7 năm kinh nghiệm, Founder của XKStudio.',
+    worksFor: { name: 'XKProduction', url: 'https://xkproduction.com' },
+    description: 'Music Producer & Sound Engineer với hơn 7 năm kinh nghiệm, Founder của XKProduction.',
     image: 'https://xkproduction.com/images/founder-kiet.jpg',
     sameAs: ['https://www.facebook.com/ngxkiet']
   })

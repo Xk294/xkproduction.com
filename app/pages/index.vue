@@ -18,7 +18,7 @@
           </div>
         </div>
         <div class="hero-visual">
-          <img src="/images/quocchi-2.jpg" alt="Dịch vụ phòng thu âm, hoà âm phối khí chuyên nghiệp tại XKStudio" />
+          <img src="/images/quocchi-2.jpg" alt="Dịch vụ phòng thu âm, hoà âm phối khí chuyên nghiệp tại XKProduction" />
         </div>
       </section>
 
@@ -116,7 +116,7 @@
         <h2 class="section-heading neon-accent">FOUNDER</h2>
         <div class="founder-card glass-card">
           <div class="founder-avatar">
-            <img src="/images/founder-kiet.jpg" alt="Nguyễn Xuân Kiệt - Music Producer & Founder XKStudio" />
+            <img src="/images/founder-kiet.jpg" alt="Nguyễn Xuân Kiệt - Music Producer & Founder XKProduction" />
           </div>
           <div class="founder-info">
             <div class="founder-name-row">
@@ -130,9 +130,9 @@
               <span><i class="fa-solid fa-graduation-cap"></i> 50+ học viên</span>
             </div>
             <div class="founder-socials">
-              <a href="https://www.youtube.com/@Xkstudio29" target="_blank" rel="noopener" aria-label="YouTube XKStudio"><i class="fa-brands fa-youtube"></i></a>
-              <a href="https://www.tiktok.com/@xkstudio" target="_blank" rel="noopener" aria-label="TikTok XKStudio"><i class="fa-brands fa-tiktok"></i></a>
-              <a href="https://www.facebook.com/ngxkiet" target="_blank" rel="noopener" aria-label="Facebook XKStudio"><i class="fa-brands fa-facebook"></i></a>
+              <a href="https://www.youtube.com/@Xkstudio29" target="_blank" rel="noopener" aria-label="YouTube XKProduction"><i class="fa-brands fa-youtube"></i></a>
+              <a href="https://www.tiktok.com/@xkstudio" target="_blank" rel="noopener" aria-label="TikTok XKProduction"><i class="fa-brands fa-tiktok"></i></a>
+              <a href="https://www.facebook.com/ngxkiet" target="_blank" rel="noopener" aria-label="Facebook XKProduction"><i class="fa-brands fa-facebook"></i></a>
             </div>
           </div>
         </div>
@@ -193,7 +193,7 @@
   <!-- CẢM NHẬN KHÁCH HÀNG -->
   <section class="testimonials-section full-width">
     <h2 class="section-heading neon-accent text-center" style="text-align: center; margin-bottom: 0.5rem;">CẢM NHẬN TỪ NGHỆ SĨ</h2>
-    <p class="testimonials-subtitle">Hơn 2000+ nghệ sĩ đã tin tưởng XKStudio cho dự án âm nhạc của mình</p>
+    <p class="testimonials-subtitle">Hơn 2000+ nghệ sĩ đã tin tưởng XKProduction cho dự án âm nhạc của mình</p>
     <div class="testimonials-grid">
       <div
         v-for="(t, i) in testimonials.slice(0, 4)" :key="i"
@@ -201,7 +201,7 @@
       >
         <div class="tcard-header">
           <div class="tcard-avatar-img">
-            <img :src="t.avatar" :alt="t.name + ' - Khách hàng XKStudio'" loading="lazy" />
+            <img :src="t.avatar" :alt="t.name + ' - Khách hàng XKProduction'" loading="lazy" />
           </div>
           <div class="tcard-meta">
             <strong class="tcard-name">{{ t.name }}</strong>
@@ -254,8 +254,8 @@ useSeoMeta({
 })
 useSchemaOrg([
   defineWebPage({
-    name: 'XKStudio - Phòng Thu Âm Chuyên Nghiệp | Hoà Âm | Mix Master | Bình Phước',
-    description: 'Phòng thu âm chuyên nghiệp XKStudio: Thu âm bài hát, mix & master chuẩn Spotify, hoà âm phối khí, quay MV/TVC tại Bình Phước. 2000+ dự án thành công.'
+    name: 'XKProduction - Phòng Thu Âm Chuyên Nghiệp | Hoà Âm | Mix Master | Bình Phước',
+    description: 'Phòng thu âm chuyên nghiệp XKProduction: Thu âm bài hát, mix & master chuẩn Spotify, hoà âm phối khí, quay MV/TVC tại Bình Phước. 2000+ dự án thành công.'
   }),
   defineLocalBusiness({
     '@id': 'https://xkproduction.com/#localbusiness',
@@ -303,28 +303,28 @@ useSchemaOrg([
   // Review schema cho SEO
   {
     '@type': 'Review',
-    'itemReviewed': { '@type': 'LocalBusiness', 'name': 'XKStudio' },
+    'itemReviewed': { '@type': 'LocalBusiness', 'name': 'XKProduction' },
     'author': { '@type': 'Person', 'name': 'Revan' },
     'reviewRating': { '@type': 'Rating', 'ratingValue': '5', 'bestRating': '5' },
-    'reviewBody': 'XKStudio là nơi đầu tiên mình cảm thấy âm nhạc của mình được thực sự lắng nghe. Từ khâu tư vấn concept đến lúc bản mix hoàn thiện, mọi chi tiết đều được chăm chút cẩn thận.'
+    'reviewBody': 'XKProduction là nơi đầu tiên mình cảm thấy âm nhạc của mình được thực sự lắng nghe. Từ khâu tư vấn concept đến lúc bản mix hoàn thiện, mọi chi tiết đều được chăm chút cẩn thận.'
   },
   {
     '@type': 'Review',
-    'itemReviewed': { '@type': 'LocalBusiness', 'name': 'XKStudio' },
+    'itemReviewed': { '@type': 'LocalBusiness', 'name': 'XKProduction' },
     'author': { '@type': 'Person', 'name': 'Howl' },
     'reviewRating': { '@type': 'Rating', 'ratingValue': '5', 'bestRating': '5' },
     'reviewBody': 'Sound rõ ràng, sắc nét, và quan trọng hơn — nó đúng chất. Đội ngũ làm việc chuyên nghiệp, phản hồi nhanh, không có gì phải phàn nàn.'
   },
   {
     '@type': 'Review',
-    'itemReviewed': { '@type': 'LocalBusiness', 'name': 'XKStudio' },
+    'itemReviewed': { '@type': 'LocalBusiness', 'name': 'XKProduction' },
     'author': { '@type': 'Person', 'name': 'Cao Thành Lâm' },
     'reviewRating': { '@type': 'Rating', 'ratingValue': '5', 'bestRating': '5' },
     'reviewBody': 'Họ biết cách thu âm để giọng ca được trình bày tự nhiên nhất, không bị xử lý quá tay. Mỗi session ở đây đều thoải mái và hiệu quả.'
   },
   {
     '@type': 'Review',
-    'itemReviewed': { '@type': 'LocalBusiness', 'name': 'XKStudio' },
+    'itemReviewed': { '@type': 'LocalBusiness', 'name': 'XKProduction' },
     'author': { '@type': 'Person', 'name': 'Phương Thanh Tuyền' },
     'reviewRating': { '@type': 'Rating', 'ratingValue': '5', 'bestRating': '5' },
     'reviewBody': 'Anh Kiệt tư vấn rất tận tình, giúp mình chọn được tone phù hợp với chất giọng. Bản thu hoàn thành đúng hạn, âm thanh ấm và sạch.'
@@ -492,7 +492,7 @@ async function submitForm() {
         phone: form.phone,
         type: form.type || 'Không chọn',
         message: form.message || '(không có lời nhắn)',
-        _subject: `[XKStudio] Liên hệ nhanh từ ${form.name}`
+        _subject: `[XKProduction] Liên hệ nhanh từ ${form.name}`
       })
     })
     formSubmitting.value = false
@@ -521,35 +521,35 @@ const testimonials = [
     role: 'Nghệ Sĩ / Rapper',
     avatar: '/images/revan.jpg',
     project: 'Chẳng Muốn Nói Nhiều Lời',
-    body: 'Mình đã trải qua không ít phòng thu, nhưng XKStudio là nơi đầu tiên mình cảm thấy âm nhạc của mình được thực sự lắng nghe. Từ khâu tư vấn concept đến lúc bản mix hoàn thiện, mọi chi tiết đều được chăm chút cẩn thận. Kiet và team không chỉ làm đúng yêu cầu — họ còn biết cách đẩy bản nhạc lên một tầng cao hơn mà mình chưa nghĩ tới. Hài lòng, có tâm và thực sự có tầm.'
+    body: 'Mình đã trải qua không ít phòng thu, nhưng XKProduction là nơi đầu tiên mình cảm thấy âm nhạc của mình được thực sự lắng nghe. Từ khâu tư vấn concept đến lúc bản mix hoàn thiện, mọi chi tiết đều được chăm chút cẩn thận. Kiet và team không chỉ làm đúng yêu cầu — họ còn biết cách đẩy bản nhạc lên một tầng cao hơn mà mình chưa nghĩ tới. Hài lòng, có tâm và thực sự có tầm.'
   },
   {
     name: 'Howl',
     role: 'Nghệ Sĩ / Rapper',
     avatar: '/images/howl.jpg',
     project: 'Love Dự Phòng',
-    body: 'Đến XKStudio lần đầu mình không kỳ vọng nhiều, nhưng kết quả cuối cùng vượt xa những gì mình tưởng tượng. Sound rõ ràng, sắc nét, và quan trọng hơn — nó đúng chất. Đội ngũ làm việc chuyên nghiệp, phản hồi nhanh, không có gì phải phàn nàn.'
+    body: 'Đến XKProduction lần đầu mình không kỳ vọng nhiều, nhưng kết quả cuối cùng vượt xa những gì mình tưởng tượng. Sound rõ ràng, sắc nét, và quan trọng hơn — nó đúng chất. Đội ngũ làm việc chuyên nghiệp, phản hồi nhanh, không có gì phải phàn nàn.'
   },
   {
     name: 'Cao Thành Lâm',
     role: 'Singer',
     avatar: '/images/cao-thanh-lam.jpg',
     project: '',
-    body: 'Với mình, giọng hát là tất cả. XKStudio hiểu điều đó. Họ biết cách thu âm để giọng ca được trình bày tự nhiên nhất, không bị xử lý quá tay. Mỗi session ở đây đều thoải mái và hiệu quả. Chắc chắn sẽ quay lại cho những dự án tiếp theo.'
+    body: 'Với mình, giọng hát là tất cả. XKProduction hiểu điều đó. Họ biết cách thu âm để giọng ca được trình bày tự nhiên nhất, không bị xử lý quá tay. Mỗi session ở đây đều thoải mái và hiệu quả. Chắc chắn sẽ quay lại cho những dự án tiếp theo.'
   },
   {
     name: 'Fesu',
     role: 'Singer',
     avatar: '/images/fesu.jpg',
     project: '',
-    body: 'XKStudio có một điều mà không phải studio nào cũng có — sự kiên nhẫn. Họ không rush, không qua loa. Ngồi làm việc cùng team ở đây mình học được rất nhiều về cách xây dựng âm thanh. Sản phẩm ra lò chất lượng, mình tự hào khi chia sẻ lên mạng.'
+    body: 'XKProduction có một điều mà không phải studio nào cũng có — sự kiên nhẫn. Họ không rush, không qua loa. Ngồi làm việc cùng team ở đây mình học được rất nhiều về cách xây dựng âm thanh. Sản phẩm ra lò chất lượng, mình tự hào khi chia sẻ lên mạng.'
   },
   {
     name: 'Phương Thanh Tuyền',
     role: 'Singer',
     avatar: '/images/quocchi-3.jpg',
     project: 'Kiếp Sau (Cover)',
-    body: 'Lần đầu vào studio mình khá hồi hộp, nhưng không khí ở XKStudio rất thân thiện và chuyên nghiệp. Anh Kiệt tư vấn rất tận tình, giúp mình chọn được tone phù hợp với chất giọng. Bản thu hoàn thành đúng hạn, âm thanh ấm và sạch — đúng những gì mình cần.'
+    body: 'Lần đầu vào studio mình khá hồi hộp, nhưng không khí ở XKProduction rất thân thiện và chuyên nghiệp. Anh Kiệt tư vấn rất tận tình, giúp mình chọn được tone phù hợp với chất giọng. Bản thu hoàn thành đúng hạn, âm thanh ấm và sạch — đúng những gì mình cần.'
   }
 ]
 </script>

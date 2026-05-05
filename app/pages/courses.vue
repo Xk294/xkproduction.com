@@ -4,14 +4,14 @@
       <div class="max-width">
         <div class="hero-badge"><i class="fa-solid fa-graduation-cap"></i> ĐÀO TẠO CHUYÊN NGHIỆP</div>
         <h1>Khoá học Music Producer</h1>
-        <p class="page-hero-sub">Nâng tầm kỹ năng hoà âm phối khí, mixing & mastering cùng đội ngũ chuyên gia hàng đầu tại XKStudio.</p>
+        <p class="page-hero-sub">Nâng tầm kỹ năng hoà âm phối khí, mixing & mastering cùng đội ngũ chuyên gia hàng đầu tại XKProduction.</p>
       </div>
     </section>
 
     <!-- ===== WHY LEARN ===== -->
     <section class="section-block">
       <div class="max-width">
-        <h2 class="section-title"><i class="fa-solid fa-bullseye"></i> Tại sao chọn XKStudio?</h2>
+        <h2 class="section-title"><i class="fa-solid fa-bullseye"></i> Tại sao chọn XKProduction?</h2>
         <div class="why-grid">
           <div v-for="item in whyUs" :key="item.title" class="why-card">
             <div class="why-icon"><i :class="item.icon"></i></div>
@@ -132,19 +132,19 @@ useSchemaOrg([
   defineCourse({
     name: 'Khoá học Hoà Âm Phối Khí',
     description: 'Nắm vững kiến thức nhạc lý, kỹ thuật phối khí từ đơn giản đến phức tạp với nhiều thể loại âm nhạc.',
-    provider: { name: 'XKStudio', url: 'https://xkproduction.com' },
+    provider: { name: 'XKProduction', url: 'https://xkproduction.com' },
     hasCourseInstance: [{ courseMode: 'onsite', duration: 'P6M', courseWorkload: 'PT10H', price: '5000000', priceCurrency: 'VND' }]
   }),
   defineCourse({
     name: 'Khoá học Mixing',
     description: 'Học kỹ thuật mix vocal, nhạc cụ, balance, EQ, compression và các plugin chuyên nghiệp.',
-    provider: { name: 'XKStudio', url: 'https://xkproduction.com' },
+    provider: { name: 'XKProduction', url: 'https://xkproduction.com' },
     hasCourseInstance: [{ courseMode: 'onsite', duration: 'P4M', courseWorkload: 'PT8H', price: '4000000', priceCurrency: 'VND' }]
   }),
   defineCourse({
     name: 'Khoá học Mastering',
     description: 'Kỹ thuật mastering chuẩn phát hành Spotify, Apple Music, YouTube & Radio.',
-    provider: { name: 'XKStudio', url: 'https://xkproduction.com' },
+    provider: { name: 'XKProduction', url: 'https://xkproduction.com' },
     hasCourseInstance: [{ courseMode: 'onsite', duration: 'P2M', courseWorkload: 'PT6H', price: '3000000', priceCurrency: 'VND' }]
   })
 ])
@@ -224,7 +224,7 @@ const faqs = [
   { q: 'Tôi chưa biết gì về âm nhạc, có thể học được không?', a: 'Hoàn toàn được! Khoá Hoà âm Phối khí có level Cơ bản dành cho người mới bắt đầu. Giảng viên sẽ hướng dẫn từ nhạc lý nền tảng.' },
   { q: 'Hình thức học như thế nào?', a: 'Học trực tiếp tại studio hoặc online qua Zoom/Google Meet. Lớp 1 kèm 1 hoặc nhóm nhỏ tối đa 3 người.' },
   { q: 'Cần chuẩn bị gì trước khi học?', a: 'Bạn chỉ cần laptop cá nhân. Studio sẽ hỗ trợ cài đặt DAW (Logic Pro, FL Studio, Ableton) và các plugin cần thiết.' },
-  { q: 'Có được thực hành tại studio không?', a: 'Có! Học viên được sử dụng phòng thu và thiết bị chuyên nghiệp tại XKStudio để thực hành.' },
+  { q: 'Có được thực hành tại studio không?', a: 'Có! Học viên được sử dụng phòng thu và thiết bị chuyên nghiệp tại XKProduction để thực hành.' },
   { q: 'Học phí có thể trả góp không?', a: 'Có hỗ trợ trả góp từ 2-3 đợt. Liên hệ tư vấn để biết thêm chi tiết.' }
 ]
 </script>

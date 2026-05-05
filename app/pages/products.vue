@@ -3,7 +3,7 @@
     <section class="page-hero">
       <div class="max-width">
         <h1>Sản phẩm âm nhạc</h1>
-        <p class="page-hero-sub">Những dự án tiêu biểu do XKStudio sản xuất, mix & master hoặc hòa âm phối khí</p>
+        <p class="page-hero-sub">Những dự án tiêu biểu do XKProduction sản xuất, mix & master hoặc hòa âm phối khí</p>
       </div>
     </section>
 

@@ -50,7 +50,7 @@
           <h4><i class="fa-solid fa-headset"></i> Liên hệ</h4>
           <ul class="contact-list" itemprop="contactPoint">
             <li>
-              <a href="tel:0355356294" itemprop="telephone" title="Gọi điện cho XKStudio">
+              <a href="tel:0355356294" itemprop="telephone" title="Gọi điện cho XKProduction">
                 <i class="fa-solid fa-phone"></i>
                 <span>0355.356.294</span>
               </a>
@@ -62,7 +62,7 @@
               </a>
             </li>
             <li>
-              <a href="https://zalo.me/0355356294" target="_blank" rel="noopener noreferrer" title="Zalo XKStudio">
+              <a href="https://zalo.me/0355356294" target="_blank" rel="noopener noreferrer" title="Zalo XKProduction">
                 <i class="fa-solid fa-comment"></i>
                 <span>Zalo: 0355.356.294</span>
               </a>
@@ -72,6 +72,14 @@
               <span itemprop="streetAddress">QL14 km25, Nghĩa Trung, Bù Đăng, <span itemprop="addressRegion">Bình Phước</span></span>
             </li>
           </ul>
+          <div class="footer-hours">
+            <i class="fa-solid fa-clock"></i>
+            <div>
+              <span class="footer-hours-title">Giờ mở cửa</span>
+              <span>T2–T6: 7:00 – 22:00</span>
+              <span>T7–CN: 8:00 – 20:00</span>
+            </div>
+          </div>
           <div class="footer-domain">
             <i class="fa-solid fa-globe"></i>
             <a href="https://xkproduction.com" itemprop="url" rel="canonical">xkproduction.com</a>
@@ -213,6 +221,21 @@
   line-height: 1.5;
 }
 .footer-address i { color: var(--primary); font-size: 0.85rem; margin-top: 0.1rem; flex-shrink: 0; }
+
+.footer-hours {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  margin-top: 0.85rem;
+  padding: 0.6rem 0.85rem;
+  background: rgba(26,140,255,0.04);
+  border: 1px solid rgba(26,140,255,0.1);
+  border-radius: 8px;
+}
+.footer-hours > i { color: var(--primary); font-size: 0.85rem; margin-top: 0.15rem; flex-shrink: 0; }
+.footer-hours > div { display: flex; flex-direction: column; gap: 0.15rem; }
+.footer-hours-title { color: var(--text-main); font-size: 0.78rem; font-weight: 700; letter-spacing: 0.3px; }
+.footer-hours span:not(.footer-hours-title) { color: var(--text-light); font-size: 0.8rem; }
 
 .footer-domain {
   display: flex;

@@ -118,7 +118,7 @@
     <!-- Google Maps Embed -->
     <section class="map-section">
       <div class="max-width">
-        <h2 class="map-heading"><i class="fa-solid fa-map-location-dot"></i> Vị trí XKStudio</h2>
+        <h2 class="map-heading"><i class="fa-solid fa-map-location-dot"></i> Vị trí XKProduction</h2>
         <div class="map-container">
           <iframe
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3918.123!2d107.11719352335317!3d11.71792651529057!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTHCsDQzJzA0LjUiTiAxMDfCsDA3JzAyLjAiRQ!5e0!3m2!1svi!2svn!4v1714500000000!5m2!1svi!2svn"
@@ -128,7 +128,7 @@
             allowfullscreen
             loading="lazy"
             referrerpolicy="no-referrer-when-downgrade"
-            title="Vị trí XKStudio trên Google Maps - QL14 km25, Nghĩa Trung, Bù Đăng, Bình Phước"
+            title="Vị trí XKProduction trên Google Maps - QL14 km25, Nghĩa Trung, Bù Đăng, Bình Phước"
           ></iframe>
           <a
             href="https://www.google.com/maps/search/?api=1&query=11.71792651529057,107.11719352335317"
@@ -136,7 +136,7 @@
             class="map-directions-link"
           >
             <i class="fa-solid fa-diamond-turn-right"></i>
-            Chỉ đường đến XKStudio
+            Chỉ đường đến XKProduction
             <i class="fa-solid fa-arrow-up-right-from-square" style="font-size:0.75rem;"></i>
           </a>
         </div>
@@ -232,7 +232,7 @@ async function handleSubmit() {
         email: form.email || '(không điền)',
         service: form.service,
         message: form.message,
-        _subject: `[XKStudio] Yêu cầu từ ${form.name} — ${form.service}`
+        _subject: `[XKProduction] Yêu cầu từ ${form.name} — ${form.service}`
       })
     })
     if (res.ok) {

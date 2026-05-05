@@ -173,8 +173,8 @@ useSchemaOrg([
   },
   defineProduct({
     name: 'Dịch vụ Thu âm Bài Hát Chuyên Nghiệp',
-    description: 'Thu âm bài hát chuyên nghiệp tại XKStudio — Cơ Bản, Nâng Cao, Pro và Cao Cấp.',
-    provider: { name: 'XKStudio', url: 'https://xkproduction.com' },
+    description: 'Thu âm bài hát chuyên nghiệp tại XKProduction — Cơ Bản, Nâng Cao, Pro và Cao Cấp.',
+    provider: { name: 'XKProduction', url: 'https://xkproduction.com' },
     offers: [
       { name: 'Gói Thu âm Cơ Bản', price: '350000', priceCurrency: 'VND', description: 'Thu âm 1-2 tiếng, chỉnh sửa cơ bản, xuất file WAV/MP3, 1 lần revision' },
       { name: 'Gói Thu âm Nâng Cao', price: '550000', priceCurrency: 'VND', description: 'Thu âm 2-3 tiếng, vocal production đầy đủ, 2 lần revision' },
@@ -184,8 +184,8 @@ useSchemaOrg([
   }),
   defineProduct({
     name: 'Dịch vụ Mixing & Mastering Chuyên Nghiệp',
-    description: 'Mixing & mastering chuẩn phát hành Spotify, Apple Music, YouTube, Radio tại XKStudio.',
-    provider: { name: 'XKStudio', url: 'https://xkproduction.com' },
+    description: 'Mixing & mastering chuẩn phát hành Spotify, Apple Music, YouTube, Radio tại XKProduction.',
+    provider: { name: 'XKProduction', url: 'https://xkproduction.com' },
     offers: [
       { name: 'Mix & Master Cơ Bản', price: '300000', priceCurrency: 'VND', description: 'Mixing stereo track + mastering chuẩn streaming, xuất WAV + MP3' },
       { name: 'Mix & Master Chuyên Nghiệp', price: '500000', priceCurrency: 'VND', description: 'Xử lý multi-track, chuẩn phát hành quốc tế, 2 lần revision' }
@@ -193,8 +193,8 @@ useSchemaOrg([
   }),
   defineProduct({
     name: 'Dịch vụ Hoà Âm Phối Khí',
-    description: 'Hoà âm phối khí chuyên nghiệp cho mọi thể loại âm nhạc tại XKStudio.',
-    provider: { name: 'XKStudio', url: 'https://xkproduction.com' },
+    description: 'Hoà âm phối khí chuyên nghiệp cho mọi thể loại âm nhạc tại XKProduction.',
+    provider: { name: 'XKProduction', url: 'https://xkproduction.com' },
     offers: [
       { name: 'Hoà âm Cơ bản', price: '1500000', priceCurrency: 'VND', description: 'Phối khí 1 thể loại, MIDI programming cơ bản, stem xuất riêng' },
       { name: 'Hoà âm Chuyên nghiệp', price: '3500000', priceCurrency: 'VND', description: 'Phối khí đa thể loại, nhạc cụ thật, revision không giới hạn' }

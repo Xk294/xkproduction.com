@@ -4,7 +4,7 @@
       <div class="max-width">
         <div class="hero-badge"><i class="fa-solid fa-circle-question"></i> HỎI &amp; ĐÁP</div>
         <h1>Câu hỏi thường gặp</h1>
-        <p class="page-hero-sub">Giải đáp nhanh về dịch vụ, quy trình và bảng giá tại XKStudio</p>
+        <p class="page-hero-sub">Giải đáp nhanh về dịch vụ, quy trình và bảng giá tại XKProduction</p>
       </div>
     </section>
 
@@ -43,30 +43,34 @@ useSeoMeta({
 useSchemaOrg([
   defineWebPage({
     name: 'Câu hỏi thường gặp - XKProduction',
-    description: 'Giải đáp các câu hỏi về dịch vụ thu âm, mixing, mastering, hòa âm phối khí và sản xuất MV tại XKStudio.'
+    description: 'Giải đáp các câu hỏi về dịch vụ thu âm, mixing, mastering, hòa âm phối khí và sản xuất MV tại XKProduction.'
   }),
   {
     '@type': 'FAQPage',
     'mainEntity': [
-      { '@type': 'Question', 'name': 'Chi phí thu âm tại XKStudio là bao nhiêu?', 'acceptedAnswer': { '@type': 'Answer', 'text': 'Chi phí thu âm bắt đầu từ 350.000₫/bài cho gói Cơ Bản, đến 1.800.000₫+ cho gói Cao Cấp. Xem chi tiết tại trang Bảng giá.' } },
-      { '@type': 'Question', 'name': 'Làm thế nào để đặt lịch thu âm hoặc sản xuất?', 'acceptedAnswer': { '@type': 'Answer', 'text': 'Bạn có thể liên hệ qua Zalo (0355.356.294), điện thoại hoặc form trên trang Liên hệ. Chúng tôi sẽ xác nhận lịch và gửi hướng dẫn chuẩn bị.' } },
-      { '@type': 'Question', 'name': 'XKStudio có hỗ trợ phát hành nhạc lên Spotify không?', 'acceptedAnswer': { '@type': 'Answer', 'text': 'Có. XKStudio hỗ trợ phát hành lên Spotify, Apple Music, YouTube Music trong 1–2 tuần sau khi hoàn thành mastering.' } },
+      { '@type': 'Question', 'name': 'Chi phí thu âm tại XKProduction là bao nhiêu?', 'acceptedAnswer': { '@type': 'Answer', 'text': 'Chi phí thu âm bắt đầu từ 350.000₫/bài cho gói Cơ Bản, đến 1.800.000₫+ cho gói Cao Cấp. Xem chi tiết tại trang Bảng giá.' } },
+      { '@type': 'Question', 'name': 'Làm thế nào để đặt lịch thu âm hoặc sản xuất?', 'acceptedAnswer': { '@type': 'Answer', 'text': 'Nhắn Zalo 0355.356.294 hoặc điền form trên trang Liên hệ. Chúng tôi xác nhận lịch trong vòng 2 giờ và gửi checklist chuẩn bị cho buổi thu.' } },
+      { '@type': 'Question', 'name': 'XKProduction có hỗ trợ thu âm online không?', 'acceptedAnswer': { '@type': 'Answer', 'text': 'Có. Khách ở tỉnh khác gửi file vocal đã thu tại nhà qua Google Drive/Zalo. Chúng tôi nhận mix master, hòa âm phối khí và giao file hoàn chỉnh qua Zalo/email.' } },
+      { '@type': 'Question', 'name': 'XKProduction có hỗ trợ phát hành nhạc lên Spotify không?', 'acceptedAnswer': { '@type': 'Answer', 'text': 'Có. XKProduction hỗ trợ phát hành lên Spotify, Apple Music, YouTube Music trong 1–2 tuần sau khi hoàn thành mastering.' } },
       { '@type': 'Question', 'name': 'Thời gian hoàn thành dự án bao lâu?', 'acceptedAnswer': { '@type': 'Answer', 'text': 'Demo/beat có thể trong 48h, mixing & mastering từ 3–7 ngày, sản xuất MV từ 2–4 tuần.' } },
-      { '@type': 'Question', 'name': 'XKStudio có nhận dự án từ tỉnh thành khác không?', 'acceptedAnswer': { '@type': 'Answer', 'text': 'Có. Chúng tôi nhận mixing, mastering, hòa âm phối khí và tư vấn online cho khách hàng trên toàn quốc.' } },
-      { '@type': 'Question', 'name': 'XKStudio có hỗ trợ sản xuất MV, TVC không?', 'acceptedAnswer': { '@type': 'Answer', 'text': 'Có. XKStudio cung cấp dịch vụ sản xuất MV, TVC, podcast với ekip đa chuyên môn từ tiền kỳ, hậu kỳ đến phát hành đa nền tảng.' } }
+      { '@type': 'Question', 'name': 'XKProduction có nhận dự án từ tỉnh thành khác không?', 'acceptedAnswer': { '@type': 'Answer', 'text': 'Có. Chúng tôi nhận mixing, mastering, hòa âm phối khí và tư vấn online cho khách hàng trên toàn quốc.' } },
+      { '@type': 'Question', 'name': 'Giờ làm việc của XKProduction là mấy giờ?', 'acceptedAnswer': { '@type': 'Answer', 'text': 'Thứ 2 – Thứ 6: 7:00 – 22:00. Thứ 7 – Chủ nhật: 8:00 – 20:00. Có thể đặt lịch buổi tối và cuối tuần theo yêu cầu.' } },
+      { '@type': 'Question', 'name': 'XKProduction có hỗ trợ sản xuất MV, TVC không?', 'acceptedAnswer': { '@type': 'Answer', 'text': 'Có. XKProduction cung cấp dịch vụ sản xuất MV, TVC, podcast với ekip đa chuyên môn từ tiền kỳ, hậu kỳ đến phát hành đa nền tảng.' } }
     ]
   }
 ])
 
 const faqs = [
-  { question: 'Chi phí thu âm tại XKStudio là bao nhiêu?', answer: 'Chi phí thu âm bắt đầu từ 350.000₫/bài cho gói Cơ Bản, đến 1.800.000₫+ cho gói Cao Cấp với coaching chuyên biệt. Xem chi tiết tại trang Bảng giá.' },
-  { question: 'Làm thế nào để đặt lịch thu âm hoặc sản xuất?', answer: 'Bạn có thể liên hệ qua Zalo, điện thoại hoặc form trên trang Liên hệ. Chúng tôi sẽ xác nhận lịch, tư vấn kỹ thuật và gửi hướng dẫn chuẩn bị cho buổi thu.' },
-  { question: 'XKStudio có hỗ trợ sản xuất MV, TVC, podcast không?', answer: 'Có. XKStudio cung cấp dịch vụ sản xuất MV, TVC, podcast với ekip đa chuyên môn từ tiền kỳ, hậu kỳ, sound design cho đến phát hành đa nền tảng.' },
-  { question: 'Thời gian hoàn thành dự án bao lâu?', answer: 'Tùy theo quy mô dự án. Demo/beat có thể trong 48h, mixing & mastering từ 3–7 ngày, sản xuất MV từ 2–4 tuần. Timeline cụ thể sẽ được thảo luận khi tư vấn.' },
-  { question: 'XKStudio hỗ trợ phát hành nhạc lên DSP không?', answer: 'Có. XKStudio hỗ trợ phát hành lên Spotify, Apple Music, YouTube Music trong 1–2 tuần sau khi hoàn thành mastering và xử lý metadata đầy đủ.' },
-  { question: 'Tôi có thể nghe thử phòng thu trước khi đặt lịch không?', answer: 'Hoàn toàn có thể. Hãy liên hệ để đặt lịch tham quan phòng thu miễn phí và gặp gỡ đội ngũ trực tiếp.' },
-  { question: 'XKStudio có nhận dự án từ tỉnh thành khác không?', answer: 'Có. Chúng tôi nhận mixing, mastering, hòa âm phối khí và tư vấn online cho khách hàng trên toàn quốc. File được trao đổi qua cloud storage và điều phối qua Zalo.' },
-  { question: 'Tôi cần chuẩn bị gì trước khi đến thu âm?', answer: 'Bạn nên luyện tập bài hát thuần thục, mang file nhạc đệm (nếu có), và giọng hát trong tốt nhất. Ekip sẽ tư vấn thêm khi xác nhận lịch.' }
+  { question: 'Chi phí thu âm tại XKProduction là bao nhiêu?', answer: 'Chi phí thu âm bắt đầu từ 350.000₫/bài cho gói Cơ Bản, đến 1.800.000₫+ cho gói Cao Cấp với coaching chuyên biệt. Xem chi tiết tại trang Bảng giá.' },
+  { question: 'Làm thế nào để đặt lịch thu âm hoặc sản xuất?', answer: 'Nhắn Zalo 0355.356.294 hoặc điền form trên trang Liên hệ. Chúng tôi xác nhận lịch trong vòng 2 giờ và gửi checklist chuẩn bị cho buổi thu.' },
+  { question: 'XKProduction có hỗ trợ thu âm online không?', answer: 'Có. Khách ở tỉnh khác gửi file vocal đã thu tại nhà qua Google Drive/Zalo. Chúng tôi nhận mix master, hòa âm phối khí và giao file hoàn chỉnh qua Zalo/email.' },
+  { question: 'XKProduction có hỗ trợ sản xuất MV, TVC, podcast không?', answer: 'Có. XKProduction cung cấp dịch vụ sản xuất MV, TVC, podcast với ekip đa chuyên môn từ tiền kỳ, hậu kỳ, sound design cho đến phát hành đa nền tảng.' },
+  { question: 'Thời gian hoàn thành dự án bao lâu?', answer: 'Demo/beat có thể trong 48h, mixing & mastering từ 3–7 ngày, sản xuất MV từ 2–4 tuần. Timeline cụ thể sẽ được thảo luận khi tư vấn.' },
+  { question: 'XKProduction hỗ trợ phát hành nhạc lên Spotify không?', answer: 'Có. XKProduction hỗ trợ phát hành lên Spotify, Apple Music, YouTube Music trong 1–2 tuần sau khi hoàn thành mastering và xử lý metadata đầy đủ.' },
+  { question: 'Tôi có thể tham quan phòng thu trước khi đặt lịch không?', answer: 'Hoàn toàn có thể. Hãy liên hệ để đặt lịch tham quan phòng thu miễn phí và gặp gỡ đội ngũ trực tiếp.' },
+  { question: 'XKProduction có nhận dự án từ tỉnh thành khác không?', answer: 'Có. Chúng tôi nhận mixing, mastering, hòa âm phối khí và tư vấn online cho khách hàng trên toàn quốc. File được trao đổi qua cloud storage và điều phối qua Zalo.' },
+  { question: 'Giờ làm việc của XKProduction là mấy giờ?', answer: 'Thứ 2 – Thứ 6: 7:00 – 22:00. Thứ 7 – Chủ nhật: 8:00 – 20:00. Có thể đặt lịch buổi tối và cuối tuần theo yêu cầu.' },
+  { question: 'Tôi cần chuẩn bị gì trước khi đến thu âm?', answer: 'Luyện bài thuần thục, mang file nhạc đệm (nếu có) và giọng hát trong tốt nhất. Không cần mang thiết bị — phòng thu đã chuẩn bị đầy đủ.' }
 ]
 </script>
 

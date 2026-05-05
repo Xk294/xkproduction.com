@@ -75,7 +75,7 @@ useSchemaOrg([
     ]
   }),
   defineWebSite({
-    name: 'XKStudio',
+    name: 'XKProduction',
     url: 'https://xkproduction.com',
     description: 'Phòng thu âm & media production chuyên nghiệp tại Bình Phước | Sound & Light | Đào tạo Music Producer.',
     inLanguage: 'vi-VN',

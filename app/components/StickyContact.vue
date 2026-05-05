@@ -7,7 +7,7 @@
       rel="noopener"
       class="sticky-btn zalo-btn"
       title="Nhắn Zalo ngay"
-      aria-label="Liên hệ Zalo XKStudio"
+      aria-label="Liên hệ Zalo XKProduction"
     >
       <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
         <path d="M12 2C6.477 2 2 6.238 2 11.4c0 2.9 1.386 5.516 3.574 7.27L4.9 22l3.63-1.927A10.83 10.83 0 0 0 12 20.8c5.523 0 10-4.238 10-9.4S17.523 2 12 2zm.879 12.689-2.015-2.143-3.937 2.213 4.331-4.589 2.015 2.143 3.937-2.213-4.331 4.589z"/>
@@ -21,7 +21,7 @@
       href="tel:0355356294"
       class="sticky-btn phone-btn"
       title="Gọi ngay 0355.356.294"
-      aria-label="Gọi điện XKStudio"
+      aria-label="Gọi điện XKProduction"
     >
       <i class="fa-solid fa-phone"></i>
       <span class="btn-label">Gọi ngay</span>
