@@ -149,13 +149,13 @@ useSeoMeta({
   description: 'Bảng giá XKProduction: Thu âm từ 350.000₫, Mixing & Mastering từ 300.000₫, Hoà âm phối khí từ 1.500.000₫, Live Band & Âm thanh sự kiện theo yêu cầu. Minh bạch, không phát sinh. Hotline: 0355.356.294',
   ogTitle: 'Bảng giá Dịch vụ Thu âm, Mix & Master, Live Band & Sự kiện - XKProduction',
   ogDescription: 'Thu âm từ 350k, mix master từ 300k, hoà âm từ 1.5tr, live band & âm thanh sự kiện trọn gói tại XKProduction. Minh bạch, không phát sinh. Hotline: 0355.356.294',
-  ogImage: 'https://xkproduction.com/images/xk-logo-new.jpg',
+  ogImage: 'https://xkproduction.com/images/Xkpreview.png',
   ogImageWidth: '1200',
   ogImageHeight: '630',
   ogImageAlt: 'Bảng giá dịch vụ phòng thu âm XKProduction',
   ogUrl: 'https://xkproduction.com/services',
   twitterCard: 'summary_large_image',
-  twitterImage: 'https://xkproduction.com/images/xk-logo-new.jpg',
+  twitterImage: 'https://xkproduction.com/images/Xkpreview.png',
   keywords: 'bảng giá thu âm, giá mix master, giá hoà âm phối khí, live band giá rẻ, cho thuê âm thanh ánh sáng, ban nhạc sự kiện, phòng thu âm chuyên nghiệp, XKProduction, bảng giá mixing mastering, dịch vụ thu âm hcm, báo giá sự kiện'
 })
 

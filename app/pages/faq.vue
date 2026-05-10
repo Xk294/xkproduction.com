@@ -31,12 +31,12 @@ useSeoMeta({
   description: 'Giải đáp câu hỏi về giá thu âm (từ 350k), quy trình, thời gian hoàn thành, nhận mix master online, phát hành Spotify... tại XKProduction.',
   ogTitle: 'Câu hỏi thường gặp về Dịch vụ Thu âm & Mix Master - XKProduction',
   ogDescription: 'Tìm hiểu về giá thu âm, quy trình, hỗ trợ online, phát hành Spotify & các dịch vụ tại XKProduction.',
-  ogImage: 'https://xkproduction.com/images/xk-logo-new.jpg',
+  ogImage: 'https://xkproduction.com/images/Xkpreview.png',
   ogImageWidth: '1200',
   ogImageHeight: '630',
   ogUrl: 'https://xkproduction.com/faq',
   twitterCard: 'summary_large_image',
-  twitterImage: 'https://xkproduction.com/images/xk-logo-new.jpg',
+  twitterImage: 'https://xkproduction.com/images/Xkpreview.png',
   keywords: 'faq thu âm, câu hỏi phòng thu, giá thu âm bao nhiêu, mix master online, phát hành Spotify, XKProduction'
 })
 

@@ -66,13 +66,13 @@ useSeoMeta({
   description: 'Các dự án âm nhạc tiêu biểu do XKProduction thực hiện: Hoà âm phối khí, mix & master cho nghệ sĩ Revan, Howl, Phương Thanh Tuyền... Nâng tầm sản phẩm âm nhạc của bạn.',
   ogTitle: 'Sản phẩm Âm nhạc tiêu biểu - XKProduction',
   ogDescription: 'Nghe các tác phẩm thực tế do XKProduction sản xuất: Hoà âm phối khí, mixing & mastering, thu âm chuyên nghiệp cho 2000+ dự án.',
-  ogImage: 'https://xkproduction.com/images/xk-logo-new.jpg',
+  ogImage: 'https://xkproduction.com/images/Xkpreview.png',
   ogImageWidth: '1200',
   ogImageHeight: '630',
   ogImageAlt: 'Sản phẩm âm nhạc XKProduction - Hoà âm phối khí & Mix Master',
   ogUrl: 'https://xkproduction.com/products',
   twitterCard: 'summary_large_image',
-  twitterImage: 'https://xkproduction.com/images/xk-logo-new.jpg',
+  twitterImage: 'https://xkproduction.com/images/Xkpreview.png',
   keywords: 'XKProduction, sản phẩm âm nhạc, dự án âm nhạc, hoà âm phối khí, thu âm chuyên nghiệp, mixing, mastering'
 })
 
