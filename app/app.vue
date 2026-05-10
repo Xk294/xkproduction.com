@@ -25,12 +25,12 @@ useSeoMeta({
   description: 'XKProduction — Phòng thu âm chuyên nghiệp tại Bình Phước. Thu âm bài hát giá rẻ từ 350.000₫, hoà âm phối khí online, mix master chuẩn Spotify, quay MV/TVC, sân khấu sự kiện & âm thanh ánh sáng trọn gói. Hotline: 0355.356.294',
   keywords: 'XKProduction, xkproduction.com, phòng thu âm, phòng thu âm chuyên nghiệp, phòng thu âm Bình Phước, thu âm bài hát, thu âm bài hát giá bao nhiêu, hoà âm phối khí, hoà âm phối khí online, mix master, mix master giá rẻ, mixing mastering, sản xuất âm nhạc, quay mv, quay tvc, sân khấu sự kiện, âm thanh ánh sáng, cho thuê âm thanh, cho thuê ánh sáng, live band, sound light, studio bình phước, phòng thu uy tín, bảng giá thu âm, nhạc sĩ, music producer',
   // === OG IMAGE MẶC ĐỊNH (fallback cho tất cả trang) ===
-  ogImage: 'https://xkproduction.com/images/og-preview.jpg',
+  ogImage: 'https://xkproduction.com/images/Xkpreview.png',
   ogImageWidth: '1200',
   ogImageHeight: '630',
   ogImageAlt: 'XKProduction - Phòng Thu Âm Chuyên Nghiệp tại Bình Phước | Thu âm • Mix Master • Hoà âm Phối Khí',
   twitterCard: 'summary_large_image',
-  twitterImage: 'https://xkproduction.com/images/og-preview.jpg',
+  twitterImage: 'https://xkproduction.com/images/Xkpreview.png',
 });
 
 // === CANONICAL & HREFLANG ĐỘNG THEO ROUTE (chuẩn Oscar Family) ===
