@@ -95,7 +95,7 @@ export default defineNuxtConfig({
   },
   robots: {
     disallow: ['/cdn-cgi/', '/_nuxt/'],
-    allow: ['/$', '/*.html$'],
+    allow: ['/$', '/*.html$', 'facebookexternalhit'],
   },
 
   // === APP HEAD — giữ nguyên ===
