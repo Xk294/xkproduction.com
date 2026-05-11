@@ -141,13 +141,13 @@ useSeoMeta({
   description: 'XKProduction — Phòng thu âm và media production chương nghiệp. Hơn 7 năm đồng hành cùng 2000+ dự án âm nhạc, 30+ đối tác, 50+ học viên đào tạo. Founder: Nguyễn Xuân Kiệt — Music Producer & Sound Engineer.',
   ogTitle: 'Giới Thiệu XKProduction - Phòng Thu Âm & Media Production',
   ogDescription: 'Khám phá câu chuyện XKProduction: Hơn 7 năm xây dựng, 2000+ dự án, đội ngũ Founder Nguyễn Xuân Kiệt và sứ mệnh nâng tầm âm nhạc Việt.',
-  ogImage: 'https://xkproduction.com/images/founder-kiet.jpg',
+  ogImage: 'https://xkproduction.com/images/Xkpreviewnew.png',
   ogImageWidth: '1200',
   ogImageHeight: '630',
   ogImageAlt: 'Nguyễn Xuân Kiệt - Founder & Music Producer XKProduction',
   ogUrl: 'https://xkproduction.com/about',
   twitterCard: 'summary_large_image',
-  twitterImage: 'https://xkproduction.com/images/founder-kiet.jpg',
+  twitterImage: 'https://xkproduction.com/images/Xkpreviewnew.png',
   keywords: 'giới thiệu XKProduction, Nguyễn Xuân Kiệt, founder XKProduction, music producer, phòng thu âm chuyên nghiệp, về chúng tôi'
 })
 

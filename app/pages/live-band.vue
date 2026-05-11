@@ -160,13 +160,13 @@ useSeoMeta({
   description: 'Cho thuê âm thanh, ánh sáng sân khấu chuyên nghiệp & ban nhạc live cho đám cưới, gala, festival, hội nghị. Hệ thống line array, moving head, LED hiện đại. Hotline: 0355.356.294.',
   ogTitle: 'Cho thuê Âm thanh, Ánh sáng Sân khấu & Ban nhạc Sự kiện - XKProduction',
   ogDescription: 'Giải pháp trọn gói âm thanh, ánh sáng, sân khấu & ban nhạc live cho mọi quy mô sự kiện. Hệ thống line array JBL/RCF, moving head, laser chuyên nghiệp.',
-  ogImage: 'https://xkproduction.com/images/quocchi-2.jpg',
+  ogImage: 'https://xkproduction.com/images/Xkpreviewnew.png',
   ogImageWidth: '1200',
   ogImageHeight: '630',
   ogImageAlt: 'Cho thuê âm thanh ánh sáng sân khấu XKProduction',
   ogUrl: 'https://xkproduction.com/live-band',
   twitterCard: 'summary_large_image',
-  twitterImage: 'https://xkproduction.com/images/quocchi-2.jpg',
+  twitterImage: 'https://xkproduction.com/images/Xkpreviewnew.png',
   keywords: 'cho thuê âm thanh, cho thuê ánh sáng, sân khấu sự kiện, âm thanh ánh sáng, ban nhạc live, band nhạc sự kiện, sound light, âm thanh ánh sáng đám cưới, XKProduction'
 })
 

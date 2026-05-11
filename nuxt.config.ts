@@ -26,8 +26,8 @@ export default defineNuxtConfig({
         changefreq: 'weekly',
         lastmod: new Date().toISOString().split('T')[0],
         images: [
-          { loc: 'https://xkproduction.com/images/xk-logo-new.jpg', title: 'XKStudio - Phòng Thu Âm Chuyên Nghiệp Bình Phước', caption: 'Logo phòng thu âm chuyên nghiệp XKStudio' },
-          { loc: 'https://xkproduction.com/images/founder-kiet.jpg', title: 'Nguyễn Xuân Kiệt - Founder XKStudio', caption: 'Founder & Music Producer XKStudio' }
+          { loc: 'https://xkproduction.com/images/Logoxkfix.png', title: 'XKProduction - Phòng Thu Âm Chuyên Nghiệp Bình Phước', caption: 'Logo phòng thu âm chuyên nghiệp XKProduction' },
+          { loc: 'https://xkproduction.com/images/founder-kiet.jpg', title: 'Nguyễn Xuân Kiệt - Founder XKProduction', caption: 'Founder & Music Producer XKProduction' }
         ]
       },
       {
@@ -35,14 +35,14 @@ export default defineNuxtConfig({
         priority: 0.9,
         changefreq: 'weekly',
         lastmod: new Date().toISOString().split('T')[0],
-        images: [{ loc: 'https://xkproduction.com/images/xk-logo-new.jpg', title: 'Bảng giá dịch vụ thu âm XKStudio', caption: 'Bảng giá thu âm, mix master, hoà âm phối khí' }]
+        images: [{ loc: 'https://xkproduction.com/images/Logoxkfix.png', title: 'Bảng giá dịch vụ thu âm XKProduction', caption: 'Bảng giá thu âm, mix master, hoà âm phối khí' }]
       },
       {
         loc: '/courses',
         priority: 0.9,
         changefreq: 'monthly',
         lastmod: new Date().toISOString().split('T')[0],
-        images: [{ loc: 'https://xkproduction.com/images/xk-logo-new.jpg', title: 'Khoá học Music Producer tại XKStudio', caption: 'Đào tạo Music Producer, Mixing & Mastering' }]
+        images: [{ loc: 'https://xkproduction.com/images/Logoxkfix.png', title: 'Khoá học Music Producer tại XKProduction', caption: 'Đào tạo Music Producer, Mixing & Mastering' }]
       },
       {
         loc: '/live-band',
@@ -122,8 +122,8 @@ export default defineNuxtConfig({
         { name: 'msapplication-TileColor', content: '#06080f' },
       ],
       link: [
-        { rel: 'icon', type: 'image/x-icon', href: '/favicon_ultimate_dark.ico' },
-        { rel: 'apple-touch-icon', sizes: '180x180', href: '/images/xk-logo-new.jpg' },
+        { rel: 'icon', type: 'image/png', href: '/images/Logoxkfix.png' },
+        { rel: 'apple-touch-icon', sizes: '180x180', href: '/images/Logoxkfix.png' },
         // Canonical được handle động ở từng page
         // Preconnect — tăng tốc font và CDN
         { rel: 'preconnect', href: 'https://fonts.googleapis.com' },

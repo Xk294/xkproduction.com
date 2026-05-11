@@ -79,13 +79,13 @@ useSeoMeta({
   description: 'Blog kiến thức âm nhạc từ XKProduction: Hướng dẫn thu âm tại nhà, mẹo mixing mastering, cách hoà âm phối khí, bảng giá phòng thu âm Bình Phước. Cập nhật mỗi tuần.',
   ogTitle: 'Blog Kiến Thức Âm Nhạc - XKProduction',
   ogDescription: 'Chia sẻ kinh nghiệm thu âm, mix master, hoà âm phối khí và kiến thức sản xuất âm nhạc chuyên nghiệp từ XKProduction.',
-  ogImage: 'https://xkproduction.com/images/blog-thu-am-gia.jpg',
+  ogImage: 'https://xkproduction.com/images/Xkpreviewnew.png',
   ogImageWidth: '1200',
   ogImageHeight: '630',
   ogImageAlt: 'Blog kiến thức âm nhạc XKProduction',
   ogUrl: 'https://xkproduction.com/blog',
   twitterCard: 'summary_large_image',
-  twitterImage: 'https://xkproduction.com/images/blog-thu-am-gia.jpg',
+  twitterImage: 'https://xkproduction.com/images/Xkpreviewnew.png',
   keywords: 'blog âm nhạc, kiến thức thu âm, hướng dẫn mix master, cách hoà âm phối khí, phòng thu âm Bình Phước, thu âm bài hát giá bao nhiêu, mix master giá rẻ, hòa âm phối khí online, XKProduction blog'
 })
 
