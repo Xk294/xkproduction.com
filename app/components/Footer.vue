@@ -6,7 +6,7 @@
         <!-- Brand Column -->
         <div class="footer-column footer-brand">
           <NuxtLink to="/" class="footer-logo-wrap" aria-label="XKProduction trang chủ">
-            <img src="/images/xk-logo-new.jpg" alt="XKProduction Logo" class="footer-logo-img" />
+            <img src="/images/Logoxkfix.png" alt="XKProduction Logo" class="footer-logo-img" />
             <span class="footer-logo-text" itemprop="name">XKProduction</span>
           </NuxtLink>
           <p itemprop="description">Phòng thu âm chuyên nghiệp — Hoà âm phối khí — Mix & Master chuẩn quốc tế — Sân khấu sự kiện & Âm thanh ánh sáng trọn gói.</p>

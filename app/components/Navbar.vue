@@ -31,7 +31,7 @@
 
       <!-- CENTER: Logo -->
       <NuxtLink to="/" class="logo" title="XKProduction - Phòng Thu Âm Chuyên Nghiệp" aria-label="XKProduction trang chủ">
-        <img src="/images/xk-logo-new.jpg" alt="XKProduction Logo" class="logo-img" />
+        <img src="/images/Logoxkfix.png" alt="XKProduction Logo" class="logo-img" />
         <span class="logo-text">XKProduction</span>
       </NuxtLink>
 

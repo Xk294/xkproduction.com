@@ -114,13 +114,13 @@ useSeoMeta({
   description: 'Khoá học đào tạo Music Producer tại XKProduction: Hoà âm phối khí, Mixing, Mastering chuyên nghiệp. Học 1 kèm 1, thực hành trên dự án thật. Từ 3.000.000₫/khoá.',
   ogTitle: 'Khoá học Music Producer & Kỹ thuật viên Thu âm - XKProduction',
   ogDescription: 'Đào tạo Music Producer, hoà âm phối khí, mixing & mastering chuyên nghiệp. Học 1 kèm 1, lớp tối đa 3 người, có chứng nhận. Hotline: 0355.356.294',
-  ogImage: 'https://xkproduction.com/images/Xkpreview.png',
+  ogImage: 'https://xkproduction.com/images/Xkpreviewnew.png',
   ogImageWidth: '1200',
   ogImageHeight: '630',
   ogImageAlt: 'Khoá học Music Producer & Mixing Mastering tại XKProduction',
   ogUrl: 'https://xkproduction.com/courses',
   twitterCard: 'summary_large_image',
-  twitterImage: 'https://xkproduction.com/images/Xkpreview.png',
+  twitterImage: 'https://xkproduction.com/images/Xkpreviewnew.png',
   keywords: 'khoá học music producer, học mixing mastering, khoá học hoà âm phối khí, đào tạo kỹ thuật viên thu âm, XKProduction, học âm nhạc, music producer hcm'
 })
 

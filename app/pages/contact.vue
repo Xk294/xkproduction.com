@@ -151,13 +151,13 @@ useSeoMeta({
   description: 'Liên hệ XKProduction để đặt lịch thu âm bài hát, tư vấn mixing/mastering, hoà âm phối khí. Hotline: 0355.356.294. Phản hồi trong 24 giờ.',
   ogTitle: 'Liên hệ Đặt lịch Thu âm & Tư vấn Dịch vụ - XKProduction',
   ogDescription: 'Hotline: 0355.356.294 | Zalo: 0355.356.294 | Email: xkstudio29@gmail.com. Đặt lịch thu âm, tư vấn mix master & hoà âm phối khí chuyên nghiệp.',
-  ogImage: 'https://xkproduction.com/images/Xkpreview.png',
+  ogImage: 'https://xkproduction.com/images/Xkpreviewnew.png',
   ogImageWidth: '1200',
   ogImageHeight: '630',
   ogImageAlt: 'Liên hệ XKProduction đặt lịch thu âm',
   ogUrl: 'https://xkproduction.com/contact',
   twitterCard: 'summary_large_image',
-  twitterImage: 'https://xkproduction.com/images/Xkpreview.png',
+  twitterImage: 'https://xkproduction.com/images/Xkpreviewnew.png',
   keywords: 'liên hệ XKProduction, đặt lịch thu âm, hotline phòng thu, tư vấn mix master, zalo XKProduction, địa chỉ phòng thu'
 })
 
@@ -172,7 +172,7 @@ useSchemaOrg([
     telephone: '+84355356294',
     email: 'xkstudio29@gmail.com',
     url: 'https://xkproduction.com',
-    image: 'https://xkproduction.com/images/Xkpreview.png',
+    image: 'https://xkproduction.com/images/Xkpreviewnew.png',
     address: {
       streetAddress: 'QL14 km25 xã Nghĩa Trung, Huyện Bù Đăng',
       addressLocality: 'Bình Phước',

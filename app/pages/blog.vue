@@ -111,7 +111,7 @@ useSchemaOrg([
     'publisher': {
       '@type': 'Organization',
       'name': 'XKProduction',
-      'logo': { '@type': 'ImageObject', 'url': 'https://xkproduction.com/images/xk-logo-new.jpg' }
+      'logo': { '@type': 'ImageObject', 'url': 'https://xkproduction.com/images/Logoxkfix.png' }
     },
     'datePublished': '2026-04-28',
     'dateModified': '2026-04-28',
@@ -127,7 +127,7 @@ useSchemaOrg([
     'publisher': {
       '@type': 'Organization',
       'name': 'XKProduction',
-      'logo': { '@type': 'ImageObject', 'url': 'https://xkproduction.com/images/xk-logo-new.jpg' }
+      'logo': { '@type': 'ImageObject', 'url': 'https://xkproduction.com/images/Logoxkfix.png' }
     },
     'datePublished': '2026-04-20',
     'dateModified': '2026-04-20',
@@ -143,7 +143,7 @@ useSchemaOrg([
     'publisher': {
       '@type': 'Organization',
       'name': 'XKProduction',
-      'logo': { '@type': 'ImageObject', 'url': 'https://xkproduction.com/images/xk-logo-new.jpg' }
+      'logo': { '@type': 'ImageObject', 'url': 'https://xkproduction.com/images/Logoxkfix.png' }
     },
     'datePublished': '2026-04-15',
     'dateModified': '2026-04-15',
@@ -159,7 +159,7 @@ useSchemaOrg([
     'publisher': {
       '@type': 'Organization',
       'name': 'XKProduction',
-      'logo': { '@type': 'ImageObject', 'url': 'https://xkproduction.com/images/xk-logo-new.jpg' }
+      'logo': { '@type': 'ImageObject', 'url': 'https://xkproduction.com/images/Logoxkfix.png' }
     },
     'datePublished': '2026-04-25',
     'dateModified': '2026-04-25',
