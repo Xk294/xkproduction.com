@@ -8,10 +8,13 @@
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
-    "deploy": "npm run generate && npx wrangler pages deploy dist --project-name xkproduction",
-    "optimize-images": "bash scripts/optimize-images.sh"
+    "deploy": "npm run build && npx wrangler pages deploy dist --project-name xkproduction",
+    "optimize-images": "bash scripts/optimize-images.sh",
+    "db.init.local": "rm -rf .wrangler/state/v3/d1 && wrangler d1 execute xkproduction-db --local --file=schema.sql",
+    "db.push": "wrangler d1 execute xkproduction-db --remote --file=schema.sql"
   },
   "dependencies": {
+    "firebase": "^11.10.0",
     "nuxt": "^4.4.2",
     "vue": "^3.5.0",
     "vue-router": "^4.5.0",
