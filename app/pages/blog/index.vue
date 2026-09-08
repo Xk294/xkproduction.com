@@ -229,7 +229,9 @@ const getCategoryKey = (category: string) => {
     'Mẹo Hay': 'green',
     'Before & After': 'purple',
     'Giới Thiệu': 'teal',
-    'Mix & Master': 'red'
+    'Mix & Master': 'red',
+    'Hoà Âm Phối Khí': 'purple',
+    'Live Sound': 'teal'
   }
   return categoryMap[category] || 'blue'
 }

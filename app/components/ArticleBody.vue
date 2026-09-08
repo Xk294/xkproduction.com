@@ -16,6 +16,16 @@
       <div v-if="section.callout" class="article-callout">{{ section.callout }}</div>
       <img v-if="section.image" class="article-image" :src="section.image" :alt="section.heading" loading="lazy" />
 
+      <div v-if="section.videoEmbed" class="article-video-wrap">
+        <iframe
+          :src="'https://www.youtube.com/embed/' + section.videoEmbed + '?rel=0'"
+          :title="section.heading"
+          loading="lazy"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+        ></iframe>
+      </div>
+
       <ul v-if="section.bullets?.length">
         <li v-for="bullet in section.bullets" :key="bullet">{{ bullet }}</li>
       </ul>
@@ -84,6 +94,23 @@ defineProps<{
   border-radius: 16px;
   margin: 1.4rem 0;
   border: 1px solid rgba(255,255,255,0.07);
+}
+.article-video-wrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  margin: 1.6rem 0 2rem;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.35);
+  background: #000;
+}
+.article-video-wrap iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  display: block;
 }
 .article-section ul {
   margin: 1rem 0 0;

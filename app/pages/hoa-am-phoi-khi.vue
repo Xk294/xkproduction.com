@@ -162,7 +162,7 @@ const hoaAmPlans = [
   {
     level: '1',
     name: 'Hòa âm phối khí Cơ Bản',
-    price: '1.500.000đ',
+    price: '1.500.000₫',
     desc: 'Phù hợp với ca khúc demo, cover acoustic hoặc pop-ballad mộc mạc, bố cục tinh gọn rõ cảm xúc.',
     features: [
       'Arrangement gọn gàng, tinh tế',
@@ -178,7 +178,7 @@ const hoaAmPlans = [
   {
     level: '2',
     name: 'Hòa âm phối khí Nâng Cao',
-    price: '3.000.000đ',
+    price: 'Từ 2.500.000₫',
     desc: 'Phối khí nhiều dải âm sắc phức tạp hơn cho dự án single hoặc MV phát hành thương mại số.',
     features: [
       'Build arrangement đa tầng lớp nhạc cụ',

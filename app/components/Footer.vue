@@ -24,7 +24,10 @@
           <ul>
             <li><NuxtLink to="/thu-am">Thu âm &amp; Vocal Production</NuxtLink></li>
             <li><NuxtLink to="/mix-master">Mixing &amp; Mastering</NuxtLink></li>
+            <li><NuxtLink to="/mix-online">Mix &amp; Master Online</NuxtLink></li>
             <li><NuxtLink to="/hoa-am-phoi-khi">Hòa âm phối khí</NuxtLink></li>
+            <li><NuxtLink to="/b2b">Âm nhạc Doanh Nghiệp (B2B)</NuxtLink></li>
+            <li><NuxtLink to="/presets">Vocal Presets &amp; Tài Nguyên</NuxtLink></li>
             <li><NuxtLink to="/quay-mv-tvc">Quay MV &amp; TVC</NuxtLink></li>
             <li><NuxtLink to="/live-band">Live Band &amp; Sự kiện</NuxtLink></li>
             <li><NuxtLink to="/courses">Khoá học Music Producer</NuxtLink></li>
@@ -36,6 +39,7 @@
           <h4><i class="fa-solid fa-sitemap"></i> Trang</h4>
           <ul>
             <li><NuxtLink to="/">Trang chủ</NuxtLink></li>
+            <li><NuxtLink to="/services">Dịch vụ &amp; Bảng giá</NuxtLink></li>
             <li><NuxtLink to="/about">Giới Thiệu</NuxtLink></li>
             <li><NuxtLink to="/products">Sản phẩm</NuxtLink></li>
             <li><NuxtLink to="/blog">Blog & Kiến thức</NuxtLink></li>

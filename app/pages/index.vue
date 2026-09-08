@@ -62,13 +62,13 @@
             <i class="fa-solid fa-star"></i>
             <i class="fa-solid fa-star"></i>
             <i class="fa-solid fa-star"></i>
-            <span class="hero-proof-label">5.0 · Google Reviews</span>
+            <span class="hero-proof-label">5.0 · Đánh giá từ nghệ sĩ</span>
           </div>
           <div class="hero-proof-divider"></div>
           <div class="hero-proof-stats">
             <span class="hero-proof-stat"><strong>2000+</strong> dự án</span>
             <span class="hero-proof-stat"><strong>200+</strong> nghệ sĩ</span>
-            <span class="hero-proof-stat"><strong>8+</strong> năm kinh nghiệm</span>
+            <span class="hero-proof-stat"><strong>7+</strong> năm kinh nghiệm</span>
           </div>
         </div>
 
@@ -281,6 +281,9 @@
     </div>
   </section>
 
+  <!-- SECTION: COMBO PRICING BUNDLES -->
+  <PricingBundles />
+
   <!-- SECTION 06 — WHY XKPRODUCTION -->
   <section class="why-us-section">
     <div class="max-width">
@@ -420,10 +423,10 @@
       <!-- Google Reviews summary badge -->
       <div class="google-reviews-badge">
         <div class="reviews-score">4.9 / 5</div>
-        <div class="reviews-label-tag">2000+ đánh giá thực tế từ nghệ sĩ</div>
-        <a href="https://search.google.com/local/reviews?placeid=ChIJxkproduction" target="_blank" rel="noopener" class="btn btn-link-google">
+        <div class="reviews-label-tag">Đánh giá xuất sắc từ hơn 2000 nghệ sĩ &amp; khách hàng</div>
+        <a href="https://www.google.com/search?q=XKProduction+ph%C3%B2ng+thu+%C3%A2m" target="_blank" rel="noopener" class="btn btn-link-google">
           <i class="fa-brands fa-google"></i>
-          <span>Xem tất cả đánh giá trên Google</span>
+          <span>Tìm kiếm &amp; Xem đánh giá trên Google</span>
           <i class="fa-solid fa-arrow-up-right-from-square"></i>
         </a>
       </div>
@@ -552,6 +555,9 @@
       </div>
     </div>
   </section>
+
+  <!-- LEAD MAGNET: CHECKLIST THU AM DOWNLOAD -->
+  <EmailCapture />
 
   <!-- SECTION 12 — FINAL CTA -->
   <section class="final-cta-section">
@@ -757,9 +763,9 @@ useSchemaOrg([
   {
     '@type': 'Review',
     'itemReviewed': { '@type': 'LocalBusiness', 'name': 'XKProduction' },
-    'author': { '@type': 'Person', 'name': 'Phương Thanh Tuyền' },
+    'author': { '@type': 'Person', 'name': 'Fesu' },
     'reviewRating': { '@type': 'Rating', 'ratingValue': '5', 'bestRating': '5' },
-    'reviewBody': 'Anh Kiệt tư vấn rất tận tình, giúp mình chọn được tone phù hợp với chất giọng. Bản thu hoàn thành đúng hạn, âm thanh ấm và sạch.'
+    'reviewBody': 'Tôi đánh giá cao sự kiên nhẫn và đôi tai tinh tế của anh Kiệt. Không hề hối thúc ca sĩ, tận tình coaching từng câu chữ để lấy được cảm xúc đẹp nhất.'
   }
 ])
 
@@ -771,8 +777,18 @@ const activeTestimonialIdx = ref(0)
 
 
 
-/* === ALL FEATURED PROJECTS DATA (6 Videos + 1 Audio Demo) === */
+/* === ALL FEATURED PROJECTS DATA (7 Videos + 1 Audio Demo) === */
 const works = [
+  {
+    title: 'Nhật Kí Của Mẹ',
+    artist: 'Mai Linh (Cover)',
+    category: 'Hoà âm phối khí / Ballad',
+    story: 'Bản phối dạt dào cảm xúc do Xkprod ft LacAnh hoà âm & mix master. Từng nhịp piano và tiếng vocal da diết chạm đến trái tim người nghe.',
+    theme: 'blue',
+    url: 'https://www.youtube.com/watch?v=F5tPTow1xkE',
+    thumb: 'https://img.youtube.com/vi/F5tPTow1xkE/hqdefault.jpg',
+    embedId: 'F5tPTow1xkE'
+  },
   {
     title: 'Chẳng Muốn Nói Nhiều Lời',
     artist: 'Revan',
@@ -1041,11 +1057,11 @@ const testimonials = [
     body: 'Với mình, giọng hát là tất cả. XKProduction hiểu điều đó. Họ biết cách thu âm để giọng ca được trình bày tự nhiên nhất, không bị xử lý quá tay. Mỗi session ở đây đều thoải mái và hiệu quả. Chắc chắn sẽ quay lại cho những dự án tiếp theo.'
   },
   {
-    name: 'Phương Thanh Tuyền',
-    role: 'Singer',
-    avatar: '/images/quocchi-3.jpg',
-    project: 'Kiếp Sau (Cover)',
-    body: 'Lần đầu vào studio mình khá hồi hộp, nhưng không khí ở XKProduction rất thân thiện và chuyên nghiệp. Anh Kiệt tư vấn rất tận tình, giúp mình chọn được tone phù hợp với chất giọng. Bản thu hoàn thành đúng hạn, âm thanh ấm và sạch — đúng những gì mình cần.'
+    name: 'Fesu',
+    role: 'Ca Sĩ / Singer',
+    avatar: '/images/fesu.jpg',
+    project: 'Sản xuất âm nhạc & Vocal Production',
+    body: 'Tôi đánh giá cao sự kiên nhẫn và đôi tai tinh tế của anh Kiệt. Không hề hối thúc ca sĩ, tận tình coaching từng câu chữ để lấy được cảm xúc đẹp nhất. Bản thu hoàn thành đúng hạn, âm thanh ấm và sạch — đúng những gì mình cần.'
   }
 ]
 

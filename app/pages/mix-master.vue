@@ -46,6 +46,15 @@
             </div>
           </div>
 
+          <!-- Before / After Audio Showcase -->
+          <div style="margin: 3rem 0;">
+            <AudioCompare 
+              raw-src="/product-audio-demo/pop-rnb-1-Gm-raw.mp3"
+              mixed-src="/product-audio-demo/pop-rnb-1-Gm.102.mp3"
+              title="So Sánh Trực Tiếp: Vocal Thô vs Sau Mix &amp; Master"
+            />
+          </div>
+
           <!-- Story Rich Text -->
           <div class="details-rich-text">
             <span class="header-tag">KIẾN THỨC NỀN TẢNG</span>
@@ -95,7 +104,10 @@
           <div class="sidebar-card glass-card">
             <h3>Dịch vụ Mix Online toàn quốc</h3>
             <p>Hơn 70% dự án của XKProduction được thực hiện online với quy trình chia sẻ file qua Google Drive/Zalo siêu tốc và mượt mà.</p>
-            <a href="https://zalo.me/0355356294" target="_blank" rel="noopener" class="btn btn-primary btn-sidebar-contact">
+            <NuxtLink to="/mix-online" class="btn btn-primary btn-sidebar-contact" style="margin-bottom: 0.75rem; width: 100%;">
+              <i class="fa-solid fa-cloud-arrow-up"></i> Đặt Mix Online 48h
+            </NuxtLink>
+            <a href="https://zalo.me/0355356294" target="_blank" rel="noopener" class="btn btn-secondary btn-sidebar-contact" style="width: 100%;">
               <i class="fa-solid fa-comment"></i> Nhận tư vấn Zalo ngay
             </a>
           </div>

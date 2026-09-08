@@ -142,6 +142,29 @@ const route = useRoute()
 const id = computed(() => route.params.id as string)
 
 const projectsData: Record<string, any> = {
+  'nhat-ki-cua-me': {
+    id: 'nhat-ki-cua-me',
+    title: 'Nhật Kí Của Mẹ',
+    artist: 'Mai Linh (Cover)',
+    category: 'Hoà âm phối khí',
+    year: '2025',
+    link: 'https://www.youtube.com/watch?v=F5tPTow1xkE',
+    thumb: 'https://img.youtube.com/vi/F5tPTow1xkE/hqdefault.jpg',
+    embedId: 'F5tPTow1xkE',
+    credits: [
+      { role: 'Sáng tác', name: 'Nguyễn Văn Chung' },
+      { role: 'Thể hiện', name: 'Mai Linh' },
+      { role: 'Hoà âm - Phối khí', name: 'Xkprod ft LacAnh' },
+      { role: 'Thu âm (Rec)', name: 'XKProduction' },
+      { role: 'Mixing & Mastering', name: 'Xkprod ft LacAnh' }
+    ],
+    storyDetails: {
+      context: 'Ca khúc bất hủ "Nhật Kí Của Mẹ" của nhạc sĩ Nguyễn Văn Chung là tượng đài âm nhạc thiêng liêng về tình mẫu tử. Nữ ca sĩ Mai Linh cùng XKProduction mong muốn tái hiện tác phẩm theo một góc nhìn mộc mạc, gần gũi và đong đầy xúc cảm chân phương.',
+      goal: 'Thiết kế bản phối Grand Piano kết hợp dàn nhạc dây (Strings) da diết, thu âm vocal đạt độ chi tiết cao để từng nhịp thở, từng nốt ngân đều chuyên chở trọn vẹn tình mẹ.',
+      process: 'XKProduction ft LacAnh khởi tạo bản phối 3/4 ở tempo 82 BPM, lấy tiếng đàn Piano mộc làm nền tảng dẫn lối. Quá trình thu âm vocal của Mai Linh được chăm chút tỉ mỉ tại phòng thu, giữ trọn những rung cảm tự nhiên và hạn chế lạm dụng tuning. Khâu mix & master tối ưu hóa không gian 3D và chuẩn phát hành số YouTube/Spotify.',
+      outcome: 'Bản cover chạm đến trái tim của đông đảo thính giả, trở thành một minh chứng tiêu biểu cho năng lực sản xuất âm nhạc trọn gói giàu cảm xúc tại XKProduction.'
+    }
+  },
   'love-du-phong': {
     id: 'love-du-phong',
     title: 'Love Dự Phòng',
@@ -297,14 +320,22 @@ const getContactLink = (category: string) => {
   return param ? `/contact?service=${param}` : '/contact'
 }
 
+const projectOgImage = computed(() => {
+  if (!project.value?.thumb) return 'https://xkproduction.com/images/Xkpreviewnew.png'
+  if (project.value.thumb.startsWith('http')) return project.value.thumb
+  return `https://xkproduction.com${project.value.thumb}`
+})
+
 useSeoMeta({
   title: () => project.value ? `${project.value.title} — Chi Tiết Dự Án | XKProduction` : 'Không tìm thấy dự án | XKProduction',
   description: () => project.value ? `Khám phá câu chuyện sản xuất đằng sau tác phẩm ${project.value.title} cùng nghệ sĩ ${project.value.artist} thực hiện tại XKProduction.` : 'Dự án không tồn tại trên XKProduction.',
-  ogTitle: () => project.value ? `${project.value.title} — Câu Chuyện Dự Án` : 'XKProduction Portfolio',
+  ogTitle: () => project.value ? `${project.value.title} — Câu Chuyện Dự Án | XKProduction` : 'XKProduction Portfolio',
   ogDescription: () => project.value ? `Quá trình hoà âm, phối khí, mix & master cho ca khúc ${project.value.title}.` : 'Khám phá các sản phẩm âm nhạc tiêu biểu.',
-  ogImage: () => project.value?.thumb || 'https://xkproduction.com/images/Xkpreviewnew.png',
-  ogType: 'video.other',
-  ogUrl: () => `https://xkproduction.com/products/${id.value}`
+  ogImage: () => projectOgImage.value,
+  ogType: 'website',
+  ogUrl: () => `https://xkproduction.com/products/${id.value}`,
+  twitterCard: 'summary_large_image',
+  twitterImage: () => projectOgImage.value
 })
 
 useSchemaOrg([

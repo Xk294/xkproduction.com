@@ -6,6 +6,7 @@ export interface BlogSection {
   callout?: string
   bullets?: string[]
   image?: string
+  videoEmbed?: string
 }
 
 export interface BlogPost {
@@ -32,11 +33,90 @@ const sectionToHtml = (sections: BlogSection[]) => sections.map(section => `
   ${section.body.map(paragraph => `<p>${paragraph}</p>`).join('')}
   ${section.quote ? `<blockquote>${section.quote}</blockquote>` : ''}
   ${section.callout ? `<div class="article-note">${section.callout}</div>` : ''}
+  ${section.image ? `<img src="${section.image}" alt="${section.heading}" loading="lazy" />` : ''}
+  ${section.videoEmbed ? `<div class="video-embed"><iframe src="https://www.youtube.com/embed/${section.videoEmbed}?rel=0" allowfullscreen></iframe></div>` : ''}
   ${section.bullets ? `<ul>${section.bullets.map(item => `<li>${item}</li>`).join('')}</ul>` : ''}
 `).join('')
 
 export const useBlog = () => {
   const posts: Omit<BlogPost, 'content'>[] = [
+    {
+      slug: 'san-xuat-nhat-ki-cua-me-mai-linh',
+      title: "Hậu trường sản xuất 'Nhật Kí Của Mẹ' (Cover Mai Linh): Từ bản phối Piano đến tiếng hát chạm cảm xúc",
+      subtitle: "Một tác phẩm bất hủ về tình mẫu tử của nhạc sĩ Nguyễn Văn Chung được tái hiện bằng tư duy sản xuất mộc mạc: Xkprod ft LacAnh hoà âm phối khí, thu âm vocal tự sự và mix master chuẩn phát hành số.",
+      excerpt: "Khám phá quy trình sản xuất âm nhạc ca khúc 'Nhật Kí Của Mẹ' do Mai Linh thể hiện: từ cách chọn tempo 82 BPM, khung hoà âm 3/4 mộc mạc, kỹ thuật thu âm vocal tại XKProduction đến khâu mix & master giữ trọn từng hơi thở cảm xúc.",
+      category: 'Hoà Âm Phối Khí',
+      icon: 'fa-solid fa-heart',
+      author: 'Nguyễn Xuân Kiệt',
+      authorRole: 'Founder / Music Producer tại XKProduction',
+      date: '08/09/2026',
+      isoDate: '2026-09-08',
+      readTime: '9 phút đọc',
+      thumb: '/images/blog-nhat-ki-cua-me.jpg',
+      cover: '/images/blog-nhat-ki-cua-me.jpg',
+      tags: ['Hoà Âm Phối Khí', 'Thu Âm', 'Mix & Master', 'Cover'],
+      sections: [
+        {
+          id: 'tam-hon-cua-mot-tac-pham-kinh-dien',
+          heading: '1. Tâm hồn của một tác phẩm kinh điển và áp lực khi làm mới',
+          body: [
+            "Khi nhắc đến những ca khúc thiêng liêng nhất về tình mẫu tử trong nền âm nhạc Việt Nam hiện đại, 'Nhật Kí Của Mẹ' của nhạc sĩ Nguyễn Văn Chung luôn là tượng đài lớn trong lòng khán giả. Từng câu chữ trong bài hát không đơn thuần là một bản nhạc, mà là cuốn nhật ký bằng thanh âm ghi lại trọn vẹn cuộc đời một người mẹ: từ ngày con tượng hình, tiếng khóc chào đời, bước chân chập chững, ngày con cắp sách đến trường cho đến khi con khôn lớn bước ra biển rộng.",
+            "Khi ca sĩ Mai Linh cùng XKProduction ft LacAnh quyết định thực hiện bản cover này, áp lực lớn nhất đối với một người Music Producer không nằm ở kỹ thuật phức tạp, mà là làm sao giữ được sự khiêm nhường của âm thanh trước cảm xúc. Một bản phối quá ồn ào hay phô trương kỹ xảo sẽ lập tức giết chết sự chân phương của lời ca. Mục tiêu của chúng tôi là xây dựng một không gian âm nhạc đủ mộc mạc để làm nổi bật tiếng hát, nhưng đủ dày dặn và ấm áp để ôm lấy tâm hồn người nghe."
+          ],
+          quote: 'Với những ca khúc về mẹ, âm nhạc không cần chứng minh ai là kỹ sư âm thanh giỏi. Âm nhạc chỉ cần làm đúng một điều: khiến người nghe muốn nhấc máy gọi về cho mẹ ngay lập tức.'
+        },
+        {
+          id: 'tu-duy-hoa-am-phoi-khi-3-4-tempo-82',
+          heading: '2. Tư duy hoà âm phối khí: Nhịp điệu 3/4, Tempo 82 BPM và cấu trúc dạt dào',
+          body: [
+            "Dự án được khởi tạo trên Logic Pro X (nhat ki cua me3/4xk.logicx) với nhịp valse 3/4 quen thuộc nhưng được căn chỉnh ở tempo 82 BPM – một nhịp độ vừa đủ khoan thai để từng ca từ có không gian ngân vang, nhưng không bị trì trệ hay kéo lê cảm xúc.",
+            "Điểm tựa linh hồn của toàn bộ bản phối là tiếng Grand Piano (track Piano Aki). Xkprod và LacAnh lựa chọn lối rải arpeggio mộc, nhấn mạnh vào các nốt bass trầm ấm ở phách 1 và buông lỏng hai phách sau để tạo cảm giác bồng bềnh như nhịp đưa nôi. Xen kẽ là lớp Electric Piano mềm mại mở rộng độ ngân.",
+            "Càng về các đoạn sau, khi câu chuyện tiến đến giai đoạn người con trưởng thành và bước vào đời, bản phối bắt đầu mở rộng không gian bằng dàn nhạc dây (Strings Ensemble) và tiếng kèn Horn ấm áp ở nền xa. Dải solo violin da diết đan xen vào những khoảng ngắt của câu hát, tạo nên sự nâng đỡ cảm xúc mà không hề tranh chấp dải tần với giọng hát chính."
+          ],
+          bullets: [
+            'Nhịp 3/4 ở Tempo 82 BPM: Tạo sự khoan thai, ấm áp như lời thủ thỉ tâm sự.',
+            'Tầng nhạc cụ chính: Grand Piano mộc dẫn dắt xuyên suốt, Electric Piano đệm nền nhẹ nhàng.',
+            'Cao trào dàn dây: Strings Ensemble và Solo Violin được phân lớp tỉ mỉ, tăng dần độ dày theo tiến trình trưởng thành của người con.',
+            'Hiệu ứng không gian: SubKick FX và Chimes xuất hiện tinh tế ở các điểm chuyển đoạn (transition) để nhấn mạnh sự thiêng liêng.'
+          ]
+        },
+        {
+          id: 'thu-am-vocal-mai-linh',
+          heading: '3. Kỹ thuật thu âm vocal tại XKStudio: Tôn trọng từng hơi thở tự nhiên',
+          body: [
+            "Giọng ca của Mai Linh có ưu điểm rất lớn là sự trong sáng, mộc mạc và chân thành – những phẩm chất vàng cho một ca khúc mang tính tự sự gia đình. Tại phòng thu XKProduction, chúng tôi chú trọng tuyệt đối vào tâm lý của người hát trước khi bấm nút Record.",
+            "Chúng tôi sử dụng micro condenser màng lớn với đặc tính thu âm phẳng và trung thực, khoảng cách thu được tính toán khoảng 15–20cm kết hợp pop filter chuyên dụng. Khoảng cách này vừa đủ để tận dụng nhẹ hiệu ứng Proximity Effect nhằm tăng độ ấm ở dải 200–400 Hz cho giọng nữ, đồng thời giữ được sự sắc nét ở dải cao mà không bị chói gắt (harshness).",
+            "Trong khâu Vocal Production, nguyên tắc cốt lõi là không lạm dụng tuning (Melodyne / Auto-tune) quá đà. Những chỗ rung tự nhiên, sự nấc nhẹ trong hơi thở hay độ rung cuối câu đều được chúng tôi trân trọng giữ lại. Sự hoàn hảo máy móc thường làm mất đi sự sống; chính những 'vết gợn' cảm xúc chân thật mới là thứ kết nối trái tim người nghe."
+          ],
+          callout: 'Một bản thu vocal hay không phải bản thu không có tì vết, mà là bản thu mà khi nghe lại, ca sĩ và thính giả đều cảm nhận được trọn vẹn nhịp đập của trái tim mình.'
+        },
+        {
+          id: 'mix-master-khong-gian-va-thuong-thuc',
+          heading: '4. Khâu Mix & Master: Không gian đa chiều và tối ưu hoá nền tảng số',
+          body: [
+            "Bước sang giai đoạn Mixing, thách thức là tạo ra sự tách bạch rõ rệt giữa dải trung âm của tiếng Piano và giọng hát của Mai Linh. Bằng kỹ thuật Dynamic EQ kết hợp Sidechain nhẹ ở vùng 1–3 kHz, mỗi khi vocal cất lên, tiếng Piano sẽ tự động nhường lại một khoảng trống tinh tế để giọng ca luôn nổi bật ở vị trí trung tâm.",
+            "Không gian reverb được thiết kế bằng hai lớp: một Plate Reverb ngắn tạo độ dày thân vocal (body), và một Hall Reverb đuôi ấm với pre-delay 40ms để vocal hòa quyện vào dàn nhạc dây phía sau mà không bị đẩy lùi xa người nghe.",
+            "Ở khâu Mastering, bản nhạc được xử lý độ động và màu âm tổng thể, xuất chuẩn loudness -14 LUFS với True Peak an toàn dưới -1.0 dBFS để khi phân phối lên YouTube, chất âm vẫn giữ nguyên độ trong trẻo, không bị nén méo tiếng. Bạn có thể thưởng thức trọn vẹn tác phẩm ngay dưới đây:"
+          ],
+          videoEmbed: 'F5tPTow1xkE'
+        },
+        {
+          id: 'loi-ket-va-lan-toa',
+          heading: '5. Lời kết: Cảm xúc chân thành là giá trị cốt lõi của âm nhạc',
+          body: [
+            "'Nhật Kí Của Mẹ' phiên bản cover của Mai Linh qua bàn tay hoà âm phối khí, thu âm, mix & master của Xkprod ft LacAnh là một món quà âm nhạc chan chứa tình cảm mà cả ê-kíp muốn gửi tặng đến tất cả những người mẹ, người con.",
+            "Tại XKProduction, mỗi dự án âm nhạc – dù là một bản cover acoustic, một bài hát sáng tác mới hay một dự án thương mại – đều được thực hiện với sự cẩn trọng và tận tâm cao nhất. Chúng tôi tin rằng công nghệ phòng thu hiện đại chỉ thực sự có ý nghĩa khi nó được đặt vào tay những người biết lắng nghe và tôn vinh cảm xúc nguyên bản của nghệ sĩ."
+          ],
+          bullets: [
+            'Tác phẩm: Nhật Kí Của Mẹ (Sáng tác: Nhạc sĩ Nguyễn Văn Chung)',
+            'Thể hiện: Mai Linh',
+            'Hoà âm - Phối khí (Arrangement): Xkprod ft LacAnh',
+            'Thu âm (Rec), Mix & Master: XKProduction ft LacAnh (Nguyễn Xuân Kiệt)',
+            'Nền tảng phát hành: YouTube & các nền tảng số'
+          ]
+        }
+      ]
+    },
     {
       slug: 'thu-am-gia-2026',
       title: 'Thu âm bài hát giá bao nhiêu trong năm 2026?',
@@ -578,8 +658,8 @@ export const useBlog = () => {
       date: '30/05/2026',
       isoDate: '2026-05-30',
       readTime: '8 phút đọc',
-      thumb: '/images/blog-live-sound.jpg',
-      cover: '/images/blog-live-sound.jpg',
+      thumb: '/images/kiet-live-sound-wide.jpg',
+      cover: '/images/kiet-live-sound-wide.jpg',
       tags: ['Live Sound', 'Sự Kiện', 'Âm Thanh'],
       sections: [
         {
@@ -594,6 +674,7 @@ export const useBlog = () => {
         {
           id: 'micro-va-khong-gian',
           heading: 'Micro, phòng và vị trí loa quyết định rất nhiều',
+          image: '/images/kiet-live-sound-focus.jpg',
           body: [
             'Một micro tốt vẫn có thể hú nếu đặt sai hướng loa. Một phòng kính hoặc trần thấp có thể làm tiếng nói bị dội và mệt tai. Vì vậy live sound không chỉ là mang thiết bị đến, mà là đọc không gian trước khi mở âm lượng.',
             'Với workshop hoặc talkshow, ưu tiên giọng nói rõ, ít vang và ổn định khi người cầm micro di chuyển. Với acoustic night, cần giữ vocal gần, guitar đủ thân và không để cajon hoặc kick lấn toàn bộ không gian.'

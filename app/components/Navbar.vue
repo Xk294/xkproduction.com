@@ -3,12 +3,70 @@
     <div class="nav-container">
       <!-- LEFT: Desktop nav -->
       <ul class="nav-group nav-left" role="list" aria-label="Điều hướng chính">
-        <li>
-          <NuxtLink to="/services" class="nav-link" title="Dịch vụ & Bảng giá" :aria-current="$route.path === '/services' ? 'page' : undefined">
+        <li class="has-dropdown">
+          <NuxtLink to="/services" class="nav-link" title="Dịch vụ & Bảng giá" :aria-current="$route.path.startsWith('/services') || ['/thu-am', '/mix-master', '/mix-online', '/hoa-am-phoi-khi', '/b2b', '/presets', '/quay-mv-tvc'].includes($route.path) ? 'page' : undefined">
             <span class="nav-icon"><i class="fa-solid fa-microphone-lines" aria-hidden="true"></i></span>
             <span class="nav-text">Dịch vụ</span>
+            <i class="fa-solid fa-chevron-down nav-arrow-icon" aria-hidden="true"></i>
             <span class="nav-indicator" aria-hidden="true"></span>
           </NuxtLink>
+          <div class="nav-dropdown glass-card">
+            <NuxtLink to="/thu-am" class="dropdown-item">
+              <i class="fa-solid fa-microphone"></i>
+              <div>
+                <strong>Thu âm bài hát</strong>
+                <span>Phòng thu chuyên nghiệp</span>
+              </div>
+            </NuxtLink>
+            <NuxtLink to="/mix-master" class="dropdown-item">
+              <i class="fa-solid fa-sliders"></i>
+              <div>
+                <strong>Mixing &amp; Mastering</strong>
+                <span>Chuẩn Spotify / Apple Music</span>
+              </div>
+            </NuxtLink>
+            <NuxtLink to="/mix-online" class="dropdown-item">
+              <i class="fa-solid fa-cloud-arrow-up"></i>
+              <div>
+                <strong>Mix &amp; Master Online</strong>
+                <span>Gửi file nhận bài 48-72h</span>
+              </div>
+            </NuxtLink>
+            <NuxtLink to="/hoa-am-phoi-khi" class="dropdown-item">
+              <i class="fa-solid fa-music"></i>
+              <div>
+                <strong>Hoà âm phối khí</strong>
+                <span>Sản xuất bài hát trọn gói</span>
+              </div>
+            </NuxtLink>
+            <NuxtLink to="/b2b" class="dropdown-item">
+              <i class="fa-solid fa-building-columns"></i>
+              <div>
+                <strong>Âm nhạc Doanh Nghiệp</strong>
+                <span>Nhạc TVC, Brand Music, Sự kiện</span>
+              </div>
+            </NuxtLink>
+            <NuxtLink to="/presets" class="dropdown-item">
+              <i class="fa-solid fa-wand-magic-sparkles"></i>
+              <div>
+                <strong>Vocal Presets &amp; Template</strong>
+                <span>Kho tài nguyên studio chuẩn</span>
+              </div>
+            </NuxtLink>
+            <NuxtLink to="/quay-mv-tvc" class="dropdown-item">
+              <i class="fa-solid fa-film"></i>
+              <div>
+                <strong>Quay MV &amp; TVC</strong>
+                <span>Video ca nhạc, phòng thu</span>
+              </div>
+            </NuxtLink>
+            <div class="dropdown-footer">
+              <NuxtLink to="/services" class="dropdown-all-link">
+                <span>Xem tất cả bảng giá dịch vụ</span>
+                <i class="fa-solid fa-arrow-right"></i>
+              </NuxtLink>
+            </div>
+          </div>
         </li>
         <li>
           <NuxtLink to="/products" class="nav-link" title="Tác phẩm nổi bật" :aria-current="$route.path === '/products' ? 'page' : undefined">
@@ -101,11 +159,32 @@
                 <span class="mobile-item-sub">Chuẩn Spotify / Apple Music</span>
               </div>
             </NuxtLink>
+            <NuxtLink to="/mix-online" class="mobile-nav-item" @click="closeMobile">
+              <i class="fa-solid fa-cloud-arrow-up"></i>
+              <div>
+                <span class="mobile-item-title">Mix & Master Online</span>
+                <span class="mobile-item-sub">Gửi file nhận bản mix 48-72h</span>
+              </div>
+            </NuxtLink>
             <NuxtLink to="/hoa-am-phoi-khi" class="mobile-nav-item" @click="closeMobile">
               <i class="fa-solid fa-music"></i>
               <div>
                 <span class="mobile-item-title">Hoà âm phối khí</span>
                 <span class="mobile-item-sub">Sản xuất âm nhạc trọn gói</span>
+              </div>
+            </NuxtLink>
+            <NuxtLink to="/b2b" class="mobile-nav-item" @click="closeMobile">
+              <i class="fa-solid fa-building-columns"></i>
+              <div>
+                <span class="mobile-item-title">Âm nhạc Doanh Nghiệp</span>
+                <span class="mobile-item-sub">Nhạc TVC, Brand Music, Sự kiện</span>
+              </div>
+            </NuxtLink>
+            <NuxtLink to="/presets" class="mobile-nav-item" @click="closeMobile">
+              <i class="fa-solid fa-wand-magic-sparkles"></i>
+              <div>
+                <span class="mobile-item-title">Vocal Presets &amp; Template</span>
+                <span class="mobile-item-sub">Kho tài nguyên vocal presets chuẩn studio</span>
               </div>
             </NuxtLink>
             <NuxtLink to="/quay-mv-tvc" class="mobile-nav-item" @click="closeMobile">
@@ -327,6 +406,106 @@ watch(mobileOpen, (open) => {
 
 .nav-icon { font-size: 0.82rem; line-height: 1; flex-shrink: 0; }
 .nav-text  { line-height: 1; }
+
+/* DROPDOWN */
+.has-dropdown {
+  position: relative;
+}
+.nav-arrow-icon {
+  font-size: 0.65rem;
+  margin-left: 0.2rem;
+  transition: transform 0.25s ease;
+  opacity: 0.7;
+}
+.has-dropdown:hover .nav-arrow-icon {
+  transform: rotate(180deg);
+  opacity: 1;
+}
+.nav-dropdown {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  min-width: 270px;
+  background: rgba(7, 16, 24, 0.96);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(26, 140, 255, 0.22);
+  border-radius: 14px;
+  padding: 0.5rem;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.7), 0 0 25px rgba(26, 140, 255, 0.12);
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(8px);
+  transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+  pointer-events: none;
+  z-index: 1010;
+}
+.has-dropdown:hover .nav-dropdown,
+.has-dropdown:focus-within .nav-dropdown {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+.dropdown-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.55rem 0.75rem;
+  border-radius: 8px;
+  text-decoration: none;
+  color: var(--text-light);
+  transition: all 0.2s ease;
+}
+.dropdown-item:hover {
+  background: rgba(26, 140, 255, 0.12);
+  color: var(--text-main);
+  transform: translateX(3px);
+}
+.dropdown-item i {
+  font-size: 0.95rem;
+  color: var(--accent);
+  width: 20px;
+  text-align: center;
+  flex-shrink: 0;
+}
+.dropdown-item div {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+}
+.dropdown-item strong {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--text-main);
+}
+.dropdown-item span {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+}
+.dropdown-footer {
+  margin-top: 0.3rem;
+  padding-top: 0.4rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+.dropdown-all-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.45rem 0.75rem;
+  border-radius: 6px;
+  font-size: 0.76rem;
+  font-weight: 700;
+  color: var(--accent);
+  text-decoration: none;
+  transition: background 0.2s ease;
+}
+.dropdown-all-link:hover {
+  background: rgba(26, 140, 255, 0.15);
+}
 
 /* CTA BUTTON */
 .nav-separator { width: 1px; height: 16px; background: rgba(255,255,255,0.08); margin: 0 0.4rem; }

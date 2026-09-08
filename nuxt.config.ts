@@ -16,9 +16,13 @@ export default defineNuxtConfig({
   },
 
   // === SEO MODULE CONFIG ===
+  robots: {
+    disallow: ['/admin', '/admin/*'],
+  },
   sitemap: {
     strictNuxtContentPaths: false,
     zeroRuntime: true,
+    exclude: ['/admin', '/admin/**'],
     urls: [
       {
         loc: '/',
@@ -77,7 +81,10 @@ export default defineNuxtConfig({
         priority: 0.8,
         changefreq: 'monthly',
         lastmod: new Date().toISOString().split('T')[0],
-        images: [{ loc: 'https://xkproduction.com/images/quocchi-2.jpg', title: 'Âm thanh ánh sáng sự kiện XKProduction', caption: 'Cho thuê âm thanh ánh sáng sân khấu chuyên nghiệp' }]
+        images: [
+          { loc: 'https://xkproduction.com/images/kiet-live-sound-wide.jpg', title: 'Kỹ sư âm thanh Nguyễn Xuân Kiệt bàn mixer Midas M32R', caption: 'Vận hành âm thanh sự kiện chuyên nghiệp XKProduction' },
+          { loc: 'https://xkproduction.com/images/quocchi-2.jpg', title: 'Âm thanh ánh sáng sự kiện XKProduction', caption: 'Cho thuê âm thanh ánh sáng sân khấu chuyên nghiệp' }
+        ]
       },
       {
         loc: '/products',
@@ -118,8 +125,27 @@ export default defineNuxtConfig({
           { loc: 'https://xkproduction.com/images/blog-mix-master.jpg', title: 'Mix Master là gì', caption: 'Hướng dẫn mixing và mastering' }
         ]
       },
+      {
+        loc: '/b2b',
+        priority: 0.8,
+        changefreq: 'monthly',
+        lastmod: new Date().toISOString().split('T')[0],
+      },
+      {
+        loc: '/mix-online',
+        priority: 0.9,
+        changefreq: 'weekly',
+        lastmod: new Date().toISOString().split('T')[0],
+      },
+      {
+        loc: '/presets',
+        priority: 0.9,
+        changefreq: 'weekly',
+        lastmod: new Date().toISOString().split('T')[0],
+      },
       { loc: '/privacy', priority: 0.3, changefreq: 'yearly', lastmod: '2025-01-01' },
       // Product detail pages
+      { loc: '/products/nhat-ki-cua-me', priority: 0.7, changefreq: 'monthly', lastmod: new Date().toISOString().split('T')[0] },
       { loc: '/products/love-du-phong', priority: 0.7, changefreq: 'monthly', lastmod: new Date().toISOString().split('T')[0] },
       { loc: '/products/chang-muon-noi-nhieu-loi', priority: 0.7, changefreq: 'monthly', lastmod: new Date().toISOString().split('T')[0] },
       { loc: '/products/ly-do-bat-dau', priority: 0.7, changefreq: 'monthly', lastmod: new Date().toISOString().split('T')[0] },
@@ -128,6 +154,7 @@ export default defineNuxtConfig({
       { loc: '/products/ao-cu-tinh-moi', priority: 0.7, changefreq: 'monthly', lastmod: new Date().toISOString().split('T')[0] },
       { loc: '/products/tet-xa-cover', priority: 0.7, changefreq: 'monthly', lastmod: new Date().toISOString().split('T')[0] },
       // Blog detail pages
+      { loc: '/blog/san-xuat-nhat-ki-cua-me-mai-linh', priority: 0.8, changefreq: 'monthly', lastmod: new Date().toISOString().split('T')[0] },
       { loc: '/blog/thu-am-gia-2026', priority: 0.8, changefreq: 'monthly', lastmod: new Date().toISOString().split('T')[0] },
       { loc: '/blog/phong-thu-am-binh-phuoc', priority: 0.8, changefreq: 'monthly', lastmod: new Date().toISOString().split('T')[0] },
       { loc: '/blog/mix-master-huong-dan', priority: 0.8, changefreq: 'monthly', lastmod: new Date().toISOString().split('T')[0] },
@@ -212,18 +239,17 @@ export default defineNuxtConfig({
         { rel: 'dns-prefetch', href: 'https://www.googletagmanager.com' },
         { rel: 'preconnect', href: 'https://www.googletagmanager.com' },
       ],
-      // === TRACKING: Google Analytics 4 ===
-      // TODO: Replace G-XXXXXXXXXX with your real GA4 Measurement ID (analytics.google.com)
-      script: [
+      // === TRACKING: Google Analytics 4 (only activated when a valid GA ID is configured) ===
+      script: process.env.NUXT_PUBLIC_GA_ID && process.env.NUXT_PUBLIC_GA_ID !== 'G-XXXXXXXXXX' ? [
         {
-          src: 'https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX',
+          src: `https://www.googletagmanager.com/gtag/js?id=${process.env.NUXT_PUBLIC_GA_ID}`,
           async: true,
         },
         {
-          innerHTML: `window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XXXXXXXXXX',{send_page_view:true});`,
+          innerHTML: `window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','${process.env.NUXT_PUBLIC_GA_ID}',{send_page_view:true});`,
           type: 'text/javascript',
         },
-      ]
+      ] : []
     }
   },
 
@@ -240,9 +266,10 @@ export default defineNuxtConfig({
       crawlLinks: true,
       routes: [
         '/', '/about', '/services', '/products', '/live-band', '/courses',
-        '/contact', '/faq', '/blog', '/privacy', '/sitemap.xml', '/robots.txt',
+        '/contact', '/faq', '/blog', '/privacy', '/b2b', '/mix-online', '/presets', '/sitemap.xml', '/robots.txt',
         '/thu-am', '/mix-master', '/hoa-am-phoi-khi', '/quay-mv-tvc',
         // Product detail pages
+        '/products/nhat-ki-cua-me',
         '/products/love-du-phong',
         '/products/chang-muon-noi-nhieu-loi',
         '/products/ly-do-bat-dau',
@@ -251,6 +278,7 @@ export default defineNuxtConfig({
         '/products/ao-cu-tinh-moi',
         '/products/tet-xa-cover',
         // Blog detail pages — must be explicit for SSG (crawlLinks can't follow Vue client-side links)
+        '/blog/san-xuat-nhat-ki-cua-me-mai-linh',
         '/blog/thu-am-gia-2026',
         '/blog/phong-thu-am-binh-phuoc',
         '/blog/mix-master-huong-dan',
@@ -264,9 +292,9 @@ export default defineNuxtConfig({
       ],
     },
     routeRules: {
+      '/admin/**': { ssr: false },
       '/**': {
         headers: {
-          // @ts-expect-error - process is not defined in tsconfig type definitions
           'Cache-Control': process.env.NODE_ENV === 'development' ? 'no-cache, no-store, must-revalidate' : 'public, max-age=3600, s-maxage=86400',
           'X-Content-Type-Options': 'nosniff',
           'X-Frame-Options': 'SAMEORIGIN',
@@ -288,9 +316,21 @@ export default defineNuxtConfig({
 
   // === RUNTIME CONFIG ===
   runtimeConfig: {
+    // Private — set via Cloudflare secrets or .env with NUXT_ prefix
+    adminEmails: '',         // NUXT_ADMIN_EMAILS=email1@gmail.com,email2@gmail.com
+    telegramBotToken: '',    // NUXT_TELEGRAM_BOT_TOKEN
+    telegramChatId: '',      // NUXT_TELEGRAM_CHAT_ID
     public: {
       formspreeEndpoint: 'https://formspree.io/f/mojybjvk',
-      crispWebsiteId: '', // Sẽ được ghi đè bằng env NUXT_PUBLIC_CRISP_WEBSITE_ID
-    }
+      crispWebsiteId: '',    // NUXT_PUBLIC_CRISP_WEBSITE_ID
+      firebase: {
+        apiKey: process.env.NUXT_PUBLIC_FIREBASE_API_KEY || 'AIzaSyBYvC9vy4ZOyMzFBGqiXCQQa3J1yzSLmwE',
+        authDomain: process.env.NUXT_PUBLIC_FIREBASE_AUTH_DOMAIN || 'xkproduction-d6fce.firebaseapp.com',
+        projectId: process.env.NUXT_PUBLIC_FIREBASE_PROJECT_ID || 'xkproduction-d6fce',
+        storageBucket: process.env.NUXT_PUBLIC_FIREBASE_STORAGE_BUCKET || 'xkproduction-d6fce.firebasestorage.app',
+        messagingSenderId: process.env.NUXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID || '613539816477',
+        appId: process.env.NUXT_PUBLIC_FIREBASE_APP_ID || '1:613539816477:web:fcdd9f1775e2c9cad592f4',
+      },
+    },
   },
 })

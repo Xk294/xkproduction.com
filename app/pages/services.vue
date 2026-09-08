@@ -72,6 +72,9 @@
       </div>
     </section>
 
+    <!-- ===== SECTION: GÓI COMBO TIẾT KIỆM ===== -->
+    <PricingBundles />
+
     <!-- ===== SECTION 2: BẢNG GIÁ CHI TIẾT ===== -->
     <section id="pricing-section" class="section-block section-pricing">
       <div class="max-width">
@@ -178,6 +181,9 @@
 
       </div>
     </section>
+
+    <!-- ===== LEAD MAGNET CHECKLIST DOWNLOAD ===== -->
+    <EmailCapture />
   </div>
 </template>
 

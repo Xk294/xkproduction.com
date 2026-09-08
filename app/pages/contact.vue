@@ -31,7 +31,7 @@
             <i class="fa-solid fa-sliders"></i>
             <div>
               <span class="price-bar-service">Mix & Master</span>
-              <span class="price-bar-from">Từ <strong>600.000₫</strong>/bài</span>
+              <span class="price-bar-from">Từ <strong>300.000₫</strong>/bài</span>
             </div>
           </div>
           <div class="price-bar-divider" aria-hidden="true"></div>
@@ -57,8 +57,41 @@
       </div>
     </section>
 
+    <!-- ===== MODE SELECTOR TABS ===== -->
+    <div class="contact-mode-section max-width">
+      <div class="contact-mode-tabs glass-card">
+        <button
+          type="button"
+          class="mode-tab-btn"
+          :class="{ active: activeMode === 'form' }"
+          @click="activeMode = 'form'"
+        >
+          <i class="fa-solid fa-paper-plane"></i>
+          <span>1. Gửi Lời Nhắn &amp; Báo Giá</span>
+        </button>
+        <button
+          type="button"
+          class="mode-tab-btn"
+          :class="{ active: activeMode === 'calendar' }"
+          @click="activeMode = 'calendar'"
+        >
+          <i class="fa-solid fa-calendar-check"></i>
+          <span>2. Đặt Lịch Ca Thu Trực Tuyến</span>
+        </button>
+        <button
+          type="button"
+          class="mode-tab-btn"
+          :class="{ active: activeMode === 'qr' }"
+          @click="activeMode = 'qr'"
+        >
+          <i class="fa-solid fa-qrcode"></i>
+          <span>3. Quét QR Chuyển Khoản / Cọc</span>
+        </button>
+      </div>
+    </div>
+
     <!-- ===== CONTACT DETAILS & FORM ===== -->
-    <section class="contact-form-section">
+    <section v-show="activeMode === 'form'" class="contact-form-section">
       <div class="max-width contact-grid">
         <!-- Left Column: Information checklists -->
         <div class="contact-info-panel">
@@ -154,10 +187,15 @@
                     <option value="">Chọn dịch vụ...</option>
                     <option value="thu-am">Thu âm bài hát</option>
                     <option value="mixing-mastering">Mixing &amp; Mastering</option>
+                    <option value="mix-online">Mix &amp; Master Online</option>
                     <option value="hoa-am">Hòa âm phối khí</option>
+                    <option value="combo-solo">Gói Solo Artist (Thu + Mix/Master)</option>
+                    <option value="combo-artist">Gói Artist Pro (Hoà âm + Thu + Mix/Master)</option>
+                    <option value="combo-ep">Gói Combo EP (3 bài)</option>
+                    <option value="b2b">Âm nhạc Doanh Nghiệp (TVC, Brand, Sự kiện)</option>
                     <option value="mv-tvc">Sản xuất MV / TVC</option>
                     <option value="live-band">Âm thanh - Live Band sự kiện</option>
-                    <option value="khoa-hoc">Khoá học âm nhạc</option>
+                    <option value="khoa-hoc">Khoá học Music Producer</option>
                     <option value="other">Yêu cầu khác</option>
                   </select>
                 </div>
@@ -184,6 +222,20 @@
             </form>
           </div>
         </div>
+      </div>
+    </section>
+
+    <!-- ===== AUTOMATED BOOKING FLOW ===== -->
+    <section v-show="activeMode === 'calendar'" class="booking-section-wrap" style="padding: 1rem 0 4rem;">
+      <div class="max-width">
+        <BookingFlow />
+      </div>
+    </section>
+
+    <!-- ===== VIETQR PAYMENT / DEPOSIT ===== -->
+    <section v-show="activeMode === 'qr'" class="payment-section-wrap" style="padding: 1rem 0 4rem;">
+      <div class="max-width">
+        <VietQRPayment />
       </div>
     </section>
 
@@ -270,7 +322,7 @@ useSchemaOrg([
     priceRange: '350.000₫ – 3.500.000₫',
     aggregateRating: {
       ratingValue: '4.9',
-      ratingCount: 2000,
+      ratingCount: 150,
       bestRating: '5',
       worstRating: '1'
     }
@@ -280,15 +332,38 @@ useSchemaOrg([
 const config = useRuntimeConfig()
 const FORMSPREE_ENDPOINT = config.public.formspreeEndpoint
 
+const activeMode = ref<'form' | 'calendar' | 'qr'>('form')
 const form = reactive({ name: '', phone: '', email: '', service: '', message: '' })
 const formErrors = reactive({ name: '', phone: '', service: '', message: '' })
 const submitState = ref<'idle' | 'loading' | 'success' | 'error'>('idle')
 
 onMounted(() => {
+  if (route.query.mode) {
+    const m = (route.query.mode as string).toLowerCase().trim()
+    if (m === 'booking' || m === 'calendar') activeMode.value = 'calendar'
+    else if (m === 'qr' || m === 'payment') activeMode.value = 'qr'
+  }
   if (route.query.service) {
-    const validServices = ['thu-am', 'mixing-mastering', 'hoa-am', 'mv-tvc', 'live-band', 'khoa-hoc', 'other']
-    if (validServices.includes(route.query.service as string)) {
-      form.service = route.query.service as string
+    const raw = (route.query.service as string).toLowerCase().trim()
+    const serviceAliases: Record<string, string> = {
+      'thu-am': 'thu-am',
+      'mix-master': 'mixing-mastering',
+      'mixing-mastering': 'mixing-mastering',
+      'mix-online': 'mix-online',
+      'hoa-am': 'hoa-am',
+      'hoa-am-phoi-khi': 'hoa-am',
+      'mv-tvc': 'mv-tvc',
+      'live-band': 'live-band',
+      'khoa-hoc': 'khoa-hoc',
+      'courses': 'khoa-hoc',
+      'b2b': 'b2b',
+      'combo-solo': 'combo-solo',
+      'combo-artist': 'combo-artist',
+      'combo-ep': 'combo-ep',
+      'other': 'other'
+    }
+    if (serviceAliases[raw]) {
+      form.service = serviceAliases[raw]
     }
   }
 })
@@ -307,28 +382,51 @@ function validateForm(): boolean {
 async function handleSubmit() {
   if (!validateForm()) return
   submitState.value = 'loading'
+
+  const payload = {
+    name: form.name,
+    phone: form.phone,
+    email: form.email || '',
+    service: form.service,
+    message: form.message,
+    source: 'contact'
+  }
+
   try {
-    const res = await fetch('/api/notify', {
+    const res = await fetch('/api/contact', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        name: form.name,
-        phone: form.phone,
-        email: form.email || '',
-        service: form.service,
-        message: form.message,
-        source: 'contact'
-      })
+      body: JSON.stringify(payload)
     })
     if (res.ok) {
       submitState.value = 'success'
       Object.assign(form, { name: '', phone: '', email: '', service: '', message: '' })
       Object.assign(formErrors, { name: '', phone: '', service: '', message: '' })
-    } else {
-      submitState.value = 'error'
+      return
     }
+    throw new Error(`API error ${res.status}`)
   } catch (err) {
-    console.error('Lỗi gửi thông báo Telegram:', err)
+    console.warn('[contact] API nội bộ không phản hồi, tự động chuyển fallback sang Formspree:', err)
+    try {
+      if (FORMSPREE_ENDPOINT) {
+        const formspreeRes = await fetch(FORMSPREE_ENDPOINT, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+          body: JSON.stringify({
+            ...payload,
+            _subject: `[XKProduction] Yêu cầu từ ${form.name} (${form.phone})`
+          })
+        })
+        if (formspreeRes.ok) {
+          submitState.value = 'success'
+          Object.assign(form, { name: '', phone: '', email: '', service: '', message: '' })
+          Object.assign(formErrors, { name: '', phone: '', service: '', message: '' })
+          return
+        }
+      }
+    } catch (fallbackErr) {
+      console.error('[contact] Fallback Formspree lỗi:', fallbackErr)
+    }
     submitState.value = 'error'
   }
 }
@@ -425,6 +523,67 @@ const contactInfo = [
   max-width: 680px;
   margin: 0 auto;
   line-height: 1.7;
+}
+
+/* ==============================================
+   MODE SELECTOR TABS
+   ============================================== */
+.contact-mode-section {
+  margin: 1.5rem auto 2.5rem;
+  position: relative;
+  z-index: 2;
+}
+
+.contact-mode-tabs {
+  display: flex;
+  gap: 0.5rem;
+  padding: 0.5rem;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.mode-tab-btn {
+  flex: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  padding: 0.95rem 1.2rem;
+  border-radius: 12px;
+  background: transparent;
+  border: none;
+  color: var(--text-light);
+  font-size: 0.92rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.28s var(--ease-out-expo);
+}
+
+.mode-tab-btn i {
+  font-size: 1rem;
+}
+
+.mode-tab-btn:hover {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.mode-tab-btn.active {
+  background: linear-gradient(135deg, rgba(26, 140, 255, 0.28) 0%, rgba(0, 212, 170, 0.16) 100%);
+  color: #fff;
+  border: 1px solid rgba(26, 140, 255, 0.4);
+  box-shadow: 0 6px 20px rgba(26, 140, 255, 0.2);
+}
+
+@media (max-width: 768px) {
+  .contact-mode-tabs {
+    flex-direction: column;
+  }
+  .mode-tab-btn {
+    justify-content: flex-start;
+    padding: 0.85rem 1rem;
+  }
 }
 
 /* ==============================================

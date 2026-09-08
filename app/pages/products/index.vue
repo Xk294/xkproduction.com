@@ -68,6 +68,9 @@
                     <span class="credit-name">{{ c.name }}</span>
                   </li>
                 </ul>
+                <NuxtLink :to="'/products/' + item.id" class="mobile-story-link">
+                  <span>Xem chi tiết & câu chuyện</span> <i class="fa-solid fa-arrow-right"></i>
+                </NuxtLink>
               </div>
             </template>
 
@@ -208,6 +211,15 @@ useSchemaOrg([
   },
   {
     '@type': 'MusicRecording',
+    'name': 'Nhật Kí Của Mẹ',
+    'byArtist': { '@type': 'Person', 'name': 'Mai Linh' },
+    'composer': { '@type': 'Person', 'name': 'Nguyễn Văn Chung' },
+    'producer': { '@type': 'Person', 'name': 'Nguyễn Xuân Kiệt', 'url': 'https://xkproduction.com' },
+    'url': 'https://www.youtube.com/watch?v=F5tPTow1xkE',
+    'inAlbum': { '@type': 'MusicAlbum', 'name': 'Nhật Kí Của Mẹ - Single', 'datePublished': '2025' }
+  },
+  {
+    '@type': 'MusicRecording',
     'name': 'Chẳng Muốn Nói Nhiều Lời',
     'byArtist': { '@type': 'MusicGroup', 'name': 'Revan' },
     'producer': { '@type': 'Person', 'name': 'Nguyễn Xuân Kiệt', 'url': 'https://xkproduction.com' },
@@ -235,6 +247,23 @@ useSchemaOrg([
 const activeCategory = ref('Tất cả')
 
 const staticProducts: EmbedProduct[] = [
+  {
+    kind: 'embed',
+    id: 'nhat-ki-cua-me',
+    title: 'Nhật Kí Của Mẹ',
+    artist: 'Mai Linh (Cover)',
+    category: 'Hoà âm phối khí',
+    year: '2025',
+    link: 'https://www.youtube.com/watch?v=F5tPTow1xkE',
+    thumb: 'https://img.youtube.com/vi/F5tPTow1xkE/hqdefault.jpg',
+    credits: [
+      { role: 'Sáng tác', name: 'Nguyễn Văn Chung' },
+      { role: 'Thể hiện', name: 'Mai Linh' },
+      { role: 'Hoà âm - Phối khí', name: 'Xkprod ft LacAnh' },
+      { role: 'Thu âm (Rec)', name: 'XKProduction' },
+      { role: 'Mixing & Mastering', name: 'Xkprod ft LacAnh' }
+    ]
+  },
   {
     kind: 'embed',
     id: 'love-du-phong',
@@ -786,6 +815,30 @@ onBeforeUnmount(() => {
 .credit-name {
   color: var(--text-light);
   font-weight: 600;
+}
+
+.mobile-story-link {
+  display: none;
+  margin-top: 1.25rem;
+  padding-top: 0.9rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  color: var(--accent);
+  font-size: 0.84rem;
+  font-weight: 700;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  transition: color 0.25s ease;
+}
+
+.mobile-story-link:hover {
+  color: #fff;
+}
+
+@media (max-width: 768px) {
+  .mobile-story-link {
+    display: inline-flex;
+  }
 }
 
 /* Waveform audio layout styles */

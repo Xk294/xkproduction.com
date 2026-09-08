@@ -67,15 +67,25 @@
       <div class="max-width">
         <div class="section-header-center text-center">
           <span class="header-tag">KHOẢNH KHẮC THỰC TẾ</span>
-          <h2 class="section-heading-heavy text-center">Hình Ảnh Sân Khấu</h2>
+          <h2 class="section-heading-heavy text-center">Hình Ảnh Sân Khấu & Vận Hành</h2>
+          <p class="section-subtitle">Đội ngũ kỹ sư âm thanh XKProduction trực tiếp vận hành bàn mixer số và ban nhạc tại sự kiện</p>
         </div>
 
         <div class="lb-gallery-grid">
           <div class="lb-gallery-item glass-card">
+            <img src="/images/kiet-live-sound-wide.jpg" alt="Kỹ sư âm thanh Nguyễn Xuân Kiệt điều khiển bàn mixer Midas M32R trực tiếp tại sự kiện" loading="lazy" width="400" height="300" />
+          </div>
+          <div class="lb-gallery-item glass-card">
+            <img src="/images/kiet-live-sound-focus.jpg" alt="Căn chỉnh dynamic, EQ và fader chi tiết trên bàn mixer kỹ thuật số Midas" loading="lazy" width="400" height="300" />
+          </div>
+          <div class="lb-gallery-item glass-card">
+            <img src="/images/kiet-live-sound-thumbsup.jpg" alt="Sound Engineer Xuân Kiệt - Tận tâm và chuyên nghiệp trong từng buổi soundcheck" loading="lazy" width="400" height="300" />
+          </div>
+          <div class="lb-gallery-item glass-card">
             <img src="/images/quocchi-2.jpg" alt="Hệ thống âm thanh ánh sáng sân khấu sự kiện XKProduction - Quốc Chí Sound & Lighting" loading="lazy" width="400" height="300" />
           </div>
           <div class="lb-gallery-item glass-card">
-            <img src="/images/quocchi-3.jpg" alt="Ban nhạc live biểu chuyên nghiệp tại sự kiện - XKProduction" loading="lazy" width="400" height="300" />
+            <img src="/images/quocchi-3.jpg" alt="Ban nhạc live biểu diễn chuyên nghiệp tại sự kiện - XKProduction" loading="lazy" width="400" height="300" />
           </div>
           <div class="lb-gallery-item glass-card">
             <img src="/images/blog-live-sound.jpg" alt="Thiết kế sân khấu và lắp đặt âm thanh ánh sáng chuyên nghiệp" loading="lazy" width="400" height="300" />
