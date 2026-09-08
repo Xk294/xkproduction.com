@@ -1,11 +1,12 @@
 <template>
-  <div class="site-wrapper">
-    <Navbar />
+  <div class="site-wrapper" :class="{ 'is-admin-mode': isAdminRoute }">
+    <Navbar v-if="!isAdminRoute" />
     <main class="main-content">
       <NuxtPage />
     </main>
-    <Footer />
-    <StickyContact />
+    <Footer v-if="!isAdminRoute" />
+    <StickyContact v-if="!isAdminRoute" />
+    <StudioAudioDock v-if="!isAdminRoute" />
   </div>
 </template>
 
@@ -14,7 +15,9 @@
 
 // Global Default SEO Configuration with Open Graph, Twitter Cards & Social Previews
 const route = useRoute()
+const isAdminRoute = computed(() => route.path.startsWith('/admin'))
 const BASE_URL = 'https://xkproduction.com'
+
 
 // Initialize global Open Graph configuration
 useOpenGraph({

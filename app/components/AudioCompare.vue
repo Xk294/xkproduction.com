@@ -1,7 +1,11 @@
 <script setup lang="ts">
 import { ref, computed, onMounted, onUnmounted } from 'vue';
 
+const { trackAudioPlay } = useAnalytics();
+
+
 const props = defineProps({
+
   rawSrc: { type: String, required: true },
   mixedSrc: { type: String, required: true },
   rawLabel: { type: String, default: 'Trước khi Mix' },
@@ -127,6 +131,7 @@ const togglePlay = async () => {
   } else {
     try {
       await currentAudio.play();
+      trackAudioPlay(props.title || 'Demo Track');
     } catch (e) {
       console.warn('Playback error:', e);
     }

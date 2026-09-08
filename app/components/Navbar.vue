@@ -307,17 +307,17 @@ watch(mobileOpen, (open) => {
   position: fixed;
   top: 0; left: 0; right: 0;
   z-index: 1000;
-  background: rgba(7, 16, 24, 0.75);
-  backdrop-filter: blur(16px) saturate(1.2);
-  -webkit-backdrop-filter: blur(16px) saturate(1.2);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+  background: rgba(6, 8, 13, 0.78);
+  backdrop-filter: blur(20px) saturate(1.3);
+  -webkit-backdrop-filter: blur(20px) saturate(1.3);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
   transition: background 0.4s ease, box-shadow 0.4s ease, border-color 0.3s ease;
   padding: 0 2rem;
 }
 .navbar.scrolled {
-  background: rgba(7, 16, 24, 0.95);
-  border-bottom-color: rgba(255, 255, 255, 0.07);
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+  background: rgba(6, 8, 13, 0.96);
+  border-bottom-color: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.65);
 }
 
 /* 3-column grid */

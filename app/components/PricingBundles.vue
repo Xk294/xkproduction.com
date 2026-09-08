@@ -3,11 +3,11 @@
 </script>
 
 <template>
-  <section class="pricing-bundles max-width">
+  <div class="pricing-bundles max-width">
     <div class="section-header text-center">
-      <span class="header-tag">GÓI COMBO</span>
-      <h2>Tiết Kiệm Khi Mua Gói Trọn Gói</h2>
-      <p class="subtitle">Kết hợp nhiều dịch vụ với giá ưu đãi — tối ưu chi phí, đảm bảo chất lượng đồng bộ từ đầu đến cuối</p>
+      <span class="studio-pill"><span class="live-dot"></span>TIẾT KIỆM HƠN VỚI GÓI COMBO</span>
+      <h3 class="bundles-main-title">Gói Sản Xuất Trọn Gói Ưu Đãi</h3>
+      <p class="subtitle">Đảm bảo chất lượng đồng bộ từ đầu đến cuối — Tiết kiệm chi phí so với việc làm từng dịch vụ riêng lẻ.</p>
     </div>
 
     <div class="bundles-grid">
@@ -85,32 +85,23 @@
     </div>
 
     <p class="bottom-note text-center">Giá trên là ước tính, liên hệ để nhận báo giá chính xác cho dự án của bạn</p>
-  </section>
+  </div>
 </template>
 
 <style scoped>
 .pricing-bundles {
-  padding: 6rem 0;
+  padding: 3rem 0;
 }
 
 .section-header {
-  margin-bottom: 4rem;
+  margin-bottom: 2.5rem;
 }
 
-.header-tag {
-  display: inline-block;
-  padding: 0.5rem 1rem;
-  background: rgba(26, 140, 255, 0.1);
-  color: var(--primary);
-  border-radius: 20px;
-  font-weight: 700;
-  font-size: 0.875rem;
-  margin-bottom: 1rem;
-}
-
-h2 {
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
+.bundles-main-title {
+  font-size: clamp(1.8rem, 3.2vw, 2.4rem);
+  font-weight: 800;
+  color: #fff;
+  margin: 0.75rem 0;
 }
 
 .subtitle {
