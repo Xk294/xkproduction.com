@@ -1,6 +1,13 @@
-// POST /api/analytics/visit — ghi nhận lượt xem trang (upsert theo IP+path)
+// POST /api/analytics/visit — ghi nhận lượt xem trang (upsert theo IP+path kèm UTM, referrer, is_bot)
 export default defineEventHandler(async (event) => {
-  const body = await readBody(event) as { path?: string }
+  const body = await readBody(event) as {
+    path?: string
+    referrer?: string | null
+    utm_source?: string | null
+    utm_medium?: string | null
+    utm_campaign?: string | null
+    utm_content?: string | null
+  }
   const path = body?.path?.trim()
   if (!path) return { ok: false }
 
@@ -13,15 +20,33 @@ export default defineEventHandler(async (event) => {
     ?? getHeader(event, 'x-forwarded-for')?.split(',')[0]?.trim()
     ?? '0.0.0.0'
   const userAgent = getHeader(event, 'user-agent') ?? null
-  const referrer = getHeader(event, 'referer') ?? null
+  const headerReferrer = getHeader(event, 'referer') ?? null
+  const rawReferrer = (body?.referrer || headerReferrer || '').trim()
+  const referrer = rawReferrer ? rawReferrer.slice(0, 500) : null
+  const utmSource = body?.utm_source?.trim()?.slice(0, 100) || null
+  const utmMedium = body?.utm_medium?.trim()?.slice(0, 100) || null
+  const utmCampaign = body?.utm_campaign?.trim()?.slice(0, 100) || null
+  const utmContent = body?.utm_content?.trim()?.slice(0, 100) || null
+
+  const isBot = userAgent && /bot|crawl|spider|slurp|facebookexternalhit|whatsapp|bingbot|googlebot|yandex|bytespider/i.test(userAgent) ? 1 : 0
 
   await db.prepare(`
-    INSERT INTO visitor_logs (ip, path, user_agent, referrer, visit_count, first_seen_at, last_seen_at)
-    VALUES (?, ?, ?, ?, 1, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP)
+    INSERT INTO visitor_logs (
+      ip, path, user_agent, referrer, utm_source, utm_medium, utm_campaign, utm_content, is_bot, visit_count, first_seen_at, last_seen_at
+    )
+    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, 1, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP)
     ON CONFLICT(ip, path) DO UPDATE SET
       visit_count = visit_count + 1,
+      user_agent = COALESCE(excluded.user_agent, visitor_logs.user_agent),
+      referrer = COALESCE(visitor_logs.referrer, excluded.referrer),
+      utm_source = COALESCE(visitor_logs.utm_source, excluded.utm_source),
+      utm_medium = COALESCE(visitor_logs.utm_medium, excluded.utm_medium),
+      utm_campaign = COALESCE(visitor_logs.utm_campaign, excluded.utm_campaign),
+      utm_content = COALESCE(visitor_logs.utm_content, excluded.utm_content),
+      is_bot = excluded.is_bot,
       last_seen_at = CURRENT_TIMESTAMP
-  `).bind(ip, path, userAgent, referrer).run()
+  `).bind(ip, path, userAgent, referrer, utmSource, utmMedium, utmCampaign, utmContent, isBot).run()
 
   return { ok: true }
 })
+

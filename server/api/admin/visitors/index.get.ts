@@ -17,7 +17,7 @@ export default defineEventHandler(async (event) => {
           WHEN INSTR(ip, ':') > 0 THEN SUBSTR(ip, 1, INSTR(ip, ':')) || 'xxxx:xxxx:xxxx'
           ELSE SUBSTR(ip, 1, INSTR(ip || '.', '.') - 1) || '.xxx.xxx.xxx'
         END as ip_masked,
-        path, visit_count, referrer, first_seen_at, last_seen_at
+        path, visit_count, referrer, utm_source, utm_medium, utm_campaign, is_bot, first_seen_at, last_seen_at
       FROM visitor_logs
       ORDER BY last_seen_at DESC
       LIMIT ? OFFSET ?
