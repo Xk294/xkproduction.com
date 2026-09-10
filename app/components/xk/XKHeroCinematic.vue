@@ -29,11 +29,11 @@
       <div class="hero-title-block">
         <h1 class="hero-manifesto-title">
           <template v-if="isVi">
-            <span class="hero-title-lead">Sản Xuất Âm Nhạc • Hoà Âm Phối Khí • Sound & Light</span>
+            <span class="hero-title-lead">Sản Xuất Âm Nhạc • Sound & Lighting</span>
             <span class="hero-title-statement text-gold-gradient">Mỗi track đều bắt đầu từ sự yên tĩnh, và kết thúc bằng chất lượng.</span>
           </template>
           <template v-else>
-            <span class="hero-title-lead">Music Production • Music Arrangement • Sound & Light</span>
+            <span class="hero-title-lead">Music Production • Sound & Light</span>
             <span class="hero-title-statement text-gold-gradient">Every track begins with silence, and concludes with quality.</span>
           </template>
         </h1>
@@ -375,6 +375,7 @@ function handleTogglePlayDemo() {
   font-weight: 800;
   letter-spacing: -0.005em;
   text-shadow: 0 4px 24px rgba(0, 0, 0, 0.5);
+  white-space: nowrap;
 }
 
 .hero-title-statement {
