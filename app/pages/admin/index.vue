@@ -1,6 +1,8 @@
 <script setup lang="ts">
-import { onMounted, ref, computed, watch } from 'vue'
+import { onMounted, onUnmounted, ref, computed, watch } from 'vue'
 import type { User } from 'firebase/auth'
+import { xkProjects } from '~/composables/useProductionProjects'
+import { useBlog } from '~/composables/useBlog'
 
 definePageMeta({ ssr: false, robots: false })
 useHead({
@@ -15,9 +17,59 @@ const user = ref<User | null>(null)
 const idToken = ref<string | null>(null)
 
 // ── Navigation & Views ───────────────────────────────────────────────────────
-type AdminView = 'overview' | 'traffic' | 'leads' | 'qr-builder' | 'music-stats' | 'visitors' | 'events'
+type AdminView = 'overview' | 'traffic' | 'leads' | 'qr-builder' | 'music-stats' | 'visitors' | 'events' | 'projects' | 'journal'
 const activeView = ref<AdminView>('overview')
 const sidebarOpen = ref(false)
+
+// ── Toast Notification System ───────────────────────────────────────────────
+interface ToastItem {
+  id: number
+  text: string
+  type: 'success' | 'error' | 'info'
+}
+const toasts = ref<ToastItem[]>([])
+let toastSeq = 0
+function showToast(text: string, type: 'success' | 'error' | 'info' = 'info') {
+  const id = ++toastSeq
+  toasts.value.push({ id, text, type })
+  setTimeout(() => {
+    toasts.value = toasts.value.filter((t) => t.id !== id)
+  }, 3800)
+}
+function removeToast(id: number) {
+  toasts.value = toasts.value.filter((t) => t.id !== id)
+}
+
+// ── Auto Refresh System ─────────────────────────────────────────────────────
+const autoRefreshSeconds = ref(0)
+let autoRefreshTimer: ReturnType<typeof setInterval> | null = null
+
+function toggleAutoRefresh(seconds: number) {
+  if (autoRefreshSeconds.value === seconds) {
+    autoRefreshSeconds.value = 0
+    if (autoRefreshTimer) {
+      clearInterval(autoRefreshTimer)
+      autoRefreshTimer = null
+    }
+    showToast('Đã tắt tự động làm mới', 'info')
+    return
+  }
+  autoRefreshSeconds.value = seconds
+  if (autoRefreshTimer) clearInterval(autoRefreshTimer)
+  autoRefreshTimer = setInterval(async () => {
+    if (activeView.value === 'overview') await loadOverview()
+    else if (activeView.value === 'traffic') await loadTrafficSources()
+    else if (activeView.value === 'leads') await loadLeads()
+    else if (activeView.value === 'music-stats') await loadMusicStats()
+    else if (activeView.value === 'visitors') await loadVisitors()
+    else if (activeView.value === 'events') await loadEvents()
+  }, seconds * 1000)
+  showToast(`Đã bật tự động làm mới mỗi ${seconds}s`, 'success')
+}
+
+onUnmounted(() => {
+  if (autoRefreshTimer) clearInterval(autoRefreshTimer)
+})
 
 // ── Data States ─────────────────────────────────────────────────────────────
 const overview = ref<any>(null)
@@ -44,10 +96,28 @@ const trafficLoading = ref(false)
 // Leads CRM Filters & State
 const leadStatusFilter = ref('all')
 const leadServiceFilter = ref('all')
+const leadTimeRange = ref('all')
 const leadSearch = ref('')
+const leadPage = ref(1)
+const leadLimit = ref(20)
 const updatingLeadId = ref<number | null>(null)
 const editingNoteId = ref<number | null>(null)
 const editingNoteText = ref('')
+const leadStatusCounts = ref<Record<string, number>>({
+  all: 0,
+  new: 0,
+  contacted: 0,
+  quoting: 0,
+  booked: 0,
+  completed: 0,
+  cancelled: 0,
+})
+const totalLeadPages = computed(() => Math.max(1, Math.ceil(leadsTotal.value / leadLimit.value)))
+
+// Visitors Pagination
+const visitorPage = ref(1)
+const visitorLimit = ref(25)
+const totalVisitorPages = computed(() => Math.max(1, Math.ceil(visitorsTotal.value / visitorLimit.value)))
 
 // QR / UTM Builder State
 const qrBaseUrl = ref('https://xkproduction.com/contact')
@@ -58,6 +128,46 @@ const qrContent = ref('')
 const copiedLink = ref(false)
 
 const loading = ref(false)
+
+// ── Projects & Journal CMS State ────────────────────────────────────────────
+const projectSearch = ref('')
+const projectCategoryFilter = ref('all')
+const projectCategories = computed(() => {
+  const cats = new Set(xkProjects.map((p) => p.category))
+  return ['all', ...Array.from(cats)]
+})
+const filteredProjects = computed(() => {
+  return xkProjects.filter((p) => {
+    const matchCat = projectCategoryFilter.value === 'all' || p.category === projectCategoryFilter.value
+    const q = projectSearch.value.trim().toLowerCase()
+    const matchSearch =
+      !q ||
+      p.title.toLowerCase().includes(q) ||
+      (p.artist && p.artist.toLowerCase().includes(q)) ||
+      (p.subtitle && p.subtitle.toLowerCase().includes(q))
+    return matchCat && matchSearch
+  })
+})
+
+const { posts: allBlogPosts } = useBlog()
+const journalSearch = ref('')
+const journalCategoryFilter = ref('all')
+const journalCategories = computed(() => {
+  const cats = new Set(allBlogPosts.map((p) => p.category))
+  return ['all', ...Array.from(cats)]
+})
+const filteredJournalPosts = computed(() => {
+  return allBlogPosts.filter((p) => {
+    const matchCat = journalCategoryFilter.value === 'all' || p.category === journalCategoryFilter.value
+    const q = journalSearch.value.trim().toLowerCase()
+    const matchSearch =
+      !q ||
+      p.title.toLowerCase().includes(q) ||
+      p.author.toLowerCase().includes(q) ||
+      p.excerpt.toLowerCase().includes(q)
+    return matchCat && matchSearch
+  })
+})
 
 // ── Firebase auth ────────────────────────────────────────────────────────────
 async function getFirebaseAuth() {
@@ -88,7 +198,7 @@ async function signIn() {
   try {
     await signInWithPopup(auth, new GoogleAuthProvider())
   } catch (e: any) {
-    if (e.code !== 'auth/popup-closed-by-user') alert('Đăng nhập thất bại: ' + e.message)
+    if (e.code !== 'auth/popup-closed-by-user') showToast('Đăng nhập thất bại: ' + e.message, 'error')
   }
 }
 
@@ -105,6 +215,8 @@ async function loadOverview() {
   loading.value = true
   try {
     overview.value = await $fetch('/api/admin/overview', { headers: { Authorization: `Bearer ${token}` } })
+  } catch (err: any) {
+    showToast('Lỗi tải tổng quan: ' + (err.message || 'Lỗi mạng'), 'error')
   } finally {
     loading.value = false
   }
@@ -125,8 +237,8 @@ async function loadTrafficSources() {
       trafficRange.value = data.range || trafficRange.value
       trafficRangeInput.value = trafficRange.value
     }
-  } catch (err) {
-    console.error('Failed to load traffic sources', err)
+  } catch (err: any) {
+    showToast('Lỗi tải nguồn lưu lượng: ' + (err.message || 'Lỗi mạng'), 'error')
   } finally {
     trafficLoading.value = false
   }
@@ -142,9 +254,10 @@ function applyTrafficRange(days?: number) {
   loadTrafficSources()
 }
 
-async function loadLeads() {
+async function loadLeads(resetPage = false) {
   const token = await getValidToken()
   if (!token) return
+  if (resetPage) leadPage.value = 1
   loading.value = true
   try {
     const data = await $fetch<any>('/api/admin/leads', {
@@ -152,15 +265,38 @@ async function loadLeads() {
       query: {
         status: leadStatusFilter.value,
         service: leadServiceFilter.value,
+        timeRange: leadTimeRange.value !== 'all' ? leadTimeRange.value : undefined,
         q: leadSearch.value.trim() || undefined,
-        limit: 100,
+        page: leadPage.value,
+        limit: leadLimit.value,
       },
     })
     leads.value = data.leads || []
     leadsTotal.value = data.total || 0
+    if (data.status_counts) {
+      leadStatusCounts.value = data.status_counts
+    }
+  } catch (err: any) {
+    showToast('Lỗi tải danh sách leads: ' + (err.message || 'Lỗi mạng'), 'error')
   } finally {
     loading.value = false
   }
+}
+
+function setLeadStatusFilter(status: string) {
+  leadStatusFilter.value = status
+  loadLeads(true)
+}
+
+function setLeadTimeRange(range: string) {
+  leadTimeRange.value = range
+  loadLeads(true)
+}
+
+function goToLeadPage(p: number) {
+  if (p < 1 || p > totalLeadPages.value || p === leadPage.value) return
+  leadPage.value = p
+  loadLeads(false)
 }
 
 async function updateLeadStatus(id: number, status: string) {
@@ -175,9 +311,11 @@ async function updateLeadStatus(id: number, status: string) {
     })
     const item = leads.value.find((l) => l.id === id)
     if (item) item.status = status
+    showToast(`Đã cập nhật trạng thái lead #${id} thành công`, 'success')
     if (overview.value) await loadOverview()
+    await loadLeads(false)
   } catch (err: any) {
-    alert('Không thể cập nhật trạng thái: ' + (err.message || 'Lỗi mạng'))
+    showToast('Không thể cập nhật trạng thái: ' + (err.message || 'Lỗi mạng'), 'error')
   } finally {
     updatingLeadId.value = null
   }
@@ -201,8 +339,9 @@ async function saveLeadNote(id: number) {
     const item = leads.value.find((l) => l.id === id)
     if (item) item.notes = editingNoteText.value.trim()
     editingNoteId.value = null
+    showToast(`Đã lưu ghi chú cho lead #${id}`, 'success')
   } catch (err: any) {
-    alert('Không thể lưu ghi chú: ' + (err.message || 'Lỗi mạng'))
+    showToast('Không thể lưu ghi chú: ' + (err.message || 'Lỗi mạng'), 'error')
   } finally {
     updatingLeadId.value = null
   }
@@ -216,22 +355,39 @@ async function loadMusicStats() {
     musicStats.value = await $fetch('/api/admin/events/music-stats', {
       headers: { Authorization: `Bearer ${token}` },
     })
+  } catch (err: any) {
+    showToast('Lỗi tải thống kê nhạc: ' + (err.message || 'Lỗi mạng'), 'error')
   } finally {
     loading.value = false
   }
 }
 
-async function loadVisitors() {
+async function loadVisitors(page?: number) {
   const token = await getValidToken()
   if (!token) return
+  if (page) visitorPage.value = page
   loading.value = true
   try {
-    const data = await $fetch<any>('/api/admin/visitors', { headers: { Authorization: `Bearer ${token}` } })
+    const data = await $fetch<any>('/api/admin/visitors', {
+      headers: { Authorization: `Bearer ${token}` },
+      query: {
+        page: visitorPage.value,
+        limit: visitorLimit.value,
+      },
+    })
     visitors.value = data.visitors || []
     visitorsTotal.value = data.total || 0
+  } catch (err: any) {
+    showToast('Lỗi tải nhật ký visitors: ' + (err.message || 'Lỗi mạng'), 'error')
   } finally {
     loading.value = false
   }
+}
+
+function goToVisitorPage(p: number) {
+  if (p < 1 || p > totalVisitorPages.value || p === visitorPage.value) return
+  visitorPage.value = p
+  loadVisitors()
 }
 
 async function loadEvents() {
@@ -240,6 +396,8 @@ async function loadEvents() {
   loading.value = true
   try {
     events.value = await $fetch<any>('/api/admin/events', { headers: { Authorization: `Bearer ${token}` } })
+  } catch (err: any) {
+    showToast('Lỗi tải sự kiện: ' + (err.message || 'Lỗi mạng'), 'error')
   } finally {
     loading.value = false
   }
@@ -259,14 +417,14 @@ async function switchView(view: AdminView) {
 // ── Watch lead filter changes ───────────────────────────────────────────────
 watch([leadStatusFilter, leadServiceFilter], () => {
   if (activeView.value === 'leads') {
-    loadLeads()
+    loadLeads(true)
   }
 })
 
 // ── Export CSV for Leads ────────────────────────────────────────────────────
 function exportLeadsCSV() {
   if (!leads.value.length) {
-    alert('Không có dữ liệu leads để xuất.')
+    showToast('Không có dữ liệu leads để xuất.', 'info')
     return
   }
 
@@ -293,6 +451,7 @@ function exportLeadsCSV() {
   document.body.appendChild(link)
   link.click()
   document.body.removeChild(link)
+  showToast('Đã xuất file Excel/CSV thành công!', 'success')
 }
 
 // ── UTM & QR Code Builder Computeds ─────────────────────────────────────────
@@ -316,6 +475,7 @@ const qrImageUrl = computed(() => {
 function copyUtmLink() {
   navigator.clipboard.writeText(generatedUtmUrl.value)
   copiedLink.value = true
+  showToast('Đã sao chép link tracking UTM!', 'success')
   setTimeout(() => {
     copiedLink.value = false
   }, 2200)
