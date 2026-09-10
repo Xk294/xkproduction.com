@@ -46,7 +46,7 @@ export const studioPlaylist: StudioTrack[] = [
   {
     id: 'mashup-tu-nguyen',
     title: 'Mashup Tự Nguyện',
-    artist: 'XKProduction ft. La Cảnh',
+    artist: 'XKProduction ft. LacAnh',
     category: 'Hoà Âm Phối Khí & Mashup',
     genre: 'Mashup / Ballad',
     tempo: '95 BPM',
