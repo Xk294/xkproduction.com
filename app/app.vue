@@ -1,12 +1,12 @@
 <template>
   <div class="site-wrapper" :class="{ 'is-admin-mode': isAdminRoute }">
-    <Navbar v-if="!isAdminRoute" />
+    <XKHeader v-if="!isAdminRoute" />
     <main class="main-content">
       <NuxtPage />
     </main>
-    <Footer v-if="!isAdminRoute" />
+    <XKFooter v-if="!isAdminRoute" />
     <StickyContact v-if="!isAdminRoute" />
-    <StudioAudioDock v-if="!isAdminRoute" />
+    <XKAudioEngine v-if="!isAdminRoute" />
   </div>
 </template>
 

@@ -5,6 +5,8 @@
     "moduleResolution": "Bundler",
     "types": ["vite/client"],
     "paths": {
+      "~/*": ["./app/*"],
+      "@/*": ["./app/*"],
       "wavesurfer.js": ["./node_modules/wavesurfer.js/dist/wavesurfer.d.ts"]
     }
   }

@@ -60,6 +60,9 @@ const isDockOpen = ref(false)
 const currentTime = ref(0)
 const duration = ref(0)
 const progress = ref(0)
+const volume = ref(0.9)
+const isMuted = ref(false)
+let lastVolume = 0.9
 
 let globalAudio: HTMLAudioElement | null = null
 
@@ -73,34 +76,51 @@ export function useStudioAudio() {
     return `${m}:${s < 10 ? '0' : ''}${s}`
   }
 
+  const onTimeUpdate = () => {
+    if (!globalAudio) return
+    currentTime.value = globalAudio.currentTime
+    if (globalAudio.duration) {
+      duration.value = globalAudio.duration
+      progress.value = (globalAudio.currentTime / globalAudio.duration) * 100
+    }
+  }
+
+  const onLoadedMetadata = () => {
+    if (globalAudio?.duration) {
+      duration.value = globalAudio.duration
+    }
+  }
+
+  const onEnded = () => {
+    nextTrack()
+  }
+
   const initGlobalAudio = () => {
     if (!import.meta.client || globalAudio) return
 
     globalAudio = new Audio()
     globalAudio.preload = 'metadata'
+    globalAudio.volume = isMuted.value ? 0 : volume.value
     const track = currentTrack.value || studioPlaylist[0]
     if (track) {
       globalAudio.src = track.audioSrc
     }
 
-    globalAudio.addEventListener('timeupdate', () => {
-      if (!globalAudio) return
-      currentTime.value = globalAudio.currentTime
-      if (globalAudio.duration) {
-        duration.value = globalAudio.duration
-        progress.value = (globalAudio.currentTime / globalAudio.duration) * 100
-      }
-    })
+    globalAudio.addEventListener('timeupdate', onTimeUpdate)
+    globalAudio.addEventListener('loadedmetadata', onLoadedMetadata)
+    globalAudio.addEventListener('ended', onEnded)
+  }
 
-    globalAudio.addEventListener('loadedmetadata', () => {
-      if (globalAudio?.duration) {
-        duration.value = globalAudio.duration
-      }
-    })
-
-    globalAudio.addEventListener('ended', () => {
-      nextTrack()
-    })
+  const cleanupGlobalAudio = () => {
+    if (globalAudio) {
+      globalAudio.pause()
+      globalAudio.removeEventListener('timeupdate', onTimeUpdate)
+      globalAudio.removeEventListener('loadedmetadata', onLoadedMetadata)
+      globalAudio.removeEventListener('ended', onEnded)
+      globalAudio.src = ''
+      globalAudio = null
+      isPlaying.value = false
+    }
   }
 
   const playTrack = async (idx?: number) => {
@@ -121,6 +141,12 @@ export function useStudioAudio() {
       await globalAudio.play()
       isPlaying.value = true
       isDockOpen.value = true
+      try {
+        const { trackAudioPlay } = useAnalytics()
+        trackAudioPlay(currentTrack.value?.title || 'Studio Audio Demo')
+      } catch {
+        // Safe fallback if composable unavailable
+      }
     } catch (e) {
       console.warn('[StudioAudio] Playback prevented:', e)
     }
@@ -157,6 +183,34 @@ export function useStudioAudio() {
     }
   }
 
+  const seekRelative = (seconds: number) => {
+    if (globalAudio && globalAudio.duration) {
+      const target = Math.max(0, Math.min(globalAudio.duration, globalAudio.currentTime + seconds))
+      globalAudio.currentTime = target
+    }
+  }
+
+  const setVolume = (val: number) => {
+    volume.value = Math.max(0, Math.min(1, val))
+    if (val > 0) isMuted.value = false
+    if (globalAudio) {
+      globalAudio.volume = isMuted.value ? 0 : volume.value
+    }
+  }
+
+  const toggleMute = () => {
+    if (isMuted.value) {
+      isMuted.value = false
+      volume.value = lastVolume || 0.8
+    } else {
+      lastVolume = volume.value
+      isMuted.value = true
+    }
+    if (globalAudio) {
+      globalAudio.volume = isMuted.value ? 0 : volume.value
+    }
+  }
+
   return {
     playlist: studioPlaylist,
     currentTrack,
@@ -166,6 +220,8 @@ export function useStudioAudio() {
     currentTime,
     duration,
     progress,
+    volume,
+    isMuted,
     currentTimeFormatted: computed(() => formatSeconds(currentTime.value)),
     durationFormatted: computed(() => formatSeconds(duration.value)),
     playTrack,
@@ -173,6 +229,10 @@ export function useStudioAudio() {
     togglePlay,
     nextTrack,
     prevTrack,
-    seekTo
+    seekTo,
+    seekRelative,
+    setVolume,
+    toggleMute,
+    cleanupGlobalAudio
   }
 }

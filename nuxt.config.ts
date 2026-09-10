@@ -87,16 +87,6 @@ export default defineNuxtConfig({
         ]
       },
       {
-        loc: '/products',
-        priority: 0.8,
-        changefreq: 'weekly',
-        lastmod: new Date().toISOString().split('T')[0],
-        images: [
-          { loc: 'https://xkproduction.com/images/revan.jpg', title: 'Revan - Tác phẩm XKProduction', caption: 'Sản phẩm âm nhạc tiêu biểu của XKProduction' },
-          { loc: 'https://xkproduction.com/images/howl.jpg', title: 'Howl - Tác phẩm XKProduction', caption: 'Portfolio sản phẩm âm nhạc XKProduction' }
-        ]
-      },
-      {
         loc: '/about',
         priority: 0.7,
         changefreq: 'monthly',
@@ -144,15 +134,6 @@ export default defineNuxtConfig({
         lastmod: new Date().toISOString().split('T')[0],
       },
       { loc: '/privacy', priority: 0.3, changefreq: 'yearly', lastmod: '2025-01-01' },
-      // Product detail pages
-      { loc: '/products/nhat-ki-cua-me', priority: 0.7, changefreq: 'monthly', lastmod: new Date().toISOString().split('T')[0] },
-      { loc: '/products/love-du-phong', priority: 0.7, changefreq: 'monthly', lastmod: new Date().toISOString().split('T')[0] },
-      { loc: '/products/chang-muon-noi-nhieu-loi', priority: 0.7, changefreq: 'monthly', lastmod: new Date().toISOString().split('T')[0] },
-      { loc: '/products/ly-do-bat-dau', priority: 0.7, changefreq: 'monthly', lastmod: new Date().toISOString().split('T')[0] },
-      { loc: '/products/kiep-sau', priority: 0.7, changefreq: 'monthly', lastmod: new Date().toISOString().split('T')[0] },
-      { loc: '/products/viet-tiep-cau-chuyen-hoa-binh', priority: 0.7, changefreq: 'monthly', lastmod: new Date().toISOString().split('T')[0] },
-      { loc: '/products/ao-cu-tinh-moi', priority: 0.7, changefreq: 'monthly', lastmod: new Date().toISOString().split('T')[0] },
-      { loc: '/products/tet-xa-cover', priority: 0.7, changefreq: 'monthly', lastmod: new Date().toISOString().split('T')[0] },
       // Blog detail pages
       { loc: '/blog/san-xuat-nhat-ki-cua-me-mai-linh', priority: 0.8, changefreq: 'monthly', lastmod: new Date().toISOString().split('T')[0] },
       { loc: '/blog/thu-am-gia-2026', priority: 0.8, changefreq: 'monthly', lastmod: new Date().toISOString().split('T')[0] },
@@ -165,6 +146,36 @@ export default defineNuxtConfig({
       { loc: '/blog/ky-am-bai-hat-va-soan-sheet-nhac-chuyen-nghiep', priority: 0.8, changefreq: 'monthly', lastmod: new Date().toISOString().split('T')[0] },
       { loc: '/blog/mix-vocal-cover-nghe-sang-hon', priority: 0.8, changefreq: 'monthly', lastmod: new Date().toISOString().split('T')[0] },
       { loc: '/blog/live-sound-cho-su-kien-nho', priority: 0.8, changefreq: 'monthly', lastmod: new Date().toISOString().split('T')[0] },
+      // === V2 CORE ROUTES ===
+      { loc: '/work', priority: 0.9, changefreq: 'weekly', lastmod: new Date().toISOString().split('T')[0] },
+      { loc: '/work/nhat-ki-cua-me', priority: 0.8, changefreq: 'monthly', lastmod: new Date().toISOString().split('T')[0] },
+      { loc: '/work/love-du-phong', priority: 0.8, changefreq: 'monthly', lastmod: new Date().toISOString().split('T')[0] },
+      { loc: '/work/chang-muon-noi-nhieu-loi', priority: 0.8, changefreq: 'monthly', lastmod: new Date().toISOString().split('T')[0] },
+      { loc: '/work/ly-do-bat-dau', priority: 0.8, changefreq: 'monthly', lastmod: new Date().toISOString().split('T')[0] },
+      { loc: '/work/kiep-sau', priority: 0.8, changefreq: 'monthly', lastmod: new Date().toISOString().split('T')[0] },
+      { loc: '/work/viet-tiep-cau-chuyen-hoa-binh', priority: 0.8, changefreq: 'monthly', lastmod: new Date().toISOString().split('T')[0] },
+      { loc: '/work/ao-cu-tinh-moi', priority: 0.8, changefreq: 'monthly', lastmod: new Date().toISOString().split('T')[0] },
+      { loc: '/work/tet-xa-cover', priority: 0.8, changefreq: 'monthly', lastmod: new Date().toISOString().split('T')[0] },
+      { loc: '/services/music-production', priority: 0.9, changefreq: 'weekly', lastmod: new Date().toISOString().split('T')[0] },
+      { loc: '/services/creative-sound', priority: 0.9, changefreq: 'weekly', lastmod: new Date().toISOString().split('T')[0] },
+      { loc: '/services/live-production', priority: 0.8, changefreq: 'weekly', lastmod: new Date().toISOString().split('T')[0] },
+      { loc: '/services/project-production', priority: 0.9, changefreq: 'weekly', lastmod: new Date().toISOString().split('T')[0] },
+      { loc: '/production', priority: 0.8, changefreq: 'monthly', lastmod: new Date().toISOString().split('T')[0] },
+      { loc: '/releases', priority: 0.8, changefreq: 'weekly', lastmod: new Date().toISOString().split('T')[0] },
+      { loc: '/journal', priority: 0.8, changefreq: 'weekly', lastmod: new Date().toISOString().split('T')[0] },
+      { loc: '/journal/san-xuat-nhat-ki-cua-me-mai-linh', priority: 0.8, changefreq: 'monthly', lastmod: new Date().toISOString().split('T')[0] },
+      { loc: '/journal/thu-am-gia-2026', priority: 0.8, changefreq: 'monthly', lastmod: new Date().toISOString().split('T')[0] },
+      { loc: '/journal/phong-thu-am-binh-phuoc', priority: 0.8, changefreq: 'monthly', lastmod: new Date().toISOString().split('T')[0] },
+      { loc: '/journal/mix-master-huong-dan', priority: 0.8, changefreq: 'monthly', lastmod: new Date().toISOString().split('T')[0] },
+      { loc: '/journal/hoa-am-phoi-khi-online', priority: 0.8, changefreq: 'monthly', lastmod: new Date().toISOString().split('T')[0] },
+      { loc: '/journal/vocal-tuning-va-vocal-production-la-gi', priority: 0.8, changefreq: 'monthly', lastmod: new Date().toISOString().split('T')[0] },
+      { loc: '/journal/chuan-bi-truoc-khi-den-phong-thu-am', priority: 0.8, changefreq: 'monthly', lastmod: new Date().toISOString().split('T')[0] },
+      { loc: '/journal/thu-am-binh-phuoc-dia-chi-uy-tin', priority: 0.8, changefreq: 'monthly', lastmod: new Date().toISOString().split('T')[0] },
+      { loc: '/journal/ky-am-bai-hat-va-soan-sheet-nhac-chuyen-nghiep', priority: 0.8, changefreq: 'monthly', lastmod: new Date().toISOString().split('T')[0] },
+      { loc: '/journal/mix-vocal-cover-nghe-sang-hon', priority: 0.8, changefreq: 'monthly', lastmod: new Date().toISOString().split('T')[0] },
+      { loc: '/journal/live-sound-cho-su-kien-nho', priority: 0.8, changefreq: 'monthly', lastmod: new Date().toISOString().split('T')[0] },
+      { loc: '/build-project', priority: 0.9, changefreq: 'monthly', lastmod: new Date().toISOString().split('T')[0] },
+      { loc: '/start-a-project', priority: 0.9, changefreq: 'monthly', lastmod: new Date().toISOString().split('T')[0] },
     ],
   },
 
@@ -262,21 +273,23 @@ export default defineNuxtConfig({
   // === NITRO: static output for Cloudflare Pages ===
   nitro: {
     preset: 'cloudflare-pages',
+    hooks: {
+      'close': async () => {
+        const fs = await import('node:fs')
+        const path = await import('node:path')
+        const redirectFile = path.resolve('dist/_redirects')
+        if (fs.existsSync(path.dirname(redirectFile))) {
+          const content = '/products/*\t/work/:splat\t301\n/products\t/work\t301\n'
+          fs.writeFileSync(redirectFile, content, 'utf-8')
+        }
+      }
+    },
     prerender: {
       crawlLinks: true,
       routes: [
-        '/', '/about', '/services', '/products', '/live-band', '/courses',
+        '/', '/about', '/services', '/live-band', '/courses',
         '/contact', '/faq', '/blog', '/privacy', '/b2b', '/mix-online', '/presets', '/sitemap.xml', '/robots.txt',
         '/thu-am', '/mix-master', '/hoa-am-phoi-khi', '/quay-mv-tvc',
-        // Product detail pages
-        '/products/nhat-ki-cua-me',
-        '/products/love-du-phong',
-        '/products/chang-muon-noi-nhieu-loi',
-        '/products/ly-do-bat-dau',
-        '/products/kiep-sau',
-        '/products/viet-tiep-cau-chuyen-hoa-binh',
-        '/products/ao-cu-tinh-moi',
-        '/products/tet-xa-cover',
         // Blog detail pages — must be explicit for SSG (crawlLinks can't follow Vue client-side links)
         '/blog/san-xuat-nhat-ki-cua-me-mai-linh',
         '/blog/thu-am-gia-2026',
@@ -289,6 +302,36 @@ export default defineNuxtConfig({
         '/blog/ky-am-bai-hat-va-soan-sheet-nhac-chuyen-nghiep',
         '/blog/mix-vocal-cover-nghe-sang-hon',
         '/blog/live-sound-cho-su-kien-nho',
+        // === V2 CORE SSG ROUTES ===
+        '/work',
+        '/work/nhat-ki-cua-me',
+        '/work/love-du-phong',
+        '/work/chang-muon-noi-nhieu-loi',
+        '/work/ly-do-bat-dau',
+        '/work/kiep-sau',
+        '/work/viet-tiep-cau-chuyen-hoa-binh',
+        '/work/ao-cu-tinh-moi',
+        '/work/tet-xa-cover',
+        '/services/music-production',
+        '/services/creative-sound',
+        '/services/live-production',
+        '/services/project-production',
+        '/production',
+        '/releases',
+        '/journal',
+        '/journal/san-xuat-nhat-ki-cua-me-mai-linh',
+        '/journal/thu-am-gia-2026',
+        '/journal/phong-thu-am-binh-phuoc',
+        '/journal/mix-master-huong-dan',
+        '/journal/hoa-am-phoi-khi-online',
+        '/journal/vocal-tuning-va-vocal-production-la-gi',
+        '/journal/chuan-bi-truoc-khi-den-phong-thu-am',
+        '/journal/thu-am-binh-phuoc-dia-chi-uy-tin',
+        '/journal/ky-am-bai-hat-va-soan-sheet-nhac-chuyen-nghiep',
+        '/journal/mix-vocal-cover-nghe-sang-hon',
+        '/journal/live-sound-cho-su-kien-nho',
+        '/build-project',
+        '/start-a-project',
       ],
     },
     routeRules: {

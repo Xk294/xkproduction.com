@@ -214,7 +214,7 @@
           <div class="cta-glow-spot"></div>
           <h2>Hãy cùng XKProduction hiện thực hóa ước mơ âm nhạc</h2>
           <p>Dù dự án lớn hay ý tưởng thô sơ vừa chớm nở, chúng tôi luôn ở đây để giúp bạn hoàn thiện bản phối hoàn hảo nhất.</p>
-          <NuxtLink to="/contact" class="btn btn-primary btn-pulse btn-large">Gửi yêu cầu tư vấn ngay</NuxtLink>
+          <NuxtLink to="/start-a-project" class="btn btn-primary btn-pulse btn-large">Khởi động dự án ngay</NuxtLink>
         </div>
       </div>
     </section>
