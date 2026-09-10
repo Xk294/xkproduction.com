@@ -106,16 +106,6 @@ export default defineNuxtConfig({
         lastmod: new Date().toISOString().split('T')[0]
       },
       {
-        loc: '/blog',
-        priority: 0.8,
-        changefreq: 'weekly',
-        lastmod: new Date().toISOString().split('T')[0],
-        images: [
-          { loc: 'https://xkproduction.com/images/blog-thu-am-gia.jpg', title: 'Thu Âm Bài Hát Giá Bao Nhiêu 2026', caption: 'Bảng giá thu âm chuyên nghiệp' },
-          { loc: 'https://xkproduction.com/images/blog-mix-master.jpg', title: 'Mix Master là gì', caption: 'Hướng dẫn mixing và mastering' }
-        ]
-      },
-      {
         loc: '/b2b',
         priority: 0.8,
         changefreq: 'monthly',
@@ -134,18 +124,6 @@ export default defineNuxtConfig({
         lastmod: new Date().toISOString().split('T')[0],
       },
       { loc: '/privacy', priority: 0.3, changefreq: 'yearly', lastmod: '2025-01-01' },
-      // Blog detail pages
-      { loc: '/blog/san-xuat-nhat-ki-cua-me-mai-linh', priority: 0.8, changefreq: 'monthly', lastmod: new Date().toISOString().split('T')[0] },
-      { loc: '/blog/thu-am-gia-2026', priority: 0.8, changefreq: 'monthly', lastmod: new Date().toISOString().split('T')[0] },
-      { loc: '/blog/phong-thu-am-binh-phuoc', priority: 0.8, changefreq: 'monthly', lastmod: new Date().toISOString().split('T')[0] },
-      { loc: '/blog/mix-master-huong-dan', priority: 0.8, changefreq: 'monthly', lastmod: new Date().toISOString().split('T')[0] },
-      { loc: '/blog/hoa-am-phoi-khi-online', priority: 0.8, changefreq: 'monthly', lastmod: new Date().toISOString().split('T')[0] },
-      { loc: '/blog/vocal-tuning-va-vocal-production-la-gi', priority: 0.8, changefreq: 'monthly', lastmod: new Date().toISOString().split('T')[0] },
-      { loc: '/blog/chuan-bi-truoc-khi-den-phong-thu-am', priority: 0.8, changefreq: 'monthly', lastmod: new Date().toISOString().split('T')[0] },
-      { loc: '/blog/thu-am-binh-phuoc-dia-chi-uy-tin', priority: 0.8, changefreq: 'monthly', lastmod: new Date().toISOString().split('T')[0] },
-      { loc: '/blog/ky-am-bai-hat-va-soan-sheet-nhac-chuyen-nghiep', priority: 0.8, changefreq: 'monthly', lastmod: new Date().toISOString().split('T')[0] },
-      { loc: '/blog/mix-vocal-cover-nghe-sang-hon', priority: 0.8, changefreq: 'monthly', lastmod: new Date().toISOString().split('T')[0] },
-      { loc: '/blog/live-sound-cho-su-kien-nho', priority: 0.8, changefreq: 'monthly', lastmod: new Date().toISOString().split('T')[0] },
       // === V2 CORE ROUTES ===
       { loc: '/work', priority: 0.9, changefreq: 'weekly', lastmod: new Date().toISOString().split('T')[0] },
       { loc: '/work/nhat-ki-cua-me', priority: 0.8, changefreq: 'monthly', lastmod: new Date().toISOString().split('T')[0] },
@@ -162,7 +140,16 @@ export default defineNuxtConfig({
       { loc: '/services/project-production', priority: 0.9, changefreq: 'weekly', lastmod: new Date().toISOString().split('T')[0] },
       { loc: '/production', priority: 0.8, changefreq: 'monthly', lastmod: new Date().toISOString().split('T')[0] },
       { loc: '/releases', priority: 0.8, changefreq: 'weekly', lastmod: new Date().toISOString().split('T')[0] },
-      { loc: '/journal', priority: 0.8, changefreq: 'weekly', lastmod: new Date().toISOString().split('T')[0] },
+      {
+        loc: '/journal',
+        priority: 0.8,
+        changefreq: 'weekly',
+        lastmod: new Date().toISOString().split('T')[0],
+        images: [
+          { loc: 'https://xkproduction.com/images/blog-thu-am-gia.jpg', title: 'Thu Âm Bài Hát Giá Bao Nhiêu 2026', caption: 'Bảng giá thu âm chuyên nghiệp' },
+          { loc: 'https://xkproduction.com/images/blog-mix-master.jpg', title: 'Mix Master là gì', caption: 'Hướng dẫn mixing và mastering' }
+        ]
+      },
       { loc: '/journal/san-xuat-nhat-ki-cua-me-mai-linh', priority: 0.8, changefreq: 'monthly', lastmod: new Date().toISOString().split('T')[0] },
       { loc: '/journal/thu-am-gia-2026', priority: 0.8, changefreq: 'monthly', lastmod: new Date().toISOString().split('T')[0] },
       { loc: '/journal/phong-thu-am-binh-phuoc', priority: 0.8, changefreq: 'monthly', lastmod: new Date().toISOString().split('T')[0] },
@@ -279,7 +266,7 @@ export default defineNuxtConfig({
         const path = await import('node:path')
         const redirectFile = path.resolve('dist/_redirects')
         if (fs.existsSync(path.dirname(redirectFile))) {
-          const content = '/products/*\t/work/:splat\t301\n/products\t/work\t301\n'
+          const content = '/products/*\t/work/:splat\t301\n/products\t/work\t301\n/blog/*\t/journal/:splat\t301\n/blog\t/journal\t301\n'
           fs.writeFileSync(redirectFile, content, 'utf-8')
         }
       }
@@ -288,20 +275,8 @@ export default defineNuxtConfig({
       crawlLinks: true,
       routes: [
         '/', '/about', '/services', '/live-band', '/courses',
-        '/contact', '/faq', '/blog', '/privacy', '/b2b', '/mix-online', '/presets', '/sitemap.xml', '/robots.txt',
+        '/contact', '/faq', '/privacy', '/b2b', '/mix-online', '/presets', '/sitemap.xml', '/robots.txt',
         '/thu-am', '/mix-master', '/hoa-am-phoi-khi', '/quay-mv-tvc',
-        // Blog detail pages — must be explicit for SSG (crawlLinks can't follow Vue client-side links)
-        '/blog/san-xuat-nhat-ki-cua-me-mai-linh',
-        '/blog/thu-am-gia-2026',
-        '/blog/phong-thu-am-binh-phuoc',
-        '/blog/mix-master-huong-dan',
-        '/blog/hoa-am-phoi-khi-online',
-        '/blog/vocal-tuning-va-vocal-production-la-gi',
-        '/blog/chuan-bi-truoc-khi-den-phong-thu-am',
-        '/blog/thu-am-binh-phuoc-dia-chi-uy-tin',
-        '/blog/ky-am-bai-hat-va-soan-sheet-nhac-chuyen-nghiep',
-        '/blog/mix-vocal-cover-nghe-sang-hon',
-        '/blog/live-sound-cho-su-kien-nho',
         // === V2 CORE SSG ROUTES ===
         '/work',
         '/work/nhat-ki-cua-me',

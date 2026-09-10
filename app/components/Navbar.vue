@@ -69,9 +69,9 @@
           </div>
         </li>
         <li>
-          <NuxtLink to="/products" class="nav-link" title="Tác phẩm nổi bật" :aria-current="$route.path === '/products' ? 'page' : undefined">
+          <NuxtLink to="/work" class="nav-link" title="Dự án & Tác phẩm tiêu biểu" :aria-current="$route.path.startsWith('/work') ? 'page' : undefined">
             <span class="nav-icon"><i class="fa-solid fa-compact-disc" aria-hidden="true"></i></span>
-            <span class="nav-text">Sản phẩm</span>
+            <span class="nav-text">Dự Án</span>
             <span class="nav-indicator" aria-hidden="true"></span>
           </NuxtLink>
         </li>
@@ -93,9 +93,9 @@
       <!-- RIGHT: Desktop nav -->
       <ul class="nav-group nav-right" role="list">
         <li>
-          <NuxtLink to="/blog" class="nav-link" title="Blog Kiến Thức Âm Nhạc" :aria-current="$route.path === '/blog' ? 'page' : undefined">
-            <span class="nav-icon"><i class="fa-solid fa-blog" aria-hidden="true"></i></span>
-            <span class="nav-text">Blog</span>
+          <NuxtLink to="/journal" class="nav-link" title="The Journal - Production Notes" :aria-current="$route.path.startsWith('/journal') ? 'page' : undefined">
+            <span class="nav-icon"><i class="fa-solid fa-book-open" aria-hidden="true"></i></span>
+            <span class="nav-text">Journal</span>
             <span class="nav-indicator" aria-hidden="true"></span>
           </NuxtLink>
         </li>
@@ -206,11 +206,11 @@
           <!-- Other pages -->
           <div class="mobile-nav-group">
             <p class="mobile-group-label">Khám phá</p>
-            <NuxtLink to="/products" class="mobile-nav-item" @click="closeMobile">
+            <NuxtLink to="/work" class="mobile-nav-item" @click="closeMobile">
               <i class="fa-solid fa-compact-disc"></i>
               <div>
-                <span class="mobile-item-title">Sản phẩm</span>
-                <span class="mobile-item-sub">Portfolio tác phẩm tiêu biểu</span>
+                <span class="mobile-item-title">Dự án</span>
+                <span class="mobile-item-sub">Selected Work & Portfolio</span>
               </div>
             </NuxtLink>
             <NuxtLink to="/courses" class="mobile-nav-item" @click="closeMobile">
@@ -220,11 +220,11 @@
                 <span class="mobile-item-sub">Đào tạo Music Producer</span>
               </div>
             </NuxtLink>
-            <NuxtLink to="/blog" class="mobile-nav-item" @click="closeMobile">
+            <NuxtLink to="/journal" class="mobile-nav-item" @click="closeMobile">
               <i class="fa-solid fa-feather-pointed"></i>
               <div>
-                <span class="mobile-item-title">Blog & Kiến thức</span>
-                <span class="mobile-item-sub">Tips âm nhạc chuyên sâu</span>
+                <span class="mobile-item-title">Journal</span>
+                <span class="mobile-item-sub">Production Notes & Breakdown</span>
               </div>
             </NuxtLink>
             <NuxtLink to="/about" class="mobile-nav-item" @click="closeMobile">

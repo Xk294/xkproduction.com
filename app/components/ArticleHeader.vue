@@ -3,9 +3,9 @@
     <div class="article-header-bg" :style="{ backgroundImage: `url(${post.cover || post.thumb})` }"></div>
     <div class="max-width article-header-inner">
       <div class="article-topbar">
-        <NuxtLink to="/blog" class="back-link">
+        <NuxtLink to="/journal" class="back-link">
           <i class="fa-solid fa-arrow-left"></i>
-          Blog
+          Journal
         </NuxtLink>
         <button class="copy-link" type="button" @click="$emit('copy-link')">
           <i class="fa-regular fa-copy"></i>

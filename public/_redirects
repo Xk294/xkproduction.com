@@ -1,2 +1,4 @@
 /products/* /work/:splat 301
 /products /work 301
+/blog/* /journal/:splat 301
+/blog /journal 301

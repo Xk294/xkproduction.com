@@ -2,21 +2,21 @@
   <nav class="next-prev" aria-label="Điều hướng bài viết">
     <NuxtLink
       v-if="prevPost"
-      :to="`/blog/${prevPost.slug}`"
+      :to="`/journal/${prevPost.slug}`"
       class="next-prev-card prev"
     >
       <span>Bài trước</span>
       <strong>{{ prevPost.title }}</strong>
     </NuxtLink>
 
-    <NuxtLink to="/blog" class="next-prev-card center">
+    <NuxtLink to="/journal" class="next-prev-card center">
       <span>Quay lại</span>
       <strong>Danh sách bài viết</strong>
     </NuxtLink>
 
     <NuxtLink
       v-if="nextPost"
-      :to="`/blog/${nextPost.slug}`"
+      :to="`/journal/${nextPost.slug}`"
       class="next-prev-card next"
     >
       <span>Bài tiếp theo</span>

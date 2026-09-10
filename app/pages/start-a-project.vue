@@ -225,8 +225,8 @@ async function handleSubmit() {
     name: form.name.trim(),
     phone: cleanPhone,
     email: form.email?.trim() || '',
-    service: form.format || 'other',
-    message: `[Project Brief V2] Định dạng: ${form.format}. Quy mô: ${form.scope}. Năng lực cần: ${(form.capabilities || []).join(', ') || 'Chưa chọn'}. Tiến độ: ${form.timeline}. Demo URL: ${form.demoUrl || '(không có)'}. Lời nhắn: ${form.message || '(không có)'}`,
+    service: form.service || 'music-production',
+    message: `[Project Brief V2] Dịch vụ: ${form.service}. Tiến độ: ${form.timeline}. Demo URL: ${form.demoUrl || '(không có)'}. Lời nhắn: ${form.message || '(không có)'}`,
     source: 'start-a-project-v2'
   }
 
@@ -243,7 +243,7 @@ async function handleSubmit() {
 
     try {
       const { trackCta } = useAnalytics()
-      trackCta(`Brief Submit: ${form.format}`)
+      trackCta(`Brief Submit: ${form.service}`)
     } catch {}
 
     submitted.value = true

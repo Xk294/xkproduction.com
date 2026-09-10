@@ -41,8 +41,8 @@
             <li><NuxtLink to="/">Trang chủ</NuxtLink></li>
             <li><NuxtLink to="/services">Dịch vụ &amp; Bảng giá</NuxtLink></li>
             <li><NuxtLink to="/about">Giới Thiệu</NuxtLink></li>
-            <li><NuxtLink to="/products">Sản phẩm</NuxtLink></li>
-            <li><NuxtLink to="/blog">Blog & Kiến thức</NuxtLink></li>
+            <li><NuxtLink to="/work">Dự án &amp; Tác phẩm</NuxtLink></li>
+            <li><NuxtLink to="/journal">Journal &amp; Kiến thức</NuxtLink></li>
             <li><NuxtLink to="/faq">Hỏi &amp; Đáp (FAQ)</NuxtLink></li>
             <li><NuxtLink to="/contact">Liên hệ</NuxtLink></li>
             <li><NuxtLink to="/privacy">Chính sách Bảo mật</NuxtLink></li>

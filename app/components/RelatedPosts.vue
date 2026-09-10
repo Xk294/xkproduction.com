@@ -2,11 +2,11 @@
   <section class="related-posts">
     <div class="related-head">
       <h2>Bài viết liên quan</h2>
-      <NuxtLink to="/blog">Xem tất cả <i class="fa-solid fa-arrow-right"></i></NuxtLink>
+      <NuxtLink to="/journal">Xem tất cả <i class="fa-solid fa-arrow-right"></i></NuxtLink>
     </div>
 
     <div class="related-grid">
-      <NuxtLink v-for="item in posts" :key="item.slug" :to="`/blog/${item.slug}`" class="related-card">
+      <NuxtLink v-for="item in posts" :key="item.slug" :to="`/journal/${item.slug}`" class="related-card">
         <img :src="item.thumb" :alt="item.title" loading="lazy" />
         <div class="related-card-body">
           <p>{{ item.category }}</p>
