@@ -5,6 +5,11 @@ export interface LeadPayload {
   service?: string
   message?: string
   source?: string
+  utm_source?: string | null
+  utm_medium?: string | null
+  utm_campaign?: string | null
+  utm_content?: string | null
+  landing_page?: string | null
 }
 
 export function getServiceLabel(service?: string): string {
@@ -31,14 +36,47 @@ export async function processLead(event: any, payload: LeadPayload) {
     ?? getHeader(event, 'x-forwarded-for')?.split(',')[0]?.trim()
     ?? '0.0.0.0'
 
+  const userAgent = getHeader(event, 'user-agent') ?? null
+  const { device, os, browser } = parseUserAgent(userAgent)
+
+  const cfCity = getHeader(event, 'cf-ipcity')
+  const cfCountry = getHeader(event, 'cf-ipcountry')
+  const { city, country } = cleanGeoLocation(cfCity, cfCountry)
+
+  // Extract UTM from payload or fallback to cookie
+  let utmSource = payload.utm_source?.trim() || null
+  let utmMedium = payload.utm_medium?.trim() || null
+  let utmCampaign = payload.utm_campaign?.trim() || null
+  let utmContent = payload.utm_content?.trim() || null
+  let landingPage = payload.landing_page?.trim() || getHeader(event, 'referer')?.slice(0, 300) || null
+
+  if (!utmSource) {
+    try {
+      const rawCookie = getCookie(event, 'xk_utm')
+      if (rawCookie) {
+        const parsed = JSON.parse(decodeURIComponent(rawCookie))
+        utmSource = parsed.source || null
+        utmMedium = parsed.medium || null
+        utmCampaign = parsed.campaign || null
+        utmContent = parsed.content || null
+      }
+    } catch {
+      // Ignore cookie parsing error
+    }
+  }
+
   // Lưu vào D1 database nếu có binding
   const db = getDB(event)
   if (db) {
     try {
       await ensureSchema(db)
       await db.prepare(
-        `INSERT INTO leads (name, phone, email, service, message, ip, source)
-         VALUES (?, ?, ?, ?, ?, ?, ?)`
+        `INSERT INTO leads (
+          name, phone, email, service, message, ip, source,
+          country, city, device, os, browser,
+          utm_source, utm_medium, utm_campaign, utm_content, landing_page
+        )
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`
       ).bind(
         name.trim(),
         phone.trim(),
@@ -47,6 +85,16 @@ export async function processLead(event: any, payload: LeadPayload) {
         message?.trim() || null,
         ip,
         source,
+        country,
+        city,
+        device,
+        os,
+        browser,
+        utmSource,
+        utmMedium,
+        utmCampaign,
+        utmContent,
+        landingPage
       ).run()
     } catch (dbErr) {
       console.error('[lead] Error saving to D1:', dbErr)
@@ -76,10 +124,18 @@ export async function processLead(event: any, payload: LeadPayload) {
 
     const escapeHtml = (str: string = '') => str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
 
+    const campaignParts = [utmSource, utmMedium, utmCampaign].filter(Boolean)
+    const campaignText = campaignParts.length > 0 ? campaignParts.join(' / ') : 'Trực tiếp / Tự nhiên'
+    const locText = city ? `${city} (${country || 'VN'})` : (country || 'Việt Nam')
+    const deviceText = `${device === 'mobile' ? '📱 Mobile' : '💻 Desktop'} (${os} · ${browser})`
+
     const text = `🔥 <b>YÊU CẦU MỚI TỪ WEBSITE</b> 🔥
 ---------------------------------
-📍 <b>Nguồn:</b> ${escapeHtml(origin)}
-👤 <b>Khách hàng:</b> ${escapeHtml(name)}
+📍 <b>Form:</b> ${escapeHtml(origin)}
+🌐 <b>Chiến dịch:</b> <code>${escapeHtml(campaignText)}</code>
+🗺️ <b>Vị trí:</b> ${escapeHtml(locText)}
+📱 <b>Thiết bị:</b> ${escapeHtml(deviceText)}
+👤 <b>Khách hàng:</b> <b>${escapeHtml(name)}</b>
 📞 <b>Số điện thoại:</b> <code>${escapeHtml(cleanPhone)}</code>
 📧 <b>Email:</b> ${escapeHtml(email || '(không điền)')}
 🛠️ <b>Dịch vụ:</b> ${escapeHtml(serviceName)}

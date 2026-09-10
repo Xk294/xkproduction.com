@@ -31,8 +31,16 @@
         <!-- FOOTER INVESTMENT & LINK -->
         <div class="cap-card-footer">
           <div class="investment-info">
-            <span class="text-meta-mono">{{ isVi ? 'MỨC ĐẦU TƯ:' : 'INVESTMENT:' }}</span>
-            <strong class="investment-val">{{ isVi ? cap.investmentStarting : (cap.enInvestmentStarting || cap.investmentStarting) }}</strong>
+            <div class="meta-label-row">
+              <span class="text-meta-mono">{{ isVi ? 'MỨC ĐẦU TƯ:' : 'INVESTMENT:' }}</span>
+              <span v-if="cap.discountBadge" class="discount-pill">
+                {{ isVi ? cap.discountBadge : (cap.enDiscountBadge || cap.discountBadge) }}
+              </span>
+            </div>
+            <div class="meta-price-row">
+              <span v-if="cap.originalPrice" class="meta-val-struck text-meta-mono">{{ cap.originalPrice }}</span>
+              <strong class="investment-val">{{ isVi ? cap.investmentStarting : (cap.enInvestmentStarting || cap.investmentStarting) }}</strong>
+            </div>
           </div>
 
           <NuxtLink :to="`/services/${cap.slug}`" class="btn-cap-details">
@@ -67,12 +75,14 @@ defineProps<{
   padding: 2.25rem;
   display: flex;
   flex-direction: column;
-  transition: transform 0.25s var(--ease-out-expo), border-color 0.25s ease;
+  transition: transform 0.3s var(--ease-out-expo), border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .capability-card:hover {
   transform: translateY(-4px);
-  border-color: rgba(217, 119, 6, 0.4);
+  border-color: rgba(251, 191, 36, 0.4);
+  border-top-color: rgba(251, 191, 36, 0.7);
+  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.8), 0 0 35px rgba(217, 119, 6, 0.12);
 }
 
 .card-top-row {
@@ -93,6 +103,14 @@ defineProps<{
   justify-content: center;
   font-size: 1.25rem;
   color: #fbbf24;
+  transition: all 0.25s var(--ease-out-expo);
+}
+
+.capability-card:hover .cap-icon-box {
+  background: rgba(251, 191, 36, 0.15);
+  border-color: rgba(251, 191, 36, 0.4);
+  box-shadow: 0 0 20px rgba(251, 191, 36, 0.3);
+  transform: scale(1.06);
 }
 
 .cap-card-title {
@@ -170,7 +188,41 @@ defineProps<{
   gap: 0.2rem;
 }
 
-.investment-info span {
+.meta-label-row {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+.discount-pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.1rem 0.45rem;
+  border-radius: 4px;
+  font-size: 0.625rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  background: rgba(245, 158, 11, 0.15);
+  border: 1px solid rgba(245, 158, 11, 0.35);
+  color: #fbbf24;
+  line-height: 1.2;
+}
+
+.meta-price-row {
+  display: flex;
+  align-items: baseline;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+}
+
+.meta-val-struck {
+  font-size: 0.8125rem;
+  color: var(--text-subtle);
+  text-decoration: line-through;
+  opacity: 0.7;
+}
+
+.investment-info span.text-meta-mono {
   font-size: 0.6875rem;
 }
 

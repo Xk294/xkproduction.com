@@ -1,0 +1,62 @@
+[
+  {
+    "id": "rel-nhat-ki-cua-me",
+    "title": "Nhật Kí Của Mẹ (Cover)",
+    "artist": "Mai Linh",
+    "cover": "https://img.youtube.com/vi/F5tPTow1xkE/maxresdefault.jpg",
+    "releaseDate": "2025",
+    "streamingUrl": "https://www.youtube.com/watch?v=F5tPTow1xkE",
+    "platform": "YouTube",
+    "productionRole": "Hoà Âm Phối Khí & Mix Master"
+  },
+  {
+    "id": "rel-chang-muon-noi-nhieu-loi",
+    "title": "Chẳng Muốn Nói Nhiều Lời",
+    "artist": "Revan",
+    "cover": "https://img.youtube.com/vi/IxlFvQQP_4c/maxresdefault.jpg",
+    "releaseDate": "2025",
+    "streamingUrl": "https://www.youtube.com/watch?v=IxlFvQQP_4c",
+    "platform": "YouTube",
+    "productionRole": "Mixing & Mastering"
+  },
+  {
+    "id": "rel-love-du-phong",
+    "title": "Love Dự Phòng",
+    "artist": "Howl",
+    "cover": "https://img.youtube.com/vi/OCnKTCslJUU/maxresdefault.jpg",
+    "releaseDate": "2025",
+    "streamingUrl": "https://www.youtube.com/watch?v=OCnKTCslJUU",
+    "platform": "YouTube",
+    "productionRole": "Music Producer & Guitarist"
+  },
+  {
+    "id": "rel-ly-do-bat-dau",
+    "title": "Lý Do Bắt Đầu",
+    "artist": "Revan",
+    "cover": "https://img.youtube.com/vi/vzfr1ddayYY/maxresdefault.jpg",
+    "releaseDate": "2025",
+    "streamingUrl": "https://www.youtube.com/watch?v=vzfr1ddayYY",
+    "platform": "YouTube",
+    "productionRole": "Beat Production & Mix"
+  },
+  {
+    "id": "rel-kiep-sau",
+    "title": "Kiếp Sau",
+    "artist": "Phương Thanh Tuyền",
+    "cover": "https://img.youtube.com/vi/z4GB-X1OiPg/maxresdefault.jpg",
+    "releaseDate": "2024",
+    "streamingUrl": "https://www.youtube.com/watch?v=z4GB-X1OiPg",
+    "platform": "YouTube",
+    "productionRole": "Recording & Master"
+  },
+  {
+    "id": "rel-tet-xa",
+    "title": "Tết Xa",
+    "artist": "Khánh Linh",
+    "cover": "/images/quocchi-3.jpg",
+    "releaseDate": "2024",
+    "streamingUrl": "https://www.tiktok.com/@xkstudio/video/7589982843418266901",
+    "platform": "TikTok",
+    "productionRole": "Vocal Production"
+  }
+]

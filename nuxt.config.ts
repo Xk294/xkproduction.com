@@ -8,8 +8,8 @@ export default defineNuxtConfig({
 
   site: {
     url: 'https://xkproduction.com',
-    name: 'XKProduction — Phòng Thu Âm Chuyên Nghiệp',
-    description: 'XKProduction — Music production cho nghệ sĩ muốn bản phối nghe đắt tiền, rõ, và đúng chất. Hoà âm phối khí, Mix & Master chuẩn Spotify, thu âm chuyên nghiệp. 7+ năm kinh nghiệm, 2000+ dự án thành công.',
+    name: 'XKProduction — Phòng Thu Âm & Sản Xuất Âm Nhạc Chuyên Nghiệp',
+    description: 'Phòng thu âm và sản xuất âm nhạc chuyên nghiệp tại TP.HCM & Bình Phước. Hoà âm phối khí độc quyền, Mix & Master chuẩn Spotify -14 LUFS, thu âm ca khúc. 7+ năm kinh nghiệm, 2000+ dự án hoàn thành.',
     defaultLocale: 'vi',
     trailingSlash: false,
     indexable: true,
@@ -30,7 +30,7 @@ export default defineNuxtConfig({
         changefreq: 'weekly',
         lastmod: new Date().toISOString().split('T')[0],
         images: [
-          { loc: 'https://xkproduction.com/images/logo-xkproduction.png', title: 'XKProduction - Phòng Thu Âm Chuyên Nghiệp Bình Phước', caption: 'Logo phòng thu âm chuyên nghiệp XKProduction' },
+          { loc: 'https://xkproduction.com/logo.png', title: 'XKProduction - Phòng Thu Âm Chuyên Nghiệp TP. Hồ Chí Minh', caption: 'Logo phòng thu âm chuyên nghiệp XKProduction' },
           { loc: 'https://xkproduction.com/images/founder-kiet.jpg', title: 'Nguyễn Xuân Kiệt - Founder XKProduction', caption: 'Founder & Music Producer XKProduction' }
         ]
       },
@@ -39,14 +39,14 @@ export default defineNuxtConfig({
         priority: 0.8,
         changefreq: 'weekly',
         lastmod: new Date().toISOString().split('T')[0],
-        images: [{ loc: 'https://xkproduction.com/images/logo-xkproduction.png', title: 'Bảng giá dịch vụ thu âm XKProduction', caption: 'Bảng giá thu âm, mix master, hoà âm phối khí' }]
+        images: [{ loc: 'https://xkproduction.com/logo.png', title: 'Bảng giá dịch vụ thu âm XKProduction', caption: 'Bảng giá thu âm, mix master, hoà âm phối khí' }]
       },
       {
         loc: '/thu-am',
         priority: 0.9,
         changefreq: 'weekly',
         lastmod: new Date().toISOString().split('T')[0],
-        images: [{ loc: 'https://xkproduction.com/images/Xkpreviewnew.png', title: 'Dịch vụ thu âm bài hát chuyên nghiệp', caption: 'Phòng thu âm chuyên nghiệp Bình Phước' }]
+        images: [{ loc: 'https://xkproduction.com/images/Xkpreviewnew.png', title: 'Dịch vụ thu âm bài hát chuyên nghiệp', caption: 'Phòng thu âm chuyên nghiệp TP. Hồ Chí Minh' }]
       },
       {
         loc: '/mix-master',
@@ -67,14 +67,14 @@ export default defineNuxtConfig({
         priority: 0.9,
         changefreq: 'weekly',
         lastmod: new Date().toISOString().split('T')[0],
-        images: [{ loc: 'https://xkproduction.com/images/Xkpreviewnew.png', title: 'Dịch vụ Quay MV & TVC Chuyên Nghiệp', caption: 'Sản xuất MV và TVC quảng cáo trọn gói tại Bình Phước' }]
+        images: [{ loc: 'https://xkproduction.com/images/Xkpreviewnew.png', title: 'Dịch vụ Quay MV & TVC Chuyên Nghiệp', caption: 'Sản xuất MV và TVC quảng cáo trọn gói tại TP. Hồ Chí Minh' }]
       },
       {
         loc: '/courses',
         priority: 0.9,
         changefreq: 'monthly',
         lastmod: new Date().toISOString().split('T')[0],
-        images: [{ loc: 'https://xkproduction.com/images/logo-xkproduction.png', title: 'Khoá học Music Producer tại XKProduction', caption: 'Đào tạo Music Producer, Mixing & Mastering' }]
+        images: [{ loc: 'https://xkproduction.com/logo.png', title: 'Khoá học Music Producer tại XKProduction', caption: 'Đào tạo Music Producer, Mixing & Mastering' }]
       },
       {
         loc: '/live-band',
@@ -123,7 +123,6 @@ export default defineNuxtConfig({
         changefreq: 'weekly',
         lastmod: new Date().toISOString().split('T')[0],
       },
-      { loc: '/privacy', priority: 0.3, changefreq: 'yearly', lastmod: '2025-01-01' },
       // === V2 CORE ROUTES ===
       { loc: '/work', priority: 0.9, changefreq: 'weekly', lastmod: new Date().toISOString().split('T')[0] },
       { loc: '/work/nhat-ki-cua-me', priority: 0.8, changefreq: 'monthly', lastmod: new Date().toISOString().split('T')[0] },
@@ -136,10 +135,11 @@ export default defineNuxtConfig({
       { loc: '/work/tet-xa-cover', priority: 0.8, changefreq: 'monthly', lastmod: new Date().toISOString().split('T')[0] },
       { loc: '/services/music-production', priority: 0.9, changefreq: 'weekly', lastmod: new Date().toISOString().split('T')[0] },
       { loc: '/services/creative-sound', priority: 0.9, changefreq: 'weekly', lastmod: new Date().toISOString().split('T')[0] },
-      { loc: '/services/live-production', priority: 0.8, changefreq: 'weekly', lastmod: new Date().toISOString().split('T')[0] },
+      { loc: '/services/studio-recording', priority: 0.9, changefreq: 'weekly', lastmod: new Date().toISOString().split('T')[0] },
       { loc: '/services/project-production', priority: 0.9, changefreq: 'weekly', lastmod: new Date().toISOString().split('T')[0] },
+      { loc: '/services/live-production', priority: 0.8, changefreq: 'weekly', lastmod: new Date().toISOString().split('T')[0] },
+      { loc: '/services/commercial-audio', priority: 0.8, changefreq: 'weekly', lastmod: new Date().toISOString().split('T')[0] },
       { loc: '/production', priority: 0.8, changefreq: 'monthly', lastmod: new Date().toISOString().split('T')[0] },
-      { loc: '/releases', priority: 0.8, changefreq: 'weekly', lastmod: new Date().toISOString().split('T')[0] },
       {
         loc: '/journal',
         priority: 0.8,
@@ -212,20 +212,12 @@ export default defineNuxtConfig({
         { rel: 'manifest', href: '/favicon/manifest.json' },
         // Canonical được handle động ở từng page
         // Preconnect — tăng tốc font và CDN
-        { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
-        { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: '' },
         { rel: 'preconnect', href: 'https://cdnjs.cloudflare.com', crossorigin: '' },
         { rel: 'preconnect', href: 'https://img.youtube.com', crossorigin: '' },
         // DNS prefetch for social
         { rel: 'dns-prefetch', href: 'https://www.facebook.com' },
         { rel: 'dns-prefetch', href: 'https://www.youtube.com' },
         { rel: 'dns-prefetch', href: 'https://formspree.io' },
-        // Google Fonts
-        {
-          rel: 'stylesheet',
-          href: 'https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap',
-          crossorigin: 'anonymous'
-        },
         // Font Awesome
         {
           rel: 'stylesheet',
@@ -252,7 +244,7 @@ export default defineNuxtConfig({
   },
 
   // === CSS ===
-  css: ['~/assets/css/style.css'],
+  css: ['~/assets/css/fonts.css', '~/assets/css/style.css'],
 
   // === COMPONENTS (flat, no subdirectory prefix) ===
   components: [{ path: '~/components', pathPrefix: false }],
@@ -266,7 +258,7 @@ export default defineNuxtConfig({
         const path = await import('node:path')
         const redirectFile = path.resolve('dist/_redirects')
         if (fs.existsSync(path.dirname(redirectFile))) {
-          const content = '/products/*\t/work/:splat\t301\n/products\t/work\t301\n/blog/*\t/journal/:splat\t301\n/blog\t/journal\t301\n'
+          const content = '/products/*\t/work/:splat\t301\n/products\t/work\t301\n/blog/*\t/journal/:splat\t301\n/blog\t/journal\t301\n/releases\t/work\t301\n/releases/*\t/work\t301\n'
           fs.writeFileSync(redirectFile, content, 'utf-8')
         }
       }
@@ -289,10 +281,11 @@ export default defineNuxtConfig({
         '/work/tet-xa-cover',
         '/services/music-production',
         '/services/creative-sound',
-        '/services/live-production',
+        '/services/studio-recording',
         '/services/project-production',
+        '/services/live-production',
+        '/services/commercial-audio',
         '/production',
-        '/releases',
         '/journal',
         '/journal/san-xuat-nhat-ki-cua-me-mai-linh',
         '/journal/thu-am-gia-2026',
@@ -310,6 +303,8 @@ export default defineNuxtConfig({
       ],
     },
     routeRules: {
+      '/releases': { redirect: { to: '/work', statusCode: 301 } },
+      '/releases/**': { redirect: { to: '/work', statusCode: 301 } },
       '/admin/**': { ssr: false },
       '/**': {
         headers: {

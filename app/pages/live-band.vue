@@ -8,7 +8,7 @@
 
     <!-- ===== HERO SECTION ===== -->
     <section class="page-hero">
-      <div class="max-width">
+      <div class="editorial-container">
         <span class="hero-badge"><i class="fa-solid fa-guitar"></i> SOUND &amp; LIGHT · LIVE BAND</span>
         <h1 class="page-hero-title">Quốc Chí <span class="text-gradient-animated">Sound &amp; Lighting</span></h1>
         <p class="page-hero-sub">Giải pháp Âm thanh, Ánh sáng &amp; Ban nhạc chuyên nghiệp cho mọi sự kiện lớn nhỏ. Đối tác chiến lược của XKProduction trong event &amp; biểu diễn trực tiếp.</p>
@@ -64,7 +64,7 @@
 
     <!-- ===== GALLERY SECTION ===== -->
     <section class="section-block-narrow lb-gallery">
-      <div class="max-width">
+      <div class="editorial-container">
         <div class="section-header-center text-center">
           <span class="header-tag">KHOẢNH KHẮC THỰC TẾ</span>
           <h2 class="section-heading-heavy text-center">Hình Ảnh Sân Khấu & Vận Hành</h2>
@@ -96,7 +96,7 @@
 
     <!-- ===== SERVICES SECTION ===== -->
     <section class="section-block lb-services">
-      <div class="max-width">
+      <div class="editorial-container">
         <div class="section-header-center text-center">
           <span class="header-tag">HẠNG MỤC DỊCH VỤ</span>
           <h2 class="section-heading-heavy text-center">Giải Pháp Trọn Gói</h2>
@@ -118,7 +118,7 @@
 
     <!-- ===== PACKAGES SECTION ===== -->
     <section class="section-block lb-packages">
-      <div class="max-width">
+      <div class="editorial-container">
         <div class="section-header-center text-center">
           <span class="header-tag">BÁO GIÁ ĐỀ XUẤT</span>
           <h2 class="section-heading-heavy text-center">Gói Dịch Vụ Tiêu Biểu</h2>
@@ -215,7 +215,7 @@ useHead({
           "url": "https://xkproduction.com"
         },
         "name": "Live Band & Âm thanh Sự kiện",
-        "description": "Cung cấp hệ thống âm thanh, ánh sáng chuyên nghiệp và ban nhạc live cho sự kiện đám cưới, gala dinner, lễ hội ngoài trời tại Bình Phước.",
+        "description": "Cung cấp hệ thống âm thanh, ánh sáng chuyên nghiệp và ban nhạc live cho sự kiện đám cưới, gala dinner, lễ hội ngoài trời tại TP. Hồ Chí Minh và các khu vực lân cận.",
         "offers": {
           "@type": "AggregateOffer",
           "priceCurrency": "VND",

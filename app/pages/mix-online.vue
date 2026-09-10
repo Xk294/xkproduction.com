@@ -25,7 +25,7 @@
 
     <!-- 3. How it works -->
     <section class="how-it-works-section">
-      <div class="max-width">
+      <div class="editorial-container">
         <div class="section-header-minimal text-center" style="margin-bottom: 2rem;">
           <span class="header-tag">QUY TRÌNH</span>
         </div>
@@ -53,7 +53,7 @@
 
     <!-- 4. Pricing table -->
     <section id="pricing" class="pricing-section">
-      <div class="max-width">
+      <div class="editorial-container">
         <div class="pricing-grid">
           <!-- Basic -->
           <div class="pricing-card glass-card hover-lift">
@@ -104,7 +104,7 @@
 
     <!-- 5. Requirements section -->
     <section class="requirements-section">
-      <div class="max-width">
+      <div class="editorial-container">
         <div class="glass-card requirements-card">
           <h3 style="margin-bottom: 1.5rem; color: var(--text-main); font-size: 1.25rem;"><i class="fa-solid fa-box-open" style="color: var(--accent); margin-right: 0.5rem;"></i> Cần chuẩn bị gì?</h3>
           <ul class="req-list">
@@ -113,13 +113,21 @@
             <li><strong>Tham khảo:</strong> Thể loại + bài hát có sound mong muốn.</li>
             <li><strong>Thông tin:</strong> Tempo/BPM của bài.</li>
           </ul>
+
+          <div class="tachnhac-callout">
+            <div class="callout-icon"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+            <div class="callout-body">
+              <strong>Chưa có beat sạch (instrumental) hoặc cần tách vocal từ bài hát gốc?</strong>
+              <p>Nếu bạn chỉ có 1 file audio chứa cả nhạc và lời mà muốn tách vocal để gửi mix hoặc lấy beat làm cover, hãy trải nghiệm công cụ tách nhạc AI trực tuyến miễn phí của chúng tôi tại <a :href="createTachnhacReferralUrl('mix_online_callout_tachnhac')" target="_blank" rel="noopener noreferrer">TáchNhạc.com <i class="fa-solid fa-arrow-up-right-from-square"></i></a> (tách beat, tách vocal, khử ồn chỉ trong 10 giây).</p>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
     <!-- 6. Order form -->
     <section id="order-form" class="order-form-section" style="padding-bottom: 6rem;">
-      <div class="max-width">
+      <div class="editorial-container">
         <div class="glass-card form-wrap">
           <div class="text-center" style="margin-bottom: 2rem;">
             <h2>Gửi File Trực Tuyến</h2>
@@ -212,14 +220,21 @@ import { reactive, ref } from 'vue'
 
 useSeoMeta({
   title: 'Mix & Master Online — Gửi File Nhận Bản Mix Chuyên Nghiệp | XKProduction',
-  description: 'Dịch vụ mix và master online toàn quốc. Gửi file qua Google Drive, nhận bản mix chuẩn Spotify trong 48-72h. Từ 300.000₫/bài.',
+  description: 'Dịch vụ mix và master online toàn quốc. Gửi file qua Google Drive, nhận bản mix chuẩn Spotify trong 48-72h. Từ 350.000₫/bài.',
   keywords: 'mix master online, gửi file mix master, mixing online Việt Nam, mastering online, mix nhạc online',
+  ogTitle: 'Mix & Master Online — XKProduction Studio',
+  ogDescription: 'Dịch vụ mix và master online chuẩn Spotify -14 LUFS toàn quốc. Nhận bài trong 48-72h.',
+  ogImage: 'https://xkproduction.com/images/Xkpreviewnew.png',
+  ogUrl: 'https://xkproduction.com/mix-online',
+  ogType: 'website',
+  twitterCard: 'summary_large_image',
+  twitterImage: 'https://xkproduction.com/images/Xkpreviewnew.png',
 })
 
 useSchemaOrg([
   defineWebPage({
     name: 'Mix & Master Online — Gửi File Nhận Bản Mix Chuyên Nghiệp | XKProduction',
-    description: 'Dịch vụ mix và master online toàn quốc. Gửi file qua Google Drive, nhận bản mix chuẩn Spotify trong 48-72h. Từ 300.000₫/bài.'
+    description: 'Dịch vụ mix và master online toàn quốc. Gửi file qua Google Drive, nhận bản mix chuẩn Spotify trong 48-72h. Từ 350.000₫/bài.'
   }),
   defineLocalBusiness({
     '@id': 'https://xkproduction.com/#localbusiness',
@@ -229,25 +244,19 @@ useSchemaOrg([
     url: 'https://xkproduction.com',
     image: 'https://xkproduction.com/images/Xkpreviewnew.png',
     address: {
-      streetAddress: 'QL14 km25 xã Nghĩa Trung, Huyện Bù Đăng',
-      addressLocality: 'Bình Phước',
-      addressRegion: 'Bình Phước',
-      postalCode: '830000',
+      streetAddress: 'Thủ Đức',
+      addressLocality: 'Thủ Đức',
+      addressRegion: 'Thành phố Hồ Chí Minh',
+      postalCode: '700000',
       addressCountry: 'VN'
     },
-    geo: { latitude: '11.71792', longitude: '107.11719' },
-    hasMap: 'https://maps.google.com/?q=11.71792,107.11719',
+    geo: { latitude: '10.8494', longitude: '106.7537' },
+    hasMap: 'https://maps.google.com/?q=10.8494,106.7537',
     openingHoursSpecification: [
       { dayOfWeek: ['Monday','Tuesday','Wednesday','Thursday','Friday'], opens: '07:00', closes: '22:00' },
       { dayOfWeek: ['Saturday','Sunday'], opens: '08:00', closes: '20:00' }
     ],
-    priceRange: '350.000₫ – 3.500.000₫',
-    aggregateRating: {
-      ratingValue: '4.9',
-      ratingCount: 150,
-      bestRating: '5',
-      worstRating: '1'
-    }
+    priceRange: '350.000₫ – 3.500.000₫'
   })
 ])
 
@@ -293,13 +302,15 @@ function validateForm(): boolean {
 async function handleSubmit() {
   if (!validateForm()) return
   submitState.value = 'loading'
+  const { getTrackingPayload } = useAnalytics()
   const payload = {
     name: form.name,
     phone: form.phone,
     email: form.email || '',
     service: `Mix Online - Gói ${form.package}`,
     message: `Link: ${form.link}\nGhi chú: ${form.notes}`,
-    source: 'mix-online'
+    source: 'mix-online',
+    ...getTrackingPayload()
   }
 
   try {
@@ -588,6 +599,50 @@ async function handleSubmit() {
 
 .req-list li strong {
   color: var(--text-main);
+}
+
+.tachnhac-callout {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-top: 1.75rem;
+  padding: 1.25rem 1.5rem;
+  background: rgba(245, 158, 11, 0.06);
+  border: 1px solid rgba(245, 158, 11, 0.25);
+  border-radius: 10px;
+}
+
+.callout-icon {
+  font-size: 1.25rem;
+  color: #fbbf24;
+  margin-top: 0.15rem;
+  flex-shrink: 0;
+}
+
+.callout-body strong {
+  display: block;
+  font-size: 0.9375rem;
+  color: var(--text-main);
+  margin-bottom: 0.35rem;
+}
+
+.callout-body p {
+  font-size: 0.875rem;
+  color: var(--text-light);
+  line-height: 1.55;
+  margin: 0;
+}
+
+.callout-body a {
+  color: #fbbf24;
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: opacity 0.15s ease;
+}
+
+.callout-body a:hover {
+  opacity: 0.85;
 }
 
 .order-form-section {

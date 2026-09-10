@@ -13,10 +13,12 @@ export default defineEventHandler(async (event) => {
   const ip = getHeader(event, 'cf-connecting-ip')
     ?? getHeader(event, 'x-forwarded-for')?.split(',')[0]?.trim()
     ?? '0.0.0.0'
+  const userAgent = getHeader(event, 'user-agent') ?? null
+  const { device } = parseUserAgent(userAgent)
 
   await db.prepare(
-    `INSERT INTO events (ip, action, label, page) VALUES (?, ?, ?, ?)`
-  ).bind(ip, action.trim(), label?.trim() || null, page?.trim() || null).run()
+    `INSERT INTO events (ip, action, label, page, device) VALUES (?, ?, ?, ?, ?)`
+  ).bind(ip, action.trim(), label?.trim() || null, page?.trim() || null, device).run()
 
   return { ok: true }
 })

@@ -17,7 +17,7 @@
 
     <!-- 3. 4 B2B service cards -->
     <section class="services-b2b-section">
-      <div class="max-width">
+      <div class="editorial-container">
         <div class="b2b-services-grid">
           <div class="glass-card hover-lift text-center b2b-service-card">
             <div class="b2b-icon-wrap"><i class="fa-solid fa-film"></i></div>
@@ -45,7 +45,7 @@
 
     <!-- 4. Why choose B2B section -->
     <section class="why-b2b-section">
-      <div class="max-width">
+      <div class="editorial-container">
         <div class="why-b2b-grid">
           <div class="why-b2b-item glass-card text-center">
             <div class="why-icon"><i class="fa-solid fa-shield-halved"></i></div>
@@ -68,7 +68,7 @@
 
     <!-- 5. Process -->
     <section class="process-section">
-      <div class="max-width">
+      <div class="editorial-container">
         <div class="section-header-minimal text-center" style="margin-bottom: 2rem;">
           <span class="header-tag">QUY TRÌNH</span>
         </div>
@@ -115,7 +115,7 @@
 
     <!-- 7. CTA section with a contact form -->
     <section class="b2b-cta-section" style="margin-top: 4rem; padding-bottom: 6rem;">
-      <div class="max-width">
+      <div class="editorial-container">
         <div class="glass-card b2b-form-wrap">
           <div class="text-center" style="margin-bottom: 2rem;">
             <h2>Đăng Ký Tư Vấn Doanh Nghiệp</h2>
@@ -189,6 +189,13 @@ useSeoMeta({
   title: 'XKProduction cho Doanh Nghiệp — Nhạc TVC, Thương Hiệu, Sự Kiện | XKProduction',
   description: 'XKProduction sản xuất nhạc thương mại: nhạc TVC, jingle, brand music, nhạc sự kiện doanh nghiệp chuyên nghiệp. Báo giá nhanh trong 24h.',
   keywords: 'nhạc TVC, nhạc thương hiệu, sản xuất nhạc doanh nghiệp, jingle quảng cáo, âm nhạc sự kiện, brand music Vietnam',
+  ogTitle: 'XKProduction cho Doanh Nghiệp — Âm Nhạc Thương Hiệu & TVC',
+  ogDescription: 'Sản xuất âm nhạc thương mại cho doanh nghiệp: TVC, Jingle, Nhạc sự kiện. Báo giá nhanh trong 24 giờ.',
+  ogImage: 'https://xkproduction.com/images/Xkpreviewnew.png',
+  ogUrl: 'https://xkproduction.com/b2b',
+  ogType: 'website',
+  twitterCard: 'summary_large_image',
+  twitterImage: 'https://xkproduction.com/images/Xkpreviewnew.png',
 })
 
 useSchemaOrg([
@@ -204,25 +211,19 @@ useSchemaOrg([
     url: 'https://xkproduction.com',
     image: 'https://xkproduction.com/images/Xkpreviewnew.png',
     address: {
-      streetAddress: 'QL14 km25 xã Nghĩa Trung, Huyện Bù Đăng',
-      addressLocality: 'Bình Phước',
-      addressRegion: 'Bình Phước',
-      postalCode: '830000',
+      streetAddress: 'Thủ Đức',
+      addressLocality: 'Thủ Đức',
+      addressRegion: 'Thành phố Hồ Chí Minh',
+      postalCode: '700000',
       addressCountry: 'VN'
     },
-    geo: { latitude: '11.71792', longitude: '107.11719' },
-    hasMap: 'https://maps.google.com/?q=11.71792,107.11719',
+    geo: { latitude: '10.8494', longitude: '106.7537' },
+    hasMap: 'https://maps.google.com/?q=10.8494,106.7537',
     openingHoursSpecification: [
       { dayOfWeek: ['Monday','Tuesday','Wednesday','Thursday','Friday'], opens: '07:00', closes: '22:00' },
       { dayOfWeek: ['Saturday','Sunday'], opens: '08:00', closes: '20:00' }
     ],
-    priceRange: '350.000₫ – 3.500.000₫',
-    aggregateRating: {
-      ratingValue: '4.9',
-      ratingCount: 150,
-      bestRating: '5',
-      worstRating: '1'
-    }
+    priceRange: '3.000.000₫ – 50.000.000₫'
   })
 ])
 
@@ -246,13 +247,15 @@ function validateForm(): boolean {
 async function handleSubmit() {
   if (!validateForm()) return
   submitState.value = 'loading'
+  const { getTrackingPayload } = useAnalytics()
   const payload = {
     name: form.name + (form.company ? ` (${form.company})` : ''),
     phone: form.phone,
     email: form.email || '',
     service: form.service,
     message: form.message,
-    source: 'b2b'
+    source: 'b2b',
+    ...getTrackingPayload()
   }
 
   try {

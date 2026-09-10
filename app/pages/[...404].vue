@@ -25,9 +25,9 @@
           <i class="fa-solid fa-microphone"></i>
           <span>Dịch vụ</span>
         </NuxtLink>
-        <NuxtLink to="/products" class="link-card">
+        <NuxtLink to="/work" class="link-card">
           <i class="fa-solid fa-compact-disc"></i>
-          <span>Sản phẩm</span>
+          <span>Tác phẩm</span>
         </NuxtLink>
         <NuxtLink to="/contact" class="link-card">
           <i class="fa-solid fa-paper-plane"></i>

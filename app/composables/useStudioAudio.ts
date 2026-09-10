@@ -9,14 +9,22 @@ export interface StudioTrack {
   coverImg: string
   theme?: string
   youtubeUrl?: string
+  genre?: string
+  tempo?: string
+  lufs?: string
+  key?: string
 }
 
 export const studioPlaylist: StudioTrack[] = [
   {
     id: 'pop-rnb-demo',
     title: 'Pop R&B Special Demo',
-    artist: 'Sản xuất bởi XKProduction',
+    artist: 'XKProduction Showcase',
     category: 'Beat Phối Khí Độc Quyền',
+    genre: 'R&B / Soul Pop',
+    tempo: '102 BPM',
+    lufs: '-14.1 LUFS',
+    key: 'G Minor',
     audioSrc: '/product-audio-demo/pop-rnb-1-Gm.102.mp3',
     coverImg: '/images/blog-hoa-am.jpg',
     theme: 'blue'
@@ -26,28 +34,40 @@ export const studioPlaylist: StudioTrack[] = [
     title: 'Nhật Kí Của Mẹ',
     artist: 'Mai Linh (Cover) · XKProduction',
     category: 'Hoà Âm & Mix Master',
-    audioSrc: '/product-audio-demo/pop-rnb-1-Gm.102.mp3', // high quality audio demo
-    coverImg: 'https://img.youtube.com/vi/F5tPTow1xkE/hqdefault.jpg',
+    genre: 'Ballad / Acoustic Grand Piano',
+    tempo: '82 BPM',
+    lufs: '-14.0 LUFS',
+    key: 'C Major',
+    audioSrc: '/product-audio-demo/Nhatkicuame-Linh-Finalxkprod.wav',
+    coverImg: 'https://img.youtube.com/vi/F5tPTow1xkE/maxresdefault.jpg',
     theme: 'blue',
     youtubeUrl: 'https://www.youtube.com/watch?v=F5tPTow1xkE'
   },
   {
-    id: 'chang-muon-noi-nhieu-loi',
-    title: 'Chẳng Muốn Nói Nhiều Lời',
-    artist: 'Revan · XKProduction',
-    category: 'Sản Xuất R&B / Hip-hop',
-    audioSrc: '/product-audio-demo/pop-rnb-1-Gm.102.mp3',
-    coverImg: 'https://img.youtube.com/vi/IxlFvQQP_4c/hqdefault.jpg',
-    theme: 'dark',
-    youtubeUrl: 'https://www.youtube.com/watch?v=IxlFvQQP_4c'
+    id: 'ao-cu-tinh-moi',
+    title: 'Áo Cũ Tình Mới',
+    artist: 'XKProduction Remix',
+    category: 'Hoà Âm Phối Khí & EDM Remix',
+    genre: 'House / EDM Remix',
+    tempo: '140 BPM',
+    lufs: '-9.8 LUFS',
+    key: 'F Minor',
+    audioSrc: '/product-audio-demo/Áo cũ tình mới remix-xkstudio.wav',
+    coverImg: 'https://img.youtube.com/vi/hlvg9YBxRqY/maxresdefault.jpg',
+    theme: 'amber',
+    youtubeUrl: 'https://www.youtube.com/watch?v=hlvg9YBxRqY'
   },
   {
     id: 'love-du-phong',
     title: 'Love Dự Phòng',
     artist: 'Howl · XKProduction',
     category: 'Vocal Production / Acoustic',
-    audioSrc: '/product-audio-demo/pop-rnb-1-Gm.102.mp3',
-    coverImg: 'https://img.youtube.com/vi/OCnKTCslJUU/hqdefault.jpg',
+    genre: 'Acoustic Guitar Nylon',
+    tempo: '88 BPM',
+    lufs: '-14.2 LUFS',
+    key: 'A Major',
+    audioSrc: '/product-audio-demo/Love Du Phong-VOCAL-Master1525.wav',
+    coverImg: 'https://img.youtube.com/vi/OCnKTCslJUU/maxresdefault.jpg',
     theme: 'red',
     youtubeUrl: 'https://www.youtube.com/watch?v=OCnKTCslJUU'
   }
@@ -62,9 +82,76 @@ const duration = ref(0)
 const progress = ref(0)
 const volume = ref(0.9)
 const isMuted = ref(false)
+const vuLeft = ref(0)
+const vuRight = ref(0)
 let lastVolume = 0.9
 
 let globalAudio: HTMLAudioElement | null = null
+let audioCtx: AudioContext | null = null
+let analyserNode: AnalyserNode | null = null
+let sourceNode: MediaElementAudioSourceNode | null = null
+let vuAnimId: number | null = null
+
+function initWebAudio() {
+  if (!import.meta.client || !globalAudio || analyserNode) return
+  try {
+    const AudioContextClass = window.AudioContext || (window as unknown as { webkitAudioContext: typeof AudioContext }).webkitAudioContext
+    if (!AudioContextClass) return
+    audioCtx = new AudioContextClass()
+    analyserNode = audioCtx.createAnalyser()
+    analyserNode.fftSize = 64
+    analyserNode.smoothingTimeConstant = 0.8
+    sourceNode = audioCtx.createMediaElementSource(globalAudio)
+    sourceNode.connect(analyserNode)
+    analyserNode.connect(audioCtx.destination)
+  } catch (err) {
+    console.warn('[StudioAudio] Web Audio fallback to organic emulation:', err)
+  }
+}
+
+function startVuLoop() {
+  if (vuAnimId) return
+  const dataArray = analyserNode ? new Uint8Array(analyserNode.frequencyBinCount) : null
+
+  const loop = () => {
+    if (!isPlaying.value) {
+      vuLeft.value = Math.max(0, vuLeft.value * 0.85)
+      vuRight.value = Math.max(0, vuRight.value * 0.85)
+      if (vuLeft.value > 1 || vuRight.value > 1) {
+        vuAnimId = requestAnimationFrame(loop)
+      } else {
+        vuLeft.value = 0
+        vuRight.value = 0
+        vuAnimId = null
+      }
+      return
+    }
+
+    if (analyserNode && dataArray) {
+      analyserNode.getByteFrequencyData(dataArray)
+      let sumL = 0
+      let sumR = 0
+      const half = Math.floor(dataArray.length / 2)
+      for (let i = 0; i < half; i++) sumL += dataArray[i] || 0
+      for (let i = half; i < dataArray.length; i++) sumR += dataArray[i] || 0
+      const rawL = (sumL / half / 255) * 100
+      const rawR = (sumR / (dataArray.length - half) / 255) * 100
+      const targetL = Math.min(98, Math.max(8, rawL * 1.15))
+      const targetR = Math.min(98, Math.max(8, rawR * 1.15))
+      vuLeft.value = vuLeft.value * 0.5 + targetL * 0.5
+      vuRight.value = vuRight.value * 0.5 + targetR * 0.5
+    } else {
+      const time = Date.now() * 0.007
+      const base = 48 + Math.sin(time) * 22 + Math.cos(time * 2.3) * 14
+      vuLeft.value = Math.min(96, Math.max(10, base + Math.sin(time * 3) * 10))
+      vuRight.value = Math.min(96, Math.max(10, base + Math.cos(time * 2.7) * 12))
+    }
+
+    vuAnimId = requestAnimationFrame(loop)
+  }
+
+  vuAnimId = requestAnimationFrame(loop)
+}
 
 export function useStudioAudio() {
   const currentTrack = computed(() => studioPlaylist[currentTrackIdx.value] || studioPlaylist[0])
@@ -109,6 +196,8 @@ export function useStudioAudio() {
     globalAudio.addEventListener('timeupdate', onTimeUpdate)
     globalAudio.addEventListener('loadedmetadata', onLoadedMetadata)
     globalAudio.addEventListener('ended', onEnded)
+
+    initWebAudio()
   }
 
   const cleanupGlobalAudio = () => {
@@ -120,6 +209,18 @@ export function useStudioAudio() {
       globalAudio.src = ''
       globalAudio = null
       isPlaying.value = false
+    }
+    if (sourceNode) {
+      try { sourceNode.disconnect() } catch {}
+      sourceNode = null
+    }
+    if (analyserNode) {
+      try { analyserNode.disconnect() } catch {}
+      analyserNode = null
+    }
+    if (vuAnimId) {
+      cancelAnimationFrame(vuAnimId)
+      vuAnimId = null
     }
   }
 
@@ -138,9 +239,14 @@ export function useStudioAudio() {
     }
 
     try {
+      if (audioCtx && audioCtx.state === 'suspended') {
+        await audioCtx.resume()
+      }
+      initWebAudio()
       await globalAudio.play()
       isPlaying.value = true
       isDockOpen.value = true
+      startVuLoop()
       try {
         const { trackAudioPlay } = useAnalytics()
         trackAudioPlay(currentTrack.value?.title || 'Studio Audio Demo')
@@ -149,6 +255,13 @@ export function useStudioAudio() {
       }
     } catch (e) {
       console.warn('[StudioAudio] Playback prevented:', e)
+    }
+  }
+
+  const playTrackById = (id: string) => {
+    const idx = studioPlaylist.findIndex(t => t.id === id)
+    if (idx !== -1) {
+      playTrack(idx)
     }
   }
 
@@ -222,9 +335,12 @@ export function useStudioAudio() {
     progress,
     volume,
     isMuted,
+    vuLeft,
+    vuRight,
     currentTimeFormatted: computed(() => formatSeconds(currentTime.value)),
     durationFormatted: computed(() => formatSeconds(duration.value)),
     playTrack,
+    playTrackById,
     pauseTrack,
     togglePlay,
     nextTrack,

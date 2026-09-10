@@ -1,0 +1,58 @@
+{
+  "slug": "mix-master-huong-dan",
+  "title": "Mix và master là gì? Cách một bản nhạc đi từ đúng đến hay",
+  "subtitle": "Mixing tạo nên không gian, chiều sâu và tương quan giữa các nhạc cụ. Mastering giúp bản nhạc giữ được năng lượng đó trên mọi nền tảng nghe.",
+  "excerpt": "Một hướng dẫn dễ hiểu nhưng đủ chuyên môn về mixing, mastering và vì sao đây là hai bước quyết định cảm giác “đắt tiền” của bản nhạc.",
+  "category": "Kiến Thức",
+  "icon": "fa-solid fa-graduation-cap",
+  "author": "Nguyễn Xuân Kiệt",
+  "authorRole": "Mixing / Mastering Engineer",
+  "date": "20/04/2026",
+  "isoDate": "2026-04-20",
+  "readTime": "9 phút đọc",
+  "thumb": "/images/blog-mix-master.jpg",
+  "cover": "/images/blog-mix-master.jpg",
+  "tags": ["Kiến Thức", "Mix & Master"],
+  "sections": [
+    {
+      "id": "mixing-la-gi",
+      "heading": "Mixing là lúc bài nhạc bắt đầu có không gian",
+      "body": [
+        "Một bản phối thô có thể đã đủ nốt, đủ nhạc cụ, nhưng chưa chắc đã nghe như một bài hát hoàn chỉnh. Mixing là quá trình đặt từng âm thanh vào đúng vị trí: vocal ở gần hay xa, kick có đủ lực không, bass có che mất giọng không, reverb có làm bài sang hơn hay chỉ khiến mọi thứ bị mờ.",
+        "Engineer sẽ dùng EQ để dọn vùng tần số, compressor để kiểm soát dynamics, saturation để thêm màu, automation để dẫn cảm xúc và effect để tạo chiều sâu. Mục tiêu không phải làm mọi track thật to, mà làm chúng cùng kể một câu chuyện."
+      ],
+      "quote": "Một bản mix tốt không làm người nghe chú ý đến kỹ thuật; nó làm người nghe ở lại với bài hát lâu hơn."
+    },
+    {
+      "id": "mastering-la-gi",
+      "heading": "Mastering là bước giữ bản nhạc ổn định khi rời studio",
+      "body": [
+        "Mastering không phải chỉ là kéo âm lượng cho lớn. Đây là bước cân bằng cuối cùng để bản nhạc nghe chắc, đủ sáng, đủ rộng và không bị lệch khi phát trên điện thoại, tai nghe, loa ô tô, club nhỏ hoặc các nền tảng streaming.",
+        "Một master tốt giữ được transient, không bóp nghẹt dynamics và vẫn đạt mức loudness hợp lý. Với nhạc phát hành digital, việc kiểm soát true peak, low-end và độ chói ở high-mid quan trọng hơn việc chạy theo con số âm lượng cực đại."
+      ],
+      "callout": "Nếu bản mix chưa ổn, mastering không thể cứu toàn bộ. Mastering tốt nhất xảy ra khi mix đã có cân bằng, không gian và ý đồ rõ ràng."
+    },
+    {
+      "id": "nhung-loi-thuong-gap",
+      "heading": "Những lỗi thường gặp khi tự mix/master",
+      "body": [
+        "Lỗi phổ biến nhất là mix quá lâu ở âm lượng lớn, khiến tai mệt và quyết định sai. Tiếp theo là lạm dụng preset: preset có thể là điểm khởi đầu, nhưng không thể hiểu chất giọng, bản phối và cảm xúc của từng bài.",
+        "Một lỗi khác là để vocal quá chìm vì sợ “lộ”, hoặc đẩy vocal quá to khiến nhạc nền mất vai trò. Bản mix thương mại cần sự tự tin ở giọng hát nhưng vẫn phải có nền âm nhạc nâng đỡ."
+      ],
+      "bullets": [
+        "Low-end bị ù vì kick và bass tranh cùng vùng tần số.",
+        "Vocal bị gắt do boost presence quá tay.",
+        "Reverb quá dài làm mất độ gần của giọng hát.",
+        "Limiter ép quá mạnh khiến bài mất nhịp thở."
+      ]
+    },
+    {
+      "id": "ket-luan",
+      "heading": "Mix/master là nghệ thuật của sự cân bằng",
+      "body": [
+        "Một bài nhạc hay không cần mọi thứ phải phô diễn. Nó cần đúng thứ được đặt lên trước, đúng lúc được mở rộng, đúng khoảnh khắc được nén lại để đoạn sau bung ra.",
+        "Khi mix và master được làm có chủ đích, người nghe không cần biết EQ hay compressor là gì. Họ chỉ cảm thấy bài hát rõ hơn, sâu hơn và đáng tin hơn."
+      ]
+    }
+  ]
+}

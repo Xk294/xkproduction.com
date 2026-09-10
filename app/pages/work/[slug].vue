@@ -25,13 +25,41 @@
         <div class="editorial-container">
           <div v-if="project.videoEmbedId" class="media-aspect-box matte-card">
             <iframe
-              :src="`https://www.youtube.com/embed/${project.videoEmbedId}?rel=0`"
+              v-if="isVideoPlaying"
+              :src="`https://www.youtube.com/embed/${project.videoEmbedId}?autoplay=1&rel=0`"
               allow="autoplay; encrypted-media; picture-in-picture"
               allowfullscreen
               class="case-iframe"
-              loading="lazy"
               :title="project.title"
             ></iframe>
+            <div
+              v-else
+              class="case-youtube-facade"
+              @click="startCaseVideo"
+              role="button"
+              tabindex="0"
+              :aria-label="`Phát video ${project.title}`"
+              @keydown.enter="startCaseVideo"
+            >
+              <img
+                :src="`https://img.youtube.com/vi/${project.videoEmbedId}/maxresdefault.jpg`"
+                :alt="project.title"
+                class="case-facade-thumb"
+                loading="lazy"
+                width="1280"
+                height="720"
+              />
+              <div class="case-facade-scrim"></div>
+              <div class="case-play-badge">
+                <div class="case-play-icon">
+                  <i class="fa-solid fa-play"></i>
+                </div>
+                <span class="case-play-kicker font-mono">
+                  <i class="fa-brands fa-youtube"></i>
+                  <span>4K STUDIO MASTER · NHẤN ĐỂ PHÁT</span>
+                </span>
+              </div>
+            </div>
           </div>
 
           <div v-else-if="project.videoUrl" class="tiktok-fallback-box matte-card text-center">
@@ -160,14 +188,23 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue'
+import { ref, computed } from 'vue'
+import { useStudioAudio } from '~/composables/useStudioAudio'
 
 const route = useRoute()
 const slug = computed(() => route.params.slug as string)
 
 const { getProjectBySlug, getRelatedProjects } = useProductionProjects()
+const { pauseTrack: pauseGlobalAudio } = useStudioAudio()
+
 const project = computed(() => getProjectBySlug(slug.value))
 const relatedProjects = computed(() => getRelatedProjects(slug.value, 2))
+
+const isVideoPlaying = ref(false)
+function startCaseVideo() {
+  pauseGlobalAudio()
+  isVideoPlaying.value = true
+}
 
 useSeoMeta({
   title: () => project.value ? `${project.value.title} — Case Study Sản Xuất | XKProduction` : 'Dự Án Không Tồn Tại | XKProduction',
@@ -180,6 +217,10 @@ useSeoMeta({
 })
 
 useSchemaOrg([
+  defineWebPage({
+    name: () => project.value ? `${project.value.title} - XKProduction Case Study` : 'XKProduction Case Study',
+    description: () => project.value ? project.value.story.origin : ''
+  }),
   project.value ? defineArticle({
     '@type': 'Report',
     headline: project.value.title,
@@ -271,6 +312,88 @@ useSchemaOrg([
   width: 100%;
   height: 100%;
   border: none;
+}
+
+/* CASE YOUTUBE FACADE */
+.case-youtube-facade {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.case-facade-thumb {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.case-youtube-facade:hover .case-facade-thumb {
+  transform: scale(1.03);
+}
+
+.case-facade-scrim {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center, rgba(5, 11, 20, 0.25) 0%, rgba(5, 11, 20, 0.8) 100%);
+  transition: background 0.3s ease;
+}
+
+.case-youtube-facade:hover .case-facade-scrim {
+  background: radial-gradient(circle at center, rgba(5, 11, 20, 0.15) 0%, rgba(5, 11, 20, 0.65) 100%);
+}
+
+.case-play-badge {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.85rem;
+  z-index: 2;
+}
+
+.case-play-icon {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: #d97706;
+  color: #050b14;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.6rem;
+  padding-left: 4px;
+  box-shadow: 0 0 35px rgba(217, 119, 6, 0.55);
+  transition: all 0.25s ease;
+}
+
+.case-youtube-facade:hover .case-play-icon {
+  transform: scale(1.1);
+  background: #fbbf24;
+  box-shadow: 0 0 50px rgba(251, 191, 36, 0.75);
+}
+
+.case-play-kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #ffffff;
+  background: rgba(10, 20, 36, 0.88);
+  border: 1px solid rgba(251, 191, 36, 0.3);
+  padding: 0.35rem 0.8rem;
+  border-radius: 999px;
+  backdrop-filter: blur(8px);
+}
+
+.case-play-kicker i {
+  color: #ef4444;
 }
 
 .tiktok-fallback-box {

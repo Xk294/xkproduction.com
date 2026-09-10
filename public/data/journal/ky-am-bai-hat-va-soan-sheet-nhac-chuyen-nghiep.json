@@ -1,0 +1,58 @@
+{
+  "slug": "ky-am-bai-hat-va-soan-sheet-nhac-chuyen-nghiep",
+  "title": "Ký âm bài hát và soạn sheet nhạc: biến giai điệu thành tài sản rõ ràng",
+  "subtitle": "Một giai điệu hát ra có thể rất đẹp, nhưng sheet nhạc giúp nó được lưu giữ, truyền đạt, đăng ký và làm việc chuyên nghiệp hơn với ban nhạc hoặc producer.",
+  "excerpt": "Vì sao ký âm và soạn sheet nhạc quan trọng với tác giả, ca sĩ, ban nhạc và các dự án cần lưu trữ tác phẩm nghiêm túc.",
+  "category": "Kiến Thức",
+  "icon": "fa-solid fa-file-lines",
+  "author": "Nguyễn Xuân Kiệt",
+  "authorRole": "Producer / Arranger tại XKProduction",
+  "date": "20/05/2026",
+  "isoDate": "2026-05-20",
+  "readTime": "7 phút đọc",
+  "thumb": "/images/blog-sheet-nhac.jpg",
+  "cover": "/images/blog-sheet-nhac.jpg",
+  "tags": ["Ký Âm", "Sheet Nhạc", "Kiến Thức"],
+  "sections": [
+    {
+      "id": "giai-dieu-can-duoc-ghi-lai",
+      "heading": "Một giai điệu hay cần được ghi lại đúng cách",
+      "body": [
+        "Rất nhiều tác giả bắt đầu bằng cách ngân nga một melody vào điện thoại. Đó là khoảnh khắc sáng tạo rất thật, nhưng nếu chỉ giữ ở dạng audio thô, bài hát khó được truyền đạt chính xác cho ca sĩ khác, ban nhạc, producer hoặc đơn vị đăng ký bản quyền.",
+        "Ký âm giúp chuyển melody, nhịp, cao độ và cấu trúc thành ngôn ngữ âm nhạc rõ ràng. Sheet nhạc không làm bài hát hay hơn ngay lập tức, nhưng làm nó trở nên có hình dạng và dễ làm việc hơn."
+      ],
+      "quote": "Sheet nhạc là bản đồ của tác phẩm: không thay thế cảm xúc, nhưng giúp cảm xúc được đi đúng đường."
+    },
+    {
+      "id": "khi-nao-can-sheet",
+      "heading": "Khi nào bạn nên làm sheet nhạc?",
+      "body": [
+        "Nếu bài hát chỉ để giữ làm kỷ niệm, một bản demo có thể đủ. Nhưng nếu bạn muốn gửi cho nhạc công, biểu diễn live, phối khí chuyên nghiệp, đăng ký quyền tác giả hoặc làm việc với nhiều người, sheet nhạc trở thành tài liệu rất quan trọng.",
+        "Một bản sheet tốt cần rõ tone, nhịp, cấu trúc, melody chính, hợp âm và những ghi chú cần thiết về tempo hoặc phong cách đánh."
+      ],
+      "bullets": [
+        "Tác giả cần đăng ký tác quyền.",
+        "Ca sĩ cần gửi bài cho ban nhạc tập.",
+        "Producer cần nắm melody/harmony để phối khí.",
+        "Dự án cần hồ sơ rõ ràng để đăng ký hoặc bàn giao."
+      ]
+    },
+    {
+      "id": "tu-audio-den-ban-nhac",
+      "heading": "Từ file audio thô đến bản nhạc hoàn chỉnh",
+      "body": [
+        "Quá trình ký âm bắt đầu bằng việc nghe melody, xác định tone, chia nhịp và ghi lại cao độ. Với những bản thu tự do, người ký âm phải phân biệt đâu là chủ ý nghệ thuật, đâu là chênh phô tự nhiên khi hát mộc.",
+        "Sau đó, sheet được trình bày lại để người khác có thể đọc: phân câu, đặt hợp âm, ghi lời dưới nốt và làm rõ các đoạn lặp. Đây là phần đòi hỏi cả tai nghe lẫn nhạc lý thực tế."
+      ],
+      "callout": "Một bản thu điện thoại vẫn có thể ký âm được nếu melody và lời đủ rõ. Chất lượng file càng tốt, thời gian xử lý càng chính xác."
+    },
+    {
+      "id": "ket-luan",
+      "heading": "Ký âm là cách tôn trọng bài hát của chính mình",
+      "body": [
+        "Không phải tác giả nào cũng cần biết viết nốt nhạc, nhưng tác phẩm nghiêm túc nên có một hình thức lưu giữ nghiêm túc. Sheet nhạc giúp bài hát thoát khỏi trí nhớ cá nhân và bước vào một quy trình làm việc chuyên nghiệp hơn.",
+        "Khi giai điệu được ghi lại rõ ràng, nó có cơ hội được phối tốt hơn, biểu diễn đúng hơn và tồn tại lâu hơn."
+      ]
+    }
+  ]
+}

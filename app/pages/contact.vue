@@ -8,7 +8,7 @@
 
     <!-- ===== HERO SECTION ===== -->
     <section class="page-hero">
-      <div class="max-width">
+      <div class="editorial-container">
         <span class="hero-badge"><i class="fa-solid fa-phone"></i> KẾT NỐI</span>
         <h1 class="page-hero-title">Liên Hệ &amp; <span class="text-gradient-animated">Đặt Lịch</span></h1>
         <p class="page-hero-sub">Chia sẻ dự án của bạn — chúng tôi sẽ tư vấn giải pháp âm nhạc phù hợp nhất trong vòng 24 giờ làm việc.</p>
@@ -17,13 +17,13 @@
 
     <!-- ===== QUICK PRICING HINTS ===== -->
     <section class="quick-price-bar">
-      <div class="max-width">
+      <div class="editorial-container">
         <div class="price-bar-grid">
           <div class="price-bar-item">
             <i class="fa-solid fa-microphone"></i>
             <div>
               <span class="price-bar-service">Thu âm bài hát</span>
-              <span class="price-bar-from">Từ <strong>350.000₫</strong>/buổi</span>
+              <span class="price-bar-from">Từ <strong>499.000₫</strong>/buổi</span>
             </div>
           </div>
           <div class="price-bar-divider" aria-hidden="true"></div>
@@ -31,7 +31,7 @@
             <i class="fa-solid fa-sliders"></i>
             <div>
               <span class="price-bar-service">Mix & Master</span>
-              <span class="price-bar-from">Từ <strong>300.000₫</strong>/bài</span>
+              <span class="price-bar-from">Từ <strong>350.000₫</strong>/bài</span>
             </div>
           </div>
           <div class="price-bar-divider" aria-hidden="true"></div>
@@ -39,7 +39,7 @@
             <i class="fa-solid fa-music"></i>
             <div>
               <span class="price-bar-service">Hoà âm phối khí</span>
-              <span class="price-bar-from">Từ <strong>1.500.000₫</strong>/bài</span>
+              <span class="price-bar-from">Từ <strong>2.000.000₫</strong>/bài</span>
             </div>
           </div>
           <div class="price-bar-divider" aria-hidden="true"></div>
@@ -227,21 +227,21 @@
 
     <!-- ===== AUTOMATED BOOKING FLOW ===== -->
     <section v-show="activeMode === 'calendar'" class="booking-section-wrap" style="padding: 1rem 0 4rem;">
-      <div class="max-width">
+      <div class="editorial-container">
         <BookingFlow />
       </div>
     </section>
 
     <!-- ===== VIETQR PAYMENT / DEPOSIT ===== -->
     <section v-show="activeMode === 'qr'" class="payment-section-wrap" style="padding: 1rem 0 4rem;">
-      <div class="max-width">
+      <div class="editorial-container">
         <VietQRPayment />
       </div>
     </section>
 
     <!-- ===== GOOGLE MAPS BLOCK ===== -->
     <section class="map-section">
-      <div class="max-width">
+      <div class="editorial-container">
         <div class="section-header-minimal" style="margin-bottom: 2rem;">
           <span class="header-tag"><i class="fa-solid fa-map-location-dot"></i> VỊ TRÍ BẢN ĐỒ</span>
           <h2 class="section-heading-heavy">Studio XKProduction</h2>
@@ -249,17 +249,17 @@
         
         <div class="map-container-glass glass-card">
           <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3918.123!2d107.11719352335317!3d11.71792651529057!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTHCsDQzJzA0LjUiTiAxMDfCsDA3JzAyLjAiRQ!5e0!3m2!1svi!2svn!4v1714500000000!5m2!1svi!2svn"
+            src="https://www.google.com/maps?q=Th%E1%BB%A7+%C4%90%E1%BB%A9c,+Th%C3%A0nh+ph%E1%BB%91+H%E1%BB%93+Ch%C3%AD+Minh&output=embed"
             width="100%"
             height="420"
             style="border:0;"
             allowfullscreen
             loading="lazy"
             referrerpolicy="no-referrer-when-downgrade"
-            title="Vị trí XKProduction trên Google Maps - QL14 km25, Nghĩa Trung, Bù Đăng, Bình Phước"
+            title="Vị trí XKProduction trên Google Maps - Thủ Đức, Thành phố Hồ Chí Minh"
           ></iframe>
           <a
-            href="https://www.google.com/maps/search/?api=1&query=11.71792651529057,107.11719352335317"
+            href="https://www.google.com/maps/search/?api=1&query=Th%E1%BB%A7+%C4%90%E1%BB%A9c,+Th%C3%A0nh+ph%E1%BB%91+H%E1%BB%93+Ch%C3%AD+Minh"
             target="_blank" rel="noopener"
             class="map-directions-link"
           >
@@ -307,25 +307,19 @@ useSchemaOrg([
     url: 'https://xkproduction.com',
     image: 'https://xkproduction.com/images/Xkpreviewnew.png',
     address: {
-      streetAddress: 'QL14 km25 xã Nghĩa Trung, Huyện Bù Đăng',
-      addressLocality: 'Bình Phước',
-      addressRegion: 'Bình Phước',
-      postalCode: '830000',
+      streetAddress: 'Thủ Đức',
+      addressLocality: 'Thủ Đức',
+      addressRegion: 'Thành phố Hồ Chí Minh',
+      postalCode: '700000',
       addressCountry: 'VN'
     },
-    geo: { latitude: '11.71792', longitude: '107.11719' },
-    hasMap: 'https://maps.google.com/?q=11.71792,107.11719',
+    geo: { latitude: '10.8494', longitude: '106.7537' },
+    hasMap: 'https://maps.google.com/?q=10.8494,106.7537',
     openingHoursSpecification: [
       { dayOfWeek: ['Monday','Tuesday','Wednesday','Thursday','Friday'], opens: '07:00', closes: '22:00' },
       { dayOfWeek: ['Saturday','Sunday'], opens: '08:00', closes: '20:00' }
     ],
-    priceRange: '350.000₫ – 3.500.000₫',
-    aggregateRating: {
-      ratingValue: '4.9',
-      ratingCount: 150,
-      bestRating: '5',
-      worstRating: '1'
-    }
+    priceRange: '350.000₫ – 3.500.000₫'
   })
 ])
 
@@ -383,13 +377,15 @@ async function handleSubmit() {
   if (!validateForm()) return
   submitState.value = 'loading'
 
+  const { getTrackingPayload, trackCta } = useAnalytics()
   const payload = {
     name: form.name,
     phone: form.phone,
     email: form.email || '',
     service: form.service,
     message: form.message,
-    source: 'contact'
+    source: 'contact',
+    ...getTrackingPayload()
   }
 
   try {
@@ -399,6 +395,7 @@ async function handleSubmit() {
       body: JSON.stringify(payload)
     })
     if (res.ok) {
+      trackCta(`Contact Submit: ${form.service}`)
       submitState.value = 'success'
       Object.assign(form, { name: '', phone: '', email: '', service: '', message: '' })
       Object.assign(formErrors, { name: '', phone: '', service: '', message: '' })
@@ -436,7 +433,7 @@ const contactInfo = [
   { faIcon: 'fa-solid fa-envelope', title: 'Email', content: '<a href="mailto:nguyenxuankiet294@gmail.com">nguyenxuankiet294@gmail.com</a>' },
   { faIcon: 'fa-solid fa-comment', title: 'Zalo Chat', content: '<a href="https://zalo.me/0355356294" target="_blank" rel="noopener">0355.356.294</a>' },
   { faIcon: 'fa-brands fa-facebook-f', title: 'Facebook Cá Nhân', content: '<a href="https://www.facebook.com/ngxkiet" target="_blank" rel="noopener">facebook.com/ngxkiet</a>' },
-  { faIcon: 'fa-solid fa-location-dot', title: 'Địa chỉ Studio', content: 'QL14 km25 xã Nghĩa Trung, Huyện Bù Đăng, Bình Phước' }
+  { faIcon: 'fa-solid fa-location-dot', title: 'Địa chỉ Studio', content: 'Thủ Đức, Thành phố Hồ Chí Minh' }
 ]
 </script>
 

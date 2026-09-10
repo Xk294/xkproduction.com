@@ -1,0 +1,58 @@
+{
+  "slug": "phong-thu-am-binh-phuoc",
+  "title": "Phòng thu âm Bình Phước: khi chất lượng không còn phụ thuộc vào địa chỉ",
+  "subtitle": "Một studio tốt không được định nghĩa bằng thành phố nó nằm ở đâu, mà bằng hệ thống nghe, quy trình sản xuất và người chịu trách nhiệm cho từng quyết định âm thanh.",
+  "excerpt": "Vì sao nghệ sĩ ở Bình Phước vẫn có thể làm sản phẩm chỉnh chu mà không cần xuống thành phố cho mọi dự án.",
+  "category": "Giới Thiệu",
+  "icon": "fa-solid fa-building",
+  "author": "Nguyễn Xuân Kiệt",
+  "authorRole": "Founder / Music Producer tại XKProduction",
+  "date": "25/04/2026",
+  "isoDate": "2026-04-25",
+  "readTime": "7 phút đọc",
+  "thumb": "/images/blog-phong-thu.jpg",
+  "cover": "/images/blog-phong-thu.jpg",
+  "tags": ["Giới Thiệu", "Thu Âm", "Bình Phước"],
+  "sections": [
+    {
+      "id": "chat-luong-khong-nam-o-dia-chi",
+      "heading": "Chất lượng không nằm ở tấm biển studio",
+      "body": [
+        "Nhiều nghệ sĩ địa phương từng mặc định rằng muốn thu âm tốt phải đi xa. Điều đó đúng ở thời điểm thiết bị còn khó tiếp cận và workflow online chưa phổ biến. Nhưng hiện tại, khoảng cách lớn nhất không còn là địa lý, mà là tư duy sản xuất.",
+        "Một phòng thu đáng tin phải có môi trường đủ yên tĩnh, hệ thống monitor trung thực, chain thu sạch và người nghe đủ kinh nghiệm để biết lúc nào nên thu lại, lúc nào nên giữ một take chưa hoàn hảo nhưng có cảm xúc."
+      ],
+      "quote": "Địa chỉ có thể ở Bình Phước, nhưng tiêu chuẩn nghe phải đặt ở cùng mặt bằng với sản phẩm phát hành chuyên nghiệp."
+    },
+    {
+      "id": "khong-gian-lam-viec",
+      "heading": "Không gian đủ yên để nghệ sĩ tập trung",
+      "body": [
+        "Một buổi thu tốt cần sự riêng tư. Người hát cần cảm giác an toàn để thử, sai, hát lại và tìm ra cách thể hiện đúng nhất. Studio không nên tạo áp lực như một nơi kiểm tra giọng hát, mà nên là nơi bài hát được bình tĩnh hoàn thiện.",
+        "Tại XKProduction, workflow được thiết kế để nghệ sĩ nghe lại nhanh, trao đổi trực tiếp và điều chỉnh ngay trong phiên. Những quyết định nhỏ như giảm một nửa tone, đổi cách vào câu, hay giữ lại một hơi thở tự nhiên đều có thể làm bài hát thuyết phục hơn."
+      ],
+      "image": "/images/blog-phong-thu.jpg"
+    },
+    {
+      "id": "tu-demo-den-phat-hanh",
+      "heading": "Từ demo cá nhân đến sản phẩm phát hành",
+      "body": [
+        "Một studio địa phương mạnh không chỉ phục vụ thu cover. Nó cần đủ năng lực đi cùng nghệ sĩ qua nhiều cấp độ: demo ý tưởng, hòa âm phối khí, thu vocal, vocal production, mix, master và chuẩn bị file phát hành.",
+        "Khi toàn bộ chuỗi sản xuất được giữ trong một tư duy thống nhất, bài hát ít bị rời rạc. Producer hiểu ý đồ bản phối, kỹ thuật thu hiểu khoảng trống vocal cần chiếm, mix engineer biết đâu là điểm cảm xúc cần giữ lại."
+      ],
+      "bullets": [
+        "Thu demo nhanh để kiểm tra giai điệu và tone.",
+        "Sản xuất bản phối theo định hướng nghệ sĩ.",
+        "Thu vocal nhiều take, chọn và dựng câu tốt nhất.",
+        "Mix/master để bản nhạc nghe ổn định trên nhiều hệ thống."
+      ]
+    },
+    {
+      "id": "ket-luan",
+      "heading": "Một studio tốt giúp nghệ sĩ bớt đơn độc",
+      "body": [
+        "Điều nghệ sĩ cần không chỉ là thiết bị. Họ cần một người nghe được điều bài hát đang thiếu và đủ thẳng thắn để nói điều đó một cách xây dựng.",
+        "Nếu một phòng thu làm được việc ấy, nó không còn là nơi ghi âm đơn thuần. Nó trở thành một điểm tựa sản xuất — nơi ý tưởng thô có cơ hội trở thành một sản phẩm có hình hài, có cảm xúc và có khả năng đi xa hơn."
+      ]
+    }
+  ]
+}

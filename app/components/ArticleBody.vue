@@ -1,6 +1,6 @@
 <template>
   <article class="article-body">
-    <img class="article-cover" :src="post.cover || post.thumb" :alt="post.title" loading="eager" />
+    <img class="article-cover" :src="post.cover || post.thumb" :alt="post.title" loading="eager" width="800" height="450" />
 
     <section
       v-for="section in post.sections"
@@ -14,7 +14,7 @@
 
       <blockquote v-if="section.quote">{{ section.quote }}</blockquote>
       <div v-if="section.callout" class="article-callout">{{ section.callout }}</div>
-      <img v-if="section.image" class="article-image" :src="section.image" :alt="section.heading" loading="lazy" />
+      <img v-if="section.image" class="article-image" :src="section.image" :alt="section.heading" loading="lazy" width="800" height="450" />
 
       <div v-if="section.videoEmbed" class="article-video-wrap">
         <iframe
@@ -91,6 +91,8 @@ defineProps<{
 }
 .article-image {
   width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
   border-radius: 16px;
   margin: 1.4rem 0;
   border: 1px solid rgba(255,255,255,0.07);

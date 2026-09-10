@@ -1,0 +1,58 @@
+{
+  "slug": "chuan-bi-truoc-khi-den-phong-thu-am",
+  "title": "Chuẩn bị gì trước khi đến phòng thu để không lãng phí buổi thu?",
+  "subtitle": "Một buổi thu tốt bắt đầu trước khi bạn bước vào booth: thuộc lời, hiểu tone, biết cảm xúc và để cơ thể ở trạng thái sẵn sàng.",
+  "excerpt": "Checklist thực tế giúp ca sĩ, học viên và người thu cover có buổi thu hiệu quả hơn, ít áp lực hơn và ra bản vocal tốt hơn.",
+  "category": "Kiến Thức",
+  "icon": "fa-solid fa-list-check",
+  "author": "Nguyễn Xuân Kiệt",
+  "authorRole": "Recording Engineer tại XKProduction",
+  "date": "24/05/2026",
+  "isoDate": "2026-05-24",
+  "readTime": "7 phút đọc",
+  "thumb": "/images/blog-meo-thu-am.jpg",
+  "cover": "/images/blog-meo-thu-am.jpg",
+  "tags": ["Thu Âm", "Kiến Thức"],
+  "sections": [
+    {
+      "id": "thuoc-loi-la-ton-trong-cam-xuc",
+      "heading": "Thuộc lời không phải để khoe trí nhớ",
+      "body": [
+        "Khi còn phải nhìn lời liên tục, não sẽ chia đôi sự tập trung: một phần đọc chữ, một phần cố hát đúng. Cảm xúc vì vậy thường bị chậm hơn câu hát. Thuộc lời giúp bạn nhìn vào ý nghĩa của câu, không chỉ phát âm nó.",
+        "Điều này đặc biệt quan trọng với ballad, R&B hoặc những bài cần xử lý nhỏ. Một chữ buông nhẹ, một hơi thở trước câu, một đoạn ngân ngắn hơn dự tính đều cần sự chủ động."
+      ],
+      "quote": "Trong phòng thu, sự chuẩn bị tốt nhất là khiến kỹ thuật trở nên vô hình để cảm xúc được đi trước."
+    },
+    {
+      "id": "tap-voi-beat",
+      "heading": "Tập với beat đúng tone và đúng cấu trúc",
+      "body": [
+        "Đừng đợi đến phòng thu mới phát hiện beat quá cao, quá thấp hoặc bản nhạc có đoạn bridge khác với bản bạn tập. Hãy luyện với chính file sẽ dùng để thu, đánh dấu những đoạn khó vào, khó lấy hơi hoặc dễ lệch nhịp.",
+        "Nếu chưa chắc tone, hãy thử trước ở nhà và ghi lại bằng điện thoại. Nghe lại sẽ giúp bạn biết mình bị đuối ở đâu, câu nào cần hạ tone hoặc đổi cách hát."
+      ],
+      "bullets": [
+        "Gửi beat trước cho studio nếu cần kiểm tra chất lượng file.",
+        "Chuẩn bị lyric bản cuối, tránh sửa lời ngay trong phiên thu.",
+        "Đánh dấu đoạn cần bè, ad-lib hoặc đổi cách xử lý.",
+        "Ngủ đủ và tránh đồ lạnh, rượu bia trước ngày thu."
+      ]
+    },
+    {
+      "id": "tam-ly-trong-phong-thu",
+      "heading": "Tâm lý trong booth quan trọng hơn bạn nghĩ",
+      "body": [
+        "Nhiều người hát tốt ở nhà nhưng vào phòng thu lại cứng. Nguyên nhân thường là họ nghe tai nghe lạ, thấy giọng mình quá rõ hoặc sợ sai trước producer. Một phòng thu tốt sẽ giúp bạn bình tĩnh, nhưng bạn cũng nên chấp nhận rằng vài take đầu chỉ để làm quen.",
+        "Đừng cố hát thật mạnh từ đầu. Hãy làm nóng giọng, thử mic, nghe headphone mix và trao đổi nếu giọng trong tai quá to, beat quá nhỏ hoặc reverb khiến bạn khó kiểm soát pitch."
+      ],
+      "callout": "Headphone mix không thoải mái có thể làm bạn hát sai. Hãy nói ngay với kỹ thuật viên thay vì cố chịu."
+    },
+    {
+      "id": "ket-luan",
+      "heading": "Buổi thu hiệu quả là buổi thu có ít quyết định thừa",
+      "body": [
+        "Khi lời, beat, tone và cảm xúc đã rõ, thời gian trong studio được dùng cho những điều đáng giá hơn: tìm take hay, chỉnh cách nhả chữ, thử màu giọng và hoàn thiện chi tiết.",
+        "Chuẩn bị kỹ không làm buổi thu mất tự nhiên. Ngược lại, nó tạo đủ an toàn để bạn tự do hơn khi hát."
+      ]
+    }
+  ]
+}

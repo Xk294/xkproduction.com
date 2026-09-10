@@ -1,5 +1,5 @@
 <template>
-  <div class="xk-production-map" role="region" aria-label="Sơ đồ 8 công đoạn sản xuất âm nhạc">
+  <div class="xk-production-map" role="region" :aria-label="isVi ? 'Sơ đồ 8 công đoạn sản xuất âm nhạc' : '8-Stage Music Production Map'">
     <!-- TIMELINE NAVIGATION RAIL -->
     <div class="timeline-rail-wrap">
       <div class="timeline-rail" role="tablist">
@@ -15,7 +15,7 @@
           :id="`stage-tab-${stage.step}`"
         >
           <span class="stage-step-num">{{ stage.step }}</span>
-          <span class="stage-title-text">{{ stage.title }}</span>
+          <span class="stage-title-text">{{ isVi ? stage.viTitle : stage.enTitle }}</span>
         </button>
       </div>
     </div>
@@ -30,11 +30,11 @@
     >
       <div class="spotlight-header">
         <div class="stage-badge-wrap">
-          <span class="badge-v2 amber">GIAI ĐOẠN {{ currentStage.step }} / 08</span>
-          <span class="text-meta-mono">{{ currentStage.category }}</span>
+          <span class="badge-v2 amber">{{ isVi ? 'GIAI ĐOẠN' : 'STAGE' }} {{ currentStage.step }} / 08</span>
+          <span class="text-meta-mono">{{ isVi ? currentStage.category : (currentStage.enCategory || currentStage.category) }}</span>
         </div>
-        <h3 class="stage-hero-title">{{ currentStage.headline }}</h3>
-        <p class="stage-lead-desc">{{ currentStage.description }}</p>
+        <h3 class="stage-hero-title">{{ isVi ? currentStage.headline : (currentStage.enHeadline || currentStage.headline) }}</h3>
+        <p class="stage-lead-desc">{{ isVi ? currentStage.description : (currentStage.enDescription || currentStage.description) }}</p>
       </div>
 
       <!-- 3 DETAILED ACTIONS IN THIS STAGE -->
@@ -52,8 +52,8 @@
       <div class="stage-craft-footer">
         <div class="craft-icon"><i class="fa-solid fa-lightbulb"></i></div>
         <div class="craft-text">
-          <span class="craft-label text-meta-mono">GHI CHÚ SẢN XUẤT</span>
-          <p>{{ currentStage.producerNote }}</p>
+          <span class="craft-label text-meta-mono">{{ isVi ? 'GHI CHÚ SẢN XUẤT' : 'PRODUCER NOTE' }}</span>
+          <p>{{ isVi ? currentStage.producerNote : (currentStage.enProducerNote || currentStage.producerNote) }}</p>
         </div>
       </div>
     </div>
@@ -62,113 +62,163 @@
 
 <script setup lang="ts">
 import { ref, computed } from 'vue'
+import { useLocale } from '~/composables/useLocale'
 
+const { isVi } = useLocale()
 const activeStageIdx = ref(0)
 
 const stages = [
   {
     step: '01',
-    title: 'Idea (Voice Memo)',
-    category: 'TIỀN KỲ · KHỞI TẠO',
-    headline: 'Ý Niệm Ban Đầu: Lắng Nghe Bản Ghi Âm Thô',
-    description: 'Mọi kiệt tác âm nhạc đều xuất phát từ một giai điệu mộc mạc: tiếng huýt sáo, vài câu hát qua điện thoại hoặc đoạn đệm guitar đơn sơ. Chúng tôi tiếp nhận và phân tích cặn kẽ tiềm năng của ý niệm.',
+    viTitle: 'Góp Ý Giai Điệu',
+    enTitle: 'Melody & Demo',
+    title: 'Melody & Demo',
+    category: 'BƯỚC 1 · KHỞI TẠO',
+    enCategory: 'STAGE 1 · GENESIS',
+    headline: 'Lắng Nghe Giai Điệu & Định Hướng Bài Hát',
+    enHeadline: 'Melody Consultation & Direction',
+    description: 'Mọi bài hát đều bắt đầu từ một đoạn ghi âm mộc: tiếng hát chay qua điện thoại hay tiếng đàn guitar đơn sơ. Studio sẽ nghe thử, nhận xét tone giọng và cùng bạn chọn hướng phát triển phù hợp nhất.',
+    enDescription: 'Every song begins with a raw sketch: a voice memo or acoustic chords. We listen, assess your vocal key, and establish the musical direction.',
     actions: [
-      { name: 'Phân tích quãng giọng & Sắc thái', detail: 'Đo lường dải âm vực tự nhiên của nghệ sĩ để tìm kiếm tone giọng thăng hoa nhất.' },
-      { name: 'Xác định thông điệp & Cảm xúc', detail: 'Làm rõ câu chuyện bài hát muốn truyền tải: hoài niệm, tự sự, bùng nổ hay ấm áp.' },
-      { name: 'Tư vấn phương án sản xuất', detail: 'Đề xuất phong cách hoà âm phù hợp với thị hiếu âm nhạc và đối tượng khán giả mục tiêu.' }
+      { name: 'Kiểm tra quãng giọng & Tone hát', detail: 'Tìm tone nhạc vừa vặn nhất để bạn hát thoải mái, không bị quá thấp hay với nốt cao.' },
+      { name: 'Xác định phong cách bài hát', detail: 'Lựa chọn dòng nhạc mong muốn: Ballad, Pop R&B, Acoustic hay Remix sôi động.' },
+      { name: 'Tư vấn hướng hoàn thiện', detail: 'Góp ý lời ca và cấu trúc đoạn điệp khúc để bài hát thêm bắt tai và truyền cảm.' }
     ],
-    producerNote: 'Đừng ngần ngại nếu bản thu âm điện thoại của bạn lẫn tiếng ồn hay chưa chuẩn nhịp. Nhiệm vụ của chúng tôi là nhìn ra viên ngọc ẩn giấu bên trong.'
+    producerNote: 'Đừng ngại nếu bản thu âm điện thoại của bạn chưa chuẩn hay lẫn tạp âm. Việc của producer là giúp bạn phát triển nó thành bài hát hoàn chỉnh.',
+    enProducerNote: 'Never worry about imperfect phone demos. Our role as producers is to develop it into a complete release.'
   },
   {
     step: '02',
-    title: 'Direction (Tempo & Harmony)',
-    category: 'TIỀN KỲ · ĐỊNH HƯỚNG',
-    headline: 'Khung Hoà Thanh & Nhịp Thở Bài Hát',
-    description: 'Thiết lập nhịp tim (BPM) và bộ xương sống hoà âm (chord progression). Từng sự thay đổi nhỏ về tempo hay một hợp âm dẫn dắt đều định đoạt toàn bộ cảm xúc người nghe.',
+    viTitle: 'Chọn Nhịp & Hợp Âm',
+    enTitle: 'Tempo & Harmony',
+    title: 'Tempo & Harmony',
+    category: 'BƯỚC 2 · KHUNG NHẠC',
+    enCategory: 'STAGE 2 · FOUNDATION',
+    headline: 'Thử Hợp Âm & Nhịp Điệu Bài Hát',
+    enHeadline: 'Harmonic Mapping & Tempo Blueprint',
+    description: 'Thiết lập tốc độ (tempo) và vòng hợp âm đệm. Đây là khung xương quan trọng nhất giúp bài hát có nhịp thở tự nhiên và đúng cảm xúc bạn mong muốn.',
+    enDescription: 'Setting the ideal BPM tempo and harmonic progression so the track breathes naturally with authentic emotion.',
     actions: [
-      { name: 'Đo lường Tempo & Time Signature', detail: 'Chọn lựa nhịp 4/4 hiện đại, 3/4 da diết hay 6/8 tự sự phù hợp với nhịp thở giai điệu.' },
-      { name: 'Thiết kế cấu trúc vòng hợp âm', detail: 'Thử nghiệm các biến thể hợp âm màu (jazz/neo-soul/pop) để tạo nét chấm phá độc bản.' },
-      { name: 'Phác thảo bản Demo Hợp Âm', detail: 'Thu thử bản đệm piano/guitar mộc gửi nghệ sĩ hát thử để cảm nhận độ vừa vặn.' }
+      { name: 'Chọn tốc độ bài hát (BPM)', detail: 'Tìm tốc độ vừa vặn để câu hát không bị dồn dập hay quá lê thê, giúp bạn nhả chữ tự nhiên.' },
+      { name: 'Thiết kế vòng hợp âm đệm', detail: 'Lựa chọn màu sắc hợp âm phù hợp với tâm trạng của bài hát: vui tươi, lắng đọng hay da diết.' },
+      { name: 'Gửi bản demo mộc nghe thử', detail: 'Gửi bạn nghe thử bản đệm piano/guitar mộc để bạn tập hát thử trước buổi thu chính thức.' }
     ],
-    producerNote: 'Một bài hát ballad ở 78 BPM sẽ hoàn toàn khác biệt ở 82 BPM. Chúng tôi dành thời gian vi chỉnh đến khi nghệ sĩ cảm thấy nhịp thở thoải mái nhất.'
+    producerNote: 'Một bài hát ballad ở tốc độ 78 BPM sẽ khác hẳn ở 82 BPM. Studio sẽ điều chỉnh đến khi bạn cảm thấy nhịp thở thoải mái nhất.',
+    enProducerNote: 'A ballad at 78 BPM feels completely different from 82 BPM. We dial in the sweet spot for your voice.'
   },
   {
     step: '03',
-    title: 'Production (Arrangement)',
-    category: 'SẢN XUẤT · HOÀ ÂM PHỐI KHÍ',
-    headline: 'Dựng Beat & Thiết Kế Âm Thanh Độc Bản',
-    description: 'Khoác lên bài hát lớp áo âm thanh hoàn chỉnh. Lựa chọn từng tiếng kick, dải bass, tiếng đàn piano, violin cho đến các âm sắc synth ảo hiện đại.',
+    viTitle: 'Phối Khí & Làm Beat',
+    enTitle: 'Arrangement & Beat',
+    title: 'Arrangement & Beat',
+    category: 'BƯỚC 3 · PHỐI KHÍ',
+    enCategory: 'STAGE 3 · ARRANGEMENT',
+    headline: 'Dựng Bản Phối Đầy Đủ Nhạc Cụ',
+    enHeadline: 'Bespoke Instrumentation & Beatmaking',
+    description: 'Khoác lên bài hát bản phối hoàn chỉnh với trống, bass, đàn piano, guitar và dàn dây. Từng âm thanh được căn chỉnh theo đúng màu giọng của bạn.',
+    enDescription: 'Dressing the song with drums, bass, piano, guitars, and orchestral strings—tailored from scratch to your vocal tone.',
     actions: [
-      { name: 'Thiết kế Groove & Drum Patterns', detail: 'Xây dựng nhịp điệu sinh động với velocity tự nhiên, mô phỏng tay trống thực thụ.' },
-      { name: 'Hoà âm dàn nhạc & Lớp nền', detail: 'Phối khí dải strings, acoustic guitar, electric piano để tạo chiều sâu không gian.' },
-      { name: 'Xây dựng đoạn chuyển (Transitions & Drops)', detail: 'Bố trí các điểm ngắt (stop-time), dồn trống (fills) và hiệu ứng để giữ trọn sự lôi cuốn.' }
+      { name: 'Xây dựng nhịp trống & Bass', detail: 'Tạo phần nhịp điệu sinh động, giúp bài hát có độ nảy và lực đầm chắc.' },
+      { name: 'Phối các lớp nhạc cụ', detail: 'Thêm tiếng đàn guitar, piano, dàn dây để tạo cảm xúc dày dặn và đầy đặn cho bài hát.' },
+      { name: 'Thiết kế đoạn dồn cao trào', detail: 'Bố trí các đoạn chuyển tiếp và cao trào để bài hát lôi cuốn từ đầu đến cuối.' }
     ],
-    producerNote: 'Chúng tôi kiên định không sử dụng pattern phối khí có sẵn. Mỗi âm sắc đều được căn chỉnh theo tần số chất giọng của chính bạn.'
+    producerNote: 'Studio không dùng beat làm sẵn đại trà. Mỗi bản phối đều được làm riêng theo đúng chất giọng và ý muốn của bạn.',
+    enProducerNote: 'Zero generic template loops. Every arrangement is crafted specifically for your vocal character.'
   },
   {
     step: '04',
-    title: 'Recording (Vocal & Instruments)',
-    category: 'THU ÂM · THỰC CHIẾN STUDIO',
-    headline: 'Thu Âm Phòng Thu & Vocal Coaching',
-    description: 'Bước vào phòng thu tiêu âm chuẩn quốc tế. Với microphone condenser cao cấp và pre-amp analog, chúng tôi đồng hành cùng bạn để thu lại những cảm xúc chân thật nhất.',
+    viTitle: 'Thu Âm Tại Studio',
+    enTitle: 'Vocal Recording',
+    title: 'Vocal Recording',
+    category: 'BƯỚC 4 · THU ÂM',
+    enCategory: 'STAGE 4 · TRACKING',
+    headline: 'Buổi Thu Âm Thoải Mái & Tận Tình',
+    enHeadline: 'Supportive & Patient Vocal Tracking',
+    description: 'Bước vào phòng thu với micro chuyên dụng và không gian tiêu âm chuẩn. Producer sẽ trực tiếp hướng dẫn lấy hơi, nhả chữ và đồng hành đến khi bạn hài lòng.',
+    enDescription: 'Step into an acoustically treated booth with premium microphones. Your producer guides phrasing, breath control, and confidence.',
     actions: [
-      { name: 'Luyện thanh & Khởi động tại chỗ', detail: 'Hỗ trợ nghệ sĩ mở khẩu hình, kiểm soát hơi thở và giải toả căng thẳng trước khi bấm máy.' },
-      { name: 'Thu âm từng đoạn (Comping takes)', detail: 'Ghi lại nhiều lượt thu cho từng câu hát để gom nhặt những nốt ngân và biểu cảm đẹp nhất.' },
-      { name: 'Thu bè & Ad-libs làm dày không gian', detail: 'Hướng dẫn hát bè quãng 3, quãng 5 và các tiếng bè gió bao trùm bài hát.' }
+      { name: 'Khởi động giọng & Hướng dẫn nhả chữ', detail: 'Giúp bạn giải toả căng thẳng, mở khẩu hình và lấy hơi đúng cách trước khi thu.' },
+      { name: 'Thu âm từng đoạn kỹ lưỡng', detail: 'Thu lại nhiều lượt cho từng câu hát để gom nhặt những nốt ngân và cảm xúc đẹp nhất.' },
+      { name: 'Hướng dẫn hát bè làm dày giọng', detail: 'Thu các câu bè phụ và câu lót để giọng hát nghe đầy đặn và chuyên nghiệp hơn.' }
     ],
-    producerNote: 'Chúng tôi không bao giờ tạo áp lực thời gian trong phòng thu. Sự kiên nhẫn của producer là chìa khoá để chạm đến khoảnh khắc thăng hoa của nghệ sĩ.'
+    producerNote: 'Studio không bao giờ hối thúc thời gian. Sự kiên nhẫn và tạo cảm giác thoải mái cho người hát là ưu tiên hàng đầu của chúng tôi.',
+    enProducerNote: 'We never rush sessions. Creating a relaxed, trusting atmosphere is our highest priority.'
   },
   {
     step: '05',
-    title: 'Editing (Tuning & Timing)',
-    category: 'HẬU KỲ · CHỈNH SỬA CHI TIẾT',
-    headline: 'Làm Sạch, Căn Nhịp & Xử Lý Cao Độ Tự Nhiên',
-    description: 'Tỉ mỉ lắng nghe từng miligiây âm thanh. Loại bỏ tiếng ồn môi trường, tiếng nuốt nước bọt không mong muốn, căn chỉnh nhịp phách và điều chỉnh cao độ mượt mà.',
+    viTitle: 'Chỉnh Sửa Chi Tiết',
+    enTitle: 'Vocal Editing',
+    title: 'Vocal Editing',
+    category: 'BƯỚC 5 · CHỈNH SỬA',
+    enCategory: 'STAGE 5 · EDITING',
+    headline: 'Làm Sạch Tạp Âm & Nắn Nốt Phô Tự Nhiên',
+    enHeadline: 'De-noising & Organic Pitch Alignment',
+    description: 'Lọc bỏ tiếng thở quá to hay tiếng nuốt nước bọt, căn nhịp phách chắc chắn và nắn nốt phô thủ công bằng tai nghề để giữ trọn cái hồn của giọng hát.',
+    enDescription: 'Cleaning plosives, breath artifacts, quantizing rhythm, and manual Melodyne tuning to preserve genuine vocal emotion.',
     actions: [
-      { name: 'Dọn sạch tạp âm & Plosives', detail: 'Sử dụng công cụ khử tiếng nổ p/b, tiếng xì s/x và tiếng rít dây đàn guitar.' },
-      { name: 'Căn chỉnh nhịp phách (Audio Quantize)', detail: 'Đưa các nốt hát vào đúng nhịp đập của beat mà vẫn giữ được độ lả lướt tự nhiên.' },
-      { name: 'Chỉnh cao độ bằng Melodyne', detail: 'Nắn nót từng nốt phô thủ công bằng tai nghề, bảo đảm vocal giữ nguyên âm sắc con người.' }
+      { name: 'Dọn sạch tạp âm & Tiếng nổ microphone', detail: 'Khử sạch tiếng ồn, tiếng thở giật và tiếng xì s/x khó chịu trong bản thu.' },
+      { name: 'Căn chỉnh nhịp phách chuẩn xác', detail: 'Đưa các câu hát vào đúng nhịp nhạc nhưng vẫn giữ được độ lả lướt tự nhiên.' },
+      { name: 'Chỉnh cao độ giọng hát bằng tai', detail: 'Nắn từng nốt phô thủ công, bảo đảm giọng hát nghe tự nhiên như hát mộc, không bị biến dạng.' }
     ],
-    producerNote: 'Auto-tune làm sẵn thường biến giọng hát thành người máy. Tại XK, chúng tôi điều chỉnh thủ công từng nốt để giữ trọn cái hồn nguyên bản.'
+    producerNote: 'Chúng tôi chỉnh sửa thủ công từng nốt để giọng hát hay hơn nhưng vẫn là giọng thật của bạn, không lạm dụng hiệu ứng robot.',
+    enProducerNote: 'We tune manually phrase by phrase to enhance your voice while keeping it completely human and natural.'
   },
   {
     step: '06',
-    title: 'Mixing (Space & Dynamic)',
-    category: 'HẬU KỲ · MIXING ĐA CHIỀU',
-    headline: 'Cân Bằng Dải Tần & Mở Rộng Không Gian 3D',
-    description: 'Xếp đặt hàng chục track âm thanh vào một không gian 3 chiều hài hoà: chiều cao (EQ tần số), chiều sâu (Reverb/Delay) và chiều rộng (Panning trái/phải).',
+    viTitle: 'Mixing Hoà Trộn',
+    enTitle: 'Mixing',
+    title: 'Mixing',
+    category: 'BƯỚC 6 · MIX NHẠC',
+    enCategory: 'STAGE 6 · MIXING',
+    headline: 'Cân Bằng Giọng Hát & Nhạc Nền',
+    enHeadline: 'Vocal Clarity & 3D Spatial Balance',
+    description: 'Hoà trộn giọng hát vào nhạc nền một cách êm ái: tạo độ dày cho giọng, mở không gian vang vọng tự nhiên và giúp tiếng trống, tiếng bass nghe êm tai.',
+    enDescription: 'Blending multitrack layers seamlessly: sculpt EQ, control dynamics with compression, and craft immersive depth with reverb and delay.',
     actions: [
-      { name: 'Dọn sạch xung đột dải tần (EQ Carving)', detail: 'Cắt gọt các dải tần dư thừa để vocal, bass và kick hoà quyện mà không đè lẫn nhau.' },
-      { name: 'Kiểm soát biên độ động (Compression)', detail: 'Cân bằng âm lượng to nhỏ giữa các câu hát, tạo lực đầm chắc và độ mượt mà.' },
-      { name: 'Thiết kế không gian vang vọng (Spatial Design)', detail: 'Tạo nên căn phòng âm học ảo đưa người nghe chìm đắm vào không gian nghệ thuật.' }
+      { name: 'Cân bằng âm lượng các nhạc cụ', detail: 'Đảm bảo giọng hát luôn đứng rõ ràng phía trước, không bị tiếng trống hay guitar át mất.' },
+      { name: 'Làm mượt biên độ âm lượng', detail: 'Cân bằng các đoạn hát nhỏ và to, giúp bài hát nghe đều đặn và dễ chịu.' },
+      { name: 'Tạo hiệu ứng vang & Không gian', detail: 'Thêm vang (reverb) và nhại (delay) vừa vặn để giọng hát bay bổng và có chiều sâu.' }
     ],
-    producerNote: 'Một bản mix tốt không phải là bản mix phô diễn kỹ xảo, mà là bản mix khiến người nghe quên đi kỹ thuật để chìm vào cảm xúc.'
+    producerNote: 'Một bản mix hay là bản mix làm nổi bật cảm xúc của người hát mà người nghe không cảm thấy nặng nề hay chói tai.',
+    enProducerNote: 'A great mix elevates the singer’s emotion so the listener feels the heart of the song without hearing technical strain.'
   },
   {
     step: '07',
-    title: 'Mastering (Loudness Standards)',
-    category: 'HẬU KỲ · MASTERING PHÁT HÀNH',
-    headline: 'Chuẩn Âm Lượng Spotify, Apple Music & YouTube',
-    description: 'Khâu kiểm định chất lượng cuối cùng. Đưa bản nhạc đạt độ lớn thương mại chuẩn xác (-14 LUFS) mà vẫn bảo toàn độ động và không bị méo tiếng trên mọi hệ thống loa.',
+    viTitle: 'Mastering Hoàn Thiện',
+    enTitle: 'Mastering',
+    title: 'Mastering',
+    category: 'BƯỚC 7 · HOÀN THIỆN',
+    enCategory: 'STAGE 7 · MASTERING',
+    headline: 'Tối Ưu Âm Lượng Cho Mọi Thiết Bị',
+    enHeadline: 'Balanced Loudness for Global Streaming',
+    description: 'Khâu hoàn thiện âm thanh cuối cùng. Đảm bảo bài hát phát to rõ, không bị rè hay méo tiếng trên loa điện thoại, tai nghe và loa xe hơi.',
+    enDescription: 'The final acoustic benchmark: ensuring full, clean loudness (-14 LUFS) that sounds great on phone speakers, earbuds, and car sound systems.',
     actions: [
-      { name: 'Tối ưu hoá Headroom & True Peak', detail: 'Ngăn chặn hiện tượng inter-sample clipping khi giải mã sang định dạng MP3/AAC.' },
-      { name: 'Kiểm tra độ tương thích Mono', detail: 'Đảm bảo bài hát phát tốt trên loa điện thoại một kênh mà không bị triệt tiêu âm thanh.' },
-      { name: 'Cân bằng tổng thể phổ tần (Master EQ)', detail: 'Tạo độ ấm áp ở dải trầm và độ long lanh ở dải cao đạt chuẩn đĩa thương mại.' }
+      { name: 'Tối ưu độ lớn thương mại', detail: 'Nâng âm lượng bài hát đạt chuẩn nghe nhạc trực tuyến, nghe to rõ và chắc tiếng.' },
+      { name: 'Kiểm tra trên nhiều dòng loa', detail: 'Nghe thử trên tai nghe, điện thoại và loa kiểm âm để bảo đảm bài hát nghe đều hay.' },
+      { name: 'Cân chỉnh tổng thể dải âm', detail: 'Tạo độ ấm áp cho phần trầm và độ trong sáng cho phần cao của toàn bộ bài hát.' }
     ],
-    producerNote: 'Chúng tôi kiểm âm chéo trên 4 môi trường: loa kiểm âm studio, tai nghe phổ thông, điện thoại di động và hệ thống âm thanh xe hơi.'
+    producerNote: 'Chúng tôi luôn kiểm tra bản thu trên nhiều thiết bị thực tế trước khi gửi bạn nghe thử.',
+    enProducerNote: 'We cross-check every master across four real-world listening environments before delivery.'
   },
   {
     step: '08',
-    title: 'Release (Delivery & Distribution)',
-    category: 'PHÁT HÀNH · BÀN GIAO TOÀN DIỆN',
-    headline: 'Bàn Giao Trọn Bộ Hồ Sơ Âm Thanh & Phát Hành Số',
-    description: 'Tác phẩm hoàn thành sẵn sàng ra mắt công chúng. Bàn giao đầy đủ các phiên bản âm thanh, hồ sơ kỹ thuật và đồng hành tư vấn chiến lược phát hành.',
+    viTitle: 'Bàn Giao Sản Phẩm',
+    enTitle: 'Delivery & Release',
+    title: 'Delivery & Release',
+    category: 'BƯỚC 8 · BÀN GIAO',
+    enCategory: 'STAGE 8 · DELIVERY',
+    headline: 'Bàn Giao Đầy Đủ File & Hỗ Trợ Đăng Nhạc',
+    enHeadline: 'Full Master Delivery & Distribution Guidance',
+    description: 'Bàn giao trọn gói bản Master chất lượng cao WAV, MP3 và bản beat không lời để bạn biểu diễn, đồng thời hỗ trợ tư vấn đăng nhạc lên mạng xã hội.',
+    enDescription: 'Delivery of high-res 24-bit WAV masters, 320kbps MP3s, instrumental backing tracks, and guidance for digital distribution.',
     actions: [
-      { name: 'Bàn giao các phiên bản tiêu chuẩn', detail: 'Bao gồm bản Master WAV 24-bit, MP3 320kbps, Beat Playback, TV Track có bè.' },
-      { name: 'Lưu trữ vĩnh viễn Multitrack Stems', detail: 'Lưu trữ toàn bộ stems dự án trên hệ thống đám mây bảo mật trọn đời.' },
-      { name: 'Hỗ trợ phân phối nhạc số', detail: 'Tư vấn đăng ký ISRC, phân phối lên Spotify, Apple Music, YouTube Music và TikTok.' }
+      { name: 'Bàn giao đầy đủ định dạng file', detail: 'Gồm bản Master WAV 24-bit chất lượng cao, MP3 320kbps và beat không lời để đi diễn.' },
+      { name: 'Lưu trữ file dự án an toàn', detail: 'Lưu trữ toàn bộ file thu âm gốc trên máy chủ của studio để bạn có thể xin lại khi cần.' },
+      { name: 'Tư vấn đăng tải bài hát', detail: 'Hướng dẫn cách đăng bài hát lên YouTube, Facebook, TikTok và các trang nhạc số.' }
     ],
-    producerNote: 'Khi dự án kết thúc, mối quan hệ đồng hành giữa chúng tôi và bạn mới chỉ bắt đầu. Chúng tôi luôn sẵn sàng hỗ trợ cho các sản phẩm tiếp theo.'
+    producerNote: 'Sau khi nhận bài, nếu bạn cần hỗ trợ xuất thêm bản beat hay điều chỉnh nhỏ, studio luôn sẵn sàng hỗ trợ.',
+    enProducerNote: 'Delivery is not the end of our partnership. We are always here to support your upcoming musical releases.'
   }
 ]
 

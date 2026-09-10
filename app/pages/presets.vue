@@ -28,7 +28,7 @@
 
     <!-- ===== VALUE PROPOSITION BANNER ===== -->
     <section class="value-props-section">
-      <div class="max-width">
+      <div class="editorial-container">
         <div class="props-grid glass-card">
           <div class="prop-item text-center">
             <div class="prop-icon"><i class="fa-solid fa-bolt-lightning"></i></div>
@@ -51,7 +51,7 @@
 
     <!-- ===== PRESETS CATALOG ===== -->
     <section id="presets-list" class="section-block presets-catalog">
-      <div class="max-width">
+      <div class="editorial-container">
         <div class="section-header-center text-center" style="margin-bottom: 3.5rem;">
           <span class="header-tag">BỘ SƯU TẬP PRESETS</span>
           <h2 class="section-heading-heavy text-center">Chọn Preset Phù Hợp Với Bạn</h2>
@@ -218,9 +218,32 @@
       </div>
     </Transition>
 
+    <!-- ===== COMPANION AI TOOL BANNER ===== -->
+    <section class="section-block companion-tool-section">
+      <div class="editorial-container">
+        <div class="companion-tool-card glass-card hover-lift">
+          <div class="companion-content">
+            <span class="header-tag" style="display: inline-flex; align-items: center; gap: 0.4rem;">
+              <i class="fa-solid fa-wand-magic-sparkles"></i> CÔNG CỤ MIỄN PHÍ ĐỒNG HÀNH
+            </span>
+            <h3 class="companion-title">Cần Tách Vocal Acapella Để Thử Preset Hoặc Tách Beat Karaoke?</h3>
+            <p class="companion-desc">
+              Trải nghiệm ngay <strong>TáchNhạc.com</strong> — nền tảng AI trực tuyến miễn phí do chính chúng tôi phát triển, giúp bạn bóc tách giọng hát, tách beat sạch sẽ và khử tiếng ồn chỉ trong 10 giây trước khi đưa vào DAW xử lý.
+            </p>
+          </div>
+          <div class="companion-cta">
+            <a :href="createTachnhacReferralUrl('presets_companion_tachnhac')" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-pulse">
+              <span>Mở TáchNhạc.com</span>
+              <i class="fa-solid fa-arrow-up-right-from-square"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- ===== FAQ FOR PRESETS ===== -->
     <section class="section-block presets-faq">
-      <div class="max-width">
+      <div class="editorial-container">
         <div class="section-header-center text-center" style="margin-bottom: 2.5rem;">
           <h2 class="section-heading-heavy text-center">Câu Hỏi Thường Gặp Về Preset</h2>
         </div>
@@ -277,32 +300,22 @@ useSchemaOrg([
     name: 'Kho Vocal Presets & Template Phòng Thu — XKProduction',
     description: 'Tải bộ chuỗi xử lý âm thanh Vocal Chain & Template dự án chuẩn studio do Nguyễn Xuân Kiệt thiết kế.'
   }),
-  {
-    '@type': 'ItemList',
-    'name': 'Bảng Giá Vocal Presets XKProduction',
-    'itemListElement': [
-      {
-        '@type': 'Product',
-        'name': 'Vocal Warm Ballad Preset',
-        'offers': { '@type': 'Offer', 'price': '199000', 'priceCurrency': 'VND' }
-      },
-      {
-        '@type': 'Product',
-        'name': 'Vocal Bright & Airy Preset',
-        'offers': { '@type': 'Offer', 'price': '199000', 'priceCurrency': 'VND' }
-      },
-      {
-        '@type': 'Product',
-        'name': 'Modern Rap / Trap Autotune Preset',
-        'offers': { '@type': 'Offer', 'price': '249000', 'priceCurrency': 'VND' }
-      },
-      {
-        '@type': 'Product',
-        'name': 'Full Studio Vocal Suite + Template DAW',
-        'offers': { '@type': 'Offer', 'price': '499000', 'priceCurrency': 'VND' }
-      }
-    ]
-  }
+  defineProduct({
+    name: 'Vocal Warm Ballad Preset',
+    offers: [{ price: '199000', priceCurrency: 'VND' }]
+  }),
+  defineProduct({
+    name: 'Vocal Bright & Airy Preset',
+    offers: [{ price: '199000', priceCurrency: 'VND' }]
+  }),
+  defineProduct({
+    name: 'Modern Rap / Trap Autotune Preset',
+    offers: [{ price: '249000', priceCurrency: 'VND' }]
+  }),
+  defineProduct({
+    name: 'Full Studio Vocal Suite + Template DAW',
+    offers: [{ price: '499000', priceCurrency: 'VND' }]
+  })
 ])
 </script>
 
@@ -371,10 +384,11 @@ useSchemaOrg([
 .page-hero-title {
   font-size: clamp(2.3rem, 5vw, 3.8rem);
   font-weight: 800;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.005em;
   color: var(--text-main);
   margin-bottom: 1.2rem;
-  line-height: 1.15;
+  line-height: 1.22;
+  text-wrap: balance;
 }
 
 .page-hero-sub {
@@ -742,6 +756,65 @@ useSchemaOrg([
   }
   .faq-row p {
     padding-left: 0;
+  }
+}
+
+/* COMPANION TOOL CARD */
+.companion-tool-section {
+  padding: 2rem 0 3rem;
+}
+
+.companion-tool-card {
+  padding: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  background: linear-gradient(135deg, rgba(245, 158, 11, 0.05) 0%, rgba(20, 24, 33, 0.8) 100%);
+  border: 1px solid rgba(245, 158, 11, 0.25);
+  border-radius: 16px;
+}
+
+.companion-content {
+  flex: 1;
+  max-width: 720px;
+}
+
+.companion-title {
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: #fff;
+  margin: 0.75rem 0 0.5rem;
+  line-height: 1.3;
+}
+
+.companion-desc {
+  color: var(--text-light);
+  font-size: 0.9rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.companion-desc strong {
+  color: #fbbf24;
+}
+
+.companion-cta {
+  flex-shrink: 0;
+}
+
+@media (max-width: 768px) {
+  .companion-tool-card {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 2rem 1.5rem;
+  }
+  .companion-cta {
+    width: 100%;
+  }
+  .companion-cta a {
+    width: 100%;
+    justify-content: center;
   }
 }
 </style>

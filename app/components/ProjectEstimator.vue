@@ -17,7 +17,7 @@ const services: ServiceOption[] = [
   {
     id: 'thu-am',
     name: 'Thu Âm Bài Hát Chuyên Nghiệp',
-    basePrice: 350000,
+    basePrice: 499000,
     unit: 'buổi (2-3h)',
     timeDays: 1,
     description: 'Phòng thu tiêu âm chuẩn quốc tế, micro condenser cao cấp, kỹ thuật viên hướng dẫn lấy hơi và cảm xúc từng câu.',
@@ -27,7 +27,7 @@ const services: ServiceOption[] = [
   {
     id: 'mix-master',
     name: 'Mix & Master Chuẩn Spotify',
-    basePrice: 600000,
+    basePrice: 350000,
     unit: 'bài hoàn chỉnh',
     timeDays: 3,
     description: 'Xử lý vocal chuyên sâu (tune pitch, timing), cân bằng EQ, nén động lực và mastering âm lượng chuẩn -14 LUFS.',

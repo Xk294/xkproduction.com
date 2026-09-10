@@ -3,10 +3,10 @@
     <div class="editorial-container">
       <!-- HEADER -->
       <div class="page-header">
-        <span class="badge-v2 amber">FLAGSHIP METHODOLOGY</span>
-        <h1 class="process-title">THE PRODUCTION PROCESS</h1>
+        <span class="badge-v2 amber">QUY TRÌNH LÀM VIỆC</span>
+        <h1 class="process-title">Quy Trình Hoàn Thiện Bài Hát</h1>
         <p class="process-subtitle">
-          "From Idea To Final Work" — Hành trình 8 bước biến một ý niệm sơ khởi, một bản voice memo qua điện thoại thành tác phẩm âm nhạc chuẩn phát hành toàn cầu.
+          Hành trình 8 bước từ giai điệu ngâm nga hoặc bản thu mộc ban đầu thành bài hát hoàn chỉnh sẵn sàng phát hành trên các nền tảng số.
         </p>
       </div>
 
@@ -18,10 +18,10 @@
       <!-- HARDWARE & ACOUSTIC ENVIRONMENT BLOCK -->
       <section class="gear-standards-section">
         <div class="gear-card matte-card">
-          <span class="badge-v2 teal">KỸ NGHỆ PHÒNG THU &amp; PHẦN CỨNG</span>
-          <h2 class="gear-title">Không Gian Âm Học &amp; Trang Thiết Bị Chuẩn Mực</h2>
+          <span class="badge-v2 teal">TRANG THIẾT BỊ &amp; PHÒNG THU</span>
+          <h2 class="gear-title">Không Gian Tiêu Âm &amp; Thiết Bị Phòng Thu</h2>
           <p class="gear-desc">
-            Chất lượng âm thanh tại XKProduction được định hình bởi sự kết hợp giữa phòng thu xử lý âm học kỹ lưỡng (bass trap, diffuser) và hệ thống analog/digital hàng đầu thế giới.
+            Phòng thu được xử lý tiêu âm kỹ lưỡng, kết hợp cùng chuỗi thiết bị analog và kỹ thuật số chất lượng cao giúp giọng hát và nhạc cụ luôn đạt độ trong trẻo, tự nhiên.
           </p>
 
           <div class="gear-specs-grid">
@@ -52,11 +52,11 @@
       <!-- BOTTOM CTA -->
       <div class="process-cta matte-card text-center">
         <span class="badge-v2 amber">SẴN SÀNG BẮT ĐẦU</span>
-        <h2 class="cta-title">Bắt Đầu Bước 01 Với Ý Niệm Của Bạn</h2>
-        <p class="cta-desc">Đừng giữ ý tưởng trong ngăn kéo. Hãy để chúng tôi lắng nghe bản thu thô của bạn.</p>
+        <h2 class="cta-title">Bắt Đầu Bài Hát Của Bạn Ngay Hôm Nay</h2>
+        <p class="cta-desc">Đừng ngần ngại, hãy gửi bản thu mộc hoặc giai điệu bạn có cho studio.</p>
         <div class="cta-buttons">
-          <NuxtLink to="/start-a-project" class="btn-start">GỬI PROJECT BRIEF</NuxtLink>
-          <NuxtLink to="/build-project" class="btn-build">BUILD YOUR PROJECT</NuxtLink>
+          <NuxtLink to="/start-a-project" class="btn-start">GỬI YÊU CẦU DỰ ÁN</NuxtLink>
+          <NuxtLink to="/build-project" class="btn-build">DỰ TOÁN CHI PHÍ</NuxtLink>
         </div>
       </div>
     </div>
@@ -70,8 +70,17 @@ useSeoMeta({
   ogTitle: 'The Production Process — XKProduction',
   ogDescription: 'Quy trình sản xuất âm nhạc 8 bước chuẩn mực: Idea -> Direction -> Production -> Recording -> Editing -> Mix -> Master -> Release.',
   ogImage: 'https://xkproduction.com/images/Xkpreviewnew.png',
-  ogUrl: 'https://xkproduction.com/production'
+  ogUrl: 'https://xkproduction.com/production',
+  twitterCard: 'summary_large_image',
+  twitterImage: 'https://xkproduction.com/images/Xkpreviewnew.png',
 })
+
+useSchemaOrg([
+  defineWebPage({
+    name: 'Quy Trình Sản Xuất Âm Nhạc 8 Bước - XKProduction',
+    description: 'Quy trình sản xuất âm nhạc 8 bước bài bản từ ý tưởng demo đến master phát hành tại XKProduction.'
+  })
+])
 </script>
 
 <style scoped>

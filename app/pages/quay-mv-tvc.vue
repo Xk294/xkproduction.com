@@ -8,10 +8,10 @@
 
     <!-- ===== HERO SECTION ===== -->
     <section class="page-hero">
-      <div class="max-width">
+      <div class="editorial-container">
         <span class="hero-badge"><i class="fa-solid fa-film"></i> VIDEO &amp; MEDIA</span>
         <h1 class="page-hero-title">Quay MV &amp; <span class="text-gradient-animated">TVC Quảng Cáo</span></h1>
-        <p class="page-hero-sub">Sản xuất hình ảnh chất lượng cao — Phục vụ nghệ sĩ quay MV ca nhạc chuyên nghiệp, studio session, live session và doanh nghiệp sản xuất TVC quảng cáo tại Bình Phước.</p>
+        <p class="page-hero-sub">Sản xuất hình ảnh chất lượng cao — Phục vụ nghệ sĩ quay MV ca nhạc chuyên nghiệp, studio session, live session và doanh nghiệp sản xuất TVC quảng cáo tại TP. Hồ Chí Minh.</p>
       </div>
     </section>
 
@@ -40,8 +40,8 @@
               <ul class="features-list">
                 <li v-for="f in p.features" :key="f"><i class="fa-solid fa-check"></i> {{ f }}</li>
               </ul>
-              <NuxtLink to="/contact?service=mv-tvc" class="btn btn-primary btn-order">
-                <span>Liên hệ tư vấn ngay</span> <i class="fa-solid fa-arrow-right-long"></i>
+              <NuxtLink to="/build-project?service=quay-mv" class="btn btn-primary btn-order">
+                <span>Dự toán &amp; Tư vấn ngay</span> <i class="fa-solid fa-arrow-right-long"></i>
               </NuxtLink>
             </div>
           </div>
@@ -112,14 +112,14 @@
 
 <script setup lang="ts">
 useSeoMeta({
-  title: 'Quay MV & TVC Chuyên Nghiệp tại Bình Phước — XKProduction',
-  description: 'Dịch vụ sản xuất MV ca nhạc, quay Live Session, TVC quảng cáo doanh nghiệp trọn gói tại Bình Phước. Ekip chuyên nghiệp, 5 góc máy, màu điện ảnh. Tư vấn miễn phí.',
-  ogTitle: 'Quay MV & TVC Chuyên Nghiệp tại Bình Phước - XKProduction',
-  ogDescription: 'Sản xuất hình ảnh chất lượng cao chuẩn điện ảnh. Quay phim ca nhạc, TVC quảng cáo, live session trọn gói tại Bình Phước với ekip media chuyên nghiệp.',
+  title: 'Quay MV & TVC Chuyên Nghiệp tại TP. Hồ Chí Minh — XKProduction',
+  description: 'Dịch vụ sản xuất MV ca nhạc, quay Live Session, TVC quảng cáo doanh nghiệp trọn gói tại TP. Hồ Chí Minh. Ekip chuyên nghiệp, 5 góc máy, màu điện ảnh. Tư vấn miễn phí.',
+  ogTitle: 'Quay MV & TVC Chuyên Nghiệp tại TP. Hồ Chí Minh - XKProduction',
+  ogDescription: 'Sản xuất hình ảnh chất lượng cao chuẩn điện ảnh. Quay phim ca nhạc, TVC quảng cáo, live session trọn gói tại TP. Hồ Chí Minh với ekip media chuyên nghiệp.',
   ogImage: 'https://xkproduction.com/images/Xkpreviewnew.png',
   ogUrl: 'https://xkproduction.com/quay-mv-tvc',
   twitterCard: 'summary_large_image',
-  keywords: 'quay mv, quay tvc, quay mv binh phuoc, quay phim ca nhac, san xuat video, live session, video podcast, xkproduction'
+  keywords: 'quay mv, quay tvc, quay mv hcm, quay mv thu duc, quay phim ca nhac, san xuat video, live session, video podcast, xkproduction'
 })
 
 useHead({
@@ -149,7 +149,7 @@ useHead({
 
 useSchemaOrg([
   defineWebPage({
-    name: 'Quay MV & TVC Chuyên Nghiệp tại Bình Phước — XKProduction',
+    name: 'Quay MV & TVC Chuyên Nghiệp tại TP. Hồ Chí Minh — XKProduction',
     description: 'Chi tiết dịch vụ sản xuất MV ca nhạc, TVC quảng cáo doanh nghiệp chuyên nghiệp trọn gói.'
   })
 ])

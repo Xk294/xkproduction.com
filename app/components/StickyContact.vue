@@ -1,6 +1,10 @@
 <script setup lang="ts">
 import { ref, onMounted, onUnmounted } from 'vue'
+import { useLocale } from '~/composables/useLocale'
+import { useStudioAudio } from '~/composables/useStudioAudio'
 
+const { isVi } = useLocale()
+const { isDockOpen } = useStudioAudio()
 const isVisible = ref(false)
 
 const { trackCta } = useAnalytics()
@@ -28,7 +32,7 @@ onMounted(() => {
     <div class="desktop-contact-dock glass-card">
       <div class="dock-status-pill">
         <span class="pulse-dot"></span>
-        <span class="status-txt">Studio Active</span>
+        <span class="status-txt">{{ isVi ? 'Phòng Thu Hoạt Động' : 'Studio Active' }}</span>
       </div>
 
       <div class="dock-divider"></div>
@@ -78,7 +82,7 @@ onMounted(() => {
     </div>
 
     <!-- MOBILE BOTTOM BAR (Native App Ergonomics) -->
-    <div class="mobile-bottom-bar">
+    <div class="mobile-bottom-bar" :class="{ 'has-audio-dock': isDockOpen }">
       <a href="tel:0355356294" class="mobile-bar-action" @click="trackCta('Sticky Phone Mobile')">
         <i class="fa-solid fa-phone"></i>
         <span>Gọi Ngay</span>
@@ -119,10 +123,10 @@ onMounted(() => {
   background: rgba(11, 14, 22, 0.85);
   backdrop-filter: blur(20px) saturate(1.3);
   -webkit-backdrop-filter: blur(20px) saturate(1.3);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-top: 1px solid rgba(0, 128, 255, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-top: 1px solid rgba(251, 191, 36, 0.35);
   border-radius: 100px;
-  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.6), 0 0 20px rgba(0, 128, 255, 0.12);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.65), 0 0 24px rgba(217, 119, 6, 0.08);
   opacity: 0;
   transform: translateY(20px);
   transition: opacity 0.35s var(--ease-out-expo), transform 0.35s var(--ease-out-expo);
@@ -142,16 +146,16 @@ onMounted(() => {
   padding: 0.3rem 0.6rem;
   font-size: 0.72rem;
   font-weight: 700;
-  color: var(--teal);
+  color: #fbbf24;
 }
 
 .pulse-dot {
   width: 7px;
   height: 7px;
   border-radius: 50%;
-  background: var(--teal);
-  box-shadow: 0 0 8px var(--teal);
-  animation: pulseDot 2s infinite;
+  background: #fbbf24;
+  box-shadow: 0 0 8px rgba(251, 191, 36, 0.7);
+  animation: pulseDot 2.2s infinite;
 }
 
 @keyframes pulseDot {
@@ -179,15 +183,17 @@ onMounted(() => {
 }
 
 .zalo-dock {
-  background: linear-gradient(135deg, #0080ff 0%, #00d4aa 100%);
-  color: #fff;
-  box-shadow: 0 4px 12px rgba(0, 128, 255, 0.35);
+  background: linear-gradient(135deg, #d4af37 0%, #fbbf24 100%);
+  color: #07080a;
+  font-weight: 800;
+  box-shadow: 0 2px 10px rgba(212, 175, 55, 0.3);
 }
 
 .zalo-dock:hover {
+  background: linear-gradient(135deg, #e5b95f 0%, #fcd34d 100%);
   transform: translateY(-2px);
-  box-shadow: 0 6px 18px rgba(0, 128, 255, 0.5);
-  color: #fff;
+  box-shadow: 0 4px 16px rgba(212, 175, 55, 0.45);
+  color: #000;
 }
 
 .phone-dock {
@@ -215,9 +221,9 @@ onMounted(() => {
 }
 
 .dock-item-icon-only:hover {
-  background: linear-gradient(135deg, #0068ff, #a335e9);
+  background: rgba(255, 255, 255, 0.14);
   color: #fff;
-  transform: scale(1.1);
+  transform: scale(1.08);
 }
 
 /* MOBILE BOTTOM BAR */
@@ -246,6 +252,13 @@ onMounted(() => {
     gap: 0.5rem;
     box-shadow: 0 -8px 24px rgba(0, 0, 0, 0.6);
     pointer-events: auto;
+    transition: bottom 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .mobile-bottom-bar.has-audio-dock {
+    bottom: 64px;
+    z-index: 1000;
+    box-shadow: 0 -4px 16px rgba(0, 0, 0, 0.75);
   }
 
   .mobile-bar-action {
@@ -268,10 +281,11 @@ onMounted(() => {
   }
 
   .mobile-bar-action.primary-action {
-    background: linear-gradient(135deg, #0080ff 0%, #00d4aa 100%);
-    color: #fff;
-    border-radius: 12px;
-    box-shadow: 0 4px 14px rgba(0, 128, 255, 0.4);
+    background: linear-gradient(135deg, #d4af37 0%, #fbbf24 100%);
+    color: #07080a;
+    font-weight: 800;
+    border-radius: 10px;
+    box-shadow: 0 4px 14px rgba(212, 175, 55, 0.3);
     flex-direction: row;
     gap: 0.45rem;
     font-size: 0.78rem;

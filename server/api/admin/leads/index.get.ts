@@ -49,7 +49,10 @@ export default defineEventHandler(async (event) => {
   const [rows, countRow, statusCountsRaw] = await Promise.all([
     db.prepare(`
       SELECT id, name, phone, email, service, message, ip, source,
-             COALESCE(status, 'new') as status, notes, created_at, updated_at
+             COALESCE(status, 'new') as status, notes,
+             country, city, device, os, browser,
+             utm_source, utm_medium, utm_campaign, utm_content, landing_page,
+             created_at, updated_at
       FROM leads
       ${whereSql}
       ORDER BY created_at DESC

@@ -8,11 +8,11 @@
       <div class="editorial-container">
         <div class="section-title-header">
           <div>
-            <span class="badge-v2 amber">SELECTED WORKS · 2024 — 2026</span>
-            <h2 class="editorial-heading">Những Tác Phẩm Chạm Đến Triệu Người Nghe</h2>
+            <span class="badge-v2 amber">{{ isVi ? 'SẢN PHẨM NỔI BẬT' : 'FEATURED WORKS' }}</span>
+            <h2 class="editorial-heading">{{ isVi ? 'Các Tác Phẩm & Dự Án Đã Thực Hiện' : 'Featured Releases & Productions' }}</h2>
           </div>
           <NuxtLink to="/work" class="link-arrow-v2">
-            <span>Toàn Bộ Dự Án</span>
+            <span>{{ isVi ? 'Xem Tất Cả Bài Hát' : 'All Projects' }}</span>
             <i class="fa-solid fa-arrow-right"></i>
           </NuxtLink>
         </div>
@@ -21,41 +21,46 @@
       </div>
     </section>
 
-    <!-- 04: THE PRODUCTION HOUSE MOMENT (MANIFESTO) -->
+    <!-- 04: THE PRODUCTION HOUSE MOMENT (MANIFESTO - UNBOXED EDITORIAL STATEMENT) -->
     <section class="section-block manifesto-section">
       <div class="editorial-container">
-        <div class="manifesto-card matte-card">
+        <div class="manifesto-editorial-wrap">
           <div class="manifesto-top">
-            <span class="badge-v2 teal">TRIẾT LÝ VẬN HÀNH</span>
-            <span class="text-meta-mono">BEYOND A RECORDING STUDIO</span>
+            <span class="badge-v2 amber">{{ isVi ? 'CÁCH CHÚNG TÔI LÀM VIỆC' : 'OUR APPROACH' }}</span>
+            <span class="manifesto-divider" aria-hidden="true"></span>
+            <span class="text-meta-mono manifesto-meta">{{ isVi ? 'SẢN XUẤT ÂM NHẠC · HOÀ ÂM PHỐI KHÍ · SOUND & LIGHT' : 'MUSIC PRODUCTION · ARRANGEMENT · SOUND & LIGHT' }}</span>
           </div>
-          <h2 class="manifesto-quote">
-            "Chúng tôi không chỉ thu âm. Chúng tôi kiến tạo toàn bộ tác phẩm."
-          </h2>
+          <blockquote class="manifesto-quote font-display">
+            <span class="manifesto-quote-line">{{ isVi ? '“Từ bản phối khí độc bản, sản xuất âm nhạc trọn vẹn' : '“From bespoke arrangement and full music production' }}</span>
+            <span class="manifesto-quote-line">{{ isVi ? 'đến không gian bùng nổ của ' : 'to dynamic ' }}<span class="text-gold-gradient">{{ isVi ? 'Sound & Light trên sân khấu.”' : 'Sound & Light on stage.”' }}</span></span>
+          </blockquote>
           <p class="manifesto-body">
-            Khác với việc thuê một giờ thu âm thông thường, tại XKProduction chúng tôi đóng vai trò người đồng hành sáng tạo: cùng bạn gọt giũa từng nốt nhạc, kiên nhẫn phân tích từng câu nhả chữ và thiết kế không gian âm thanh chuẩn quốc tế để tác phẩm của bạn tự tin xuất hiện trên mọi bảng xếp hạng.
+            {{ isVi
+              ? 'Tại XKProduction, chúng tôi tập trung vào 3 giá trị cốt lõi: Sản xuất âm nhạc bài bản từ ý tưởng đến master hoàn chỉnh, Hoà âm phối khí độc bản theo từng chất giọng và phong cách, cùng Giải pháp Sound & Light biểu diễn chuyên nghiệp cho sự kiện và sân khấu.'
+              : 'At XKProduction, we focus on 3 core pillars: end-to-end Music Production from concept to release-ready master, bespoke Music Arrangement tailored to each artist identity, and professional Sound & Light staging solutions for live events.'
+            }}
           </p>
 
           <div class="manifesto-pillars-grid">
             <div class="m-pillar">
-              <div class="m-pillar-num">01</div>
-              <strong>PEOPLE</strong>
-              <p>Nhạc sĩ, ca sĩ và kỹ sư âm thanh cùng ngồi lại để tìm ra chất riêng độc bản.</p>
+              <span class="m-pillar-num font-mono">01</span>
+              <strong class="m-pillar-title">{{ isVi ? 'SẢN XUẤT ÂM NHẠC' : 'MUSIC PRODUCTION' }}</strong>
+              <p>{{ isVi ? 'Quy trình sản xuất bài bản, định hình cấu trúc, phong cách âm nhạc và hoàn thiện master chuẩn Spotify quốc tế.' : 'End-to-end track production, songwriting development, and streaming-standard mastering.' }}</p>
             </div>
             <div class="m-pillar">
-              <div class="m-pillar-num">02</div>
-              <strong>PROCESS</strong>
-              <p>Quy trình 8 bước chuẩn hoá từ ý tưởng voice memo đến bàn giao master.</p>
+              <span class="m-pillar-num font-mono">02</span>
+              <strong class="m-pillar-title">{{ isVi ? 'HOÀ ÂM PHỐI KHÍ' : 'BESPOKE ARRANGEMENT' }}</strong>
+              <p>{{ isVi ? 'Phối khí riêng biệt từ giai điệu mộc, không dùng beat rập khuôn, hài hoà giữa nhạc cụ acoustic và hiện đại.' : '100% original arrangement tailored to vocal range, combining organic acoustic and modern synthesis.' }}</p>
             </div>
             <div class="m-pillar">
-              <div class="m-pillar-num">03</div>
-              <strong>SOUND</strong>
-              <p>Kỹ thuật mixing & mastering chuẩn -14 LUFS, tối ưu không gian 3D.</p>
+              <span class="m-pillar-num font-mono">03</span>
+              <strong class="m-pillar-title">{{ isVi ? 'SOUND & LIGHT SỰ KIỆN' : 'SOUND & LIGHT' }}</strong>
+              <p>{{ isVi ? 'Hệ thống âm thanh mixer Midas M32R chống hú rít kết hợp ánh sáng sân khấu chuyên nghiệp cho sự kiện, tiệc cưới.' : 'Midas M32R digital audio engineering and synchronized stage lighting for events and live concerts.' }}</p>
             </div>
             <div class="m-pillar">
-              <div class="m-pillar-num">04</div>
-              <strong>CRAFT</strong>
-              <p>Sự kiên nhẫn và đôi tai tinh tế đặt trên từng miligiây âm thanh.</p>
+              <span class="m-pillar-num font-mono">04</span>
+              <strong class="m-pillar-title">{{ isVi ? 'MINH BẠCH & BẢO MẬT' : 'CLEAR COMMITMENT' }}</strong>
+              <p>{{ isVi ? 'Tặng 2 lần sửa bài miễn phí, không chi phí ẩn và cam kết bảo mật 100% bản quyền bài hát của bạn.' : '2 free revision rounds, transparent pricing, and 100% intellectual property privacy.' }}</p>
             </div>
           </div>
         </div>
@@ -67,11 +72,11 @@
       <div class="editorial-container">
         <div class="section-title-header">
           <div>
-            <span class="badge-v2 amber">CORE CAPABILITIES</span>
-            <h2 class="editorial-heading">4 Trụ Cột Năng Lực Sản Xuất Cốt Lõi</h2>
+            <span class="badge-v2 amber">{{ isVi ? 'NĂNG LỰC CỐT LÕI' : 'CORE SERVICES' }}</span>
+            <h2 class="editorial-heading">{{ isVi ? 'Dịch Vụ Sản Xuất Âm Nhạc, Phối Khí & Sound Light' : 'Music Production, Arrangement & Sound Light Services' }}</h2>
           </div>
           <NuxtLink to="/services" class="link-arrow-v2">
-            <span>Chi Tiết Dịch Vụ</span>
+            <span>{{ isVi ? 'Xem Bảng Giá & Dịch Vụ' : 'View All Services' }}</span>
             <i class="fa-solid fa-arrow-right"></i>
           </NuxtLink>
         </div>
@@ -89,42 +94,73 @@
             <div class="case-media-wrap">
               <div class="video-aspect">
                 <iframe
-                  src="https://www.youtube.com/embed/F5tPTow1xkE?rel=0"
+                  v-if="isSpotlightVideoActive"
+                  src="https://www.youtube.com/embed/F5tPTow1xkE?autoplay=1&rel=0"
                   allow="autoplay; encrypted-media; picture-in-picture"
                   allowfullscreen
                   class="spotlight-iframe"
-                  loading="lazy"
                   title="Nhật Kí Của Mẹ - Mai Linh"
                 ></iframe>
+                <div
+                  v-else
+                  class="youtube-facade"
+                  @click="startSpotlightVideo"
+                  role="button"
+                  tabindex="0"
+                  aria-label="Phát video Nhật Kí Của Mẹ"
+                  @keydown.enter="startSpotlightVideo"
+                >
+                  <img
+                    src="https://img.youtube.com/vi/F5tPTow1xkE/maxresdefault.jpg"
+                    alt="Nhật Kí Của Mẹ - Mai Linh"
+                    class="facade-thumb"
+                    loading="lazy"
+                    width="1280"
+                    height="720"
+                  />
+                  <div class="facade-scrim"></div>
+                  <div class="facade-play-badge">
+                    <div class="facade-play-icon">
+                      <i class="fa-solid fa-play"></i>
+                    </div>
+                    <span class="facade-kicker font-mono">
+                      <i class="fa-brands fa-youtube"></i>
+                      <span>{{ isVi ? '4K STUDIO SESSION · NHẤN ĐỂ XEM' : '4K STUDIO SESSION · CLICK TO WATCH' }}</span>
+                    </span>
+                  </div>
+                </div>
               </div>
             </div>
 
             <!-- RIGHT STORYTELLING -->
             <div class="case-content-wrap">
-              <span class="badge-v2 amber">CASE STUDY TIÊU BIỂU</span>
+              <span class="badge-v2 amber">{{ isVi ? 'BÀI THU TIÊU BIỂU' : 'FEATURED PRODUCTION' }}</span>
               <h3 class="case-title">Nhật Kí Của Mẹ — Mai Linh (Cover)</h3>
-              <p class="case-artist text-meta-mono">HOÀ ÂM: XKPROD FT LACANH · THU ÂM & MIX MASTER: XKPRODUCTION</p>
+              <p class="case-artist text-meta-mono">{{ isVi ? 'HOÀ ÂM: XKPROD FT LACANH · THU ÂM & MIX MASTER: XKPRODUCTION' : 'ARRANGEMENT: XKPROD FT LACANH · RECORDING & MIX MASTER: XKPRODUCTION' }}</p>
               <p class="case-desc">
-                Tái hiện tuyệt phẩm tình mẫu tử bất hủ bằng tiếng Grand Piano mộc mạc và dàn dây sâu thẳm. Bản phối nhịp 3/4 ở tempo 82 BPM bảo toàn từng nhịp thở chân phương của ca sĩ Mai Linh, không lạm dụng tuning, chạm đến cảm xúc hàng trăm ngàn thính giả.
+                {{ isVi
+                  ? 'Bản cover giàu cảm xúc về mẹ với phần đệm đàn piano mộc mạc và dàn dây ấm áp. Giọng hát của ca sĩ Mai Linh được thu âm và xử lý tự nhiên, giữ trọn sự mộc mạc và tình cảm chân thành gửi đến người nghe.'
+                  : 'An emotional cover featuring intimate acoustic grand piano and warm orchestral strings. Vocals were tracked and processed naturally to preserve raw, authentic maternal emotion.'
+                }}
               </p>
 
               <div class="case-metrics">
                 <div class="metric-box">
-                  <strong>3/4</strong>
-                  <span>Tempo 82 BPM</span>
+                  <strong>Piano</strong>
+                  <span>{{ isVi ? 'Phối khí mộc' : 'Acoustic Piano' }}</span>
                 </div>
                 <div class="metric-box">
                   <strong>-14 LUFS</strong>
-                  <span>Spotify Standard</span>
+                  <span>{{ isVi ? 'Chuẩn phát hành số' : 'Streaming Standard' }}</span>
                 </div>
                 <div class="metric-box">
-                  <strong>Analog</strong>
-                  <span>Tube Pre-amp Warmth</span>
+                  <strong>Tube Pre-amp</strong>
+                  <span>{{ isVi ? 'Giọng ấm áp' : 'Warm Vocal Tone' }}</span>
                 </div>
               </div>
 
               <NuxtLink to="/work/nhat-ki-cua-me" class="btn-read-case">
-                <span>Đọc Nhật Ký Sản Xuất</span>
+                <span>{{ isVi ? 'Xem Chi Tiết Bài Thu Này' : 'Read Production Journal' }}</span>
                 <i class="fa-solid fa-arrow-right"></i>
               </NuxtLink>
             </div>
@@ -137,10 +173,13 @@
     <section class="section-block ab-section">
       <div class="editorial-container">
         <div class="section-title-centered text-center">
-          <span class="badge-v2 teal">SIGNATURE EXPERIENCE</span>
-          <h2 class="editorial-heading">Hear The Difference: Thô vs Master</h2>
+          <span class="badge-v2 teal">{{ isVi ? 'SO SÁNH TRỰC TIẾP' : 'DIRECT COMPARISON' }}</span>
+          <h2 class="editorial-heading">{{ isVi ? 'Nghe Thử: Giọng Thu Mộc & Bản Sau Khi Mix Master' : 'Listen: Raw Vocal vs. Mastered Track' }}</h2>
           <p class="section-subtitle">
-            Kéo fader điều khiển để đôi tai tự cảm nhận sự khác biệt đẳng cấp giữa bản thu mộc microphone và tác phẩm sau khi được xử lý chuyên sâu tại XKProduction.
+            {{ isVi
+              ? 'Kéo thanh trượt qua lại để nghe sự khác biệt rõ rệt giữa bản thu thô ban đầu và bài hát sau khi được cân chỉnh, hoà âm và hậu kỳ chuyên nghiệp.'
+              : 'Drag the fader back and forth to hear the difference between raw microphone takes and the final polished master.'
+            }}
           </p>
         </div>
 
@@ -153,11 +192,11 @@
       <div class="editorial-container">
         <div class="section-title-header">
           <div>
-            <span class="badge-v2 amber">THE PRODUCTION MAP</span>
-            <h2 class="editorial-heading">Hành Trình 8 Bước: Từ Voice Memo Đến Đĩa Master</h2>
+            <span class="badge-v2 amber">{{ isVi ? 'QUY TRÌNH LÀM VIỆC' : 'OUR WORKFLOW' }}</span>
+            <h2 class="editorial-heading">{{ isVi ? '8 Bước Hoàn Thiện Bài Hát Cùng Bạn' : '8 Steps to Completing Your Song' }}</h2>
           </div>
           <NuxtLink to="/production" class="link-arrow-v2">
-            <span>Chi Tiết Quy Trình</span>
+            <span>{{ isVi ? 'Xem Chi Tiết Từng Bước' : 'Process Details' }}</span>
             <i class="fa-solid fa-arrow-right"></i>
           </NuxtLink>
         </div>
@@ -171,11 +210,11 @@
       <div class="editorial-container">
         <div class="section-title-header">
           <div>
-            <span class="badge-v2 amber">LIVING ARCHIVE</span>
-            <h2 class="editorial-heading">Kho Đĩa Phát Hành &amp; Nền Tảng Số</h2>
+            <span class="badge-v2 amber">{{ isVi ? 'BÀI HÁT ĐÃ PHÁT HÀNH' : 'RELEASED TRACKS' }}</span>
+            <h2 class="editorial-heading">{{ isVi ? 'Các Sản Phẩm Đã Lên Sóng Nền Tảng Số' : 'Streamed Tracks & Digital Releases' }}</h2>
           </div>
-          <NuxtLink to="/releases" class="link-arrow-v2">
-            <span>Tất Cả Phát Hành</span>
+          <NuxtLink to="/work" class="link-arrow-v2">
+            <span>{{ isVi ? 'Xem Tất Cả Tác Phẩm' : 'All Works' }}</span>
             <i class="fa-solid fa-arrow-right"></i>
           </NuxtLink>
         </div>
@@ -200,32 +239,38 @@
               />
               <div class="founder-badge">
                 <strong>Nguyễn Xuân Kiệt</strong>
-                <span class="text-meta-mono">FOUNDER & LEAD MUSIC PRODUCER</span>
+                <span class="text-meta-mono">{{ isVi ? 'SẢN XUẤT ÂM NHẠC & SOUND LIGHT' : 'FOUNDER & MUSIC PRODUCER' }}</span>
               </div>
             </div>
 
             <div class="founder-text-col">
-              <span class="badge-v2 amber">CON NGƯỜI & BẢN SẮC</span>
-              <h3 class="founder-title">Đôi Tai Tinh Tế & Sự Kiên Nhẫn Tối Thượng</h3>
+              <span class="badge-v2 amber">{{ isVi ? 'NGƯỜI ĐỨNG SAU CÁC TÁC PHẨM' : 'MEET THE PRODUCER' }}</span>
+              <h3 class="founder-title">{{ isVi ? 'Người Thổi Hồn Vào Từng Bản Phối & Sân Khấu' : 'Dedicated Partner for Your Music & Stage' }}</h3>
               <p class="founder-quote">
-                "Một bản thu đắt tiền không đến từ việc lạm dụng hàng chục plugins phức tạp — nó đến từ sự thấu cảm của người làm sản xuất với câu chuyện của nghệ sĩ. Chúng tôi kiên nhẫn với từng hơi thở nhỏ nhất để tạo nên bản thu khiến bạn tự hào."
+                {{ isVi
+                  ? '"Một tác phẩm hay cần sự hoà quyện giữa cảm xúc chân thật, bản phối khí tinh tế và chất lượng âm thanh chuẩn xác. Dù là sản xuất âm nhạc, hoà âm phối khí hay vận hành sound & light sân khấu, chúng tôi luôn chăm chút tỉ mỉ cho đến khi bạn thực sự hài lòng."'
+                  : '"A great record requires authentic emotion, bespoke arrangement, and pristine acoustic engineering. Whether in music production, arranging, or stage sound & light, we refine every detail until you are genuinely proud of it."'
+                }}
               </p>
               <p class="founder-bio">
-                Hơn 7 năm thực chiến phòng thu và sân khấu trực tiếp, vận hành bàn mixer kỹ thuật số Midas M32R, sản xuất hơn 2,000 bài hát cho các nghệ sĩ độc lập và thương hiệu tại Bình Phước và trên toàn quốc.
+                {{ isVi
+                  ? 'Hơn 7 năm chuyên sâu sản xuất âm nhạc, hoà âm phối khí và vận hành hệ thống âm thanh ánh sáng (Sound & Light) cho sự kiện, sân khấu trực tiếp cũng như nhận sản xuất bài hát online toàn quốc.'
+                  : 'Over 7 years specializing in music production, custom arrangement, and live sound & light engineering for concerts, events, and artists nationwide.'
+                }}
               </p>
 
               <div class="founder-stats-row">
                 <div>
                   <strong class="stat-number">2,000+</strong>
-                  <span class="stat-label text-meta-mono">Dự Án</span>
+                  <span class="stat-label text-meta-mono">{{ isVi ? 'Dự Án Sản Xuất' : 'Projects Produced' }}</span>
                 </div>
                 <div>
                   <strong class="stat-number">7+ Năm</strong>
-                  <span class="stat-label text-meta-mono">Kinh Nghiệm</span>
+                  <span class="stat-label text-meta-mono">{{ isVi ? 'Kinh Nghiệm Làm Nghề' : 'Years Experience' }}</span>
                 </div>
                 <div>
-                  <strong class="stat-number">100%</strong>
-                  <span class="stat-label text-meta-mono">Tâm Huyết</span>
+                  <strong class="stat-number">Tận Tâm</strong>
+                  <span class="stat-label text-meta-mono">{{ isVi ? 'Với Từng Khách Hàng' : 'Dedicated Support' }}</span>
                 </div>
               </div>
             </div>
@@ -239,11 +284,11 @@
       <div class="editorial-container">
         <div class="section-title-header">
           <div>
-            <span class="badge-v2 teal">JOURNAL & PRODUCTION NOTES</span>
-            <h2 class="editorial-heading">Ghi Chú Hậu Trường Từ Bàn Điều Khiển</h2>
+            <span class="badge-v2 teal">{{ isVi ? 'CHIA SẺ KINH NGHIỆM' : 'STUDIO TIPS' }}</span>
+            <h2 class="editorial-heading">{{ isVi ? 'Kinh Nghiệm Thu Âm & Làm Nhạc Thực Tế' : 'Practical Recording & Music Production Tips' }}</h2>
           </div>
           <NuxtLink to="/journal" class="link-arrow-v2">
-            <span>Tất Cả Bài Viết</span>
+            <span>{{ isVi ? 'Tất Cả Bài Viết' : 'All Articles' }}</span>
             <i class="fa-solid fa-arrow-right"></i>
           </NuxtLink>
         </div>
@@ -273,8 +318,8 @@
     <section class="section-block trust-section">
       <div class="editorial-container">
         <div class="section-title-centered text-center">
-          <span class="badge-v2 amber">ARTIST VOICES</span>
-          <h2 class="editorial-heading">Đồng Hành Cùng Những Nghệ Sĩ Thật</h2>
+          <span class="badge-v2 amber">{{ isVi ? 'CẢM NHẬN KHÁCH HÀNG' : 'CLIENT FEEDBACK' }}</span>
+          <h2 class="editorial-heading">{{ isVi ? 'Chia Sẻ Từ Các Nghệ Sĩ & Đối Tác Đã Đồng Hành' : 'Feedback from Artists & Partners We Worked With' }}</h2>
         </div>
 
         <div class="testimonials-editorial-grid">
@@ -299,26 +344,29 @@
     <section class="section-block start-cta-section">
       <div class="editorial-container">
         <div class="start-cta-card matte-card text-center">
-          <span class="badge-v2 amber">BẮT ĐẦU NGAY HÔM NAY</span>
-          <h2 class="start-cta-title">Mỗi Bản Hit Đều Bắt Đầu Bằng Một Ý Niệm.</h2>
+          <span class="badge-v2 amber">{{ isVi ? 'BẮT ĐẦU DỰ ÁN' : 'READY TO CREATE?' }}</span>
+          <h2 class="start-cta-title">{{ isVi ? 'Bạn Cần Sản Xuất Âm Nhạc, Phối Khí Hay Setup Sound & Light?' : 'Need Music Production, Arranging or Sound & Light Staging?' }}</h2>
           <p class="start-cta-desc">
-            Dù bạn mới chỉ có một đoạn voice memo hay đã sẵn sàng thu âm bản phối, hãy gửi brief cho chúng tôi. Đội ngũ sản xuất sẽ phản hồi giải pháp tối ưu trong vòng 2 giờ.
+            {{ isVi
+              ? 'Dù bạn cần sản xuất bài hát trọn gói, phối khí cho sáng tác mới, hay setup hệ thống âm thanh ánh sáng chuyên nghiệp cho sự kiện, hãy nhắn ngay cho chúng tôi để được tư vấn phương án tối ưu nhất.'
+              : 'Whether you need full-service music production, bespoke arranging for your track, or professional sound & light staging for your event, contact us today for the best solution.'
+            }}
           </p>
 
           <div class="start-cta-buttons">
             <NuxtLink to="/start-a-project" class="btn-cta-main">
-              <span>GỬI PROJECT BRIEF</span>
+              <span>{{ isVi ? 'NHẮN TIN TƯ VẤN NGAY' : 'MESSAGE US FOR CONSULTATION' }}</span>
               <i class="fa-solid fa-arrow-right"></i>
             </NuxtLink>
 
             <NuxtLink to="/build-project" class="btn-cta-sub">
               <i class="fa-solid fa-sliders"></i>
-              <span>Hoạch Định Ngân Sách</span>
+              <span>{{ isVi ? 'Dự Toán Chi Phí Nhanh' : 'Calculate Estimate' }}</span>
             </NuxtLink>
 
             <a href="https://zalo.me/0355356294" target="_blank" rel="noopener noreferrer" class="btn-cta-zalo">
               <i class="fa-solid fa-comment-dots"></i>
-              <span>Chat Zalo Trực Tiếp</span>
+              <span>{{ isVi ? 'Chat Zalo Với Kiệt' : 'Chat via Zalo' }}</span>
             </a>
           </div>
         </div>
@@ -328,10 +376,20 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue'
+import { ref, computed } from 'vue'
+import { useLocale } from '~/composables/useLocale'
+import { useStudioAudio } from '~/composables/useStudioAudio'
 
+const { isVi } = useLocale()
 const { projects, releases, capabilities } = useProductionProjects()
 const { allBlogPosts } = useBlog()
+const { pauseTrack: pauseGlobalAudio } = useStudioAudio()
+
+const isSpotlightVideoActive = ref(false)
+function startSpotlightVideo() {
+  pauseGlobalAudio()
+  isSpotlightVideoActive.value = true
+}
 
 const journalPosts = computed(() => allBlogPosts.slice(0, 3))
 
@@ -360,10 +418,10 @@ const testimonials = [
 ]
 
 useSeoMeta({
-  title: 'XKProduction — Creative Music Production House & Recording Studio',
-  description: 'Từ ý niệm ban đầu đến tác phẩm hoàn chỉnh. Phòng thu âm chuyên nghiệp, hoà âm phối khí độc bản, vocal coaching và mix & master chuẩn quốc tế tại Bình Phước.',
-  ogTitle: 'XKProduction — Creative Music Production House',
-  ogDescription: 'Từ ý niệm ban đầu đến tác phẩm hoàn chỉnh. Hoà âm phối khí, Mix & Master chuẩn Spotify -14 LUFS, thu âm chuyên nghiệp. Hotline: 0355.356.294',
+  title: 'XKProduction — Sản Xuất Âm Nhạc, Hoà Âm Phối Khí & Sound Light Chuyên Nghiệp',
+  description: 'XKProduction — Đơn vị sản xuất âm nhạc chuyên nghiệp, hoà âm phối khí sáng tạo độc bản và cung cấp giải pháp Sound & Light sân khấu, sự kiện chuyên nghiệp tại TP.HCM & toàn quốc.',
+  ogTitle: 'XKProduction — Music Production, Arrangement & Sound Light',
+  ogDescription: 'Sản xuất âm nhạc, Hoà âm phối khí độc bản, Mix & Master chuẩn Spotify và giải pháp Sound & Light sự kiện chuyên nghiệp. Hotline: 0355.356.294',
   ogImage: 'https://xkproduction.com/images/Xkpreviewnew.png',
   ogType: 'website',
   ogUrl: 'https://xkproduction.com'
@@ -371,18 +429,25 @@ useSeoMeta({
 
 useSchemaOrg([
   defineWebPage({
-    name: 'XKProduction - Creative Music Production House & Recording Studio',
-    description: 'Phòng thu âm & sản xuất âm nhạc chuyên nghiệp tại Bình Phước. Hoà âm phối khí, Mix Master, Sân khấu Live Band.'
+    name: 'XKProduction - Music Production, Arrangement & Sound Light',
+    description: 'Sản xuất âm nhạc, Hoà âm phối khí, Mix & Master và hệ thống Sound & Light biểu diễn, sự kiện chuyên nghiệp tại TP. Hồ Chí Minh và toàn quốc.'
   }),
   defineLocalBusiness({
     '@id': 'https://xkproduction.com/#localbusiness',
     name: 'XKProduction',
     image: 'https://xkproduction.com/images/Xkpreviewnew.png',
-    logo: 'https://xkproduction.com/images/logo-xkproduction.png',
+    logo: 'https://xkproduction.com/logo.png',
     telephone: '+84355356294',
     email: 'nguyenxuankiet294@gmail.com',
     url: 'https://xkproduction.com',
-    priceRange: '350.000₫ – 5.000.000₫'
+    priceRange: '350.000₫ – 5.000.000₫',
+    address: {
+      streetAddress: 'Thủ Đức',
+      addressLocality: 'Thủ Đức',
+      addressRegion: 'Thành phố Hồ Chí Minh',
+      postalCode: '700000',
+      addressCountry: 'VN'
+    }
   })
 ])
 </script>
@@ -432,81 +497,105 @@ useSchemaOrg([
   line-height: 1.6;
 }
 
-.link-arrow-v2 {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  font-size: 0.875rem;
-  font-weight: 700;
-  color: #fbbf24;
-  text-decoration: none;
-  transition: transform 0.15s ease;
-}
-
-.link-arrow-v2:hover {
-  transform: translateX(4px);
-}
-
-/* MANIFESTO SECTION */
-.manifesto-card {
-  padding: clamp(2rem, 5vw, 4.5rem);
-  background: linear-gradient(180deg, rgba(15, 17, 21, 0.95) 0%, rgba(9, 11, 16, 0.95) 100%);
+/* MANIFESTO SECTION — UNBOXED EDITORIAL MONOGRAPH */
+.manifesto-editorial-wrap {
+  padding: clamp(3rem, 6vw, 5rem) 0;
+  border-top: 1px solid var(--border-subtle);
+  border-bottom: 1px solid var(--border-subtle);
 }
 
 .manifesto-top {
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  gap: 1rem;
-  margin-bottom: 2rem;
+  gap: 0.875rem;
+  margin-bottom: 2.25rem;
+  flex-wrap: wrap;
+}
+
+.manifesto-divider {
+  width: 1px;
+  height: 12px;
+  background-color: var(--border-medium, rgba(255, 255, 255, 0.18));
+}
+
+.manifesto-meta {
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  color: var(--text-tertiary, #94a3b8);
 }
 
 .manifesto-quote {
-  font-size: clamp(1.8rem, 4vw, 3.2rem);
-  font-weight: 900;
+  font-size: clamp(1.75rem, 2.6vw, 2.45rem);
+  font-weight: 500;
   letter-spacing: -0.02em;
   color: var(--text-primary);
-  line-height: 1.2;
-  margin-bottom: 1.5rem;
+  line-height: 1.32;
+  margin-bottom: 2rem;
+  max-width: 1200px;
+  text-wrap: balance;
+  hanging-punctuation: first;
+}
+
+.manifesto-quote-line {
+  display: inline;
+}
+
+@media (min-width: 1024px) {
+  .manifesto-quote-line {
+    display: block;
+  }
+}
+
+.quote-mark {
+  color: #fbbf24;
 }
 
 .manifesto-body {
-  font-size: clamp(1.05rem, 1.8vw, 1.25rem);
+  font-size: clamp(1.05rem, 1.6vw, 1.2rem);
   color: var(--text-secondary);
-  line-height: 1.7;
-  max-width: 960px;
-  margin-bottom: 3rem;
+  line-height: 1.8;
+  max-width: 820px;
+  margin-bottom: 4rem;
+  text-wrap: pretty;
 }
 
 .manifesto-pillars-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 1.5rem;
-  padding-top: 2.5rem;
+  gap: 2rem;
+  padding-top: 3rem;
   border-top: 1px solid var(--border-subtle);
 }
 
 .m-pillar {
   display: flex;
   flex-direction: column;
-  gap: 0.4rem;
+  gap: 0.5rem;
+  transition: transform 0.2s ease;
+}
+
+.m-pillar:hover {
+  transform: translateY(-2px);
 }
 
 .m-pillar-num {
-  font-family: ui-monospace, monospace;
   font-size: 0.75rem;
-  color: #d97706;
+  color: #fbbf24;
   font-weight: 800;
+  letter-spacing: 0.1em;
 }
 
-.m-pillar strong {
+.m-pillar-title {
   font-size: 1.05rem;
+  font-weight: 800;
   color: var(--text-primary);
+  letter-spacing: 0.04em;
 }
 
 .m-pillar p {
-  font-size: 0.8125rem;
+  font-size: 0.84rem;
   color: var(--text-secondary);
-  line-height: 1.5;
+  line-height: 1.6;
 }
 
 /* CASE STUDY SPOTLIGHT */
@@ -520,7 +609,7 @@ useSchemaOrg([
 }
 
 .case-media-wrap {
-  background: #090b10;
+  background: #060D1C;
   position: relative;
 }
 
@@ -537,6 +626,89 @@ useSchemaOrg([
   width: 100%;
   height: 100%;
   border: none;
+}
+
+/* YOUTUBE FACADE (HIGH-PERFORMANCE LAZY LOAD) */
+.youtube-facade {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.facade-thumb {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.youtube-facade:hover .facade-thumb {
+  transform: scale(1.04);
+}
+
+.facade-scrim {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center, rgba(5, 11, 20, 0.2) 0%, rgba(5, 11, 20, 0.75) 100%);
+  transition: background 0.3s ease;
+}
+
+.youtube-facade:hover .facade-scrim {
+  background: radial-gradient(circle at center, rgba(5, 11, 20, 0.1) 0%, rgba(5, 11, 20, 0.6) 100%);
+}
+
+.facade-play-badge {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.85rem;
+  z-index: 2;
+}
+
+.facade-play-icon {
+  width: 68px;
+  height: 68px;
+  border-radius: 50%;
+  background: #d97706;
+  color: #050b14;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  padding-left: 4px;
+  box-shadow: 0 0 30px rgba(217, 119, 6, 0.5);
+  transition: all 0.25s ease;
+}
+
+.youtube-facade:hover .facade-play-icon {
+  transform: scale(1.12);
+  background: #fbbf24;
+  box-shadow: 0 0 45px rgba(251, 191, 36, 0.7);
+}
+
+.facade-kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #ffffff;
+  background: rgba(10, 20, 36, 0.85);
+  border: 1px solid rgba(251, 191, 36, 0.3);
+  padding: 0.35rem 0.75rem;
+  border-radius: 999px;
+  backdrop-filter: blur(8px);
+}
+
+.facade-kicker i {
+  color: #ef4444;
 }
 
 .case-content-wrap {
@@ -656,6 +828,11 @@ useSchemaOrg([
   justify-content: center;
 }
 
+.founder-text-col .badge-v2 {
+  align-self: flex-start;
+  width: fit-content;
+}
+
 .founder-title {
   font-size: 1.85rem;
   font-weight: 800;
@@ -670,7 +847,7 @@ useSchemaOrg([
   line-height: 1.6;
   font-style: italic;
   margin-bottom: 1.25rem;
-  border-left: 3px solid #d97706;
+  border-left: 3px solid #1677FF;
   padding-left: 1.25rem;
 }
 
@@ -716,14 +893,14 @@ useSchemaOrg([
 
 .journal-preview-card:hover {
   transform: translateY(-4px);
-  border-color: rgba(217, 119, 6, 0.4);
+  border-color: rgba(22, 119, 255, 0.35);
 }
 
 .jp-thumb-wrap {
   position: relative;
   width: 100%;
   aspect-ratio: 16 / 10;
-  background: #090b10;
+  background: #060D1C;
 }
 
 .jp-thumb-img {
@@ -738,11 +915,11 @@ useSchemaOrg([
   left: 1rem;
   padding: 0.25rem 0.6rem;
   border-radius: 4px;
-  background: rgba(7, 8, 10, 0.8);
-  backdrop-filter: blur(6px);
-  color: #fbbf24;
+  background: rgba(5, 11, 20, 0.85);
+  backdrop-filter: blur(8px);
+  color: #60CFFF;
   font-size: 0.6875rem;
-  border: 1px solid var(--border-subtle);
+  border: 1px solid rgba(22, 119, 255, 0.25);
 }
 
 .jp-body {
@@ -832,7 +1009,10 @@ useSchemaOrg([
 /* START CTA */
 .start-cta-card {
   padding: clamp(3rem, 6vw, 5rem) clamp(1.5rem, 4vw, 4rem);
-  background: radial-gradient(circle at 50% 0%, rgba(217, 119, 6, 0.12), transparent 70%), #0f1115;
+  background:
+    radial-gradient(ellipse 80% 70% at 50% -10%, rgba(22, 119, 255, 0.18) 0%, transparent 65%),
+    radial-gradient(ellipse at 85% 100%, rgba(11, 42, 91, 0.5) 0%, transparent 50%),
+    #071428;
 }
 
 .start-cta-title {
@@ -864,20 +1044,22 @@ useSchemaOrg([
   align-items: center;
   gap: 0.6rem;
   padding: 1rem 2.25rem;
-  background: var(--text-primary);
-  color: var(--bg-canvas);
+  background: linear-gradient(135deg, #1677FF 0%, #00B8FF 100%);
+  color: #ffffff;
   font-weight: 800;
   font-size: 0.875rem;
   letter-spacing: 0.08em;
   border-radius: 6px;
+  border: 1px solid rgba(22, 119, 255, 0.5);
   text-decoration: none;
   transition: all 0.2s ease;
+  box-shadow: 0 4px 18px rgba(22, 119, 255, 0.35);
 }
 
 .btn-cta-main:hover {
-  background: #ffffff;
+  background: linear-gradient(135deg, #2488FF 0%, #22c5ff 100%);
   transform: translateY(-2px);
-  box-shadow: 0 0 24px rgba(255, 255, 255, 0.3);
+  box-shadow: 0 8px 28px rgba(22, 119, 255, 0.5);
 }
 
 .btn-cta-sub {
@@ -885,8 +1067,8 @@ useSchemaOrg([
   align-items: center;
   gap: 0.5rem;
   padding: 1rem 1.75rem;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid var(--border-subtle);
+  background: rgba(22, 119, 255, 0.08);
+  border: 1px solid rgba(22, 119, 255, 0.22);
   color: var(--text-primary);
   font-weight: 700;
   font-size: 0.875rem;
@@ -896,8 +1078,8 @@ useSchemaOrg([
 }
 
 .btn-cta-sub:hover {
-  background: rgba(255, 255, 255, 0.1);
-  border-color: var(--border-hover);
+  background: rgba(22, 119, 255, 0.14);
+  border-color: rgba(22, 119, 255, 0.4);
 }
 
 .btn-cta-zalo {

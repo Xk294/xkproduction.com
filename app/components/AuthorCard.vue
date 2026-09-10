@@ -1,6 +1,6 @@
 <template>
   <section class="author-card">
-    <img src="/images/founder-kiet.jpg" :alt="post.author" loading="lazy" />
+    <img src="/images/founder-kiet.jpg" :alt="post.author" loading="lazy" width="110" height="110" />
     <div>
       <p class="author-card-label">Tác giả</p>
       <h3>{{ post.author }}</h3>

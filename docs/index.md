@@ -6,6 +6,7 @@
 
 ## Guides
 
+- [Cross-Site Partner Attribution: XKProduction → Tách Nhạc](PARTNER_ATTRIBUTION_TACHNHAC.md)
 - [Social Previews Guide](SOCIAL_PREVIEWS_GUIDE.md)
 - [Quick Start Social Previews](QUICK_START_SOCIAL_PREVIEWS.md)
 - [Implementation Summary](IMPLEMENTATION_SUMMARY.md)

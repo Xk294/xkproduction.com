@@ -1,0 +1,265 @@
+[
+  {
+    "id": "nhat-ki-cua-me",
+    "slug": "nhat-ki-cua-me",
+    "title": "Nhật Kí Của Mẹ",
+    "subtitle": "Bản phối Ballad mộc mạc tôn vinh tình mẫu tử thiêng liêng",
+    "artist": "Mai Linh (Cover)",
+    "year": "2025",
+    "category": "Arrangement",
+    "categoryLabel": "Hoà Âm Phối Khí & Mix Master",
+    "featured": true,
+    "published": true,
+    "coverImage": "https://img.youtube.com/vi/F5tPTow1xkE/maxresdefault.jpg",
+    "heroBannerImage": "/images/blog-nhat-ki-cua-me.jpg",
+    "videoEmbedId": "F5tPTow1xkE",
+    "videoUrl": "https://www.youtube.com/watch?v=F5tPTow1xkE",
+    "audioDemoUrl": "/product-audio-demo/pop-rnb-1-Gm.102.mp3",
+    "story": {
+      "origin": "Ca khúc bất hủ \"Nhật Kí Của Mẹ\" của nhạc sĩ Nguyễn Văn Chung là một trong những tượng đài âm nhạc thiêng liêng nhất về tình mẫu tử tại Việt Nam. Nữ ca sĩ Mai Linh tìm đến XKProduction với mong muốn thực hiện một bản cover mang góc nhìn chân phương, tôn vinh giọng hát mộc mạc và sự thổn thức tự nhiên thay vì lạm dụng hiệu ứng phòng thu hào nhoáng.",
+      "challenge": "Thách thức lớn nhất là làm mới một tác phẩm đã quá quen thuộc mà không làm mất đi hồn cốt thiêng liêng vốn có. Giọng hát của Mai Linh rất giàu tình cảm ở quãng trung nhưng dễ bị chìm nếu bản phối quá dày, hoặc sẽ bị trơ trọi nếu phần đệm quá đơn điệu.",
+      "approach": "Ekip quyết định đưa nhịp 3/4 ở tempo 82 BPM, sử dụng tiếng Grand Piano thu mộc làm tâm điểm dẫn dắt cảm xúc. Ở điệp khúc 2, dàn dây (Strings) được đẩy vào một cách thanh thoát để mở rộng không gian 3D. Phần thu âm vocal được thực hiện bằng microphone condenser cao cấp với pre-amp analog ấm áp, chỉ cân chỉnh nhẹ nhàng để giữ trọn từng hơi thở và độ rung tự nhiên.",
+      "outcome": "Bản cover sau khi phát hành trên YouTube và mạng xã hội đã lay động hàng trăm ngàn trái tim thính giả, trở thành một dấu ấn tiêu biểu cho năng lực sản xuất âm nhạc truyền cảm và chuẩn mực tại XKProduction."
+    },
+    "decisions": [
+      {
+        "stage": "Arrangement",
+        "title": "Tempo 82 BPM & Giữ Tiếng Piano Mộc Làm Xương Sống",
+        "rationale": "Không sử dụng beat điện tử nhằm bảo toàn sự lắng đọng và chiều sâu tự sự của lời ca khúc Nguyễn Văn Chung."
+      },
+      {
+        "stage": "Recording",
+        "title": "Bảo Toàn Hơi Thở & Rung Giọng Tự Nhiên",
+        "rationale": "Thay vì dùng pitch-correction nặng tay, producer dành trọn 3 giờ đồng hồ hướng dẫn nghệ sĩ nhả chữ và lấy hơi sâu, giữ sự chân thật."
+      },
+      {
+        "stage": "Mixing",
+        "title": "Đẩy Dàn Dây Vào Chiều Sâu Stereo Vòm",
+        "rationale": "Panning dải violin sang hai bên mạn sườn tai nghe, để khoảng trống tuyệt đối ở giữa (Center) cho vocal Mai Linh ngự trị."
+      }
+    ],
+    "credits": [
+      { "role": "Sáng tác", "name": "Nhạc sĩ Nguyễn Văn Chung" },
+      { "role": "Thể hiện", "name": "Ca sĩ Mai Linh" },
+      { "role": "Hoà âm phối khí", "name": "Xkprod ft LacAnh" },
+      { "role": "Thu âm phòng thu", "name": "XKProduction Studio" },
+      { "role": "Mixing & Mastering", "name": "Nguyễn Xuân Kiệt (Xkprod)" }
+    ],
+    "streamingLinks": {
+      "youtube": "https://www.youtube.com/watch?v=F5tPTow1xkE"
+    }
+  },
+  {
+    "id": "chang-muon-noi-nhieu-loi",
+    "slug": "chang-muon-noi-nhieu-loi",
+    "title": "Chẳng Muốn Nói Nhiều Lời",
+    "subtitle": "Âm thanh R&B sắc nét với vocal ấm áp và không gian 3D hiện đại",
+    "artist": "Revan",
+    "year": "2025",
+    "category": "Mix & Master",
+    "categoryLabel": "Mixing & Mastering Chuyên Sâu",
+    "featured": true,
+    "published": true,
+    "coverImage": "https://img.youtube.com/vi/IxlFvQQP_4c/maxresdefault.jpg",
+    "heroBannerImage": "https://img.youtube.com/vi/IxlFvQQP_4c/maxresdefault.jpg",
+    "videoEmbedId": "IxlFvQQP_4c",
+    "videoUrl": "https://www.youtube.com/watch?v=IxlFvQQP_4c",
+    "audioDemoUrl": "/product-audio-demo/pop-rnb-1-Gm.102.mp3",
+    "story": {
+      "origin": "Revan gửi đến studio một bản multitrack R&B hiện đại. Yêu cầu từ nghệ sĩ là hoàn thiện bản thu có chất âm dày dặn, âm bass chắc gọn, vocal ấm áp rõ nét và không gian nghe mượt mà chuẩn streaming.",
+      "challenge": "Các track vocal chính và backing vocals ban đầu bị xung đột tần số với dải mid của synthesizer, khiến giọng hát thiếu độ sắc nét và bị đục khi nghe trên các thiết bị phổ thông.",
+      "approach": "XKProduction thực hiện quy trình dynamic EQ và cân bằng tần số chi tiết. Dải low-mid được dọn sạch để nhường không gian cho vocal ấm áp. Cân chỉnh compressor analog phần cứng tạo độ gắn kết cho tổng thể bài hát.",
+      "outcome": "Bản master cuối cùng đạt chuẩn -14 LUFS với dynamic range tự nhiên, giữ được độ nẩy của trống kick và sự lôi cuốn của vocal trên cả tai nghe lẫn loa lớn."
+    },
+    "decisions": [
+      {
+        "stage": "Mixing",
+        "title": "Tách Bạch Dải Low-Mid Giữa Bass & Vocal",
+        "rationale": "Sidechain dynamic notch filter tại tần số 250Hz giúp giọng nam không bị che lấp bởi con beat dày đặc."
+      },
+      {
+        "stage": "Mastering",
+        "title": "Tối Ưu Hoá Headroom Đạt Chuẩn -14 LUFS",
+        "rationale": "Đảm bảo nền tảng phát hành số Spotify không bị limiter tự động của nền tảng dập méo tiếng."
+      }
+    ],
+    "credits": [
+      { "role": "Nghệ sĩ thể hiện", "name": "Revan" },
+      { "role": "Sản xuất âm nhạc", "name": "XKProduction" },
+      { "role": "Guitarist", "name": "Nguyễn Xuân Kiệt" },
+      { "role": "Mixing & Mastering", "name": "Nguyễn Xuân Kiệt" }
+    ],
+    "streamingLinks": {
+      "youtube": "https://www.youtube.com/watch?v=IxlFvQQP_4c"
+    }
+  },
+  {
+    "id": "love-du-phong",
+    "slug": "love-du-phong",
+    "title": "Love Dự Phòng",
+    "subtitle": "Bản Acoustic tự sự mộc mạc tôn vinh chất giọng ấm áp",
+    "artist": "Howl",
+    "year": "2025",
+    "category": "Music Production",
+    "categoryLabel": "Vocal Production & Acoustic Arrangement",
+    "featured": true,
+    "published": true,
+    "coverImage": "https://img.youtube.com/vi/OCnKTCslJUU/maxresdefault.jpg",
+    "videoEmbedId": "OCnKTCslJUU",
+    "videoUrl": "https://www.youtube.com/watch?v=OCnKTCslJUU",
+    "audioDemoUrl": "/product-audio-demo/pop-rnb-1-Gm.102.mp3",
+    "story": {
+      "origin": "Howl mong muốn tạo nên một phiên bản mộc mạc cho ca khúc \"Love Dự Phòng\", đi ngược lại cấu trúc điện tử xập xình trên thị trường để chạm đến góc sâu nhất trong nỗi niềm tự sự của người nghe.",
+      "challenge": "Với một bản phối tối giản ít nhạc cụ, mọi lỗi nhỏ về phát âm, nhịp thở và âm sắc của nhạc cụ đều dễ dàng bị phơi bày.",
+      "approach": "Sử dụng tiếng đàn Guitar Nylon thủ công đầm ấm kết hợp tiếng Piano lơ lửng và dải strings mở rộng không gian stereo. Vocal được thu âm tỉ mỉ tại studio với vocal coach đồng hành từng câu.",
+      "outcome": "Bài hát nhận được sự đón nhận nồng nhiệt, khẳng định triết lý: âm nhạc ít nhạc cụ nhưng giàu tính sắp đặt không gian luôn tạo ra sức nặng cảm xúc vô cùng lớn."
+    },
+    "credits": [
+      { "role": "Music Producer", "name": "Nguyễn Xuân Kiệt" },
+      { "role": "Acoustic Guitar", "name": "Nguyễn Xuân Kiệt" },
+      { "role": "Mixing & Mastering", "name": "XKProduction" }
+    ],
+    "streamingLinks": {
+      "youtube": "https://www.youtube.com/watch?v=OCnKTCslJUU"
+    }
+  },
+  {
+    "id": "ly-do-bat-dau",
+    "slug": "ly-do-bat-dau",
+    "title": "Lý Do Bắt Đầu",
+    "subtitle": "Nội lực Hip-hop bùng nổ với bass 808 căng tràn năng lượng",
+    "artist": "Revan",
+    "year": "2025",
+    "category": "Music Production",
+    "categoryLabel": "Hip-Hop & Beat Production",
+    "featured": false,
+    "published": true,
+    "coverImage": "https://img.youtube.com/vi/vzfr1ddayYY/maxresdefault.jpg",
+    "videoEmbedId": "vzfr1ddayYY",
+    "videoUrl": "https://www.youtube.com/watch?v=vzfr1ddayYY",
+    "story": {
+      "origin": "Một dự án Rap Hip-hop tự sự kể về hành trình kiên định theo đuổi đam mê âm nhạc của Revan.",
+      "challenge": "Con beat đòi hỏi âm bass 808 phải cực kỳ sâu, rung chuyển nhưng không làm vỡ vocal hay đè nghẹt nhịp snare.",
+      "approach": "Thiết kế sub-bass với saturation analog tạo sự dày dặn trên cả loa điện thoại. Vocal rap được panning ad-libs rộng hai bên để bao trùm thính giác.",
+      "outcome": "Một track rap đầy nội lực, khẳng định phong cách sản xuất sắc bén và hiện đại của phòng thu."
+    },
+    "credits": [
+      { "role": "Music Producer", "name": "Nguyễn Xuân Kiệt" },
+      { "role": "Mixing & Mastering", "name": "Nguyễn Xuân Kiệt" }
+    ],
+    "streamingLinks": {
+      "youtube": "https://www.youtube.com/watch?v=vzfr1ddayYY"
+    }
+  },
+  {
+    "id": "kiep-sau",
+    "slug": "kiep-sau",
+    "title": "Kiếp Sau",
+    "subtitle": "Bản ballad da diết được thu âm và làm sạch vocal thủ công",
+    "artist": "Phương Thanh Tuyền (Cover)",
+    "year": "2024",
+    "category": "Thu âm",
+    "categoryLabel": "Thu Âm & Vocal Production",
+    "featured": false,
+    "published": true,
+    "coverImage": "https://img.youtube.com/vi/z4GB-X1OiPg/maxresdefault.jpg",
+    "videoEmbedId": "z4GB-X1OiPg",
+    "videoUrl": "https://www.youtube.com/watch?v=z4GB-X1OiPg",
+    "story": {
+      "origin": "Dự án thu âm cover một bản tình ca đầy hoài niệm của nữ ca sĩ Phương Thanh Tuyền với yêu cầu giữ trọn độ êm và mềm mại của giọng hát.",
+      "challenge": "Giữ được sự mượt mà tự nhiên mà không tạo cảm giác giọng hát bị \"nhựa\" hay qua chỉnh sửa máy móc.",
+      "approach": "Sử dụng phòng thu tiêu âm chuẩn, cân chỉnh vocal pre-amp phần cứng tỉ mỉ và chỉnh sửa tone thủ công từng nốt nắn nót.",
+      "outcome": "Bản thu đạt độ ấm áp và sạch sẽ tối đa, nhận được nhiều lời khen từ cộng đồng nghe nhạc."
+    },
+    "credits": [
+      { "role": "Thu âm & Vocal Coach", "name": "Nguyễn Xuân Kiệt" },
+      { "role": "Mixing & Mastering", "name": "XKProduction" }
+    ],
+    "streamingLinks": {
+      "youtube": "https://www.youtube.com/watch?v=z4GB-X1OiPg"
+    }
+  },
+  {
+    "id": "viet-tiep-cau-chuyen-hoa-binh",
+    "slug": "viet-tiep-cau-chuyen-hoa-binh",
+    "title": "Viết Tiếp Câu Chuyện Hoà Bình",
+    "subtitle": "Sản phẩm âm nhạc và MV hào hùng tri ân lịch sử hào sảng",
+    "artist": "Mai Linh (Cover)",
+    "year": "2024",
+    "category": "Sound Design",
+    "categoryLabel": "Sản Xuất MV & Âm Thanh Toàn Diện",
+    "featured": false,
+    "published": true,
+    "coverImage": "https://img.youtube.com/vi/P8FPXHJe_go/maxresdefault.jpg",
+    "videoEmbedId": "P8FPXHJe_go",
+    "videoUrl": "https://www.youtube.com/watch?v=P8FPXHJe_go",
+    "story": {
+      "origin": "Dự án nghệ thuật mang thông điệp tri ân lịch sử, đòi hỏi chất lượng hình ảnh cinematic cùng bản phối khí hào tráng.",
+      "challenge": "Kết hợp hài hoà giữa âm thanh phòng thu tinh tế và bối cảnh quay phim sân khấu hoành tráng.",
+      "approach": "Sử dụng 5 góc máy quay chuyên dụng, ánh sáng tương phản điện ảnh và hậu kỳ màu sắc tone lạnh cổ điển.",
+      "outcome": "Tác phẩm hoàn chỉnh, giàu cảm xúc, nhận được đánh giá rất cao từ giới chuyên môn."
+    },
+    "credits": [
+      { "role": "Đạo diễn & Hậu kỳ hình ảnh", "name": "Nguyễn Xuân Kiệt" },
+      { "role": "Sản xuất âm nhạc", "name": "XKProduction" }
+    ],
+    "streamingLinks": {
+      "youtube": "https://www.youtube.com/watch?v=P8FPXHJe_go"
+    }
+  },
+  {
+    "id": "ao-cu-tinh-moi",
+    "slug": "ao-cu-tinh-moi",
+    "title": "Áo Cũ Tình Mới",
+    "subtitle": "Bản Remake Remix sôi động với nhịp House thời thượng",
+    "artist": "Remake Remix",
+    "year": "2024",
+    "category": "Arrangement",
+    "categoryLabel": "Hoà Âm Phối Khí & EDM Remix",
+    "featured": false,
+    "published": true,
+    "coverImage": "https://img.youtube.com/vi/hlvg9YBxRqY/maxresdefault.jpg",
+    "videoEmbedId": "hlvg9YBxRqY",
+    "videoUrl": "https://www.youtube.com/watch?v=hlvg9YBxRqY",
+    "story": {
+      "origin": "Ý tưởng biến một bài hát ballad quen thuộc thành bản House sôi động phục vụ các sân khấu tiệc và live set.",
+      "challenge": "Tăng tốc độ BPM mà vẫn giữ được sự truyền cảm của vocal gốc, không bị biến dạng cao độ.",
+      "approach": "Thiết kế nhịp drop bốc lửa, bassline thiết kế riêng bằng synth ảo chuyên nghiệp, mix sound sắc nét trên dải tần cao.",
+      "outcome": "Bản remix tạo hiệu ứng lan toả mạnh mẽ tại các sự kiện trực tiếp với hàng chục ngàn lượt nghe."
+    },
+    "credits": [
+      { "role": "Music Producer & Remix", "name": "Nguyễn Xuân Kiệt" },
+      { "role": "Mastering", "name": "XKProduction" }
+    ],
+    "streamingLinks": {
+      "youtube": "https://www.youtube.com/watch?v=hlvg9YBxRqY"
+    }
+  },
+  {
+    "id": "tet-xa-cover",
+    "slug": "tet-xa-cover",
+    "title": "Tết Xa (Cover)",
+    "subtitle": "Giai điệu hoài niệm về quê hương chạm đến hàng triệu người con xa xứ",
+    "artist": "Khánh Linh",
+    "year": "2024",
+    "category": "Thu âm",
+    "categoryLabel": "Thu Âm & Video Production",
+    "featured": false,
+    "published": true,
+    "coverImage": "/images/quocchi-3.jpg",
+    "videoUrl": "https://www.tiktok.com/@xkstudio/video/7589982843418266901?lang=vi-VN",
+    "story": {
+      "origin": "Dự án thu âm và sản xuất video ngắn chất lượng cao phát hành dịp Tết cho ca sĩ Khánh Linh.",
+      "challenge": "Tối ưu âm thanh và hình ảnh để đạt độ sắc nét tối đa trên nền tảng TikTok.",
+      "approach": "Thu vocal ấm cúng, mix reverb nhẹ nhàng tạo độ mộc, khung hình dọc 9:16 được canh chỉnh góc sáng chuẩn studio.",
+      "outcome": "Video ngắn đạt lượt tương tác vượt trội trên TikTok, lan toả cảm xúc ấm áp đến hàng ngàn khán giả."
+    },
+    "credits": [
+      { "role": "Thu âm & Mixing", "name": "Nguyễn Xuân Kiệt" },
+      { "role": "Sản xuất hình ảnh", "name": "XKStudio Team" }
+    ],
+    "streamingLinks": {
+      "tiktok": "https://www.tiktok.com/@xkstudio/video/7589982843418266901?lang=vi-VN"
+    }
+  }
+]

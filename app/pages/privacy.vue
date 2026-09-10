@@ -1,7 +1,7 @@
 <template>
   <div class="privacy-page">
     <section class="page-hero">
-      <div class="max-width">
+      <div class="editorial-container">
         <div class="hero-badge"><i class="fa-solid fa-shield-halved"></i> CHÍNH SÁCH</div>
         <h1>Chính sách Bảo mật</h1>
         <p class="page-hero-sub">Cập nhật lần cuối: Tháng 4 năm 2026</p>

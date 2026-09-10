@@ -1,0 +1,59 @@
+{
+  "slug": "live-sound-cho-su-kien-nho",
+  "title": "Live sound cho sự kiện nhỏ: vì sao âm thanh rõ quan trọng hơn âm lượng lớn",
+  "subtitle": "Một sự kiện ấm cúng không cần hệ thống phô trương. Nó cần lời nói rõ, nhạc nền vừa đủ và sân khấu không làm khách mời mệt tai.",
+  "excerpt": "Góc nhìn thực tế về setup âm thanh ánh sáng cho workshop, tiệc thân mật, acoustic night và sự kiện doanh nghiệp quy mô nhỏ.",
+  "category": "Live Sound",
+  "icon": "fa-solid fa-volume-high",
+  "author": "Nguyễn Xuân Kiệt",
+  "authorRole": "Founder / Sound Engineer tại XKProduction",
+  "date": "30/05/2026",
+  "isoDate": "2026-05-30",
+  "readTime": "8 phút đọc",
+  "thumb": "/images/kiet-live-sound-wide.jpg",
+  "cover": "/images/kiet-live-sound-wide.jpg",
+  "tags": ["Live Sound", "Sự Kiện", "Âm Thanh"],
+  "sections": [
+    {
+      "id": "ro-hon-to",
+      "heading": "Rõ luôn quan trọng hơn to",
+      "body": [
+        "Ở sự kiện nhỏ, âm lượng lớn thường tạo cảm giác chuyên nghiệp giả. Khách mời không cần bị áp đảo bởi loa; họ cần nghe rõ người nói, cảm nhận được nhạc và vẫn có thể trò chuyện. Âm thanh tốt là âm thanh vừa đủ để hỗ trợ không khí.",
+        "Điều này đòi hỏi setup đúng từ đầu: chọn loa phù hợp diện tích, đặt loa tránh hú, cân bằng micro, kiểm soát low-end và giữ dải mid rõ để lời nói không bị nuốt."
+      ],
+      "quote": "Nếu khách mời phải nói lớn hơn hệ thống âm thanh, setup đó đang phục vụ sai mục tiêu."
+    },
+    {
+      "id": "micro-va-khong-gian",
+      "heading": "Micro, phòng và vị trí loa quyết định rất nhiều",
+      "image": "/images/kiet-live-sound-focus.jpg",
+      "body": [
+        "Một micro tốt vẫn có thể hú nếu đặt sai hướng loa. Một phòng kính hoặc trần thấp có thể làm tiếng nói bị dội và mệt tai. Vì vậy live sound không chỉ là mang thiết bị đến, mà là đọc không gian trước khi mở âm lượng.",
+        "Với workshop hoặc talkshow, ưu tiên giọng nói rõ, ít vang và ổn định khi người cầm micro di chuyển. Với acoustic night, cần giữ vocal gần, guitar đủ thân và không để cajon hoặc kick lấn toàn bộ không gian."
+      ],
+      "bullets": [
+        "Khảo sát diện tích và vật liệu phòng trước sự kiện.",
+        "Đặt loa tránh hướng thu trực tiếp của micro.",
+        "Soundcheck với người nói/người hát thật, không chỉ test bằng nhạc.",
+        "Dự phòng dây, pin micro và phương án xử lý hú nhanh."
+      ]
+    },
+    {
+      "id": "anh-sang-vua-du",
+      "heading": "Ánh sáng nên nâng không khí, không làm sân khấu rẻ đi",
+      "body": [
+        "Với sự kiện nhỏ, ánh sáng quá nhiều màu hoặc chuyển động liên tục dễ làm mất sự sang. Một vài nguồn sáng ấm, điểm nhấn vào người trình bày và nền đủ sâu thường hiệu quả hơn nhiều so với hiệu ứng dày đặc.",
+        "Âm thanh và ánh sáng cần cùng một tinh thần. Nếu sự kiện là acoustic, workshop thương hiệu hoặc tiệc thân mật, sự tiết chế tạo cảm giác cao cấp hơn sự phô diễn."
+      ],
+      "callout": "Premium không đồng nghĩa với nhiều thiết bị hơn. Premium là đúng thiết bị, đúng vị trí và đúng liều lượng."
+    },
+    {
+      "id": "ket-luan",
+      "heading": "Sự kiện nhỏ cần sự tinh tế lớn",
+      "body": [
+        "Một hệ thống live sound tốt giúp chương trình diễn ra nhẹ nhàng: không hú, không rè, không làm người nghe mệt, không buộc MC phải gồng giọng. Khi mọi thứ trơn tru, khách mời ít để ý đến kỹ thuật — đó chính là dấu hiệu kỹ thuật đang làm đúng.",
+        "Với sự kiện nhỏ, mục tiêu không phải chứng minh dàn âm thanh mạnh. Mục tiêu là tạo một không gian nghe dễ chịu để nội dung và cảm xúc được đặt ở trung tâm."
+      ]
+    }
+  ]
+}

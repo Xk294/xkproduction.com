@@ -32,7 +32,7 @@
 
     <!-- MAIN CONSOLE INTERFACE -->
     <div class="engine-console editorial-container">
-      <!-- LEFT: TRACK INFO -->
+      <!-- LEFT: TRACK INFO & MASTER SPECS -->
       <div v-if="currentTrack" class="track-meta-section">
         <div class="artwork-wrapper">
           <img
@@ -51,15 +51,36 @@
 
         <div class="track-info">
           <div class="title-row">
-            <span class="track-title">{{ currentTrack.title }}</span>
-            <span class="track-badge">{{ currentTrack.category }}</span>
+            <span class="track-title font-display">{{ currentTrack.title }}</span>
+            <span class="track-spec-badge text-meta-mono font-mono">48kHz · 24-BIT</span>
           </div>
-          <span class="track-artist">{{ currentTrack.artist }}</span>
+          <div class="artist-row">
+            <span class="track-artist">{{ currentTrack.artist }}</span>
+            <span class="track-dot" aria-hidden="true">·</span>
+            <span class="track-category text-meta-mono">{{ currentTrack.category }}</span>
+          </div>
         </div>
       </div>
 
-      <!-- CENTER: PLAYBACK CONTROLS -->
+      <!-- CENTER: PLAYBACK CONTROLS & STEREO ANALOG VU METER -->
       <div class="playback-controls-section">
+        <!-- VINTAGE STEREO VU PEAK METER -->
+        <div class="stereo-vu-meter" :class="{ 'is-active': isPlaying }" title="Stereo Master Peak (Analog Emulation)">
+          <div class="vu-ch">
+            <span class="vu-ch-tag font-mono">L</span>
+            <div class="vu-track">
+              <div class="vu-level vu-left" :style="{ width: `${vuLeft}%` }"></div>
+            </div>
+          </div>
+          <div class="vu-ch">
+            <span class="vu-ch-tag font-mono">R</span>
+            <div class="vu-track">
+              <div class="vu-level vu-right" :style="{ width: `${vuRight}%` }"></div>
+            </div>
+          </div>
+          <span class="vu-master-tag text-meta-mono font-mono">-14 LUFS</span>
+        </div>
+
         <div class="transport-buttons">
           <button
             type="button"
@@ -93,19 +114,19 @@
         </div>
 
         <!-- TIMECODE DISPLAY -->
-        <div class="timecode-display text-meta-mono">
+        <div class="timecode-display text-meta-mono font-mono">
           <span class="time-current">{{ currentTimeFormatted }}</span>
           <span class="time-divider">/</span>
           <span class="time-duration">{{ durationFormatted }}</span>
         </div>
       </div>
 
-      <!-- RIGHT: VOLUME & ACTION METRIC -->
+      <!-- RIGHT: VOLUME & SHORTCUT TIP -->
       <div class="utilities-section">
         <!-- SHORTCUT HINT -->
-        <div class="shortcut-tip" title="Phím tắt: Space (Phát/Dừng), M (Tắt tiếng), Mũi tên (Tua 5s)">
-          <span class="key-cap">Space</span>
-          <span class="tip-label">Play</span>
+        <div class="shortcut-tip" :title="isVi ? 'Phím tắt: Space (Phát/Dừng), M (Tắt tiếng), Mũi tên (Tua 5s)' : 'Shortcuts: Space (Play/Pause), M (Mute), Arrows (Seek 5s)'">
+          <span class="key-cap font-mono">Space</span>
+          <span class="tip-label">{{ isVi ? 'Phát' : 'Play' }}</span>
         </div>
 
         <!-- VOLUME SLIDER -->
@@ -154,6 +175,9 @@
 
 <script setup lang="ts">
 import { ref, computed, onMounted, onUnmounted } from 'vue'
+import { useLocale } from '~/composables/useLocale'
+
+const { isVi } = useLocale()
 
 const {
   currentTrack,
@@ -164,6 +188,8 @@ const {
   progress,
   volume,
   isMuted,
+  vuLeft,
+  vuRight,
   playTrack,
   pauseTrack,
   togglePlay,
@@ -254,12 +280,17 @@ onUnmounted(() => {
   left: 0;
   right: 0;
   z-index: 990;
-  background-color: rgba(11, 14, 22, 0.94);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border-top: 1px solid var(--border-subtle);
-  box-shadow: 0 -8px 32px rgba(0, 0, 0, 0.6);
-  transition: transform 0.35s var(--ease-out-expo);
+  background-color: rgba(9, 11, 17, 0.95);
+  backdrop-filter: blur(24px) saturate(1.2);
+  -webkit-backdrop-filter: blur(24px) saturate(1.2);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 -8px 32px rgba(0, 0, 0, 0.7);
+  transition: transform 0.35s var(--ease-out-expo), border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.xk-audio-engine.is-playing {
+  border-top-color: rgba(251, 191, 36, 0.4);
+  box-shadow: 0 -8px 36px rgba(0, 0, 0, 0.8), 0 0 45px rgba(217, 119, 6, 0.15);
 }
 
 .xk-audio-engine.is-collapsed {
@@ -293,7 +324,7 @@ onUnmounted(() => {
   top: 0;
   left: 0;
   height: 100%;
-  background: linear-gradient(90deg, #0d9488, #d97706);
+  background: linear-gradient(90deg, #d4af37, #fbbf24);
   position: relative;
 }
 
@@ -306,7 +337,7 @@ onUnmounted(() => {
   height: 10px;
   border-radius: 50%;
   background: #ffffff;
-  box-shadow: 0 0 8px rgba(0, 0, 0, 0.8);
+  box-shadow: 0 0 10px rgba(251, 191, 36, 0.7);
   transition: transform 0.15s ease;
 }
 
@@ -327,8 +358,8 @@ onUnmounted(() => {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding-top: 0.75rem;
-  padding-bottom: 0.75rem;
+  padding-top: 0.65rem;
+  padding-bottom: 0.65rem;
   gap: 1.5rem;
 }
 
@@ -338,13 +369,13 @@ onUnmounted(() => {
   align-items: center;
   gap: 1rem;
   min-width: 260px;
-  max-width: 320px;
+  max-width: 340px;
 }
 
 .artwork-wrapper {
   position: relative;
-  width: 48px;
-  height: 48px;
+  width: 46px;
+  height: 46px;
   border-radius: 8px;
   overflow: hidden;
   background: #11141c;
@@ -371,7 +402,7 @@ onUnmounted(() => {
 
 .v-bar {
   width: 3px;
-  background: #d97706;
+  background: #fbbf24;
   border-radius: 2px;
   animation: v-pulse 0.9s infinite ease-in-out alternate;
 }
@@ -389,31 +420,40 @@ onUnmounted(() => {
   display: flex;
   flex-direction: column;
   overflow: hidden;
+  gap: 0.15rem;
 }
 
 .title-row {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 0.55rem;
 }
 
 .track-title {
-  font-size: 0.9375rem;
+  font-size: 1.05rem;
   font-weight: 700;
   color: var(--text-primary);
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  letter-spacing: 0;
 }
 
-.track-badge {
-  font-size: 0.6875rem;
+.track-spec-badge {
+  font-size: 0.625rem;
   padding: 0.15rem 0.45rem;
   border-radius: 4px;
-  background: rgba(13, 148, 136, 0.15);
-  color: #2dd4bf;
-  border: 1px solid rgba(13, 148, 136, 0.3);
+  background: rgba(251, 191, 36, 0.1);
+  color: #fbbf24;
+  border: 1px solid rgba(251, 191, 36, 0.25);
   white-space: nowrap;
+  letter-spacing: 0.06em;
+}
+
+.artist-row {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
 }
 
 .track-artist {
@@ -424,12 +464,72 @@ onUnmounted(() => {
   text-overflow: ellipsis;
 }
 
-/* CENTER: PLAYBACK CONTROLS */
+.track-dot {
+  color: rgba(255, 255, 255, 0.2);
+  font-size: 0.75rem;
+}
+
+.track-category {
+  font-size: 0.6875rem;
+  color: #fbbf24;
+  letter-spacing: 0.05em;
+}
+
+/* CENTER: PLAYBACK CONTROLS & STEREO ANALOG VU METER */
 .playback-controls-section {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 0.35rem;
+}
+
+.stereo-vu-meter {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.2rem 0.65rem;
+  background: rgba(0, 0, 0, 0.45);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 4px;
+  margin-bottom: 0.3rem;
+}
+
+.vu-ch {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.vu-ch-tag {
+  font-size: 0.625rem;
+  color: #64748b;
+  line-height: 1;
+}
+
+.vu-track {
+  width: 56px;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 2px;
+  overflow: hidden;
+  position: relative;
+}
+
+.vu-level {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, #10b981 0%, #fbbf24 70%, #ef4444 100%);
+  border-radius: 2px;
+  transition: width 0.08s cubic-bezier(0.2, 0.8, 0.4, 1);
+  will-change: width;
+}
+
+.vu-master-tag {
+  font-size: 0.625rem;
+  color: #fbbf24;
+  letter-spacing: 0.05em;
+  padding-left: 0.25rem;
+  border-left: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .transport-buttons {
@@ -462,18 +562,18 @@ onUnmounted(() => {
 }
 
 .ctrl-btn.play-pause-main {
-  width: 42px;
-  height: 42px;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
   background: var(--text-primary);
   color: var(--bg-canvas);
-  font-size: 1.05rem;
+  font-size: 1rem;
 }
 
 .ctrl-btn.play-pause-main:hover {
-  transform: scale(1.06);
+  transform: scale(1.05);
   background: #ffffff;
-  box-shadow: 0 0 16px rgba(255, 255, 255, 0.3);
+  box-shadow: 0 0 16px rgba(255, 255, 255, 0.25);
 }
 
 .timecode-display {
@@ -500,7 +600,6 @@ onUnmounted(() => {
 }
 
 .key-cap {
-  font-family: ui-monospace, monospace;
   font-size: 0.6875rem;
   padding: 0.15rem 0.4rem;
   background: rgba(255, 255, 255, 0.08);
@@ -539,7 +638,7 @@ onUnmounted(() => {
 
 .volume-slider-fill {
   height: 100%;
-  background: #d97706;
+  background: linear-gradient(90deg, #d4af37, #fbbf24);
   border-radius: 2px;
 }
 
@@ -568,6 +667,12 @@ onUnmounted(() => {
   }
 }
 
+@media (max-width: 768px) {
+  .xk-audio-engine {
+    bottom: calc(52px + env(safe-area-inset-bottom, 0px));
+  }
+}
+
 @media (max-width: 640px) {
   .engine-console {
     padding-top: 0.5rem;
@@ -578,7 +683,7 @@ onUnmounted(() => {
     min-width: 140px;
     max-width: 180px;
   }
-  .track-badge {
+  .track-spec-badge {
     display: none;
   }
   .volume-control {

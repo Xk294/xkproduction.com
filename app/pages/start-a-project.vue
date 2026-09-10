@@ -3,10 +3,10 @@
     <div class="editorial-container">
       <!-- HEADER -->
       <div class="page-header text-center">
-        <span class="badge-v2 amber">COMMISSION &amp; BRIEF</span>
-        <h1 class="start-title">START A PROJECT</h1>
+        <span class="badge-v2 amber">LIÊN HỆ SẢN XUẤT</span>
+        <h1 class="start-title">Bắt Đầu Bài Hát Của Bạn</h1>
         <p class="start-subtitle">
-          Khởi đầu hành trình hợp tác cùng XKProduction. Hãy chia sẻ ý niệm âm nhạc, mong muốn hoặc bản thu thử của bạn để nhận kế hoạch sản xuất chi tiết.
+          Hãy chia sẻ ý tưởng, bản thu mộc hoặc giai điệu bạn muốn thực hiện. Chúng tôi sẽ lắng nghe và tư vấn hướng làm phù hợp nhất cho bạn.
         </p>
       </div>
 
@@ -16,30 +16,30 @@
         <div class="start-info-col">
           <div class="studio-commit-card matte-card">
             <span class="badge-v2 teal">CAM KẾT CỦA STUDIO</span>
-            <h2 class="commit-title">Quy Chuẩn Đồng Hành Chuyên Nghiệp</h2>
+            <h2 class="commit-title">Cam Kết Khi Làm Việc Cùng Studio</h2>
             
             <div class="commit-items">
               <div class="commit-item">
                 <div class="c-icon"><i class="fa-solid fa-lock"></i></div>
                 <div>
-                  <strong>Bảo Mật Ý Tưởng Tuyệt Đối (NDA)</strong>
-                  <p>Mọi bản demo, giai điệu sơ khởi hay file multitrack bạn gửi đều thuộc quyền sở hữu trí tuệ của riêng bạn.</p>
+                  <strong>Bảo Mật Ý Tưởng Của Bạn</strong>
+                  <p>Mọi bản demo, giai điệu sơ khởi hay file bạn gửi đều thuộc quyền sở hữu của riêng bạn.</p>
                 </div>
               </div>
 
               <div class="commit-item">
                 <div class="c-icon"><i class="fa-solid fa-clock"></i></div>
                 <div>
-                  <strong>Phản Hồi Trong Vòng 2 Giờ</strong>
-                  <p>Đội ngũ sản xuất sẽ trực tiếp lắng nghe file demo và gửi phản hồi định hướng âm thanh cụ thể.</p>
+                  <strong>Phản Hồi Nhanh Trong Ngày</strong>
+                  <p>Producer sẽ trực tiếp nghe file demo và gửi gợi ý triển khai cụ thể cho bạn.</p>
                 </div>
               </div>
 
               <div class="commit-item">
                 <div class="c-icon"><i class="fa-solid fa-handshake"></i></div>
                 <div>
-                  <strong>Minh Bạch Chi Phí & Tiến Độ</strong>
-                  <p>Báo giá trọn gói một lần, không phát sinh chi phí ẩn và bàn giao đúng thời hạn cam kết.</p>
+                  <strong>Minh Bạch Chi Phí &amp; Tiến Độ</strong>
+                  <p>Báo giá rõ ràng trọn gói, không phát sinh chi phí ẩn và bàn giao đúng hẹn.</p>
                 </div>
               </div>
             </div>
@@ -57,7 +57,7 @@
               </a>
               <div class="d-address">
                 <i class="fa-solid fa-location-dot"></i>
-                <span>QL14 km25, Nghĩa Trung, Bù Đăng, Bình Phước</span>
+                <span>Thủ Đức, Thành phố Hồ Chí Minh</span>
               </div>
             </div>
           </div>
@@ -115,13 +115,13 @@
 
               <div class="form-row">
                 <div class="form-field">
-                  <label for="f-service">Năng lực cần hỗ trợ <span class="req">*</span></label>
+                  <label for="f-service">Dịch vụ bạn cần <span class="req">*</span></label>
                   <select id="f-service" v-model="form.service">
-                    <option value="music-production">Music Production (Hoà Âm Phối Khí)</option>
-                    <option value="creative-sound">Creative Sound (Mix & Master)</option>
-                    <option value="recording">Thu Âm & Vocal Coaching</option>
-                    <option value="live-production">Live Sound & Ban Nhạc Sự Kiện</option>
+                    <option value="music-production">Hoà Âm Phối Khí (Làm Beat)</option>
                     <option value="full-package">Sản Xuất Bài Hát Trọn Gói (A đến Z)</option>
+                    <option value="live-production">Sound &amp; Light / Âm Thanh Ánh Sáng Sự Kiện</option>
+                    <option value="creative-sound">Mixing &amp; Mastering (-14 LUFS)</option>
+                    <option value="recording">Thu Âm Ca Khúc Chuyên Nghiệp</option>
                   </select>
                 </div>
 
@@ -136,7 +136,7 @@
               </div>
 
               <div class="form-field">
-                <label for="f-demo">Đường dẫn file Demo / Voice Memo (Google Drive, Soundcloud, YouTube...)</label>
+                <label for="f-demo">Đường dẫn file Demo / Bản thu mộc (Google Drive, Soundcloud, YouTube...)</label>
                 <input
                   id="f-demo"
                   v-model="form.demoUrl"
@@ -146,12 +146,12 @@
               </div>
 
               <div class="form-field">
-                <label for="f-message">Mô tả về tác phẩm &amp; Mong muốn nghệ thuật</label>
+                <label for="f-message">Mô tả bài hát hoặc ý tưởng của bạn</label>
                 <textarea
                   id="f-message"
                   v-model="form.message"
                   rows="4"
-                  placeholder="Chia sẻ về thể loại, nhạc cụ bạn yêu thích, thông điệp bài hát hoặc ca khúc tham chiếu..."
+                  placeholder="Chia sẻ về thể loại nhạc bạn thích, phong cách mong muốn hoặc bài hát bạn muốn tham khảo..."
                 ></textarea>
               </div>
 
@@ -161,7 +161,7 @@
                 :disabled="submitting"
               >
                 <i v-if="submitting" class="fa-solid fa-spinner fa-spin"></i>
-                <span>{{ submitting ? 'ĐANG GỬI BRIEF...' : 'GỬI PROJECT BRIEF CHO STUDIO' }}</span>
+                <span>{{ submitting ? 'ĐANG GỬI...' : 'GỬI YÊU CẦU CHO STUDIO' }}</span>
                 <i v-if="!submitting" class="fa-solid fa-arrow-right"></i>
               </button>
             </form>
@@ -221,13 +221,15 @@ async function handleSubmit() {
   submitting.value = true
 
   const cleanPhone = form.phone.replace(/[.\s-]/g, '').replace(/^\+84/, '0')
+  const { trackCta, getTrackingPayload } = useAnalytics()
   const payload = {
     name: form.name.trim(),
     phone: cleanPhone,
     email: form.email?.trim() || '',
     service: form.service || 'music-production',
     message: `[Project Brief V2] Dịch vụ: ${form.service}. Tiến độ: ${form.timeline}. Demo URL: ${form.demoUrl || '(không có)'}. Lời nhắn: ${form.message || '(không có)'}`,
-    source: 'start-a-project-v2'
+    source: 'start-a-project-v2',
+    ...getTrackingPayload()
   }
 
   try {
@@ -288,8 +290,17 @@ useSeoMeta({
   ogTitle: 'Start A Project | XKProduction',
   ogDescription: 'Khởi động dự án âm nhạc chuyên nghiệp cùng XKProduction.',
   ogImage: 'https://xkproduction.com/images/Xkpreviewnew.png',
-  ogUrl: 'https://xkproduction.com/start-a-project'
+  ogUrl: 'https://xkproduction.com/start-a-project',
+  twitterCard: 'summary_large_image',
+  twitterImage: 'https://xkproduction.com/images/Xkpreviewnew.png',
 })
+
+useSchemaOrg([
+  defineWebPage({
+    name: 'Khởi Động Dự Án Âm Nhạc - XKProduction',
+    description: 'Nộp brief ý tưởng dự án để nhận tư vấn sản xuất âm nhạc chi tiết từ XKProduction.'
+  })
+])
 </script>
 
 <style scoped>

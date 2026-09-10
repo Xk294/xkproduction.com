@@ -8,7 +8,7 @@
 
     <!-- ===== HERO SECTION ===== -->
     <section class="page-hero">
-      <div class="max-width">
+      <div class="editorial-container">
         <div class="hero-badge"><i class="fa-solid fa-graduation-cap"></i> ĐÀO TẠO THỰC CHIẾN</div>
         <h1 class="page-hero-title">Khóa Học <span class="text-gradient-animated">Music Producer</span></h1>
         <p class="page-hero-sub">Nâng tầm kỹ năng hoà âm phối khí, mixing &amp; mastering cùng đội ngũ producer/sound engineer giàu kinh nghiệm tại XKProduction.</p>
@@ -17,7 +17,7 @@
 
     <!-- ===== SECTION 1: WHY CHOOSE US ===== -->
     <section class="section-block">
-      <div class="max-width">
+      <div class="editorial-container">
         <div class="section-header-center text-center">
           <span class="header-tag">TẠI SAO CHỌN CHÚNG TÔI</span>
           <h2 class="section-heading-heavy text-center">Đặc Quyền Học Viên</h2>
@@ -36,7 +36,7 @@
 
     <!-- ===== SECTION 2: COURSES PROGRAM ===== -->
     <section class="section-block section-courses">
-      <div class="max-width">
+      <div class="editorial-container">
         <div class="section-header-center text-center">
           <span class="header-tag">CHƯƠNG TRÌNH ĐÀO TẠO</span>
           <h2 class="section-heading-heavy text-center">Lộ Trình Học Chuyên Sâu</h2>
@@ -68,7 +68,7 @@
 
     <!-- ===== SECTION 3: LEARNING PATH TIMELINE ===== -->
     <section class="section-block">
-      <div class="max-width">
+      <div class="editorial-container">
         <div class="section-header-center text-center">
           <span class="header-tag">LỘ TRÌNH CHI TIẾT</span>
           <h2 class="section-heading-heavy text-center">Hành Trình Chinh Phục</h2>
@@ -91,7 +91,7 @@
 
     <!-- ===== SECTION 4: FAQ ACCORDION ===== -->
     <section class="section-block section-faq">
-      <div class="max-width">
+      <div class="editorial-container">
         <div class="section-header-center text-center">
           <span class="header-tag">HỎI &amp; ĐÁP</span>
           <h2 class="section-heading-heavy text-center">Câu Hỏi Thường Gặp</h2>
@@ -121,7 +121,7 @@
 
     <!-- ===== SECTION 5: FINAL CALL TO ACTION ===== -->
     <section class="section-block final-cta">
-      <div class="max-width">
+      <div class="editorial-container">
         <div class="cta-block glass-card text-center">
           <div class="cta-glow-spot"></div>
           <div class="cta-icon"><i class="fa-solid fa-rocket"></i></div>
@@ -255,7 +255,7 @@ const learningPath = [
 
 const faqs = [
   { q: 'Tôi chưa biết gì về nhạc lý có học được không?', a: 'Hoàn toàn được! Lộ trình khoá Hoà âm phối khí tại XKProduction có modul cơ bản hướng dẫn từ con số 0, giúp bạn xây dựng nhạc lý hiện đại và tư duy giai điệu nhanh chóng.' },
-  { q: 'Hình thức học như thế nào?', a: 'Học trực tiếp tại phòng thu XKProduction (Bình Phước) hoặc học trực tuyến Online tương tác trực tiếp qua Google Meet/Zoom 1 kèm 1 kèm review file kỹ lưỡng.' },
+  { q: 'Hình thức học như thế nào?', a: 'Học trực tiếp tại phòng thu XKProduction (Thủ Đức, TP. Hồ Chí Minh) hoặc học trực tuyến Online tương tác trực tiếp qua Google Meet/Zoom 1 kèm 1 kèm review file kỹ lưỡng.' },
   { q: 'Cần chuẩn bị thiết bị gì trước khi học?', a: 'Học viên chỉ cần chuẩn bị 1 laptop cá nhân. Studio sẽ hỗ trợ cài đặt DAW chuyên dụng (Logic Pro, FL Studio...) và cung cấp bộ sample, plugin cần thiết.' },
   { q: 'Có được sử dụng phòng thu để thực hành không?', a: 'Có! Học viên tại XKProduction được đăng ký sử dụng phòng thu âm và toàn bộ thiết bị phần cứng cao cấp để tự tập luyện hoàn toàn miễn phí.' },
   { q: 'Học phí có được chia đợt đóng không?', a: 'XKProduction hỗ trợ học viên đóng học phí linh hoạt chia làm 2 đợt hoặc trả góp theo tháng để giảm bớt gánh nặng tài chính.' }

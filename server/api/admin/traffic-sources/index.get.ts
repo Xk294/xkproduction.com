@@ -152,12 +152,45 @@ export default defineEventHandler(async (event) => {
       })
       .sort((a, b) => b.count - a.count)
 
+    // Also get active campaigns and mediums
+    let campaigns: Array<{ name: string; visits: number }> = []
+    let mediums: Array<{ name: string; visits: number }> = []
+    try {
+      const campRes = await db.prepare(`
+        SELECT utm_campaign as name, SUM(visit_count) as visits
+        FROM visitor_logs
+        WHERE utm_campaign IS NOT NULL AND utm_campaign != ''
+          AND (is_bot IS NULL OR is_bot = 0)
+          AND last_seen_at >= datetime('now', '-' || ? || ' days')
+        GROUP BY utm_campaign
+        ORDER BY visits DESC
+        LIMIT 10
+      `).bind(range).all<{ name: string; visits: number }>()
+      campaigns = campRes.results ?? []
+
+      const medRes = await db.prepare(`
+        SELECT utm_medium as name, SUM(visit_count) as visits
+        FROM visitor_logs
+        WHERE utm_medium IS NOT NULL AND utm_medium != ''
+          AND (is_bot IS NULL OR is_bot = 0)
+          AND last_seen_at >= datetime('now', '-' || ? || ' days')
+        GROUP BY utm_medium
+        ORDER BY visits DESC
+        LIMIT 10
+      `).bind(range).all<{ name: string; visits: number }>()
+      mediums = medRes.results ?? []
+    } catch {
+      // safe fallback
+    }
+
     return {
       ok: true,
       range,
       total: totalCount,
       non_bot_total: totalCount,
       sources,
+      campaigns,
+      mediums,
     }
   } catch (err: any) {
     console.error('[traffic-sources] Query error:', err)

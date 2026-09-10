@@ -70,7 +70,7 @@ interface Props {
 
 const props = withDefaults(defineProps<Props>(), {
   title: 'XKProduction - Phòng Thu Âm Chuyên Nghiệp',
-  description: 'Phòng thu âm chuyên nghiệp XKProduction tại Bình Phước. Thu âm bài hát, hoà âm phối khí, mix & master chuẩn Spotify, quay MV/TVC.',
+  description: 'Phòng thu âm chuyên nghiệp XKProduction tại TP. Hồ Chí Minh. Thu âm bài hát, hoà âm phối khí, mix & master chuẩn Spotify, quay MV/TVC.',
   url: 'https://xkproduction.com',
   image: 'https://xkproduction.com/images/Xkpreviewnew.png',
 })

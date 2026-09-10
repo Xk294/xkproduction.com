@@ -1,0 +1,57 @@
+{
+  "slug": "thu-am-gia-2026",
+  "title": "Thu âm bài hát giá bao nhiêu trong năm 2026?",
+  "subtitle": "Một cách nhìn thực tế về chi phí phòng thu: bạn đang trả tiền cho giờ thu, thiết bị, đôi tai producer và sự bình tĩnh để bản vocal thật sự có cảm xúc.",
+  "excerpt": "Bảng giá thu âm chỉ là phần nổi. Bài viết này giúp bạn hiểu vì sao cùng một buổi thu có thể cho ra demo thô hoặc một bản vocal đủ tự tin để phát hành.",
+  "category": "Bảng Giá",
+  "icon": "fa-solid fa-tag",
+  "author": "Nguyễn Xuân Kiệt",
+  "authorRole": "Producer / Recording Engineer tại XKProduction",
+  "date": "28/04/2026",
+  "isoDate": "2026-04-28",
+  "readTime": "8 phút đọc",
+  "thumb": "/images/blog-thu-am-gia.jpg",
+  "cover": "/images/blog-thu-am-gia.jpg",
+  "tags": ["Bảng Giá", "Thu Âm"],
+  "sections": [
+    {
+      "id": "gia-khong-chi-la-gio-thu",
+      "heading": "Giá thu âm không chỉ là tiền thuê một căn phòng",
+      "body": [
+        "Khi hỏi “thu âm một bài bao nhiêu tiền”, nhiều người thường nghĩ chi phí nằm ở số giờ đứng trước micro. Thực tế, một bản thu nghe sang hay không phụ thuộc vào cả chuỗi quyết định: chọn micro hợp chất giọng, gain staging sạch, hướng dẫn cách nhả chữ, kiểm soát hơi thở, chọn take, comp vocal, tuning và timing vừa đủ.",
+        "Ở một buổi thu nghiêm túc, kỹ thuật viên không chỉ bấm record. Họ nghe độ mở của nguyên âm, độ gắt ở vùng 2–5 kHz, độ dày ở low-mid, độ sát beat của từng câu và cả việc ca sĩ có đang hát đúng tâm trạng của bài hay không."
+      ],
+      "quote": "Một bản vocal tốt không phải bản không sai nốt; đó là bản khiến người nghe tin vào cảm xúc của người hát."
+    },
+    {
+      "id": "nen-chon-goi-nao",
+      "heading": "Bạn nên chọn gói nào?",
+      "body": [
+        "Nếu mục tiêu là demo, học thanh nhạc hoặc lưu lại một bản cover gọn gàng, gói cơ bản thường đã đủ. Bạn cần một buổi thu sạch, vocal được căn chỉnh nhẹ, không cần production quá phức tạp.",
+        "Nếu bài hát dùng để đăng YouTube, gửi casting, phát hành digital hoặc làm portfolio nghệ sĩ, nên chọn gói có vocal production kỹ hơn. Lúc này việc chọn take, xử lý dynamics, bè, ad-lib và không gian reverb/delay sẽ tạo khác biệt rất rõ."
+      ],
+      "bullets": [
+        "Demo / học viên: ưu tiên nhanh, sạch, đúng pitch cơ bản.",
+        "Cover / YouTube: cần vocal mượt, timing chắc, màu giọng nổi bật.",
+        "Phát hành thương mại: cần thu nhiều take, vocal production và mix/master đồng bộ."
+      ]
+    },
+    {
+      "id": "yeu-to-lam-tang-chi-phi",
+      "heading": "Những yếu tố làm chi phí thay đổi",
+      "body": [
+        "Một ca khúc ballad một giọng chính sẽ khác hoàn toàn bài pop có bè dày, rap verse, ad-lib và nhiều đoạn harmony. Càng nhiều lớp vocal, thời gian chỉnh càng dài. Nếu bài cần producer ngồi coaching câu chữ và cảm xúc trong lúc thu, chi phí cũng sẽ khác với việc chỉ thu theo beat có sẵn.",
+        "Điều quan trọng là phải xác định mục tiêu ngay từ đầu. Không phải bài nào cũng cần làm thật đắt. Nhưng nếu đã phát hành chính thức, tiết kiệm ở khâu vocal thường là khoản tiết kiệm dễ nghe thấy nhất."
+      ],
+      "callout": "Trước khi đặt lịch, hãy chuẩn bị beat, lyric, tone mong muốn và 1–2 bài tham khảo về màu vocal. Việc này giúp buổi thu nhanh hơn và kết quả chính xác hơn."
+    },
+    {
+      "id": "ket-luan",
+      "heading": "Một mức giá tốt là mức giá đúng với mục tiêu bài hát",
+      "body": [
+        "Thu âm không nên được nhìn như một khoản phí cố định, mà là một quyết định sản xuất. Có bài chỉ cần ghi lại cảm xúc mộc. Có bài cần được nâng đỡ bằng kỹ thuật để đủ sức đứng cạnh các sản phẩm thương mại.",
+        "Điều đáng đầu tư nhất vẫn là sự chuẩn bị: thuộc lời, hiểu bài, biết mình muốn người nghe cảm thấy gì. Khi người hát rõ mục tiêu và phòng thu đủ tinh tế, chi phí bỏ ra sẽ trở thành một phần của chất lượng, không phải gánh nặng."
+      ]
+    }
+  ]
+}

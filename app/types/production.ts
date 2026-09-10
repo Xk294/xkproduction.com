@@ -71,6 +71,9 @@ export interface XKCapability {
   summary: string
   deliverables: string[]
   investmentStarting: string
+  originalPrice?: string
+  discountBadge?: string
+  enDiscountBadge?: string
   timeline: string
   icon: string
   viTitle?: string

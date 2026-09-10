@@ -1,0 +1,58 @@
+{
+  "slug": "thu-am-binh-phuoc-dia-chi-uy-tin",
+  "title": "Thu âm tại Bình Phước: chọn studio uy tín bằng cách nào?",
+  "subtitle": "Một địa chỉ thu âm đáng tin không chỉ có micro tốt. Nó phải có quy trình rõ, người nghe có trách nhiệm và kết quả đủ ổn định qua nhiều dự án.",
+  "excerpt": "Những tiêu chí thực tế để chọn phòng thu tại Bình Phước cho demo, cover, sản phẩm phát hành và dự án thương mại.",
+  "category": "Giới Thiệu",
+  "icon": "fa-solid fa-location-dot",
+  "author": "Nguyễn Xuân Kiệt",
+  "authorRole": "Founder / Producer tại XKProduction",
+  "date": "16/05/2026",
+  "isoDate": "2026-05-16",
+  "readTime": "8 phút đọc",
+  "thumb": "/images/blog-studio-binh-phuoc.jpg",
+  "cover": "/images/blog-studio-binh-phuoc.jpg",
+  "tags": ["Bình Phước", "Thu Âm", "Giới Thiệu"],
+  "sections": [
+    {
+      "id": "nghe-san-pham-that",
+      "heading": "Hãy nghe sản phẩm thật, không chỉ nhìn thiết bị",
+      "body": [
+        "Danh sách thiết bị có thể gây ấn tượng, nhưng sản phẩm đã hoàn thành mới nói rõ năng lực của studio. Hãy nghe vocal có rõ lời không, mix có bị chói không, low-end có ù không, bài có giữ được cảm xúc hay chỉ nghe to và dày.",
+        "Một studio uy tín thường có màu làm việc ổn định: bản thu sạch, tư vấn rõ, file bàn giao đúng hẹn và không hứa những điều vượt quá phạm vi dịch vụ."
+      ],
+      "quote": "Thiết bị là điều kiện cần. Đôi tai và trách nhiệm sản xuất mới là điều kiện đủ."
+    },
+    {
+      "id": "quy-trinh-ro-rang",
+      "heading": "Quy trình rõ giúp khách hàng biết mình đang trả tiền cho điều gì",
+      "body": [
+        "Trước khi thu, studio nên hỏi mục tiêu bài hát: thu chơi, đăng mạng xã hội, gửi cuộc thi hay phát hành chính thức. Mỗi mục tiêu cần mức xử lý khác nhau. Nếu mọi khách hàng đều được đưa vào một quy trình giống hệt, kết quả rất dễ chung chung.",
+        "Một quy trình tốt cũng cần rõ về số giờ thu, số lần chỉnh sửa, file nhận được, thời gian hoàn thiện và chi phí phát sinh nếu có thêm yêu cầu."
+      ],
+      "bullets": [
+        "Tư vấn tone, beat và mục tiêu trước khi thu.",
+        "Thu nhiều take đủ để chọn câu tốt nhất.",
+        "Có bước nghe lại và góp ý ngay trong phiên.",
+        "Bàn giao file đúng định dạng theo nhu cầu sử dụng."
+      ]
+    },
+    {
+      "id": "dia-phuong-va-chat-luong",
+      "heading": "Lợi thế của studio địa phương là sự gần gũi",
+      "body": [
+        "Ở Bình Phước, nhiều nghệ sĩ trẻ cần một nơi có thể hỏi kỹ, thử nhiều và được hướng dẫn thay vì chỉ nhận dịch vụ lạnh lùng. Khi studio hiểu thị trường địa phương nhưng vẫn giữ tiêu chuẩn sản xuất hiện đại, khách hàng có lợi ở cả chi phí lẫn sự đồng hành.",
+        "Không phải dự án nào cũng cần ngân sách lớn. Nhưng dự án nào cũng cần sự nghiêm túc vừa đủ để không biến bài hát thành một file thu tạm."
+      ],
+      "callout": "Nếu bạn mới thu lần đầu, hãy chọn nơi giải thích rõ quy trình. Sự thoải mái trong phiên thu thường nghe được trong bản vocal cuối cùng."
+    },
+    {
+      "id": "ket-luan",
+      "heading": "Uy tín là thứ được nghe thấy sau khi bài hát phát lên",
+      "body": [
+        "Một studio tốt không cần nói quá nhiều về sự chuyên nghiệp. Điều đó nằm trong cách họ chuẩn bị, cách họ nghe, cách họ sửa và cách sản phẩm cuối cùng đứng được trên nhiều thiết bị nghe.",
+        "Khi chọn đúng nơi, bạn không chỉ mua một buổi thu. Bạn mua sự yên tâm rằng bài hát của mình được đối xử nghiêm túc."
+      ]
+    }
+  ]
+}

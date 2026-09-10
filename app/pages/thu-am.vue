@@ -8,10 +8,10 @@
 
     <!-- ===== HERO SECTION ===== -->
     <section class="page-hero">
-      <div class="max-width">
+      <div class="editorial-container">
         <span class="hero-badge"><i class="fa-solid fa-microphone"></i> DỊCH VỤ PHÒNG THU</span>
         <h1 class="page-hero-title">Dịch Vụ <span class="text-gradient-animated">Thu Âm</span> Chuyên Nghiệp</h1>
-        <p class="page-hero-sub">Phòng thu tiêu chuẩn cao tại Bình Phước — Nơi thăng hoa giọng hát của bạn với trang thiết bị chuẩn quốc tế và hỗ trợ vocal coaching tận tình.</p>
+        <p class="page-hero-sub">Phòng thu tiêu chuẩn cao tại Thủ Đức, TP. Hồ Chí Minh — Nơi thăng hoa giọng hát của bạn với trang thiết bị chuẩn quốc tế và hỗ trợ vocal coaching tận tình.</p>
       </div>
     </section>
 
@@ -40,8 +40,8 @@
               <ul class="features-list">
                 <li v-for="f in p.features" :key="f"><i class="fa-solid fa-check"></i> {{ f }}</li>
               </ul>
-              <NuxtLink to="/contact?service=thu-am" class="btn btn-primary btn-order">
-                <span>Đặt lịch thu ngay</span> <i class="fa-solid fa-arrow-right-long"></i>
+              <NuxtLink to="/build-project?service=thu-am" class="btn btn-primary btn-order">
+                <span>Dự toán &amp; Đặt lịch ngay</span> <i class="fa-solid fa-arrow-right-long"></i>
               </NuxtLink>
             </div>
           </div>
@@ -114,54 +114,27 @@
 
 <script setup lang="ts">
 useSeoMeta({
-  title: 'Dịch vụ Thu Âm Bài Hát Chuyên Nghiệp Bình Phước | XKProduction',
-  description: 'Bảng giá dịch vụ thu âm bài hát chuyên nghiệp từ 350k tại Bình Phước. Phòng thu âm đạt chuẩn cách âm, microphone Neumann, preamp SSL cao cấp. Đặt lịch thu âm ngay.',
+  title: 'Dịch vụ Thu Âm Bài Hát Chuyên Nghiệp TP. Hồ Chí Minh | XKProduction',
+  description: 'Bảng giá dịch vụ thu âm bài hát chuyên nghiệp từ 499k tại TP. Hồ Chí Minh. Phòng thu âm đạt chuẩn cách âm, microphone Neumann, preamp SSL cao cấp. Đặt lịch thu âm ngay.',
   ogTitle: 'Dịch Vụ Thu Âm Bài Hát Chuyên Nghiệp - XKProduction',
-  ogDescription: 'Thu âm bài hát chất lượng cao từ 350k tại Bình Phước. Đội ngũ kỹ sư âm thanh 7 năm kinh nghiệm hỗ trợ bè phối, vocal coaching tận tình.',
+  ogDescription: 'Thu âm bài hát chất lượng cao từ 499k tại TP. Hồ Chí Minh. Đội ngũ kỹ sư âm thanh 7 năm kinh nghiệm hỗ trợ bè phối, vocal coaching tận tình.',
   ogImage: 'https://xkproduction.com/images/Xkpreviewnew.png',
   ogUrl: 'https://xkproduction.com/thu-am',
   twitterCard: 'summary_large_image',
-  keywords: 'thu âm bài hát, dịch vụ thu âm, phòng thu âm Bình Phước, giá thu âm bao nhiêu, studio thu âm uy tín, thu âm bài hát giá bao nhiêu, phòng thu âm chuyên nghiệp'
-})
-
-useHead({
-  script: [
-    {
-      type: 'application/ld+json',
-      innerHTML: JSON.stringify({
-        "@context": "https://schema.org",
-        "@type": "Service",
-        "serviceType": "Thu âm bài hát",
-        "provider": {
-          "@type": "MusicStore",
-          "name": "XKProduction",
-          "url": "https://xkproduction.com"
-        },
-        "name": "Dịch vụ Thu âm chuyên nghiệp",
-        "description": "Thu âm vocal chuyên nghiệp tại phòng thu chuẩn quốc tế. Phù hợp ca sĩ, nghệ sĩ, học viên thanh nhạc.",
-        "offers": {
-          "@type": "AggregateOffer",
-          "lowPrice": "350000",
-          "highPrice": "1800000",
-          "priceCurrency": "VND",
-          "offerCount": "4"
-        }
-      })
-    }
-  ]
+  keywords: 'thu âm bài hát, dịch vụ thu âm, phòng thu âm Thủ Đức, phòng thu âm TP.HCM, giá thu âm bao nhiêu, studio thu âm uy tín, thu âm bài hát giá bao nhiêu, phòng thu âm chuyên nghiệp'
 })
 
 useSchemaOrg([
   defineWebPage({
     name: 'Dịch vụ Thu Âm Bài Hát Chuyên Nghiệp - XKProduction',
-    description: 'Bảng giá dịch vụ thu âm bài hát chuyên nghiệp mới nhất từ 350.000₫ đến 1.800.000₫ tại XKProduction.'
+    description: 'Bảng giá dịch vụ thu âm bài hát chuyên nghiệp mới nhất từ 499.000₫ đến 1.800.000₫ tại XKProduction.'
   }),
   defineProduct({
     name: 'Dịch vụ Thu Âm Bài Hát Chuyên Nghiệp XKProduction',
     description: 'Thu âm bài hát chuyên nghiệp với trang thiết bị chuẩn quốc tế và hỗ trợ vocal coaching tận tình.',
-    image: 'https://xkproduction.com/images/logo-xkproduction.png',
+    image: 'https://xkproduction.com/logo.png',
     offers: [
-      { name: 'Gói Thu Âm Cơ Bản', price: '350000', priceCurrency: 'VND' },
+      { name: 'Gói Thu Âm Cơ Bản', price: '499000', priceCurrency: 'VND' },
       { name: 'Gói Thu Âm Nâng Cao', price: '550000', priceCurrency: 'VND' },
       { name: 'Gói Thu Âm Pro', price: '1000000', priceCurrency: 'VND' },
       { name: 'Gói Thu Âm Cao Cấp', price: '1800000', priceCurrency: 'VND' }
@@ -172,7 +145,7 @@ useSchemaOrg([
 const thuAmPlans = [
   {
     name: 'Gói Cơ Bản',
-    price: 'Từ 350.000₫',
+    price: 'Từ 499.000₫',
     desc: 'Phù hợp với người mới bắt đầu thu âm, thu âm bài hát cover hoặc học viên thanh nhạc.',
     features: ['Thu âm trong 1-2 tiếng', 'Chỉnh sửa vocal cơ bản (tuning, timing)', 'Xuất file WAV + MP3 chất lượng tốt', '1 lần chỉnh sửa chi tiết'],
     featured: false, badge: ''
@@ -180,7 +153,7 @@ const thuAmPlans = [
   {
     name: 'Gói Nâng Cao',
     price: 'Từ 550.000₫',
-    desc: 'Dành cho ca sĩ bán chuyên, làm sản phẩm phát hành YouTube, TikTok cá nhân chỉn chu.',
+    desc: 'Dành cho ca sĩ bán chuyên, làm sản phẩm phát hành YouTube, TikTok cá nhân chỉnh chu.',
     features: ['Thu âm trong 2-3 tiếng', 'Vocal production chi tiết chuyên nghiệp', 'Xuất file đa định dạng stems', '2 lần chỉnh sửa chi tiết', 'Tư vấn kỹ thuật thu'],
     featured: false, badge: ''
   },
@@ -194,7 +167,7 @@ const thuAmPlans = [
   {
     name: 'Gói Cao Cấp (Ultimate)',
     price: 'Từ 1.800.000₫',
-    desc: 'Dành cho dự án nghệ thuật chuyên sâu đòi hỏi độ chỉn chu và cảm xúc hoàn hảo nhất.',
+    desc: 'Dành cho dự án nghệ thuật chuyên sâu đòi hỏi độ chỉnh chu và cảm xúc hoàn hảo nhất.',
     features: ['Thu âm không giới hạn', 'Coaching cảm xúc và cách kể chuyện', 'Xử lý âm thanh cao cấp analog', 'Revision không giới hạn', 'Priority booking lịch thu'],
     featured: false, badge: ''
   }

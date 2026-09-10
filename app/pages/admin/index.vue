@@ -88,6 +88,8 @@ interface TrafficSourceItem {
   type: 'utm' | 'referrer' | 'direct' | 'search' | 'social' | 'qr'
 }
 const trafficSources = ref<TrafficSourceItem[]>([])
+const trafficCampaigns = ref<Array<{ name: string; visits: number }>>([])
+const trafficMediums = ref<Array<{ name: string; visits: number }>>([])
 const trafficTotal = ref(0)
 const trafficRange = ref(30)
 const trafficRangeInput = ref(30)
@@ -103,6 +105,7 @@ const leadLimit = ref(20)
 const updatingLeadId = ref<number | null>(null)
 const editingNoteId = ref<number | null>(null)
 const editingNoteText = ref('')
+const selectedLead = ref<any | null>(null)
 const leadStatusCounts = ref<Record<string, number>>({
   all: 0,
   new: 0,
@@ -114,9 +117,10 @@ const leadStatusCounts = ref<Record<string, number>>({
 })
 const totalLeadPages = computed(() => Math.max(1, Math.ceil(leadsTotal.value / leadLimit.value)))
 
-// Visitors Pagination
+// Visitors Pagination & Filter
 const visitorPage = ref(1)
 const visitorLimit = ref(25)
+const visitorFilter = ref<'all' | 'human' | 'bot'>('all')
 const totalVisitorPages = computed(() => Math.max(1, Math.ceil(visitorsTotal.value / visitorLimit.value)))
 
 // QR / UTM Builder State
@@ -233,6 +237,8 @@ async function loadTrafficSources() {
     })
     if (data?.ok) {
       trafficSources.value = data.sources || []
+      trafficCampaigns.value = data.campaigns || []
+      trafficMediums.value = data.mediums || []
       trafficTotal.value = data.total || 0
       trafficRange.value = data.range || trafficRange.value
       trafficRangeInput.value = trafficRange.value
@@ -338,6 +344,7 @@ async function saveLeadNote(id: number) {
     })
     const item = leads.value.find((l) => l.id === id)
     if (item) item.notes = editingNoteText.value.trim()
+    if (selectedLead.value && selectedLead.value.id === id) selectedLead.value.notes = editingNoteText.value.trim()
     editingNoteId.value = null
     showToast(`Đã lưu ghi chú cho lead #${id}`, 'success')
   } catch (err: any) {
@@ -345,6 +352,41 @@ async function saveLeadNote(id: number) {
   } finally {
     updatingLeadId.value = null
   }
+}
+
+async function saveLeadNoteDirect(lead: any) {
+  const token = await getValidToken()
+  if (!token || !lead) return
+  updatingLeadId.value = lead.id
+  try {
+    await $fetch(`/api/admin/leads/${lead.id}`, {
+      method: 'PATCH',
+      headers: { Authorization: `Bearer ${token}` },
+      body: { notes: (lead.notes || '').trim() },
+    })
+    const item = leads.value.find((l) => l.id === lead.id)
+    if (item) item.notes = (lead.notes || '').trim()
+    showToast(`Đã lưu ghi chú phòng thu cho lead #${lead.id}`, 'success')
+  } catch (err: any) {
+    showToast('Không thể lưu ghi chú: ' + (err.message || 'Lỗi mạng'), 'error')
+  } finally {
+    updatingLeadId.value = null
+  }
+}
+
+function openLeadModal(lead: any) {
+  selectedLead.value = lead
+}
+
+function closeLeadModal() {
+  selectedLead.value = null
+}
+
+function copyLeadSummary(lead: any) {
+  if (!lead) return
+  const summary = `Khách hàng: ${lead.name}\nSĐT: ${lead.phone}\nEmail: ${lead.email || 'Không có'}\nDịch vụ: ${svcLabel(lead.service)}\nNguồn: ${lead.source || ''} ${lead.utm_source ? `(Chiến dịch: ${lead.utm_source}/${lead.utm_campaign || ''})` : ''}\nVị trí: ${lead.city ? `${lead.city} (${lead.country || 'VN'})` : ''}\nThiết bị: ${lead.device || ''}\nLời nhắn: ${lead.message || ''}\nGhi chú: ${lead.notes || ''}`
+  navigator.clipboard.writeText(summary)
+  showToast('Đã sao chép toàn bộ hồ sơ khách hàng!', 'success')
 }
 
 async function loadMusicStats() {
@@ -362,10 +404,11 @@ async function loadMusicStats() {
   }
 }
 
-async function loadVisitors(page?: number) {
+async function loadVisitors(page?: number, resetPage = false) {
   const token = await getValidToken()
   if (!token) return
-  if (page) visitorPage.value = page
+  if (resetPage) visitorPage.value = 1
+  else if (page) visitorPage.value = page
   loading.value = true
   try {
     const data = await $fetch<any>('/api/admin/visitors', {
@@ -373,6 +416,7 @@ async function loadVisitors(page?: number) {
       query: {
         page: visitorPage.value,
         limit: visitorLimit.value,
+        filter: visitorFilter.value,
       },
     })
     visitors.value = data.visitors || []
@@ -382,6 +426,11 @@ async function loadVisitors(page?: number) {
   } finally {
     loading.value = false
   }
+}
+
+function setVisitorFilter(f: 'all' | 'human' | 'bot') {
+  visitorFilter.value = f
+  loadVisitors(1, true)
 }
 
 function goToVisitorPage(p: number) {
@@ -428,7 +477,7 @@ function exportLeadsCSV() {
     return
   }
 
-  const headers = ['ID', 'Họ tên', 'Số điện thoại', 'Email', 'Dịch vụ', 'Trạng thái', 'Nguồn', 'Lời nhắn', 'Ghi chú nội bộ', 'Ngày tạo']
+  const headers = ['ID', 'Họ tên', 'Số điện thoại', 'Email', 'Dịch vụ', 'Trạng thái', 'Nguồn Form', 'Chiến dịch UTM', 'Khu vực / Tỉnh', 'Thiết bị', 'Trang gửi', 'Lời nhắn', 'Ghi chú nội bộ', 'Ngày tạo']
   const rows = leads.value.map((l) => [
     l.id,
     `"${(l.name || '').replace(/"/g, '""')}"`,
@@ -437,6 +486,10 @@ function exportLeadsCSV() {
     `"${svcLabel(l.service)}"`,
     `"${statusMeta(l.status).label}"`,
     `"${l.source || ''}"`,
+    `"${l.utm_source ? `${l.utm_source} / ${l.utm_campaign || ''}` : ''}"`,
+    `"${l.city ? `${l.city} (${l.country || 'VN'})` : (l.country || '')}"`,
+    `"${l.device ? `${l.device} (${l.os || ''})` : ''}"`,
+    `"${(l.landing_page || '').replace(/"/g, '""')}"`,
     `"${(l.message || '').replace(/"/g, '""')}"`,
     `"${(l.notes || '').replace(/"/g, '""')}"`,
     `"${l.created_at || ''}"`,
@@ -830,7 +883,7 @@ onMounted(async () => {
             </div>
 
             <!-- KPI Cards Grid -->
-            <div class="stats-grid">
+            <div class="stats-grid stats-grid--5">
               <div class="stat-card" @click="switchView('visitors')">
                 <div class="stat-icon-wrap bg-blue-glow">👁️</div>
                 <div class="stat-info">
@@ -842,16 +895,30 @@ onMounted(async () => {
               <div class="stat-card" @click="switchView('leads')">
                 <div class="stat-icon-wrap bg-amber-glow">📥</div>
                 <div class="stat-info">
-                  <div class="stat-num">{{ overview?.total_leads?.toLocaleString('vi-VN') ?? '—' }}</div>
-                  <div class="stat-text">Leads & Đặt lịch</div>
+                  <div class="stat-num flex items-baseline gap-1.5">
+                    <span>{{ overview?.total_leads?.toLocaleString('vi-VN') ?? '—' }}</span>
+                    <span v-if="overview?.lead_conversion_rate" class="text-xs font-normal text-amber-400">({{ overview.lead_conversion_rate }}% CR)</span>
+                  </div>
+                  <div class="stat-text">Leads & Chuyển đổi</div>
                 </div>
               </div>
 
               <div class="stat-card" @click="switchView('music-stats')">
                 <div class="stat-icon-wrap bg-purple-glow">🎵</div>
                 <div class="stat-info">
-                  <div class="stat-num">{{ overview?.total_audio_plays?.toLocaleString('vi-VN') ?? '—' }}</div>
+                  <div class="stat-num flex items-baseline gap-1.5">
+                    <span>{{ overview?.total_audio_plays?.toLocaleString('vi-VN') ?? '—' }}</span>
+                    <span v-if="overview?.audio_engagement_rate" class="text-xs font-normal text-purple-300">({{ overview.audio_engagement_rate }}%)</span>
+                  </div>
                   <div class="stat-text">Lượt nghe Demo</div>
+                </div>
+              </div>
+
+              <div class="stat-card" @click="switchView('events')">
+                <div class="stat-icon-wrap bg-rose-glow">⚡</div>
+                <div class="stat-info">
+                  <div class="stat-num">{{ overview?.total_events?.toLocaleString('vi-VN') ?? '—' }}</div>
+                  <div class="stat-text">Tương tác CTA / Hotline</div>
                 </div>
               </div>
 
@@ -900,7 +967,7 @@ onMounted(async () => {
 
                 <div class="panel-subheading">Leads cần xử lý gần đây</div>
                 <div class="recent-leads-mini">
-                  <div v-for="l in (overview?.recent_leads?.slice(0, 5) ?? [])" :key="l.id" class="lead-mini-row">
+                  <div v-for="l in (overview?.recent_leads?.slice(0, 5) ?? [])" :key="l.id" class="lead-mini-row" @click="openLeadModal(l)">
                     <div class="lead-mini-main">
                       <strong class="lead-name">{{ l.name }}</strong>
                       <span class="badge-tag" :style="{ background: statusMeta(l.status).bg, color: statusMeta(l.status).color }">
@@ -911,11 +978,125 @@ onMounted(async () => {
                       <span>{{ maskPhone(l.phone) }}</span>
                       <span>·</span>
                       <span>{{ svcLabel(l.service) }}</span>
+                      <span v-if="l.city" class="text-emerald-400">· 📍 {{ l.city }}</span>
+                      <span v-if="l.utm_source" class="text-amber-300">· 🎯 {{ l.utm_source }}</span>
                       <span>·</span>
                       <span>{{ fmtDate(l.created_at) }}</span>
                     </div>
                   </div>
                   <div v-if="!overview?.recent_leads?.length" class="empty-hint">Chưa có leads gần đây</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Dashboard Row 2: Device Breakdown & Top Locations -->
+            <div class="panel-grid-2">
+              <!-- Device Breakdown -->
+              <div class="dashboard-panel">
+                <div class="panel-heading">
+                  <h2 class="panel-h2">📱 Cơ Cấu Thiết Bị Khách Hàng</h2>
+                </div>
+                <div class="device-stat-list space-y-3">
+                  <div v-for="d in (overview?.device_breakdown ?? [])" :key="d.device" class="device-stat-row">
+                    <div class="device-stat-head flex justify-between text-xs mb-1">
+                      <span class="device-stat-title font-medium text-slate-200">
+                        {{ d.device === 'mobile' ? '📱 Điện thoại (Mobile)' : d.device === 'tablet' ? '📟 Máy tính bảng (Tablet)' : '💻 Máy tính (Desktop)' }}
+                      </span>
+                      <span class="device-stat-pct font-mono text-indigo-300 font-bold">
+                        {{ overview?.total_visitors ? Math.round((d.count / overview.total_visitors) * 100) : 0 }}%
+                      </span>
+                    </div>
+                    <div class="chart-track">
+                      <div
+                        class="chart-fill"
+                        :class="d.device === 'mobile' ? 'bg-indigo-500' : d.device === 'tablet' ? 'bg-amber-500' : 'bg-cyan-500'"
+                        :style="{ width: `${overview?.total_visitors ? Math.min(100, (d.count / overview.total_visitors) * 100) : 0}%` }"
+                      />
+                    </div>
+                    <div class="device-stat-val text-xs text-slate-400 font-mono mt-1 text-right">
+                      {{ d.count.toLocaleString('vi-VN') }} lượt truy cập
+                    </div>
+                  </div>
+                  <div v-if="!overview?.device_breakdown?.length" class="empty-hint">Chưa có dữ liệu phân loại thiết bị</div>
+                </div>
+              </div>
+
+              <!-- Top Locations -->
+              <div class="dashboard-panel">
+                <div class="panel-heading">
+                  <h2 class="panel-h2">🗺️ Khu Vực Khách Hàng (Tỉnh / Thành phố)</h2>
+                </div>
+                <div class="locations-list space-y-2">
+                  <div v-for="loc in (overview?.top_locations ?? [])" :key="loc.city" class="loc-item-row flex items-center justify-between p-2 rounded bg-slate-900/50 border border-slate-800">
+                    <div class="loc-item-left flex items-center gap-2">
+                      <span class="loc-icon text-sm">📍</span>
+                      <strong class="loc-city-text text-sm text-slate-200">{{ loc.city }}</strong>
+                      <span class="loc-country-tag text-xs px-1.5 py-0.5 rounded bg-slate-800 text-slate-400 font-mono">{{ loc.country || 'VN' }}</span>
+                    </div>
+                    <div class="loc-item-right font-mono text-sm">
+                      <span class="loc-number text-emerald-400 font-bold">{{ loc.visits.toLocaleString('vi-VN') }}</span>
+                      <span class="text-xs text-slate-500 ml-1">lượt</span>
+                    </div>
+                  </div>
+                  <div v-if="!overview?.top_locations?.length" class="empty-hint">Dữ liệu địa lý Cloudflare sẽ hiển thị khi có khách truy cập.</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Dashboard Row 3: 7-Day Trend & Top Converting Channels -->
+            <div class="panel-grid-2">
+              <!-- 7-Day Trend -->
+              <div class="dashboard-panel">
+                <div class="panel-heading">
+                  <h2 class="panel-h2">📈 Xu Hướng 7 Ngày (Traffic & Leads)</h2>
+                </div>
+                <div class="trend-wrapper">
+                  <div class="trend-cols-grid">
+                    <div v-for="t in (overview?.daily_trend ?? [])" :key="t.date" class="trend-day-col">
+                      <div class="trend-bars-container">
+                        <div
+                          class="trend-bar-visit"
+                          :style="{ height: `${Math.min(100, (t.visits / (Math.max(...(overview?.daily_trend?.map((x: any) => x.visits) || [1])) || 1)) * 85 + 15)}%` }"
+                          :title="`${t.date}: ${t.visits} lượt xem`"
+                        >
+                          <span v-if="t.visits > 0" class="bar-tip">{{ t.visits }}</span>
+                        </div>
+                        <div
+                          v-if="t.leads > 0"
+                          class="trend-bar-lead"
+                          :style="{ height: `${Math.min(100, (t.leads / (Math.max(...(overview?.daily_trend?.map((x: any) => x.leads) || [1])) || 1)) * 75 + 25)}%` }"
+                          :title="`${t.date}: ${t.leads} leads`"
+                        >
+                          <span class="bar-tip text-amber-300 font-bold">{{ t.leads }}</span>
+                        </div>
+                      </div>
+                      <span class="trend-day-label font-mono">{{ t.date.slice(5) }}</span>
+                    </div>
+                  </div>
+                  <div class="trend-legend-row flex items-center justify-center gap-6 mt-4 pt-3 border-t border-slate-800 text-xs">
+                    <span class="t-legend flex items-center gap-1.5 text-slate-300"><span class="w-2.5 h-2.5 rounded-full bg-indigo-500 inline-block" /> Lượt xem trang</span>
+                    <span class="t-legend flex items-center gap-1.5 text-amber-400"><span class="w-2.5 h-2.5 rounded-full bg-amber-400 inline-block" /> Khách gửi form (Leads)</span>
+                  </div>
+                  <div v-if="!overview?.daily_trend?.length" class="empty-hint">Chưa có dữ liệu xu hướng 7 ngày</div>
+                </div>
+              </div>
+
+              <!-- Top Converting Lead Channels -->
+              <div class="dashboard-panel">
+                <div class="panel-heading">
+                  <h2 class="panel-h2">🎯 Kênh Mang Về Khách Hàng (Lead Attribution)</h2>
+                </div>
+                <div class="channels-list space-y-2">
+                  <div v-for="ch in (overview?.top_channels ?? [])" :key="ch.channel" class="ch-item-row flex items-center justify-between p-2 rounded bg-slate-900/50 border border-slate-800">
+                    <div class="ch-left flex items-center gap-2">
+                      <span class="ch-badge font-mono text-xs px-2 py-1 rounded bg-indigo-950/60 text-indigo-300 border border-indigo-800/50">⚡ {{ ch.channel }}</span>
+                    </div>
+                    <div class="ch-right font-mono text-sm">
+                      <span class="ch-count text-amber-400 font-bold">{{ ch.lead_count }}</span>
+                      <span class="text-xs text-slate-500 ml-1">khách chốt</span>
+                    </div>
+                  </div>
+                  <div v-if="!overview?.top_channels?.length" class="empty-hint">Chưa có dữ liệu phân loại kênh lead</div>
                 </div>
               </div>
             </div>
@@ -1050,6 +1231,43 @@ onMounted(async () => {
                   <div class="source-percent">
                     {{ item.percentage }}%
                   </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Secondary Grid: UTM Campaigns & Mediums Breakdown -->
+            <div class="panel-grid-2">
+              <!-- UTM Campaigns -->
+              <div class="dashboard-panel">
+                <div class="panel-heading">
+                  <h2 class="panel-h2">🎯 Chiến Dịch Tiếp Thị (UTM Campaigns)</h2>
+                </div>
+                <div class="bar-chart-list">
+                  <div v-for="c in trafficCampaigns" :key="c.name" class="chart-row">
+                    <span class="chart-label font-mono text-amber-300" :title="c.name">{{ c.name }}</span>
+                    <div class="chart-track">
+                      <div class="chart-fill bg-amber-500" :style="{ width: `${Math.min(100, (c.visits / (trafficCampaigns[0]?.visits || 1)) * 100)}%` }" />
+                    </div>
+                    <span class="chart-val font-mono">{{ c.visits }} lượt</span>
+                  </div>
+                  <div v-if="!trafficCampaigns.length" class="empty-hint">Chưa ghi nhận chiến dịch UTM nào trong {{ trafficRange }} ngày qua. Dùng tab "Lưu Lượng & Mã QR" để tạo link chiến dịch.</div>
+                </div>
+              </div>
+
+              <!-- UTM Mediums -->
+              <div class="dashboard-panel">
+                <div class="panel-heading">
+                  <h2 class="panel-h2">🌐 Hình Thức Kênh (UTM Mediums)</h2>
+                </div>
+                <div class="bar-chart-list">
+                  <div v-for="m in trafficMediums" :key="m.name" class="chart-row">
+                    <span class="chart-label font-mono text-cyan-300" :title="m.name">{{ m.name }}</span>
+                    <div class="chart-track">
+                      <div class="chart-fill bg-cyan-500" :style="{ width: `${Math.min(100, (m.visits / (trafficMediums[0]?.visits || 1)) * 100)}%` }" />
+                    </div>
+                    <span class="chart-val font-mono">{{ m.visits }} lượt</span>
+                  </div>
+                  <div v-if="!trafficMediums.length" class="empty-hint">Chưa ghi nhận hình thức tiếp thị nào.</div>
                 </div>
               </div>
             </div>
@@ -1188,11 +1406,11 @@ onMounted(async () => {
                     <tr>
                       <th>#</th>
                       <th>Khách hàng</th>
-                      <th>Liên hệ nhanh</th>
-                      <th>Dịch vụ</th>
+                      <th>Dịch vụ & Nguồn</th>
+                      <th>Chiến dịch & Vị trí</th>
                       <th>Trạng thái Pipeline</th>
-                      <th>Lời nhắn & Ghi chú nội bộ</th>
-                      <th>Thời gian</th>
+                      <th>Lời nhắn & Ghi chú</th>
+                      <th>Thời gian & Hồ sơ</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -1201,9 +1419,7 @@ onMounted(async () => {
                       <td class="td-lead-user">
                         <div class="lead-strong-name">{{ l.name }}</div>
                         <div v-if="l.email" class="lead-email-sub">{{ l.email }}</div>
-                      </td>
-                      <td class="td-lead-actions">
-                        <div class="lead-phone-row">
+                        <div class="lead-phone-row mt-1">
                           <span class="phone-display">{{ l.phone }}</span>
                           <div class="quick-contact-btns">
                             <a :href="`tel:${cleanPhone(l.phone)}`" class="btn-quick-call" title="Gọi điện thoại ngay">
@@ -1218,6 +1434,29 @@ onMounted(async () => {
                       <td>
                         <span class="badge-service">{{ svcLabel(l.service) }}</span>
                         <div class="source-tag">Nguồn: {{ l.source || 'web' }}</div>
+                        <div v-if="l.landing_page" class="text-xs text-slate-500 truncate max-w-[160px] mt-0.5" :title="l.landing_page">
+                          {{ l.landing_page }}
+                        </div>
+                      </td>
+                      <td>
+                        <div v-if="l.utm_source" class="mb-1">
+                          <span class="utm-pill" :title="`Campaign: ${l.utm_campaign || 'none'} | Medium: ${l.utm_medium || 'none'}`">
+                            🎯 {{ l.utm_source }}<span v-if="l.utm_campaign"> · {{ l.utm_campaign }}</span>
+                          </span>
+                        </div>
+                        <div v-else class="text-xs text-slate-500 mb-1">
+                          Trực tiếp / Tự nhiên
+                        </div>
+
+                        <div v-if="l.city" class="text-xs text-emerald-400 font-medium flex items-center gap-1">
+                          <span>📍</span>
+                          <span>{{ l.city }}</span>
+                          <span v-if="l.country && l.country !== 'VN'" class="text-slate-500 font-mono">({{ l.country }})</span>
+                        </div>
+                        <div v-if="l.device" class="text-xs text-slate-400 mt-0.5">
+                          {{ l.device === 'mobile' ? '📱 Mobile' : '💻 Desktop' }}
+                          <span v-if="l.os" class="text-slate-500">({{ l.os }})</span>
+                        </div>
                       </td>
                       <td class="td-lead-status">
                         <select
@@ -1252,7 +1491,10 @@ onMounted(async () => {
                         </div>
                       </td>
                       <td class="td-lead-date">
-                        {{ fmtDate(l.created_at) }}
+                        <div class="text-xs text-slate-300 font-mono">{{ fmtDate(l.created_at) }}</div>
+                        <button class="btn-view-lead-modal mt-1.5" @click="openLeadModal(l)">
+                          👁️ Hồ sơ ↗
+                        </button>
                       </td>
                     </tr>
                     <tr v-if="!leads.length">
@@ -1393,7 +1635,7 @@ onMounted(async () => {
               </div>
             </div>
 
-            <div class="stats-grid">
+            <div class="stats-grid stats-grid--4">
               <div class="stat-card">
                 <div class="stat-icon-wrap bg-purple-glow">🎵</div>
                 <div class="stat-info">
@@ -1403,10 +1645,26 @@ onMounted(async () => {
               </div>
 
               <div class="stat-card">
+                <div class="stat-icon-wrap bg-blue-glow">💬</div>
+                <div class="stat-info">
+                  <div class="stat-num text-cyan-400">{{ musicStats?.conversion_breakdown?.zalo_click?.toLocaleString('vi-VN') ?? '0' }}</div>
+                  <div class="stat-text">Khách bấm chat Zalo</div>
+                </div>
+              </div>
+
+              <div class="stat-card">
+                <div class="stat-icon-wrap bg-amber-glow">📞</div>
+                <div class="stat-info">
+                  <div class="stat-num text-amber-400">{{ musicStats?.conversion_breakdown?.call_click?.toLocaleString('vi-VN') ?? '0' }}</div>
+                  <div class="stat-text">Khách bấm gọi Hotline</div>
+                </div>
+              </div>
+
+              <div class="stat-card">
                 <div class="stat-icon-wrap bg-emerald-glow">⚡</div>
                 <div class="stat-info">
-                  <div class="stat-num">{{ musicStats?.total_ctas?.toLocaleString('vi-VN') ?? '0' }}</div>
-                  <div class="stat-text">Tổng lượt click nút Liên hệ / CTA</div>
+                  <div class="stat-num text-emerald-400">{{ musicStats?.total_ctas?.toLocaleString('vi-VN') ?? '0' }}</div>
+                  <div class="stat-text">Tổng chuyển đổi CTA</div>
                 </div>
               </div>
             </div>
@@ -1469,33 +1727,76 @@ onMounted(async () => {
               </div>
             </div>
 
+            <!-- Filter Buttons for Visitors -->
+            <div class="leads-toolbar">
+              <div class="quick-ranges">
+                <button
+                  class="quick-chip"
+                  :class="{ 'chip-active': visitorFilter === 'all' }"
+                  @click="setVisitorFilter('all')"
+                >
+                  Tất cả lượt ghé thăm
+                </button>
+                <button
+                  class="quick-chip"
+                  :class="{ 'chip-active': visitorFilter === 'human' }"
+                  @click="setVisitorFilter('human')"
+                >
+                  👤 Khách người dùng (Non-bot)
+                </button>
+                <button
+                  class="quick-chip"
+                  :class="{ 'chip-active': visitorFilter === 'bot' }"
+                  @click="setVisitorFilter('bot')"
+                >
+                  🤖 Bot / Spider / Crawler
+                </button>
+              </div>
+            </div>
+
             <div class="dashboard-panel table-panel">
               <div class="table-scroll-wrapper">
                 <table class="leads-table">
                   <thead>
                     <tr>
-                      <th>IP (Masked)</th>
+                      <th>IP</th>
                       <th>Trang xem</th>
+                      <th>Vị trí (City / Country)</th>
+                      <th>Thiết bị / Trình duyệt</th>
                       <th>Lượt xem</th>
                       <th>Nguồn / Referrer</th>
                       <th>Chiến dịch UTM</th>
-                      <th>Lần cuối ghé thăm</th>
+                      <th>Lần cuối</th>
                     </tr>
                   </thead>
                   <tbody>
                     <tr v-for="v in visitors" :key="v.id">
                       <td class="td-ip font-mono text-xs">{{ v.ip_masked }}</td>
                       <td class="td-path font-mono text-xs text-indigo-300">{{ v.path }}</td>
+                      <td class="text-xs">
+                        <span v-if="v.city" class="text-emerald-400 font-medium">📍 {{ v.city }}</span>
+                        <span v-if="v.country" class="text-slate-500 font-mono ml-1">({{ v.country }})</span>
+                        <span v-if="!v.city && !v.country" class="text-slate-600">—</span>
+                      </td>
+                      <td class="text-xs">
+                        <span v-if="v.device" class="text-slate-300">
+                          {{ v.device === 'mobile' ? '📱 Mobile' : v.device === 'tablet' ? '📟 Tablet' : '💻 Desktop' }}
+                          <span v-if="v.browser" class="text-slate-500 text-[11px] block">{{ v.browser }} ({{ v.os }})</span>
+                        </span>
+                        <span v-else class="text-slate-600">—</span>
+                      </td>
                       <td><span class="visit-badge">{{ v.visit_count }}</span></td>
-                      <td class="td-ref font-mono text-xs">{{ v.referrer || 'direct' }}</td>
+                      <td class="td-ref font-mono text-xs max-w-[140px] truncate" :title="v.referrer || 'direct'">{{ v.referrer || 'direct' }}</td>
                       <td class="td-utm text-xs">
-                        <span v-if="v.utm_source" class="utm-pill">UTM: {{ v.utm_source }}</span>
+                        <span v-if="v.utm_source" class="utm-pill" :title="`Campaign: ${v.utm_campaign || ''}`">
+                          {{ v.utm_source }}
+                        </span>
                         <span v-else class="text-slate-600">—</span>
                       </td>
                       <td class="td-date text-xs">{{ fmtDate(v.last_seen_at) }}</td>
                     </tr>
                     <tr v-if="!visitors.length">
-                      <td colspan="6" class="empty-leads">Chưa có dữ liệu lượt truy cập.</td>
+                      <td colspan="8" class="empty-leads">Chưa có dữ liệu lượt truy cập phù hợp.</td>
                     </tr>
                   </tbody>
                 </table>
@@ -1815,6 +2116,130 @@ onMounted(async () => {
           </div>
 
         </main>
+      </div>
+    </div>
+
+    <!-- Lead Detail Modal / Slide-over Drawer -->
+    <div v-if="selectedLead" class="modal-backdrop" @click="closeLeadModal">
+      <div class="modal-dialog lead-detail-dialog" @click.stop>
+        <div class="modal-header">
+          <div class="modal-title-wrap">
+            <span class="lead-id-pill">#{{ selectedLead.id }}</span>
+            <h2 class="modal-title">{{ selectedLead.name }}</h2>
+            <span class="badge-tag" :style="{ background: statusMeta(selectedLead.status).bg, color: statusMeta(selectedLead.status).color }">
+              {{ statusMeta(selectedLead.status).icon }} {{ statusMeta(selectedLead.status).label }}
+            </span>
+          </div>
+          <button class="btn-close-modal" @click="closeLeadModal" aria-label="Đóng">✕</button>
+        </div>
+
+        <div class="modal-body space-y-5">
+          <!-- Quick Action Buttons -->
+          <div class="lead-modal-actions">
+            <a :href="`tel:${cleanPhone(selectedLead.phone)}`" class="btn-modal-action btn-modal-call">
+              📞 Gọi {{ selectedLead.phone }}
+            </a>
+            <a :href="`https://zalo.me/${cleanPhone(selectedLead.phone)}`" target="_blank" class="btn-modal-action btn-modal-zalo">
+              💬 Chat Zalo
+            </a>
+            <button class="btn-modal-action btn-modal-copy" @click="copyLeadSummary(selectedLead)">
+              📋 Sao chép hồ sơ
+            </button>
+          </div>
+
+          <!-- Grid details -->
+          <div class="lead-meta-grid">
+            <div class="meta-cell">
+              <span class="meta-label">Dịch vụ quan tâm</span>
+              <span class="meta-value font-semibold text-amber-300">{{ svcLabel(selectedLead.service) }}</span>
+            </div>
+            <div class="meta-cell">
+              <span class="meta-label">Email khách hàng</span>
+              <span class="meta-value">{{ selectedLead.email || '—' }}</span>
+            </div>
+            <div class="meta-cell">
+              <span class="meta-label">Vị trí địa lý</span>
+              <span class="meta-value font-medium text-emerald-400">
+                📍 {{ selectedLead.city ? `${selectedLead.city}, ${selectedLead.country || 'VN'}` : (selectedLead.country || 'Việt Nam') }}
+              </span>
+            </div>
+            <div class="meta-cell">
+              <span class="meta-label">Thiết bị</span>
+              <span class="meta-value">
+                {{ selectedLead.device === 'mobile' ? '📱 Mobile' : '💻 Desktop' }}
+                <span v-if="selectedLead.os" class="text-xs text-slate-400">({{ selectedLead.os }} · {{ selectedLead.browser }})</span>
+              </span>
+            </div>
+          </div>
+
+          <!-- Marketing Attribution Box -->
+          <div class="lead-attribution-box">
+            <div class="attr-title">🎯 Dữ liệu tiếp thị & Chuyển đổi (Attribution)</div>
+            <div class="attr-grid">
+              <div class="attr-item">
+                <span class="attr-lbl">Nguồn Form:</span>
+                <span class="attr-val font-mono text-indigo-300">{{ selectedLead.source || 'contact' }}</span>
+              </div>
+              <div class="attr-item">
+                <span class="attr-lbl">UTM Source:</span>
+                <span class="attr-val font-mono text-cyan-300">{{ selectedLead.utm_source || '— (Direct/Organic)' }}</span>
+              </div>
+              <div class="attr-item">
+                <span class="attr-lbl">UTM Campaign:</span>
+                <span class="attr-val font-mono text-amber-300">{{ selectedLead.utm_campaign || '—' }}</span>
+              </div>
+              <div class="attr-item">
+                <span class="attr-lbl">UTM Medium:</span>
+                <span class="attr-val font-mono">{{ selectedLead.utm_medium || '—' }}</span>
+              </div>
+              <div class="attr-item col-span-2">
+                <span class="attr-lbl">Trang gửi yêu cầu (Landing page):</span>
+                <span class="attr-val font-mono text-xs text-slate-300 truncate" :title="selectedLead.landing_page">{{ selectedLead.landing_page || '—' }}</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Client Message / Project Brief -->
+          <div class="lead-message-section">
+            <div class="sec-heading">📝 Lời nhắn & Yêu cầu chi tiết của khách:</div>
+            <div class="client-message-full font-mono">
+              {{ selectedLead.message || '(Khách không để lại lời nhắn)' }}
+            </div>
+          </div>
+
+          <!-- Internal Studio Notes & Pipeline Status -->
+          <div class="lead-internal-section space-y-3">
+            <div class="sec-heading">⚙️ Cập nhật tiến độ & Ghi chú phòng thu:</div>
+            <div class="flex items-center gap-3">
+              <label class="text-xs text-slate-400 font-medium">Trạng thái:</label>
+              <select
+                :value="selectedLead.status || 'new'"
+                class="status-dropdown"
+                :style="{ borderColor: statusMeta(selectedLead.status).color, color: statusMeta(selectedLead.status).color }"
+                @change="updateLeadStatus(selectedLead.id, ($event.target as HTMLSelectElement).value); selectedLead.status = ($event.target as HTMLSelectElement).value"
+              >
+                <option value="new">🆕 Mới nhận</option>
+                <option value="contacted">📞 Đã liên hệ</option>
+                <option value="quoting">💬 Đang báo giá</option>
+                <option value="booked">🎙️ Đã chốt lịch</option>
+                <option value="completed">✅ Hoàn thành</option>
+                <option value="cancelled">❌ Huỷ / Ko chốt</option>
+              </select>
+            </div>
+
+            <div class="note-edit-box">
+              <textarea
+                v-model="selectedLead.notes"
+                class="note-textarea"
+                rows="3"
+                placeholder="Nhập ghi chú khách hẹn thu ngày nào, đặt cọc bao nhiêu, yêu cầu tone giọng..."
+              />
+              <button class="btn-save-note mt-2" @click="saveLeadNoteDirect(selectedLead)">
+                💾 Lưu ghi chú
+              </button>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -3313,6 +3738,292 @@ onMounted(async () => {
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+/* ── Additional Grid & Trend Styles ───────────────────────────────────────── */
+.stats-grid--5 {
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+}
+.stats-grid--4 {
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+
+.bg-rose-glow {
+  background: rgba(244, 63, 94, 0.15);
+  color: #fb7185;
+  box-shadow: 0 0 16px rgba(244, 63, 94, 0.2);
+}
+
+.trend-wrapper {
+  padding: 0.5rem 0;
+}
+.trend-cols-grid {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 0.75rem;
+  height: 180px;
+  padding: 0.5rem 0.25rem 0;
+}
+.trend-day-col {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+}
+.trend-bars-container {
+  flex: 1;
+  width: 100%;
+  max-width: 44px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 4px;
+  background: rgba(15, 23, 42, 0.4);
+  border-radius: 6px 6px 0 0;
+  padding-bottom: 2px;
+}
+.trend-bar-visit {
+  width: 14px;
+  background: linear-gradient(180deg, #6366f1, #4f46e5);
+  border-radius: 3px 3px 0 0;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  transition: height 0.3s ease;
+  position: relative;
+}
+.trend-bar-lead {
+  width: 14px;
+  background: linear-gradient(180deg, #f59e0b, #d97706);
+  border-radius: 3px 3px 0 0;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  transition: height 0.3s ease;
+  position: relative;
+}
+.bar-tip {
+  font-size: 9px;
+  line-height: 1;
+  margin-top: 3px;
+  color: #fff;
+  font-family: monospace;
+}
+.trend-day-label {
+  font-size: 11px;
+  color: #94a3b8;
+  margin-top: 0.5rem;
+}
+
+/* ── Modal Dialog & Slide-over ───────────────────────────────────────────── */
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(6px);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+.modal-dialog {
+  background: #0b0f19;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 16px;
+  width: min(640px, 96vw);
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8), 0 0 30px rgba(79, 70, 229, 0.15);
+  animation: modalScale 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+@keyframes modalScale {
+  from { opacity: 0; transform: scale(0.96); }
+  to { opacity: 1; transform: scale(1); }
+}
+.modal-header {
+  padding: 1.25rem 1.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  background: #0b0f19;
+  z-index: 10;
+}
+.modal-title-wrap {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+.lead-id-pill {
+  font-family: monospace;
+  font-size: 0.75rem;
+  padding: 0.2rem 0.5rem;
+  border-radius: 6px;
+  background: rgba(99, 102, 241, 0.2);
+  color: #a5b4fc;
+  border: 1px solid rgba(99, 102, 241, 0.4);
+}
+.modal-title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #fff;
+  margin: 0;
+}
+.btn-close-modal {
+  background: transparent;
+  border: none;
+  color: #94a3b8;
+  font-size: 1.2rem;
+  cursor: pointer;
+  padding: 0.3rem 0.5rem;
+  border-radius: 6px;
+  transition: all 0.15s;
+}
+.btn-close-modal:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+}
+.modal-body {
+  padding: 1.5rem;
+}
+.lead-modal-actions {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+.btn-modal-action {
+  flex: 1;
+  min-width: 140px;
+  text-align: center;
+  padding: 0.65rem 1rem;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.15s;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+}
+.btn-modal-call {
+  background: rgba(16, 185, 129, 0.2);
+  color: #34d399;
+  border: 1px solid rgba(16, 185, 129, 0.4);
+}
+.btn-modal-call:hover {
+  background: rgba(16, 185, 129, 0.3);
+}
+.btn-modal-zalo {
+  background: rgba(14, 165, 233, 0.2);
+  color: #38bdf8;
+  border: 1px solid rgba(14, 165, 233, 0.4);
+}
+.btn-modal-zalo:hover {
+  background: rgba(14, 165, 233, 0.3);
+}
+.btn-modal-copy {
+  background: rgba(99, 102, 241, 0.2);
+  color: #a5b4fc;
+  border: 1px solid rgba(99, 102, 241, 0.4);
+}
+.btn-modal-copy:hover {
+  background: rgba(99, 102, 241, 0.3);
+}
+.lead-meta-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 0.75rem;
+  background: rgba(15, 23, 42, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 12px;
+  padding: 1rem;
+}
+.meta-cell {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+.meta-label {
+  font-size: 0.72rem;
+  color: #94a3b8;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+.meta-value {
+  font-size: 0.88rem;
+  color: #e2e8f0;
+}
+.lead-attribution-box {
+  background: rgba(30, 27, 75, 0.4);
+  border: 1px solid rgba(99, 102, 241, 0.25);
+  border-radius: 12px;
+  padding: 1rem;
+}
+.attr-title {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #c7d2fe;
+  margin-bottom: 0.75rem;
+}
+.attr-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.6rem;
+}
+.attr-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+.attr-lbl {
+  font-size: 0.7rem;
+  color: #94a3b8;
+}
+.attr-val {
+  font-size: 0.82rem;
+  color: #f1f5f9;
+}
+.sec-heading {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: #cbd5e1;
+  margin-bottom: 0.4rem;
+}
+.client-message-full {
+  background: rgba(15, 23, 42, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 10px;
+  padding: 0.85rem;
+  font-size: 0.82rem;
+  color: #e2e8f0;
+  line-height: 1.5;
+  white-space: pre-wrap;
+  max-height: 200px;
+  overflow-y: auto;
+}
+.btn-view-lead-modal {
+  display: inline-block;
+  background: rgba(99, 102, 241, 0.15);
+  color: #a5b4fc;
+  border: 1px solid rgba(99, 102, 241, 0.3);
+  border-radius: 6px;
+  padding: 0.25rem 0.5rem;
+  font-size: 0.72rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+.btn-view-lead-modal:hover {
+  background: rgba(99, 102, 241, 0.28);
+  color: #fff;
 }
 
 /* ── Responsive ──────────────────────────────────────────────────────────── */

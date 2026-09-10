@@ -8,7 +8,7 @@
 
     <!-- ===== HERO SECTION ===== -->
     <section class="page-hero">
-      <div class="max-width">
+      <div class="editorial-container">
         <span class="hero-badge"><i class="fa-solid fa-sliders"></i> MIXING &amp; MASTERING</span>
         <h1 class="page-hero-title">Dịch Vụ <span class="text-gradient-animated">Mix &amp; Master</span> Chuyên Nghiệp</h1>
         <p class="page-hero-sub">Chuẩn phát hành thương mại số — Giúp ca khúc có chiều sâu không gian tối đa, dải tần sạch sẽ, sắc nét và loudness chuẩn Spotify.</p>
@@ -40,19 +40,15 @@
               <ul class="features-list">
                 <li v-for="f in p.features" :key="f"><i class="fa-solid fa-check"></i> {{ f }}</li>
               </ul>
-              <NuxtLink to="/contact?service=mixing-mastering" class="btn btn-primary btn-order">
-                <span>Đặt lịch Mix &amp; Master</span> <i class="fa-solid fa-arrow-right-long"></i>
+              <NuxtLink to="/build-project?service=mix-master" class="btn btn-primary btn-order">
+                <span>Dự toán chi phí &amp; Đặt hàng</span> <i class="fa-solid fa-arrow-right-long"></i>
               </NuxtLink>
             </div>
           </div>
 
           <!-- Before / After Audio Showcase -->
           <div style="margin: 3rem 0;">
-            <AudioCompare 
-              raw-src="/product-audio-demo/pop-rnb-1-Gm-raw.mp3"
-              mixed-src="/product-audio-demo/pop-rnb-1-Gm.102.mp3"
-              title="So Sánh Trực Tiếp: Vocal Thô vs Sau Mix &amp; Master"
-            />
+            <XKAudioCompare />
           </div>
 
           <!-- Story Rich Text -->
@@ -120,7 +116,7 @@
 <script setup lang="ts">
 useSeoMeta({
   title: 'Dịch vụ Mixing & Mastering Chuẩn Spotify Chuyên Nghiệp | XKProduction',
-  description: 'Dịch vụ mixing và mastering bài hát chuyên nghiệp, chuẩn phát hành Spotify, Apple Music. Nhận mix master online multi-track chất lượng cao từ 300k. Đặt lịch tư vấn miễn phí.',
+  description: 'Dịch vụ mixing và mastering bài hát chuyên nghiệp, chuẩn phát hành Spotify, Apple Music. Nhận mix master online multi-track chất lượng cao từ 350k. Đặt lịch tư vấn miễn phí.',
   ogTitle: 'Mixing & Mastering Chuyên Nghiệp - XKProduction',
   ogDescription: 'Biến đổi bản thu của bạn thành tác phẩm thương mại chất lượng cao chuẩn quốc tế. Cân chỉnh vocal, không gian âm thanh, độ động chuyên sâu.',
   ogImage: 'https://xkproduction.com/images/Xkpreviewnew.png',
@@ -146,7 +142,7 @@ useHead({
         "description": "Cân bằng tần số, xử lý dynamics, tạo không gian nhạc cụ và tối ưu âm lượng chuẩn phát hành Spotify/Apple Music.",
         "offers": {
           "@type": "AggregateOffer",
-          "lowPrice": "300000",
+          "lowPrice": "350000",
           "highPrice": "500000",
           "priceCurrency": "VND",
           "offerCount": "2"
@@ -159,14 +155,14 @@ useHead({
 useSchemaOrg([
   defineWebPage({
     name: 'Dịch vụ Mixing & Mastering Chuyên Nghiệp - XKProduction',
-    description: 'Bảng giá dịch vụ Mixing & Mastering chất lượng cao từ 300.000₫ đến 500.000₫ chuẩn phát hành quốc tế.'
+    description: 'Bảng giá dịch vụ Mixing & Mastering chất lượng cao từ 350.000₫ đến 500.000₫ chuẩn phát hành quốc tế.'
   }),
   defineProduct({
     name: 'Dịch vụ Mixing & Mastering Chuyên Nghiệp XKProduction',
     description: 'Mixing & mastering chuyên nghiệp chuẩn streaming cho ca sĩ, nghệ sĩ tự do.',
-    image: 'https://xkproduction.com/images/logo-xkproduction.png',
+    image: 'https://xkproduction.com/logo.png',
     offers: [
-      { name: 'Mix & Master Cơ Bản', price: '300000', priceCurrency: 'VND' },
+      { name: 'Mix & Master Cơ Bản', price: '350000', priceCurrency: 'VND' },
       { name: 'Mix & Master Chuyên Nghiệp', price: '500000', priceCurrency: 'VND' }
     ]
   })
@@ -175,7 +171,7 @@ useSchemaOrg([
 const mixPlans = [
   {
     name: 'Mix & Master Cơ Bản',
-    price: 'Từ 300.000₫',
+    price: 'Từ 350.000₫',
     desc: 'Phù hợp với ca khúc thu âm dạng cover chỉ gồm 1 track vocal và 1 track beat nhạc nền stereo.',
     features: ['Nhận stereo mix từ khách', 'Cân chỉnh tần số (EQ) tổng thể', 'Mastering chuẩn loudness phát hành số', 'Xuất file WAV + MP3 chất lượng cao', '1 lần revision chi tiết'],
     featured: false, badge: ''

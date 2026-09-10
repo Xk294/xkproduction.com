@@ -8,7 +8,7 @@
 
     <!-- ===== HERO SECTION ===== -->
     <section class="page-hero">
-      <div class="max-width">
+      <div class="editorial-container">
         <span class="hero-badge"><i class="fa-solid fa-keyboard"></i> HOÀ ÂM PHỐI KHÍ</span>
         <h1 class="page-hero-title">Hoà Âm <span class="text-gradient-animated">Phối Khí</span> Chuyên Nghiệp</h1>
         <p class="page-hero-sub">Đánh thức linh hồn ca khúc — Biến ý tưởng thô sơ thành bản phối hoàn thiện, chuyên nghiệp, nhiều lớp nhạc cụ chuẩn phát hành.</p>
@@ -100,13 +100,13 @@
 </template>
 
 <script setup lang="ts">
-const goToContact = (isPremium = false) => {
-  navigateTo(isPremium ? '/contact?service=hoa-am-cao-cap' : '/contact?service=hoa-am')
+const goToContact = (_isPremium = false) => {
+  navigateTo('/build-project?service=hoa-am')
 }
 
 useSeoMeta({
   title: 'Dịch vụ Hoà Âm Phối Khí Online Chuyên Nghiệp | XKProduction',
-  description: 'Nhận hoà âm phối khí chuyên nghiệp cho ca khúc mới, cover, remake. Đa dạng thể loại: Pop, R&B, Rap, Acoustic. Bảng giá từ 1.5tr. Nhận file Stem đầy đủ. Tư vấn ngay.',
+  description: 'Nhận hoà âm phối khí chuyên nghiệp cho ca khúc mới, cover, remake. Đa dạng thể loại: Pop, R&B, Rap, Acoustic. Bảng giá từ 2tr. Nhận file Stem đầy đủ. Tư vấn ngay.',
   ogTitle: 'Hoà Âm Phối Khí Chuyên Nghiệp - XKProduction',
   ogDescription: 'Biến giai điệu thô thành tác phẩm âm nhạc hoàn chỉnh. Phối nhạc online chất lượng cao, nhạc cụ thật, tư vấn concept âm nhạc tận tâm.',
   ogImage: 'https://xkproduction.com/images/Xkpreviewnew.png',
@@ -132,7 +132,7 @@ useHead({
         "description": "Sản xuất beat, tạo arrangement nhạc cụ đầy đặn, thiết kế sound design phù hợp với tone giọng nghệ sĩ.",
         "offers": {
           "@type": "AggregateOffer",
-          "lowPrice": "1500000",
+          "lowPrice": "2000000",
           "highPrice": "3000000",
           "priceCurrency": "VND",
           "offerCount": "2"
@@ -150,9 +150,9 @@ useSchemaOrg([
   defineProduct({
     name: 'Dịch vụ Hoà Âm Phối Khí XKProduction',
     description: 'Sản xuất âm nhạc, hòa âm phối khí theo định hướng nghệ thuật riêng cho từng dự án.',
-    image: 'https://xkproduction.com/images/logo-xkproduction.png',
+    image: 'https://xkproduction.com/logo.png',
     offers: [
-      { name: 'Hoà Âm Phối Khí Cơ Bản', price: '1500000', priceCurrency: 'VND' },
+      { name: 'Hoà Âm Phối Khí Cơ Bản', price: '2000000', priceCurrency: 'VND' },
       { name: 'Hoà Âm Phối Khí Nâng Cao', price: '3000000', priceCurrency: 'VND' }
     ]
   })
@@ -162,7 +162,7 @@ const hoaAmPlans = [
   {
     level: '1',
     name: 'Hòa âm phối khí Cơ Bản',
-    price: '1.500.000₫',
+    price: '2.000.000₫',
     desc: 'Phù hợp với ca khúc demo, cover acoustic hoặc pop-ballad mộc mạc, bố cục tinh gọn rõ cảm xúc.',
     features: [
       'Arrangement gọn gàng, tinh tế',

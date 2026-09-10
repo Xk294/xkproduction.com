@@ -6,7 +6,7 @@
         <div class="editorial-container">
           <NuxtLink to="/services" class="back-link">
             <i class="fa-solid fa-arrow-left"></i>
-            <span>{{ isVi ? 'Tất cả năng lực sản xuất' : 'All Production Services' }}</span>
+            <span>{{ isVi ? 'Tất cả dịch vụ sản xuất' : 'All Production Services' }}</span>
           </NuxtLink>
 
           <div class="cap-badge-row">
@@ -24,8 +24,16 @@
               <i class="fa-solid fa-arrow-right"></i>
             </NuxtLink>
             <div class="cap-price-tag">
-              <span class="text-meta-mono">{{ isVi ? 'MỨC ĐẦU TƯ:' : 'INVESTMENT:' }}</span>
-              <strong>{{ isVi ? cap.investmentStarting : (cap.enInvestmentStarting || cap.investmentStarting) }}</strong>
+              <div class="price-tag-header">
+                <span class="text-meta-mono">{{ isVi ? 'CHI PHÍ TỪ:' : 'STARTING FROM:' }}</span>
+                <span v-if="cap.discountBadge" class="discount-pill">
+                  {{ isVi ? cap.discountBadge : (cap.enDiscountBadge || cap.discountBadge) }}
+                </span>
+              </div>
+              <div class="price-val-row">
+                <span v-if="cap.originalPrice" class="meta-val-struck text-meta-mono">{{ cap.originalPrice }}</span>
+                <strong>{{ isVi ? cap.investmentStarting : (cap.enInvestmentStarting || cap.investmentStarting) }}</strong>
+              </div>
             </div>
           </div>
         </div>
@@ -36,7 +44,7 @@
         <div class="editorial-container features-layout">
           <!-- MAIN FEATURES -->
           <div class="features-main-col">
-            <h2 class="col-heading">{{ isVi ? 'Điểm Khác Biệt Trong Kỹ Nghệ Sản Xuất' : 'Production Engineering Highlights' }}</h2>
+            <h2 class="col-heading">{{ isVi ? 'Điểm Nổi Bật Tại XKProduction' : 'Production Highlights' }}</h2>
             <div class="features-list">
               <div v-for="(feat, fIdx) in cap.features" :key="fIdx" class="feature-card matte-card">
                 <div class="feat-num text-meta-mono">0{{ fIdx + 1 }}</div>
@@ -60,7 +68,7 @@
           <!-- SIDEBAR DELIVERABLES -->
           <aside class="deliverables-sidebar-col">
             <div class="sidebar-box matte-card">
-              <span class="text-meta-mono s-badge">{{ isVi ? 'HỒ SƠ BÀN GIAO' : 'PACKAGE DELIVERABLES' }}</span>
+              <span class="text-meta-mono s-badge">{{ isVi ? 'KẾT QUẢ BÀN GIAO' : 'PACKAGE DELIVERABLES' }}</span>
               <ul class="d-items-list">
                 <li v-for="(del, dIdx) in (isVi ? cap.deliverables : (cap.enDeliverables || cap.deliverables))" :key="dIdx">
                   <i class="fa-solid fa-check"></i>
@@ -74,7 +82,7 @@
               </div>
 
               <NuxtLink to="/start-a-project" class="btn-sidebar-submit">
-                <span>{{ isVi ? 'GỬI PROJECT BRIEF' : 'SUBMIT PROJECT BRIEF' }}</span>
+                <span>{{ isVi ? 'GỬI YÊU CẦU DỰ ÁN' : 'SUBMIT PROJECT BRIEF' }}</span>
                 <i class="fa-solid fa-arrow-right"></i>
               </NuxtLink>
             </div>
@@ -102,6 +110,13 @@ const { isVi } = useLocale()
 const { getCapabilityBySlug } = useProductionProjects()
 const cap = computed(() => getCapabilityBySlug(slug.value))
 
+if (!cap.value && import.meta.server) {
+  const event = useRequestEvent()
+  if (event) {
+    setResponseStatus(event, 404)
+  }
+}
+
 useSeoMeta({
   title: () => cap.value
     ? `${isVi.value ? (cap.value.viTitle || cap.value.title) : (cap.value.enTitle || cap.value.title)} — ${isVi.value ? cap.value.subtitle : (cap.value.enSubtitle || cap.value.subtitle)} | XKProduction`
@@ -110,8 +125,17 @@ useSeoMeta({
   ogTitle: () => cap.value ? `${isVi.value ? (cap.value.viTitle || cap.value.title) : (cap.value.enTitle || cap.value.title)} | XKProduction` : 'XKProduction Capabilities',
   ogDescription: () => cap.value ? (isVi.value ? cap.value.summary : (cap.value.enSummary || cap.value.summary)) : '',
   ogImage: 'https://xkproduction.com/images/Xkpreviewnew.png',
-  ogUrl: () => `https://xkproduction.com/services/${slug.value}`
+  ogUrl: () => `https://xkproduction.com/services/${slug.value}`,
+  twitterCard: 'summary_large_image',
+  twitterImage: 'https://xkproduction.com/images/Xkpreviewnew.png',
 })
+
+useSchemaOrg([
+  defineWebPage({
+    name: () => cap.value ? `${cap.value.viTitle || cap.value.title} - XKProduction` : 'XKProduction Service',
+    description: () => cap.value?.summary || ''
+  })
+])
 </script>
 
 <style scoped>
@@ -203,9 +227,44 @@ useSeoMeta({
 .cap-price-tag {
   display: flex;
   flex-direction: column;
+  gap: 0.2rem;
 }
 
-.cap-price-tag span {
+.price-tag-header {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+.discount-pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.1rem 0.45rem;
+  border-radius: 4px;
+  font-size: 0.625rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  background: rgba(245, 158, 11, 0.15);
+  border: 1px solid rgba(245, 158, 11, 0.35);
+  color: #fbbf24;
+  line-height: 1.2;
+}
+
+.price-val-row {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.meta-val-struck {
+  font-size: 0.9375rem;
+  color: var(--text-subtle);
+  text-decoration: line-through;
+  opacity: 0.7;
+}
+
+.cap-price-tag span.text-meta-mono {
   font-size: 0.6875rem;
 }
 

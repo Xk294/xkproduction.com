@@ -14,13 +14,16 @@ export default defineNuxtPlugin((nuxtApp) => {
 
     try {
       if (utmSource) {
-        // Save initial session UTM
-        sessionStorage.setItem('xk_utm', JSON.stringify({
+        const utmObj = {
           source: utmSource,
           medium: utmMedium,
           campaign: utmCampaign,
           content: utmContent,
-        }))
+        }
+        const serialized = JSON.stringify(utmObj)
+        sessionStorage.setItem('xk_utm', serialized)
+        // Store cookie for 30 days so form post requests inherit attribution
+        document.cookie = `xk_utm=${encodeURIComponent(serialized)}; path=/; max-age=${30 * 86400}; SameSite=Lax`
       } else {
         // Fallback to session UTM if navigating internally
         const stored = sessionStorage.getItem('xk_utm')
@@ -51,5 +54,48 @@ export default defineNuxtPlugin((nuxtApp) => {
       ignoreResponseError: true,
     }).catch(() => { /* silent — không block UI */ })
   })
+
+  // 2. Global Outbound & Conversion Click Auto-Capture (Delegated Listener)
+  if (import.meta.client && typeof document !== 'undefined') {
+    let listenerAttached = (window as any).__xk_analytics_click_listener
+    if (!listenerAttached) {
+      (window as any).__xk_analytics_click_listener = true
+
+      document.addEventListener('click', (ev) => {
+        const target = (ev.target as HTMLElement)?.closest('a')
+        if (!target) return
+        const href = target.getAttribute('href') || ''
+        if (!href) return
+
+        let action = ''
+        let label = ''
+
+        if (href.startsWith('tel:')) {
+          action = 'call_click'
+          label = href.replace('tel:', '').trim()
+        } else if (href.includes('zalo.me')) {
+          action = 'zalo_click'
+          label = href.slice(0, 200)
+        } else if (href.includes('m.me') || href.includes('facebook.com/xkproduction')) {
+          action = 'messenger_click'
+          label = href.slice(0, 200)
+        }
+
+        if (action) {
+          const path = window.location.pathname
+          try {
+            fetch('/api/analytics/event', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({ action, label, page: path }),
+              keepalive: true,
+            }).catch(() => {})
+          } catch {
+            // silent
+          }
+        }
+      }, { passive: true })
+    }
+  }
 })
 

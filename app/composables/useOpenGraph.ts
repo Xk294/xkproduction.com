@@ -33,7 +33,7 @@ export const useOpenGraph = (options: OpenGraphOptions = {}) => {
   
   const config = {
     title: options.title || 'XKProduction - Phòng Thu Âm Chuyên Nghiệp',
-    description: options.description || 'XKProduction — Phòng thu âm chuyên nghiệp tại Bình Phước. Thu âm bài hát, hoà âm phối khí, mix & master, quay MV/TVC, cho thuê âm thanh ánh sáng sự kiện.',
+    description: options.description || 'XKProduction — Phòng thu âm chuyên nghiệp tại TP. Hồ Chí Minh. Thu âm bài hát, hoà âm phối khí, mix & master, quay MV/TVC, cho thuê âm thanh ánh sáng sự kiện.',
     image: options.image || DEFAULT_OG_IMAGE,
     imageWidth: options.imageWidth || '1200',
     imageHeight: options.imageHeight || '630',

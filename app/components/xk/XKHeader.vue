@@ -9,7 +9,7 @@
       <div class="brand-group">
         <NuxtLink to="/" class="brand-logo" :aria-label="isVi ? 'XKProduction Trang Chủ' : 'XKProduction Home'">
           <img
-            src="/images/logo-xkproduction.png"
+            src="/logo.png"
             alt="XKProduction Logo"
             class="logo-img"
             width="40"
@@ -17,42 +17,61 @@
           />
           <div class="brand-titles">
             <span class="brand-name">XKPRODUCTION</span>
-            <span class="brand-sub text-meta-mono">{{ isVi ? 'PHÒNG THU & SẢN XUẤT ÂM NHẠC' : 'CREATIVE PRODUCTION HOUSE' }}</span>
+            <span class="brand-sub text-meta-mono">{{ isVi ? 'SẢN XUẤT ÂM NHẠC' : 'MUSIC & AUDIO PRODUCTION' }}</span>
           </div>
         </NuxtLink>
 
-        <!-- IMAGE 3 LANGUAGE TOGGLE PILL -->
-        <div class="locale-pill-widget" :title="isVi ? 'Chuyển sang Tiếng Anh' : 'Switch to Vietnamese'">
-          <span class="version-label">v0.35.6</span>
+        <!-- SEGMENTED LOCALE SWITCHER -->
+        <div class="locale-switch-group" role="group" :aria-label="isVi ? 'Ngôn ngữ' : 'Language'">
           <button
             type="button"
-            class="locale-pill-switch"
-            :class="{ 'is-en': isEn }"
-            @click="toggleLocale"
-            :aria-label="isVi ? 'Chuyển sang Tiếng Anh' : 'Switch to Vietnamese'"
+            class="locale-btn"
+            :class="{ 'is-active': isVi }"
+            @click="isEn && toggleLocale()"
+            :aria-pressed="isVi"
+            title="Tiếng Việt"
           >
-            <span class="switch-option opt-vi" :class="{ 'active': isVi }">VI</span>
-            <span class="switch-option opt-en" :class="{ 'active': isEn }">EN</span>
-            <span class="switch-slider" :class="{ 'to-en': isEn }"></span>
+            VI
+          </button>
+          <button
+            type="button"
+            class="locale-btn"
+            :class="{ 'is-active': isEn }"
+            @click="isVi && toggleLocale()"
+            :aria-pressed="isEn"
+            title="English"
+          >
+            EN
           </button>
         </div>
       </div>
 
       <!-- DESKTOP NAVIGATION -->
       <nav class="desktop-nav" role="navigation" :aria-label="isVi ? 'Thanh điều hướng chính' : 'Main Navigation'">
+        <!-- HOME -->
+        <NuxtLink to="/" class="nav-link" :class="{ 'is-active': route.path === '/' }">
+          <span>{{ isVi ? 'TRANG CHỦ' : 'HOME' }}</span>
+        </NuxtLink>
+
         <!-- WORK WITH FLYOUT -->
         <div class="nav-item-dropdown" @mouseenter="hoverFlyout = 'work'" @mouseleave="hoverFlyout = null">
-          <NuxtLink to="/work" class="nav-link" :class="{ 'is-active': route.path.startsWith('/work') }">
+          <button
+            type="button"
+            class="nav-link nav-dropdown-btn"
+            :class="{ 'is-active': route.path.startsWith('/work') || hoverFlyout === 'work' }"
+            @click.stop="toggleFlyout('work')"
+            :aria-expanded="hoverFlyout === 'work'"
+          >
             <span>{{ isVi ? 'TÁC PHẨM' : 'WORK' }}</span>
-            <i class="fa-solid fa-chevron-down nav-chevron"></i>
-          </NuxtLink>
+            <i class="fa-solid fa-chevron-down nav-chevron" :class="{ 'is-rotated': hoverFlyout === 'work' }"></i>
+          </button>
 
           <!-- WORK FLYOUT PREVIEW -->
           <Transition name="flyout-fade">
             <div v-if="hoverFlyout === 'work'" class="nav-flyout-panel matte-card">
               <div class="flyout-header">
                 <span class="text-meta-mono">{{ isVi ? 'TÁC PHẨM NỔI BẬT' : 'FEATURED WORK' }}</span>
-                <NuxtLink to="/work" class="flyout-all-link">{{ isVi ? 'Xem tất cả' : 'View all' }} <i class="fa-solid fa-arrow-right"></i></NuxtLink>
+                <NuxtLink to="/work" class="flyout-all-link" @click="hoverFlyout = null">{{ isVi ? 'Xem tất cả' : 'View all' }} <i class="fa-solid fa-arrow-right"></i></NuxtLink>
               </div>
               <div class="flyout-works-grid">
                 <NuxtLink
@@ -75,17 +94,23 @@
 
         <!-- SERVICES WITH FLYOUT -->
         <div class="nav-item-dropdown" @mouseenter="hoverFlyout = 'services'" @mouseleave="hoverFlyout = null">
-          <NuxtLink to="/services" class="nav-link" :class="{ 'is-active': route.path.startsWith('/services') }">
+          <button
+            type="button"
+            class="nav-link nav-dropdown-btn"
+            :class="{ 'is-active': route.path.startsWith('/services') || hoverFlyout === 'services' }"
+            @click.stop="toggleFlyout('services')"
+            :aria-expanded="hoverFlyout === 'services'"
+          >
             <span>{{ isVi ? 'DỊCH VỤ' : 'SERVICES' }}</span>
-            <i class="fa-solid fa-chevron-down nav-chevron"></i>
-          </NuxtLink>
+            <i class="fa-solid fa-chevron-down nav-chevron" :class="{ 'is-rotated': hoverFlyout === 'services' }"></i>
+          </button>
 
           <!-- SERVICES FLYOUT -->
           <Transition name="flyout-fade">
             <div v-if="hoverFlyout === 'services'" class="nav-flyout-panel services-flyout matte-card">
               <div class="flyout-header">
-                <span class="text-meta-mono">{{ isVi ? '4 TRỤ CỘT NĂNG LỰC SẢN XUẤT' : '4 CORE PRODUCTION PILLARS' }}</span>
-                <NuxtLink to="/services" class="flyout-all-link">{{ isVi ? 'Tổng quan dịch vụ' : 'All services' }} <i class="fa-solid fa-arrow-right"></i></NuxtLink>
+                <span class="text-meta-mono">{{ isVi ? 'CÁC DỊCH VỤ SẢN XUẤT CHÍNH' : 'CORE STUDIO SERVICES' }}</span>
+                <NuxtLink to="/services" class="flyout-all-link" @click="hoverFlyout = null">{{ isVi ? 'Tổng quan dịch vụ' : 'All services' }} <i class="fa-solid fa-arrow-right"></i></NuxtLink>
               </div>
               <div class="flyout-services-grid">
                 <NuxtLink
@@ -102,16 +127,30 @@
                   </div>
                 </NuxtLink>
               </div>
+
+              <!-- AI AUDIO TOOL HIGHLIGHT -->
+              <div class="flyout-tool-bar">
+                <a
+                  :href="createTachnhacReferralUrl('navbar_tachnhac')"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="flyout-tool-link"
+                  @click="hoverFlyout = null"
+                >
+                  <div class="tool-link-left">
+                    <span class="badge-v2 amber tool-mini-badge"><i class="fa-solid fa-wand-magic-sparkles"></i> AI TOOL</span>
+                    <strong class="tool-link-name">TáchNhạc.com</strong>
+                    <span class="tool-link-desc">{{ isVi ? 'Tách beat, vocal & khử noise online miễn phí' : 'Free online AI vocal & stem separation' }}</span>
+                  </div>
+                  <i class="fa-solid fa-arrow-up-right-from-square tool-link-arrow"></i>
+                </a>
+              </div>
             </div>
           </Transition>
         </div>
 
         <NuxtLink to="/production" class="nav-link" :class="{ 'is-active': route.path === '/production' }">
           <span>{{ isVi ? 'SẢN XUẤT' : 'PRODUCTION' }}</span>
-        </NuxtLink>
-
-        <NuxtLink to="/releases" class="nav-link" :class="{ 'is-active': route.path === '/releases' }">
-          <span>{{ isVi ? 'PHÁT HÀNH' : 'RELEASES' }}</span>
         </NuxtLink>
 
         <NuxtLink to="/about" class="nav-link" :class="{ 'is-active': route.path === '/about' }">
@@ -153,34 +192,105 @@
       <div v-if="mobileOpen" class="mobile-drawer" role="dialog" aria-modal="true">
         <div class="mobile-drawer-inner">
           <div class="mobile-nav-links">
-            <NuxtLink to="/work" class="mobile-link" @click="mobileOpen = false">
-              <span class="m-num">01</span>
-              <span class="m-text">{{ isVi ? 'TÁC PHẨM' : 'WORK' }}</span>
+            <NuxtLink to="/" class="mobile-link" @click="mobileOpen = false">
+              <span class="m-num">00</span>
+              <span class="m-text">{{ isVi ? 'TRANG CHỦ' : 'HOME' }}</span>
             </NuxtLink>
-            <NuxtLink to="/services" class="mobile-link" @click="mobileOpen = false">
-              <span class="m-num">02</span>
-              <span class="m-text">{{ isVi ? 'DỊCH VỤ' : 'SERVICES' }}</span>
-            </NuxtLink>
+
+            <div class="mobile-group-item">
+              <div class="mobile-link-header">
+                <NuxtLink to="/work" class="mobile-link mobile-link-main" @click="mobileOpen = false">
+                  <span class="m-num">01</span>
+                  <span class="m-text">{{ isVi ? 'TÁC PHẨM' : 'WORK' }}</span>
+                </NuxtLink>
+                <button
+                  type="button"
+                  class="mobile-sub-toggle"
+                  @click="mobileWorkOpen = !mobileWorkOpen"
+                  :aria-expanded="mobileWorkOpen"
+                  :aria-label="isVi ? 'Mở danh mục tác phẩm' : 'Toggle works'"
+                >
+                  <i class="fa-solid fa-chevron-down" :class="{ 'is-rotated': mobileWorkOpen }"></i>
+                </button>
+              </div>
+              <div v-if="mobileWorkOpen" class="mobile-submenu">
+                <NuxtLink
+                  v-for="p in featuredProjects.slice(0, 3)"
+                  :key="p.slug"
+                  :to="`/work/${p.slug}`"
+                  class="mobile-sub-link"
+                  @click="mobileOpen = false"
+                >
+                  <i class="fa-solid fa-compact-disc sub-icon"></i>
+                  <span>{{ p.title }}</span>
+                  <span class="sub-artist">({{ p.artist }})</span>
+                </NuxtLink>
+                <NuxtLink to="/work" class="mobile-sub-all" @click="mobileOpen = false">
+                  {{ isVi ? 'Xem toàn bộ tác phẩm →' : 'View all works →' }}
+                </NuxtLink>
+              </div>
+            </div>
+
+            <div class="mobile-group-item">
+              <div class="mobile-link-header">
+                <NuxtLink to="/services" class="mobile-link mobile-link-main" @click="mobileOpen = false">
+                  <span class="m-num">02</span>
+                  <span class="m-text">{{ isVi ? 'DỊCH VỤ' : 'SERVICES' }}</span>
+                </NuxtLink>
+                <button
+                  type="button"
+                  class="mobile-sub-toggle"
+                  @click="mobileServicesOpen = !mobileServicesOpen"
+                  :aria-expanded="mobileServicesOpen"
+                  :aria-label="isVi ? 'Mở danh mục dịch vụ' : 'Toggle services'"
+                >
+                  <i class="fa-solid fa-chevron-down" :class="{ 'is-rotated': mobileServicesOpen }"></i>
+                </button>
+              </div>
+              <div v-if="mobileServicesOpen" class="mobile-submenu">
+                <NuxtLink
+                  v-for="c in capabilities"
+                  :key="c.slug"
+                  :to="`/services/${c.slug}`"
+                  class="mobile-sub-link"
+                  @click="mobileOpen = false"
+                >
+                  <i :class="c.icon" class="sub-icon"></i>
+                  <span>{{ isVi ? c.viTitle || c.title : c.title }}</span>
+                </NuxtLink>
+                <NuxtLink to="/services" class="mobile-sub-all" @click="mobileOpen = false">
+                  {{ isVi ? 'Tất cả bảng giá dịch vụ →' : 'All services & pricing →' }}
+                </NuxtLink>
+              </div>
+            </div>
+
             <NuxtLink to="/production" class="mobile-link" @click="mobileOpen = false">
               <span class="m-num">03</span>
               <span class="m-text">{{ isVi ? 'SẢN XUẤT' : 'PRODUCTION' }}</span>
             </NuxtLink>
-            <NuxtLink to="/releases" class="mobile-link" @click="mobileOpen = false">
-              <span class="m-num">04</span>
-              <span class="m-text">{{ isVi ? 'PHÁT HÀNH' : 'RELEASES' }}</span>
-            </NuxtLink>
             <NuxtLink to="/about" class="mobile-link" @click="mobileOpen = false">
-              <span class="m-num">05</span>
+              <span class="m-num">04</span>
               <span class="m-text">{{ isVi ? 'GIỚI THIỆU' : 'ABOUT' }}</span>
             </NuxtLink>
             <NuxtLink to="/journal" class="mobile-link" @click="mobileOpen = false">
-              <span class="m-num">06</span>
+              <span class="m-num">05</span>
               <span class="m-text">{{ isVi ? 'BÀI VIẾT' : 'JOURNAL' }}</span>
             </NuxtLink>
             <NuxtLink to="/build-project" class="mobile-link" @click="mobileOpen = false">
-              <span class="m-num">07</span>
+              <span class="m-num">06</span>
               <span class="m-text">{{ isVi ? 'DỰ TOÁN CHI PHÍ' : 'BUILD PROJECT' }}</span>
             </NuxtLink>
+            <a
+              :href="createTachnhacReferralUrl('mobile_nav_tachnhac')"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="mobile-link mobile-tool-link"
+              @click="mobileOpen = false"
+            >
+              <span class="m-num"><i class="fa-solid fa-wand-magic-sparkles"></i></span>
+              <span class="m-text">{{ isVi ? 'TÁCH NHẠC ONLINE (AI)' : 'AI STEM SEPARATOR' }}</span>
+              <i class="fa-solid fa-arrow-up-right-from-square m-icon-ext"></i>
+            </a>
           </div>
 
           <div class="mobile-drawer-cta">
@@ -205,7 +315,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted, onUnmounted } from 'vue'
+import { ref, watch, onMounted, onUnmounted } from 'vue'
 import { useLocale } from '~/composables/useLocale'
 
 const route = useRoute()
@@ -215,16 +325,39 @@ const featuredProjects = getFeaturedProjects()
 
 const isScrolled = ref(false)
 const mobileOpen = ref(false)
+const mobileWorkOpen = ref(false)
+const mobileServicesOpen = ref(false)
 const hoverFlyout = ref<string | null>(null)
+
+function toggleFlyout(name: string) {
+  if (hoverFlyout.value === name) {
+    hoverFlyout.value = null
+  } else {
+    hoverFlyout.value = name
+  }
+}
+
+function handleDocumentClick(e: MouseEvent) {
+  const target = e.target as HTMLElement
+  if (!target.closest('.nav-item-dropdown')) {
+    hoverFlyout.value = null
+  }
+}
 
 function handleScroll() {
   if (!import.meta.client) return
   isScrolled.value = window.scrollY > 20
 }
 
+watch(() => route.fullPath, () => {
+  mobileOpen.value = false
+  hoverFlyout.value = null
+})
+
 onMounted(() => {
   if (import.meta.client) {
     window.addEventListener('scroll', handleScroll, { passive: true })
+    document.addEventListener('click', handleDocumentClick)
     handleScroll()
   }
 })
@@ -232,6 +365,7 @@ onMounted(() => {
 onUnmounted(() => {
   if (import.meta.client) {
     window.removeEventListener('scroll', handleScroll)
+    document.removeEventListener('click', handleDocumentClick)
   }
 })
 </script>
@@ -249,9 +383,9 @@ onUnmounted(() => {
 }
 
 .xk-header.is-scrolled {
-  background-color: rgba(7, 8, 10, 0.88);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
+  background-color: rgba(5, 11, 20, 0.93);
+  backdrop-filter: blur(20px) saturate(1.5);
+  -webkit-backdrop-filter: blur(20px) saturate(1.5);
   border-color: var(--border-subtle);
 }
 
@@ -266,14 +400,16 @@ onUnmounted(() => {
 .brand-group {
   display: flex;
   align-items: center;
-  gap: 1.25rem;
+  gap: clamp(1.5rem, 2.5vw, 2.75rem);
+  flex-shrink: 0;
 }
 
 .brand-logo {
   display: flex;
   align-items: center;
-  gap: 0.85rem;
+  gap: 0.75rem;
   text-decoration: none;
+  flex-shrink: 0;
 }
 
 .logo-img {
@@ -293,106 +429,81 @@ onUnmounted(() => {
   font-weight: 900;
   letter-spacing: 0.08em;
   color: var(--text-primary);
+  white-space: nowrap;
 }
 
 .brand-sub {
   font-size: 0.625rem;
   color: var(--text-subtle);
+  white-space: nowrap;
 }
 
-/* IMAGE 3: LOCALE PILL WIDGET */
-.locale-pill-widget {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  gap: 0.15rem;
-  margin-left: 0.25rem;
-}
-
-.version-label {
-  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-  font-size: 0.625rem;
-  color: #64748b;
-  letter-spacing: 0.05em;
-  line-height: 1;
-  padding-right: 0.35rem;
-}
-
-.locale-pill-switch {
-  position: relative;
+/* SEGMENTED PILL LOCALE SWITCHER */
+.locale-switch-group {
   display: inline-flex;
   align-items: center;
-  width: 66px;
-  height: 30px;
-  background: #0d111a;
-  border: 1.5px solid rgba(255, 255, 255, 0.15);
-  border-radius: 9999px;
   padding: 2px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 999px;
+  transition: border-color 0.2s ease, background-color 0.2s ease;
+  flex-shrink: 0;
+}
+
+.locale-switch-group:hover {
+  border-color: rgba(255, 255, 255, 0.2);
+  background-color: rgba(255, 255, 255, 0.07);
+}
+
+.locale-btn {
+  background: transparent;
+  border: none;
+  padding: 0.22rem 0.55rem;
+  color: var(--text-subtle);
+  font-family: inherit;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
   cursor: pointer;
-  outline: none;
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
-  user-select: none;
+  border-radius: 999px;
+  transition: all 0.2s ease;
+  line-height: 1;
 }
 
-.locale-pill-switch:hover {
-  border-color: rgba(0, 210, 255, 0.5);
-  box-shadow: 0 0 12px rgba(0, 210, 255, 0.2);
+.locale-btn:hover {
+  color: var(--text-primary);
 }
 
-.switch-option {
-  position: relative;
-  z-index: 2;
-  flex: 1;
-  text-align: center;
-  font-size: 0.75rem;
+.locale-btn.is-active {
+  background: rgba(251, 191, 36, 0.18);
+  color: #fbbf24;
   font-weight: 800;
-  letter-spacing: 0.02em;
-  color: #00d2ff;
-  transition: color 0.25s ease;
-  line-height: 24px;
-}
-
-.switch-option.active {
-  color: #06080f;
-  font-weight: 900;
-}
-
-.switch-slider {
-  position: absolute;
-  top: 2px;
-  left: 2px;
-  width: 28px;
-  height: 24px;
-  border-radius: 9999px;
-  background: linear-gradient(135deg, #00d2ff 0%, #3a86ff 60%, #8338ec 100%);
-  box-shadow: 0 0 10px rgba(0, 210, 255, 0.45);
-  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-  z-index: 1;
-}
-
-.switch-slider.to-en {
-  transform: translateX(32px);
+  border: 1px solid rgba(251, 191, 36, 0.35);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
 }
 
 /* DESKTOP NAV */
 .desktop-nav {
   display: flex;
   align-items: center;
-  gap: 1.75rem;
+  gap: clamp(0.5rem, 0.95vw, 1.25rem);
+  flex-shrink: 0;
 }
 
 .nav-link {
   font-size: 0.8125rem;
   font-weight: 700;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.05em;
   color: var(--text-secondary);
   text-decoration: none;
   display: inline-flex;
   align-items: center;
-  gap: 0.35rem;
-  padding: 0.5rem 0;
+  gap: 0.3rem;
+  padding: 0.5rem 0.15rem;
   transition: color 0.15s ease;
   position: relative;
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 
 .nav-link:hover,
@@ -513,16 +624,16 @@ onUnmounted(() => {
 }
 
 .flyout-service-card:hover {
-  background: rgba(255, 255, 255, 0.05);
-  border-color: rgba(217, 119, 6, 0.4);
+  background: rgba(22, 119, 255, 0.07);
+  border-color: rgba(22, 119, 255, 0.35);
 }
 
 .service-card-icon {
   width: 32px;
   height: 32px;
   border-radius: 6px;
-  background: rgba(217, 119, 6, 0.12);
-  color: #fbbf24;
+  background: rgba(22, 119, 255, 0.12);
+  color: #60CFFF;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -542,11 +653,72 @@ onUnmounted(() => {
   line-height: 1.35;
 }
 
+/* FLYOUT AI TOOL BAR */
+.flyout-tool-bar {
+  margin-top: 0.85rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--border-subtle);
+}
+
+.flyout-tool-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.65rem 0.85rem;
+  border-radius: 8px;
+  background: rgba(245, 158, 11, 0.05);
+  border: 1px solid rgba(245, 158, 11, 0.2);
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.flyout-tool-link:hover {
+  background: rgba(245, 158, 11, 0.1);
+  border-color: rgba(245, 158, 11, 0.4);
+  transform: translateY(-1px);
+}
+
+.tool-link-left {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  min-width: 0;
+}
+
+.tool-mini-badge {
+  font-size: 0.625rem;
+  padding: 0.15rem 0.45rem;
+  flex-shrink: 0;
+}
+
+.tool-link-name {
+  font-size: 0.8125rem;
+  color: var(--text-primary);
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.tool-link-desc {
+  font-size: 0.6875rem;
+  color: var(--text-secondary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.tool-link-arrow {
+  font-size: 0.75rem;
+  color: #fbbf24;
+  flex-shrink: 0;
+  margin-left: 0.5rem;
+}
+
 /* HEADER ACTIONS */
 .header-actions {
   display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: 0.75rem;
+  flex-shrink: 0;
 }
 
 .btn-builder-link {
@@ -561,6 +733,8 @@ onUnmounted(() => {
   border: 1px solid var(--border-subtle);
   text-decoration: none;
   transition: all 0.15s ease;
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 
 .btn-builder-link:hover {
@@ -574,26 +748,60 @@ onUnmounted(() => {
   align-items: center;
   gap: 0.5rem;
   padding: 0.55rem 1.25rem;
-  background: var(--text-primary);
-  color: var(--bg-canvas);
+  background: linear-gradient(135deg, #1677FF 0%, #00B8FF 100%);
+  color: #ffffff;
   font-size: 0.8125rem;
   font-weight: 800;
   letter-spacing: 0.06em;
   border-radius: 6px;
+  border: 1px solid rgba(22, 119, 255, 0.5);
   text-decoration: none;
-  transition: transform 0.15s ease, background 0.15s ease, box-shadow 0.15s ease;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  box-shadow: 0 2px 12px rgba(22, 119, 255, 0.3);
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 
 .btn-start-project:hover {
-  background: #ffffff;
+  background: linear-gradient(135deg, #2488FF 0%, #22c5ff 100%);
   transform: scale(1.02);
-  box-shadow: 0 0 16px rgba(255, 255, 255, 0.25);
+  box-shadow: 0 6px 22px rgba(22, 119, 255, 0.48);
 }
 
 .btn-start-project.btn-full {
   width: 100%;
   justify-content: center;
   padding: 0.85rem;
+}
+
+.nav-dropdown-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: var(--text-secondary);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.5rem 0.15rem;
+  transition: color 0.15s ease;
+}
+
+.nav-dropdown-btn:hover,
+.nav-dropdown-btn.is-active {
+  color: var(--text-primary);
+}
+
+.nav-chevron.is-rotated {
+  transform: rotate(180deg);
+}
+
+.xk-header.is-mobile-menu-open {
+  background-color: rgba(5, 11, 20, 0.98);
+  border-bottom-color: var(--border-subtle);
 }
 
 .mobile-toggle-btn {
@@ -610,23 +818,23 @@ onUnmounted(() => {
 .mobile-drawer {
   position: fixed;
   inset: 76px 0 0 0;
-  background: var(--bg-canvas);
-  z-index: 890;
+  background: var(--bg-canvas, #050b14);
+  z-index: 999;
   overflow-y: auto;
   border-top: 1px solid var(--border-subtle);
 }
 
 .mobile-drawer-inner {
-  padding: 2rem 1.5rem;
+  padding: 1.5rem 1.25rem 3rem 1.25rem;
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 1.75rem;
 }
 
 .mobile-nav-links {
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
+  gap: 0.5rem;
 }
 
 .mobile-link {
@@ -636,6 +844,79 @@ onUnmounted(() => {
   padding: 0.75rem 0;
   border-bottom: 1px solid var(--border-subtle);
   text-decoration: none;
+}
+
+.mobile-group-item {
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.mobile-link-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.mobile-link.mobile-link-main {
+  border-bottom: none;
+  flex: 1;
+}
+
+.mobile-sub-toggle {
+  background: none;
+  border: none;
+  color: var(--text-secondary);
+  padding: 0.75rem 1rem;
+  font-size: 0.875rem;
+  cursor: pointer;
+}
+
+.mobile-sub-toggle i {
+  transition: transform 0.2s ease;
+}
+
+.mobile-sub-toggle i.is-rotated {
+  transform: rotate(180deg);
+}
+
+.mobile-submenu {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 0.25rem 0 0.85rem 2rem;
+}
+
+.mobile-sub-link {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+  text-decoration: none;
+  padding: 0.35rem 0;
+  transition: color 0.15s ease;
+}
+
+.mobile-sub-link:hover {
+  color: #fbbf24;
+}
+
+.mobile-sub-link .sub-icon {
+  font-size: 0.8125rem;
+  color: #60CFFF;
+  width: 16px;
+}
+
+.mobile-sub-link .sub-artist {
+  font-size: 0.75rem;
+  color: var(--text-subtle);
+}
+
+.mobile-sub-all {
+  font-size: 0.8125rem;
+  font-weight: 700;
+  color: #fbbf24;
+  text-decoration: none;
+  padding-top: 0.35rem;
 }
 
 .m-num {
@@ -651,11 +932,26 @@ onUnmounted(() => {
   color: var(--text-primary);
 }
 
+.mobile-tool-link {
+  border-bottom: 1px dashed rgba(245, 158, 11, 0.3);
+}
+
+.mobile-tool-link .m-text {
+  color: #fbbf24;
+  font-size: 1.05rem;
+}
+
+.m-icon-ext {
+  margin-left: auto;
+  font-size: 0.875rem;
+  color: #fbbf24;
+}
+
 .mobile-drawer-cta {
   display: flex;
   flex-direction: column;
   gap: 1.25rem;
-  margin-top: 1rem;
+  margin-top: 0.5rem;
 }
 
 .mobile-contact-bar {
@@ -691,7 +987,25 @@ onUnmounted(() => {
   transform: translate(-50%, 8px);
 }
 
-@media (max-width: 1024px) {
+/* DRAWER TRANSITION */
+.drawer-slide-enter-active,
+.drawer-slide-leave-active {
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.drawer-slide-enter-from,
+.drawer-slide-leave-to {
+  opacity: 0;
+  transform: translateY(-8px);
+}
+
+@media (max-width: 1280px) {
+  .btn-builder-link {
+    display: none;
+  }
+}
+
+@media (max-width: 1140px) {
   .desktop-nav {
     display: none;
   }

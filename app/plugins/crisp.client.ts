@@ -19,8 +19,6 @@ export default defineNuxtPlugin(() => {
       s.src = 'https://client.crisp.chat/l.js'
       s.async = true
       d.head?.appendChild(s)
-    } else {
-      console.warn('[Crisp Plugin] NUXT_PUBLIC_CRISP_WEBSITE_ID is not configured. Crisp Chat is disabled.')
     }
   }
 })

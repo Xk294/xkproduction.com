@@ -17,7 +17,7 @@ const services: ServiceItem[] = [
   {
     id: 'thu-am',
     name: 'Thu Âm Bài Hát',
-    price: 350000,
+    price: 499000,
     duration: '2.5 giờ / ca',
     icon: 'fa-microphone',
     desc: 'Phòng tiêu âm chuẩn quốc tế, micro condenser, kèm vocal coaching',
@@ -26,7 +26,7 @@ const services: ServiceItem[] = [
   {
     id: 'mix-master',
     name: 'Mixing & Mastering',
-    price: 600000,
+    price: 350000,
     duration: '2-3 ngày',
     icon: 'fa-sliders',
     desc: 'Vocal tuning tự nhiên, cân bằng âm sắc, chuẩn Spotify -14 LUFS'
@@ -72,11 +72,11 @@ const addons = ref([
   { id: 'stems', name: 'Bàn giao đầy đủ file Multi-track stems', price: 200000, selected: false }
 ])
 
-const { trackCta } = useAnalytics()
+const { trackCta, getTrackingPayload } = useAnalytics()
 
 const form = ref({
   service: 'thu-am',
-  servicePrice: 350000,
+  servicePrice: 499000,
   date: '',
   timeSlot: '14:00 - 16:30',
   name: '',
@@ -197,7 +197,8 @@ const submitBooking = async () => {
     email: form.value.email || '',
     service: form.value.service,
     message: `[Mã: ${bookingId.value}] Dịch vụ: ${selectedServiceName.value}. Ca thu: ${form.value.timeSlot} ngày ${form.value.date}. Add-ons: ${selectedAddons || 'Không'}. Dự toán: ${formatCurrency(calculatedTotal.value)}. Ghi chú: ${form.value.notes || 'Không'}`,
-    source: 'booking-flow-v4'
+    source: 'booking-flow-v4',
+    ...getTrackingPayload()
   }
   
   try {
@@ -245,7 +246,7 @@ const submitBooking = async () => {
 const resetFlow = () => {
   form.value = {
     service: 'thu-am',
-    servicePrice: 350000,
+    servicePrice: 499000,
     date: calendarDays.value[0]?.iso || '',
     timeSlot: '14:00 - 16:30',
     name: '',
@@ -262,8 +263,8 @@ const googleCalendarLink = computed(() => {
   if (!form.value.date) return '#'
   const svcName = selectedServiceName.value
   const title = encodeURIComponent(`Lịch thu âm tại XKProduction (${svcName})`)
-  const details = encodeURIComponent(`Mã đặt chỗ: ${bookingId.value}\nDịch vụ: ${svcName}\nKhách hàng: ${form.value.name} (${form.value.phone})\nStudio: XKProduction, QL14 km25 xã Nghĩa Trung, Bù Đăng, Bình Phước.\nHotline: 0355.356.294`)
-  const location = encodeURIComponent('XKProduction, QL14 km25, Nghĩa Trung, Bù Đăng, Bình Phước')
+  const details = encodeURIComponent(`Mã đặt chỗ: ${bookingId.value}\nDịch vụ: ${svcName}\nKhách hàng: ${form.value.name} (${form.value.phone})\nStudio: XKProduction, Thủ Đức, TP. Hồ Chí Minh.\nHotline: 0355.356.294`)
+  const location = encodeURIComponent('XKProduction, Thủ Đức, Thành phố Hồ Chí Minh')
   
   let startHour = 14
   if (form.value.timeSlot.includes('09:00')) startHour = 9
@@ -534,7 +535,7 @@ onMounted(() => {
                   </div>
                   <div class="pass-item">
                     <span class="pass-label">ĐỊA ĐIỂM:</span>
-                    <span class="pass-val-sub">QL14 km25 Nghĩa Trung, Bù Đăng, Bình Phước</span>
+                    <span class="pass-val-sub">Thủ Đức, Thành phố Hồ Chí Minh</span>
                   </div>
                 </div>
                 <div class="pass-footer">

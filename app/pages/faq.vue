@@ -8,7 +8,7 @@
 
     <!-- ===== HERO SECTION ===== -->
     <section class="page-hero">
-      <div class="max-width">
+      <div class="editorial-container">
         <span class="hero-badge"><i class="fa-solid fa-circle-question"></i> HỎI &amp; ĐÁP</span>
         <h1 class="page-hero-title">Giải Đáp <span class="text-gradient-animated">Thắc Mắc</span></h1>
         <p class="page-hero-sub">Tổng hợp câu hỏi thường gặp về dịch vụ thu âm, hoà âm phối khí, mix &amp; master và chính sách tại XKProduction.</p>
@@ -46,7 +46,7 @@
 <script setup lang="ts">
 useSeoMeta({
   title: 'Hỏi & Đáp - Câu hỏi thường gặp về Thu âm, Mix Master | XKProduction',
-  description: 'Giải đáp câu hỏi về giá thu âm (từ 350k), quy trình, thời gian hoàn thành, nhận mix master online, phát hành Spotify... tại XKProduction.',
+  description: 'Giải đáp câu hỏi về giá thu âm (từ 499k), quy trình, thời gian hoàn thành, nhận mix master online, phát hành Spotify... tại XKProduction.',
   ogTitle: 'Câu hỏi thường gặp về Dịch vụ Thu âm & Mix Master - XKProduction',
   ogDescription: 'Tìm hiểu về giá thu âm, quy trình, hỗ trợ online, phát hành Spotify & các dịch vụ tại XKProduction.',
   ogImage: 'https://xkproduction.com/images/Xkpreviewnew.png',
@@ -61,7 +61,7 @@ useSeoMeta({
 const faqs = [
   {
     question: 'Chi phí thu âm tại XKProduction là bao nhiêu?',
-    answer: 'Chi phí thu âm tại XKProduction bắt đầu từ 350.000₫/bài đối với gói Demo/Cơ Bản (thu 1-2h, chỉnh sửa tuning và timing cơ bản) và lên đến 1.800.000₫+ cho các gói chuyên nghiệp không giới hạn thời gian thu, tích hợp coaching biểu cảm và vocal direction chuyên sâu. Vui lòng xem chi tiết đầy đủ tại bảng giá dịch vụ để chọn gói phù hợp.'
+    answer: 'Chi phí thu âm tại XKProduction bắt đầu từ 499.000₫/bài đối với gói Demo/Cơ Bản (thu 1-2h, chỉnh sửa tuning và timing cơ bản) và lên đến 1.800.000₫+ cho các gói chuyên nghiệp không giới hạn thời gian thu, tích hợp coaching biểu cảm và vocal direction chuyên sâu. Vui lòng xem chi tiết đầy đủ tại bảng giá dịch vụ để chọn gói phù hợp.'
   },
   {
     question: 'Làm thế nào để đặt lịch thu âm hoặc sản xuất?',
@@ -110,17 +110,10 @@ useSchemaOrg([
     name: 'Câu hỏi thường gặp - XKProduction',
     description: 'Giải đáp các câu hỏi về dịch vụ thu âm, mixing, mastering, hòa âm phối khí và sản xuất MV tại XKProduction.'
   }),
-  {
-    '@type': 'FAQPage',
-    'mainEntity': faqs.map(item => ({
-      '@type': 'Question',
-      'name': item.question,
-      'acceptedAnswer': {
-        '@type': 'Answer',
-        'text': item.answer
-      }
-    }))
-  }
+  ...faqs.map(item => defineQuestion({
+    name: item.question,
+    acceptedAnswer: item.answer
+  }))
 ])
 </script>
 
