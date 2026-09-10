@@ -132,7 +132,7 @@ const loading = ref(false)
 // ── Projects & Journal CMS State ────────────────────────────────────────────
 const projectSearch = ref('')
 const projectCategoryFilter = ref('all')
-const projectCategories = computed(() => {
+const projectCategories = computed<string[]>(() => {
   const cats = new Set(xkProjects.map((p) => p.category))
   return ['all', ...Array.from(cats)]
 })
@@ -149,15 +149,15 @@ const filteredProjects = computed(() => {
   })
 })
 
-const { posts: allBlogPosts } = useBlog()
+const { allBlogPosts } = useBlog()
 const journalSearch = ref('')
 const journalCategoryFilter = ref('all')
-const journalCategories = computed(() => {
-  const cats = new Set(allBlogPosts.map((p) => p.category))
+const journalCategories = computed<string[]>(() => {
+  const cats = new Set((allBlogPosts || []).map((p) => p.category))
   return ['all', ...Array.from(cats)]
 })
 const filteredJournalPosts = computed(() => {
-  return allBlogPosts.filter((p) => {
+  return (allBlogPosts || []).filter((p) => {
     const matchCat = journalCategoryFilter.value === 'all' || p.category === journalCategoryFilter.value
     const q = journalSearch.value.trim().toLowerCase()
     const matchSearch =
@@ -686,6 +686,29 @@ onMounted(async () => {
           </button>
 
           <div class="nav-divider" />
+          <div class="nav-group-title">NỘI DUNG STUDIO</div>
+
+          <button
+            class="nav-item"
+            :class="{ active: activeView === 'projects' }"
+            @click="switchView('projects')"
+          >
+            <span class="nav-icon">🎬</span>
+            <span class="nav-label">Dự Án & Tác Phẩm</span>
+            <span class="nav-badge nav-badge--indigo">{{ xkProjects.length }}</span>
+          </button>
+
+          <button
+            class="nav-item"
+            :class="{ active: activeView === 'journal' }"
+            @click="switchView('journal')"
+          >
+            <span class="nav-icon">📰</span>
+            <span class="nav-label">Bài Viết & Nhật Ký</span>
+            <span class="nav-badge nav-badge--emerald">{{ allBlogPosts.length }}</span>
+          </button>
+
+          <div class="nav-divider" />
           <div class="nav-group-title">ĐIỀU HƯỚNG NHANH</div>
 
           <a href="/" target="_blank" class="nav-item nav-item--external">
@@ -741,13 +764,44 @@ onMounted(async () => {
                   activeView === 'leads' ? 'Leads & CRM' :
                   activeView === 'qr-builder' ? 'Lưu Lượng & Mã QR' :
                   activeView === 'music-stats' ? 'Demo Nhạc & Tương Tác' :
-                  activeView === 'visitors' ? 'Visitors Log' : 'Events Log'
+                  activeView === 'visitors' ? 'Visitors Log' :
+                  activeView === 'events' ? 'Events Log' :
+                  activeView === 'projects' ? 'Dự Án & Tác Phẩm' : 'Bài Viết & Nhật Ký'
                 }}
               </span>
             </div>
           </div>
 
           <div class="top-nav-right">
+            <!-- Auto-Refresh Toggle -->
+            <div class="auto-refresh-box">
+              <span class="auto-refresh-title">Tự động:</span>
+              <button
+                class="refresh-chip"
+                :class="{ 'chip-on': autoRefreshSeconds === 0 }"
+                @click="toggleAutoRefresh(0)"
+                title="Tắt tự động cập nhật"
+              >
+                Tắt
+              </button>
+              <button
+                class="refresh-chip"
+                :class="{ 'chip-on': autoRefreshSeconds === 30 }"
+                @click="toggleAutoRefresh(30)"
+                title="Tự động cập nhật mỗi 30 giây"
+              >
+                30s
+              </button>
+              <button
+                class="refresh-chip"
+                :class="{ 'chip-on': autoRefreshSeconds === 60 }"
+                @click="toggleAutoRefresh(60)"
+                title="Tự động cập nhật mỗi 60 giây"
+              >
+                60s
+              </button>
+            </div>
+
             <button class="btn-reload" :disabled="loading" @click="switchView(activeView)" title="Làm mới dữ liệu">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" :class="{ 'spin-anim': loading }">
                 <path d="M23 4v6h-6"/>
@@ -1023,6 +1077,59 @@ onMounted(async () => {
               </div>
             </div>
 
+            <!-- Pipeline Quick Status Tabs -->
+            <div class="pipeline-tab-bar">
+              <button
+                class="pipe-chip"
+                :class="{ 'pipe-chip--active': leadStatusFilter === 'all' }"
+                @click="setLeadStatusFilter('all')"
+              >
+                Tất cả <span class="pipe-count">{{ leadStatusCounts.all || leadsTotal }}</span>
+              </button>
+              <button
+                class="pipe-chip pipe-chip--new"
+                :class="{ 'pipe-chip--active': leadStatusFilter === 'new' }"
+                @click="setLeadStatusFilter('new')"
+              >
+                🆕 Mới nhận <span class="pipe-count">{{ leadStatusCounts.new || 0 }}</span>
+              </button>
+              <button
+                class="pipe-chip pipe-chip--contacted"
+                :class="{ 'pipe-chip--active': leadStatusFilter === 'contacted' }"
+                @click="setLeadStatusFilter('contacted')"
+              >
+                📞 Đã liên hệ <span class="pipe-count">{{ leadStatusCounts.contacted || 0 }}</span>
+              </button>
+              <button
+                class="pipe-chip pipe-chip--quoting"
+                :class="{ 'pipe-chip--active': leadStatusFilter === 'quoting' }"
+                @click="setLeadStatusFilter('quoting')"
+              >
+                💬 Báo giá <span class="pipe-count">{{ leadStatusCounts.quoting || 0 }}</span>
+              </button>
+              <button
+                class="pipe-chip pipe-chip--booked"
+                :class="{ 'pipe-chip--active': leadStatusFilter === 'booked' }"
+                @click="setLeadStatusFilter('booked')"
+              >
+                🎙️ Đã chốt <span class="pipe-count">{{ leadStatusCounts.booked || 0 }}</span>
+              </button>
+              <button
+                class="pipe-chip pipe-chip--completed"
+                :class="{ 'pipe-chip--active': leadStatusFilter === 'completed' }"
+                @click="setLeadStatusFilter('completed')"
+              >
+                ✅ Hoàn thành <span class="pipe-count">{{ leadStatusCounts.completed || 0 }}</span>
+              </button>
+              <button
+                class="pipe-chip pipe-chip--cancelled"
+                :class="{ 'pipe-chip--active': leadStatusFilter === 'cancelled' }"
+                @click="setLeadStatusFilter('cancelled')"
+              >
+                ❌ Huỷ <span class="pipe-count">{{ leadStatusCounts.cancelled || 0 }}</span>
+              </button>
+            </div>
+
             <!-- Leads Filters & Search Toolbar -->
             <div class="leads-toolbar">
               <div class="search-input-wrap">
@@ -1032,13 +1139,23 @@ onMounted(async () => {
                   type="text"
                   placeholder="Tìm tên, SĐT, ghi chú..."
                   class="search-input"
-                  @keyup.enter="loadLeads"
+                  @keyup.enter="loadLeads(true)"
                 />
               </div>
 
               <div class="filter-dropdown-wrap">
+                <label class="filter-lbl">Thời gian:</label>
+                <select v-model="leadTimeRange" class="filter-select" @change="setLeadTimeRange(leadTimeRange)">
+                  <option value="all">Toàn bộ thời gian</option>
+                  <option value="today">Hôm nay</option>
+                  <option value="7d">7 ngày qua</option>
+                  <option value="30d">30 ngày qua</option>
+                </select>
+              </div>
+
+              <div class="filter-dropdown-wrap">
                 <label class="filter-lbl">Trạng thái:</label>
-                <select v-model="leadStatusFilter" class="filter-select">
+                <select v-model="leadStatusFilter" class="filter-select" @change="loadLeads(true)">
                   <option value="all">Tất cả trạng thái</option>
                   <option value="new">🆕 Mới nhận</option>
                   <option value="contacted">📞 Đã liên hệ</option>
@@ -1051,7 +1168,7 @@ onMounted(async () => {
 
               <div class="filter-dropdown-wrap">
                 <label class="filter-lbl">Dịch vụ:</label>
-                <select v-model="leadServiceFilter" class="filter-select">
+                <select v-model="leadServiceFilter" class="filter-select" @change="loadLeads(true)">
                   <option value="all">Tất cả dịch vụ</option>
                   <option value="thu-am">🎙 Thu âm</option>
                   <option value="mixing-mastering">🎚 Mix & Master</option>
@@ -1145,6 +1262,22 @@ onMounted(async () => {
                     </tr>
                   </tbody>
                 </table>
+              </div>
+
+              <!-- Leads Pagination Footer -->
+              <div class="pagination-footer">
+                <div class="pagination-info">
+                  Hiển thị <strong>{{ leadsTotal > 0 ? (leadPage - 1) * leadLimit + 1 : 0 }}</strong> - <strong>{{ Math.min(leadPage * leadLimit, leadsTotal) }}</strong> trên tổng <strong>{{ leadsTotal }}</strong> leads
+                </div>
+                <div class="pagination-nav">
+                  <button class="btn-page" :disabled="leadPage <= 1" @click="goToLeadPage(leadPage - 1)">
+                    ← Trước
+                  </button>
+                  <span class="page-indicator">Trang {{ leadPage }} / {{ totalLeadPages }}</span>
+                  <button class="btn-page" :disabled="leadPage >= totalLeadPages" @click="goToLeadPage(leadPage + 1)">
+                    Sau →
+                  </button>
+                </div>
               </div>
             </div>
           </div>
@@ -1367,6 +1500,22 @@ onMounted(async () => {
                   </tbody>
                 </table>
               </div>
+
+              <!-- Visitors Pagination Footer -->
+              <div class="pagination-footer">
+                <div class="pagination-info">
+                  Hiển thị <strong>{{ visitorsTotal > 0 ? (visitorPage - 1) * visitorLimit + 1 : 0 }}</strong> - <strong>{{ Math.min(visitorPage * visitorLimit, visitorsTotal) }}</strong> trên tổng <strong>{{ visitorsTotal }}</strong> lượt
+                </div>
+                <div class="pagination-nav">
+                  <button class="btn-page" :disabled="visitorPage <= 1" @click="goToVisitorPage(visitorPage - 1)">
+                    ← Trước
+                  </button>
+                  <span class="page-indicator">Trang {{ visitorPage }} / {{ totalVisitorPages }}</span>
+                  <button class="btn-page" :disabled="visitorPage >= totalVisitorPages" @click="goToVisitorPage(visitorPage + 1)">
+                    Sau →
+                  </button>
+                </div>
+              </div>
             </div>
           </div>
 
@@ -1420,7 +1569,269 @@ onMounted(async () => {
             </div>
           </div>
 
+          <!-- ═══════════════════════════════════════════════════════════════════
+               8. VIEW: PROJECTS & WORKS CMS
+               ═══════════════════════════════════════════════════════════════════ -->
+          <div v-else-if="activeView === 'projects'" class="view-block space-y-6">
+            <div class="view-header flex flex-col md:flex-row md:items-center justify-between gap-4">
+              <div>
+                <h1 class="view-title">Quản Lý Dự Án & Tác Phẩm (Works CMS)</h1>
+                <p class="view-desc">Danh mục các dự án âm nhạc, bản phối, video và case study sản xuất của studio</p>
+              </div>
+
+              <div class="flex items-center gap-3">
+                <a href="/work" target="_blank" class="btn-export">
+                  <span>Xem trang Portfolio Live ↗</span>
+                </a>
+              </div>
+            </div>
+
+            <!-- Stats Bar -->
+            <div class="stats-grid">
+              <div class="stat-card">
+                <div class="stat-icon-wrap bg-indigo-glow">🎬</div>
+                <div class="stat-info">
+                  <div class="stat-num">{{ xkProjects.length }}</div>
+                  <div class="stat-text">Tổng số tác phẩm</div>
+                </div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-icon-wrap bg-amber-glow">⭐</div>
+                <div class="stat-info">
+                  <div class="stat-num">{{ xkProjects.filter(p => p.featured).length }}</div>
+                  <div class="stat-text">Dự án Tiêu biểu (Featured)</div>
+                </div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-icon-wrap bg-purple-glow">🎵</div>
+                <div class="stat-info">
+                  <div class="stat-num">{{ projectCategories.length - 1 }}</div>
+                  <div class="stat-text">Phân loại chuyên môn</div>
+                </div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-icon-wrap bg-emerald-glow">✅</div>
+                <div class="stat-info">
+                  <div class="stat-num">{{ xkProjects.filter(p => p.published).length }}</div>
+                  <div class="stat-text">Đã xuất bản (Published)</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Filter & Search Toolbar -->
+            <div class="leads-toolbar">
+              <div class="search-input-wrap">
+                <span class="search-icon">🔍</span>
+                <input
+                  v-model="projectSearch"
+                  type="text"
+                  placeholder="Tìm tên bài, nghệ sĩ, phân loại..."
+                  class="search-input"
+                />
+              </div>
+
+              <div class="filter-dropdown-wrap">
+                <label class="filter-lbl">Thể loại:</label>
+                <select v-model="projectCategoryFilter" class="filter-select">
+                  <option value="all">Tất cả phân loại</option>
+                  <option v-for="cat in projectCategories.filter(c => c !== 'all')" :key="cat" :value="cat">
+                    {{ cat }}
+                  </option>
+                </select>
+              </div>
+            </div>
+
+            <!-- Projects Table -->
+            <div class="dashboard-panel table-panel">
+              <div class="table-scroll-wrapper">
+                <table class="leads-table">
+                  <thead>
+                    <tr>
+                      <th>Ảnh bìa</th>
+                      <th>Tác phẩm & Nghệ sĩ</th>
+                      <th>Phân loại & Năm</th>
+                      <th>Audio Demo</th>
+                      <th>Trạng thái</th>
+                      <th>Thao tác</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr v-for="pj in filteredProjects" :key="pj.id">
+                      <td style="width: 80px;">
+                        <img :src="pj.coverImage" :alt="pj.title" class="table-thumb" />
+                      </td>
+                      <td>
+                        <div class="lead-strong-name">{{ pj.title }}</div>
+                        <div class="lead-email-sub">{{ pj.artist }}</div>
+                        <div v-if="pj.subtitle" class="text-xs text-slate-500 truncate max-w-xs mt-0.5">{{ pj.subtitle }}</div>
+                      </td>
+                      <td>
+                        <span class="badge-service">{{ pj.categoryLabel || pj.category }}</span>
+                        <div class="source-tag">Năm: {{ pj.year }}</div>
+                      </td>
+                      <td>
+                        <div v-if="pj.audioDemoUrl" class="text-xs font-mono text-indigo-300">
+                          🎵 {{ pj.audioDemoUrl.split('/').pop() }}
+                        </div>
+                        <div v-else class="text-xs text-slate-600">—</div>
+                      </td>
+                      <td>
+                        <span v-if="pj.featured" class="badge-tag" style="background: rgba(245, 158, 11, 0.15); color: #fbbf24;">⭐ Tiêu biểu</span>
+                        <span v-else class="badge-tag" style="background: rgba(148, 163, 184, 0.12); color: #94a3b8;">Tiêu chuẩn</span>
+                      </td>
+                      <td>
+                        <a :href="`/work/${pj.slug}`" target="_blank" class="btn-quick-call" style="text-decoration: none;">
+                          Xem Case Study ↗
+                        </a>
+                      </td>
+                    </tr>
+                    <tr v-if="!filteredProjects.length">
+                      <td colspan="6" class="empty-leads">Không tìm thấy dự án nào phù hợp bộ lọc.</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <!-- ═══════════════════════════════════════════════════════════════════
+               9. VIEW: JOURNAL & PRODUCTION NOTES CMS
+               ═══════════════════════════════════════════════════════════════════ -->
+          <div v-else-if="activeView === 'journal'" class="view-block space-y-6">
+            <div class="view-header flex flex-col md:flex-row md:items-center justify-between gap-4">
+              <div>
+                <h1 class="view-title">Quản Lý Bài Viết & Nhật Ký Sản Xuất (Journal)</h1>
+                <p class="view-desc">Các bài viết chuyên sâu về kỹ thuật thu âm, hoà âm phối khí, hậu trường và SEO</p>
+              </div>
+
+              <div class="flex items-center gap-3">
+                <a href="/journal" target="_blank" class="btn-export">
+                  <span>Xem trang Journal Live ↗</span>
+                </a>
+              </div>
+            </div>
+
+            <!-- Stats Bar -->
+            <div class="stats-grid">
+              <div class="stat-card">
+                <div class="stat-icon-wrap bg-emerald-glow">📰</div>
+                <div class="stat-info">
+                  <div class="stat-num">{{ allBlogPosts.length }}</div>
+                  <div class="stat-text">Tổng số bài viết</div>
+                </div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-icon-wrap bg-purple-glow">🏷️</div>
+                <div class="stat-info">
+                  <div class="stat-num">{{ journalCategories.length - 1 }}</div>
+                  <div class="stat-text">Chuyên mục bài viết</div>
+                </div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-icon-wrap bg-amber-glow">✍️</div>
+                <div class="stat-info">
+                  <div class="stat-num truncate text-sm font-semibold">Nguyễn Xuân Kiệt</div>
+                  <div class="stat-text">Tác giả chính</div>
+                </div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-icon-wrap bg-blue-glow">⏱️</div>
+                <div class="stat-info">
+                  <div class="stat-num">~7 phút</div>
+                  <div class="stat-text">Thời gian đọc TB</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Filter & Search Toolbar -->
+            <div class="leads-toolbar">
+              <div class="search-input-wrap">
+                <span class="search-icon">🔍</span>
+                <input
+                  v-model="journalSearch"
+                  type="text"
+                  placeholder="Tìm tiêu đề, tác giả, tóm tắt..."
+                  class="search-input"
+                />
+              </div>
+
+              <div class="filter-dropdown-wrap">
+                <label class="filter-lbl">Chuyên mục:</label>
+                <select v-model="journalCategoryFilter" class="filter-select">
+                  <option value="all">Tất cả chuyên mục</option>
+                  <option v-for="cat in journalCategories.filter(c => c !== 'all')" :key="cat" :value="cat">
+                    {{ cat }}
+                  </option>
+                </select>
+              </div>
+            </div>
+
+            <!-- Journal Articles Table -->
+            <div class="dashboard-panel table-panel">
+              <div class="table-scroll-wrapper">
+                <table class="leads-table">
+                  <thead>
+                    <tr>
+                      <th>Ảnh</th>
+                      <th>Tiêu đề bài viết & Tóm tắt</th>
+                      <th>Chuyên mục</th>
+                      <th>Tác giả & Ngày đăng</th>
+                      <th>Thời lượng đọc</th>
+                      <th>Thao tác</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr v-for="post in filteredJournalPosts" :key="post.slug">
+                      <td style="width: 80px;">
+                        <img :src="post.thumb || post.cover" :alt="post.title" class="table-thumb" />
+                      </td>
+                      <td>
+                        <div class="lead-strong-name">{{ post.title }}</div>
+                        <div class="text-xs text-slate-400 mt-1 line-clamp-2 max-w-md">{{ post.excerpt }}</div>
+                      </td>
+                      <td>
+                        <span class="badge-service">{{ post.category }}</span>
+                      </td>
+                      <td>
+                        <div class="lead-strong-name text-xs">{{ post.author }}</div>
+                        <div class="text-xs text-slate-500 mt-0.5">{{ post.date }}</div>
+                      </td>
+                      <td>
+                        <span class="visit-badge">{{ post.readTime }}</span>
+                      </td>
+                      <td>
+                        <a :href="`/journal/${post.slug}`" target="_blank" class="btn-quick-call" style="text-decoration: none;">
+                          Xem bài viết ↗
+                        </a>
+                      </td>
+                    </tr>
+                    <tr v-if="!filteredJournalPosts.length">
+                      <td colspan="6" class="empty-leads">Không tìm thấy bài viết nào phù hợp bộ lọc.</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
         </main>
+      </div>
+    </div>
+
+    <!-- Toast Notifications Floating Container -->
+    <div class="toast-container" aria-live="polite">
+      <div
+        v-for="t in toasts"
+        :key="t.id"
+        class="toast-card"
+        :class="`toast-card--${t.type}`"
+        @click="removeToast(t.id)"
+      >
+        <span class="toast-icon">
+          {{ t.type === 'success' ? '✅' : t.type === 'error' ? '❌' : 'ℹ️' }}
+        </span>
+        <span class="toast-body">{{ t.text }}</span>
+        <button class="toast-close" @click.stop="removeToast(t.id)">✕</button>
       </div>
     </div>
   </div>
@@ -2652,6 +3063,256 @@ onMounted(async () => {
   border-radius: 50%;
   animation: spin 0.8s linear infinite;
   margin-bottom: 1rem;
+}
+
+/* ── Auto-refresh toggle chips in Header ────────────────────────────────── */
+.auto-refresh-box {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  background: #101726;
+  border: 1px solid #1e293b;
+  border-radius: 8px;
+  padding: 0.2rem 0.45rem;
+}
+.auto-refresh-title {
+  font-size: 0.68rem;
+  color: #64748b;
+  font-weight: 600;
+  margin-right: 0.1rem;
+}
+.refresh-chip {
+  background: transparent;
+  border: 1px solid transparent;
+  color: #94a3b8;
+  font-size: 0.68rem;
+  font-weight: 600;
+  padding: 0.15rem 0.4rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+.refresh-chip:hover {
+  color: #f1f5f9;
+}
+.refresh-chip.chip-on {
+  background: rgba(99, 102, 241, 0.2);
+  border-color: rgba(99, 102, 241, 0.4);
+  color: #a5b4fc;
+}
+
+/* ── Pipeline Quick Status Tabs Bar ──────────────────────────────────────── */
+.pipeline-tab-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin-bottom: 1rem;
+}
+.pipe-chip {
+  background: #0d121f;
+  border: 1px solid #1e293b;
+  color: #94a3b8;
+  font-size: 0.74rem;
+  font-weight: 600;
+  padding: 0.4rem 0.75rem;
+  border-radius: 8px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  transition: all 0.15s ease;
+}
+.pipe-chip:hover {
+  background: #141c2e;
+  color: #f1f5f9;
+  border-color: #334155;
+}
+.pipe-chip--active {
+  background: rgba(99, 102, 241, 0.15);
+  border-color: #6366f1;
+  color: #e0e7ff;
+}
+.pipe-chip--new.pipe-chip--active {
+  background: rgba(245, 158, 11, 0.15);
+  border-color: #f59e0b;
+  color: #fef3c7;
+}
+.pipe-chip--contacted.pipe-chip--active {
+  background: rgba(56, 189, 248, 0.15);
+  border-color: #38bdf8;
+  color: #e0f2fe;
+}
+.pipe-chip--quoting.pipe-chip--active {
+  background: rgba(168, 85, 247, 0.15);
+  border-color: #a855f7;
+  color: #f3e8ff;
+}
+.pipe-chip--booked.pipe-chip--active {
+  background: rgba(16, 185, 129, 0.15);
+  border-color: #10b981;
+  color: #d1fae5;
+}
+.pipe-chip--completed.pipe-chip--active {
+  background: rgba(52, 211, 153, 0.15);
+  border-color: #34d399;
+  color: #ecfdf5;
+}
+.pipe-chip--cancelled.pipe-chip--active {
+  background: rgba(148, 163, 184, 0.15);
+  border-color: #94a3b8;
+  color: #f1f5f9;
+}
+.pipe-count {
+  font-size: 0.66rem;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 0.05rem 0.35rem;
+  border-radius: 9999px;
+  font-family: monospace;
+}
+
+/* ── Pagination Footer ───────────────────────────────────────────────────── */
+.pagination-footer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.85rem 1.25rem;
+  border-top: 1px solid #141c2e;
+  background: rgba(0, 0, 0, 0.15);
+}
+.pagination-info {
+  font-size: 0.74rem;
+  color: #94a3b8;
+}
+.pagination-info strong {
+  color: #f1f5f9;
+}
+.pagination-nav {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+}
+.btn-page {
+  background: #141c2e;
+  border: 1px solid #1e293b;
+  color: #cbd5e1;
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 0.35rem 0.75rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+.btn-page:hover:not(:disabled) {
+  background: #1e293b;
+  color: #fff;
+  border-color: #475569;
+}
+.btn-page:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+.page-indicator {
+  font-size: 0.72rem;
+  color: #94a3b8;
+  font-weight: 600;
+}
+
+/* ── CMS Tables & Helpers ────────────────────────────────────────────────── */
+.table-thumb {
+  width: 60px;
+  height: 42px;
+  object-fit: cover;
+  border-radius: 6px;
+  border: 1px solid #1e293b;
+  background: #0f172a;
+}
+.nav-badge--indigo {
+  background: #4f46e5 !important;
+  color: #fff !important;
+}
+.nav-badge--emerald {
+  background: #059669 !important;
+  color: #fff !important;
+}
+.bg-indigo-glow {
+  background: rgba(99, 102, 241, 0.15);
+  box-shadow: 0 0 16px rgba(99, 102, 241, 0.25);
+}
+
+/* ── Toast Notification Container & Cards ─────────────────────────────────── */
+.toast-container {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  max-width: 380px;
+  pointer-events: none;
+}
+.toast-card {
+  pointer-events: auto;
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  background: #0f172a;
+  border: 1px solid #334155;
+  border-radius: 10px;
+  padding: 0.7rem 0.9rem;
+  color: #f1f5f9;
+  font-size: 0.78rem;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+  animation: slideInUp 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+  transition: transform 0.15s ease;
+}
+.toast-card:hover {
+  transform: translateY(-2px);
+}
+.toast-card--success {
+  border-color: #10b981;
+  background: #061c14;
+}
+.toast-card--error {
+  border-color: #ef4444;
+  background: #230b0b;
+}
+.toast-card--info {
+  border-color: #6366f1;
+  background: #0d1226;
+}
+.toast-icon {
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+.toast-body {
+  flex: 1;
+  line-height: 1.35;
+}
+.toast-close {
+  background: transparent;
+  border: none;
+  color: #64748b;
+  cursor: pointer;
+  font-size: 0.75rem;
+  padding: 0.2rem;
+}
+.toast-close:hover {
+  color: #f1f5f9;
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* ── Responsive ──────────────────────────────────────────────────────────── */
