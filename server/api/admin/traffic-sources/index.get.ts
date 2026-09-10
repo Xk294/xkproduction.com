@@ -4,8 +4,6 @@
  * Admin only.
  * Query: ?range=30 (days, 1–365)
  */
-import { requireAdmin } from '../../../utils/auth'
-import { ensureSchema, getDB } from '../../../utils/schema'
 
 export interface TrafficSourceItem {
   source: string

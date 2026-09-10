@@ -1,7 +1,4 @@
 // GET /api/admin/events/music-stats — thống kê lượt nghe demo & chuyển đổi CTA
-import { requireAdmin } from '../../../utils/auth'
-import { ensureSchema, getDB } from '../../../utils/schema'
-
 export default defineEventHandler(async (event) => {
   await requireAdmin(event)
 

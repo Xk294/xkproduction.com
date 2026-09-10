@@ -64,32 +64,35 @@ export async function processLead(event: any, payload: LeadPayload) {
     const zaloPhone = cleanPhone.startsWith('0') ? '84' + cleanPhone.substring(1) : cleanPhone
     
     let origin = 'Form Liên Hệ'
-    if (source === 'index') origin = 'Form Đăng Ký Nhanh (Trang Chủ)'
-    else if (source === 'booking-flow') origin = 'Form Đặt Lịch Studio'
-    else if (source === 'mix-online') origin = 'Form Đặt Mix & Master Online'
-    else if (source === 'b2b') origin = 'Form Đăng Ký Âm Nhạc Doanh Nghiệp (B2B)'
-    else if (source === 'email-capture') origin = 'Form Nhận Tài Liệu / Ebook'
+    if (source.startsWith('index')) origin = 'Form Đăng Ký Nhanh (Trang Chủ)'
+    else if (source.startsWith('booking-flow')) origin = 'Form Đặt Lịch Studio'
+    else if (source.startsWith('start-a-project')) origin = 'Project Brief V2 (Start A Project)'
+    else if (source.startsWith('mix-online')) origin = 'Form Đặt Mix & Master Online'
+    else if (source.startsWith('b2b')) origin = 'Form Đăng Ký Âm Nhạc Doanh Nghiệp (B2B)'
+    else if (source.startsWith('email-capture')) origin = 'Form Nhận Tài Liệu / Ebook'
     else if (source) origin = `Nguồn: ${source}`
 
     const serviceName = getServiceLabel(service)
 
-    const text = `🔥 *YÊU CẦU MỚI TỪ WEBSITE* 🔥
+    const escapeHtml = (str: string = '') => str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+
+    const text = `🔥 <b>YÊU CẦU MỚI TỪ WEBSITE</b> 🔥
 ---------------------------------
-📍 *Nguồn:* ${origin}
-👤 *Khách hàng:* ${name}
-📞 *Số điện thoại:* \`${cleanPhone}\`
-📧 *Email:* ${email || '(không điền)'}
-🛠️ *Dịch vụ:* ${serviceName}
-📝 *Lời nhắn:*
-_${message || '(không điền)'}_
+📍 <b>Nguồn:</b> ${escapeHtml(origin)}
+👤 <b>Khách hàng:</b> ${escapeHtml(name)}
+📞 <b>Số điện thoại:</b> <code>${escapeHtml(cleanPhone)}</code>
+📧 <b>Email:</b> ${escapeHtml(email || '(không điền)')}
+🛠️ <b>Dịch vụ:</b> ${escapeHtml(serviceName)}
+📝 <b>Lời nhắn:</b>
+<i>${escapeHtml(message || '(không điền)')}</i>
 ---------------------------------
-💬 [Nhắn Zalo cho khách](https://zalo.me/${zaloPhone})
-📞 [Gọi điện ngay](tel:${cleanPhone})`.trim()
+💬 <a href="https://zalo.me/${zaloPhone}">Nhắn Zalo cho khách</a>
+📞 <a href="tel:${cleanPhone}">Gọi điện ngay</a>`.trim()
 
     await fetch(`https://api.telegram.org/bot${token}/sendMessage`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ chat_id: chatId, text, parse_mode: 'Markdown', disable_web_page_preview: true }),
+      body: JSON.stringify({ chat_id: chatId, text, parse_mode: 'HTML', disable_web_page_preview: true }),
     }).catch((err) => console.error('[lead] Telegram send error:', err))
   }
 

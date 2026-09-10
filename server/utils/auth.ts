@@ -123,7 +123,9 @@ export async function requireAdmin(event: H3Event): Promise<FirebaseClaims> {
   const claims = await verifyFirebaseToken(token, projectId)
 
   // Load admin emails from env: NUXT_ADMIN_EMAILS=email1@gmail.com,email2@gmail.com
-  const adminEmails = (config.adminEmails as string || '')
+  const cfEnv = ((event.context as any)?.cloudflare?.env || {}) as Record<string, string>
+  const rawAdminEmails = (config.adminEmails as string) || cfEnv.NUXT_ADMIN_EMAILS || cfEnv.ADMIN_EMAILS || ''
+  const adminEmails = rawAdminEmails
     .split(',')
     .map((e: string) => e.trim().toLowerCase())
     .filter(Boolean)

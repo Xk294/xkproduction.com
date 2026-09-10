@@ -1,7 +1,4 @@
 // PATCH /api/admin/leads/:id — cập nhật trạng thái & ghi chú của lead (CRM)
-import { requireAdmin } from '../../../utils/auth'
-import { ensureSchema, getDB } from '../../../utils/schema'
-
 export default defineEventHandler(async (event) => {
   await requireAdmin(event)
 
