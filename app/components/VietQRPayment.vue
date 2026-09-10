@@ -147,10 +147,23 @@ const props = withDefaults(defineProps<{
 const paymentMethod = ref<'bank' | 'momo'>('bank')
 const copiedField = ref('')
 
+function stripVietnameseDiacritics(str: string): string {
+  return str
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/đ/g, 'd')
+    .replace(/Đ/g, 'D')
+    .replace(/[^a-zA-Z0-9 -]/g, '')
+    .trim()
+}
+
 const transferSyntax = computed(() => {
   const name = props.clientName ? props.clientName.trim().replace(/\s+/g, ' ') : 'KHACH HANG'
   const service = props.serviceName ? props.serviceName.trim() : 'DAT LICH'
-  return `${name} - ${service}`.toUpperCase()
+  const raw = `${name} - ${service}`.toUpperCase()
+  const stripped = stripVietnameseDiacritics(raw)
+  // Napas 247 safe memo length (max 25 characters to prevent bank app rejection)
+  return stripped.length > 25 ? stripped.slice(0, 25).trim() : stripped
 })
 
 const qrUrl = computed(() => {

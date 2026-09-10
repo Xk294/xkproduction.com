@@ -119,6 +119,12 @@ const buildZaloLink = computed(() => {
   )
   return `https://zalo.me/0355356294?text=${text}`
 })
+
+const { trackCta } = useAnalytics()
+
+const onEstimatorCta = () => {
+  trackCta(`Estimator Zalo: ${currentService.value?.name || 'Unknown'}`)
+}
 </script>
 
 <template>
@@ -279,6 +285,7 @@ const buildZaloLink = computed(() => {
               target="_blank"
               rel="noopener"
               class="btn btn-primary btn-full-width btn-pulse"
+              @click="onEstimatorCta"
             >
               <i class="fa-solid fa-bolt"></i>
               <span>Nhận Báo Giá &amp; Đặt Lịch Ngay</span>

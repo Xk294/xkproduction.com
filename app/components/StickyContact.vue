@@ -3,6 +3,8 @@ import { ref, onMounted, onUnmounted } from 'vue'
 
 const isVisible = ref(false)
 
+const { trackCta } = useAnalytics()
+
 onMounted(() => {
   let ticking = false
   const toggle = () => {
@@ -39,6 +41,7 @@ onMounted(() => {
         class="dock-item-btn zalo-dock"
         title="Chat Zalo với Music Producer"
         aria-label="Liên hệ Zalo"
+        @click="trackCta('Sticky Zalo Desktop')"
       >
         <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
           <path d="M12 3C6.48 3 2 6.94 2 11.8c0 2.8 1.46 5.3 3.75 6.92-.16.96-.68 2.5-1.57 3.65 1.5-.2 3.32-.82 4.67-1.8.98.28 2.04.43 3.15.43 5.52 0 10-3.94 10-8.8S17.52 3 12 3zm1.6 11.8h-4.3c-.3 0-.5-.2-.4-.5l2.6-4.5h-2.1c-.3 0-.5-.2-.5-.5s.2-.5.5-.5h4c.3 0 .5.2.4.5l-2.6 4.5h2.4c.3 0 .5.2.5.5s-.2.5-.5.5z"/>
@@ -52,6 +55,7 @@ onMounted(() => {
         class="dock-item-btn phone-dock"
         title="Gọi hotline 0355.356.294"
         aria-label="Gọi điện thoại"
+        @click="trackCta('Sticky Phone Desktop')"
       >
         <i class="fa-solid fa-phone"></i>
         <span>0355.356.294</span>
@@ -65,6 +69,7 @@ onMounted(() => {
         class="dock-item-icon-only"
         title="Nhắn tin Messenger"
         aria-label="Nhắn tin qua Messenger"
+        @click="trackCta('Sticky Messenger Desktop')"
       >
         <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
           <path d="M12 2C6.477 2 2 6.145 2 11.243c0 3.09 1.507 5.843 3.86 7.668V22l3.525-1.938A10.56 10.56 0 0 0 12 20.486c5.523 0 10-4.145 10-9.243C22 6.145 17.523 2 12 2zm1.022 12.457-2.548-2.72-4.97 2.72 5.468-5.803 2.61 2.72 4.908-2.72-5.468 5.803z"/>
@@ -74,12 +79,12 @@ onMounted(() => {
 
     <!-- MOBILE BOTTOM BAR (Native App Ergonomics) -->
     <div class="mobile-bottom-bar">
-      <a href="tel:0355356294" class="mobile-bar-action">
+      <a href="tel:0355356294" class="mobile-bar-action" @click="trackCta('Sticky Phone Mobile')">
         <i class="fa-solid fa-phone"></i>
         <span>Gọi Ngay</span>
       </a>
 
-      <a href="https://zalo.me/0355356294" target="_blank" rel="noopener" class="mobile-bar-action primary-action">
+      <a href="https://zalo.me/0355356294" target="_blank" rel="noopener" class="mobile-bar-action primary-action" @click="trackCta('Sticky Zalo Mobile')">
         <div class="zalo-icon-badge">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
             <path d="M12 3C6.48 3 2 6.94 2 11.8c0 2.8 1.46 5.3 3.75 6.92-.16.96-.68 2.5-1.57 3.65 1.5-.2 3.32-.82 4.67-1.8.98.28 2.04.43 3.15.43 5.52 0 10-3.94 10-8.8S17.52 3 12 3zm1.6 11.8h-4.3c-.3 0-.5-.2-.4-.5l2.6-4.5h-2.1c-.3 0-.5-.2-.5-.5s.2-.5.5-.5h4c.3 0 .5.2.4.5l-2.6 4.5h2.4c.3 0 .5.2.5.5s-.2.5-.5.5z"/>
@@ -88,7 +93,7 @@ onMounted(() => {
         <span>Chat Zalo Báo Giá</span>
       </a>
 
-      <NuxtLink to="/contact" class="mobile-bar-action">
+      <NuxtLink to="/contact" class="mobile-bar-action" @click="trackCta('Sticky Booking Mobile')">
         <i class="fa-solid fa-calendar-check"></i>
         <span>Đặt Lịch</span>
       </NuxtLink>

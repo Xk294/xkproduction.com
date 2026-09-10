@@ -83,6 +83,10 @@ const togglePlay = async () => {
     try {
       await currentAudio.play()
       isPlaying.value = true
+      try {
+        const { trackAudioPlay } = useAnalytics()
+        trackAudioPlay(`${props.trackTitle || 'Audio Compare'} (${activeChannel.value})`)
+      } catch {}
     } catch (e) {
       console.warn('[StudioAudioCompare] Lỗi phát nhạc:', e)
     }

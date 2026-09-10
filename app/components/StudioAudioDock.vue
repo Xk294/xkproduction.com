@@ -7,10 +7,16 @@ const {
   durationFormatted,
   progress,
   togglePlay,
+  pauseTrack,
   nextTrack,
   prevTrack,
   seekTo
 } = useStudioAudio()
+
+const handleCloseDock = () => {
+  pauseTrack()
+  isDockOpen.value = false
+}
 
 const onSliderInput = (e: Event) => {
   const target = e.target as HTMLInputElement
@@ -97,7 +103,7 @@ const onSliderInput = (e: Event) => {
           <button
             type="button"
             class="dock-close-btn"
-            @click="isDockOpen = false"
+            @click="handleCloseDock"
             aria-label="Đóng trình phát"
           >
             <i class="fa-solid fa-xmark"></i>

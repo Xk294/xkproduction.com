@@ -72,8 +72,10 @@ const addons = ref([
   { id: 'stems', name: 'Bàn giao đầy đủ file Multi-track stems', price: 200000, selected: false }
 ])
 
+const { trackCta } = useAnalytics()
+
 const form = ref({
-  service: 'Thu Âm Bài Hát',
+  service: 'thu-am',
   servicePrice: 350000,
   date: '',
   timeSlot: '14:00 - 16:30',
@@ -81,12 +83,16 @@ const form = ref({
   phone: '',
   email: '',
   notes: '',
-  wantDeposit: false
 })
 
 const isSubmitting = ref(false)
 const errorMsg = ref('')
 const bookingId = ref('')
+
+const selectedServiceName = computed(() => {
+  const s = services.find(item => item.id === form.value.service)
+  return s ? s.name : form.value.service
+})
 
 const nextStep = () => {
   if (step.value < 3) step.value++
@@ -97,7 +103,7 @@ const prevStep = () => {
 }
 
 const selectService = (s: ServiceItem) => {
-  form.value.service = s.name
+  form.value.service = s.id
   form.value.servicePrice = s.price
 }
 
@@ -111,7 +117,7 @@ interface CalendarDay {
   isWeekend: boolean
 }
 
-// Calculate upcoming 7 days
+// Calculate upcoming 7 days using local browser date parts to prevent timezone offsets
 const calendarDays = computed<CalendarDay[]>(() => {
   const days: CalendarDay[] = []
   const weekdays = ['CN', 'Th 2', 'Th 3', 'Th 4', 'Th 5', 'Th 6', 'Th 7']
@@ -119,7 +125,10 @@ const calendarDays = computed<CalendarDay[]>(() => {
   for (let i = 0; i < 7; i++) {
     const d = new Date()
     d.setDate(now.getDate() + i)
-    const iso = d.toISOString().split('T')[0] || ''
+    const year = d.getFullYear()
+    const month = String(d.getMonth() + 1).padStart(2, '0')
+    const day = String(d.getDate()).padStart(2, '0')
+    const iso = `${year}-${month}-${day}`
     const label = i === 0 ? 'Hôm nay' : i === 1 ? 'Ngày mai' : (weekdays[d.getDay()] || '')
     const dateFormatted = `${d.getDate()}/${d.getMonth() + 1}`
     const isWeekend = d.getDay() === 0 || d.getDay() === 6
@@ -187,7 +196,7 @@ const submitBooking = async () => {
     phone: cleanPhone,
     email: form.value.email || '',
     service: form.value.service,
-    message: `[Mã: ${bookingId.value}] Ca thu: ${form.value.timeSlot} ngày ${form.value.date}. Add-ons: ${selectedAddons || 'Không'}. Dự toán: ${formatCurrency(calculatedTotal.value)}. Ghi chú: ${form.value.notes || 'Không'}`,
+    message: `[Mã: ${bookingId.value}] Dịch vụ: ${selectedServiceName.value}. Ca thu: ${form.value.timeSlot} ngày ${form.value.date}. Add-ons: ${selectedAddons || 'Không'}. Dự toán: ${formatCurrency(calculatedTotal.value)}. Ghi chú: ${form.value.notes || 'Không'}`,
     source: 'booking-flow-v4'
   }
   
@@ -199,6 +208,7 @@ const submitBooking = async () => {
     })
     
     if (res.ok) {
+      trackCta(`Booking Submit: ${selectedServiceName.value}`)
       step.value = 4 // success
       return
     }
@@ -218,6 +228,7 @@ const submitBooking = async () => {
           })
         })
         if (fbRes.ok) {
+          trackCta(`Booking Submit (Fallback): ${selectedServiceName.value}`)
           step.value = 4
           return
         }
@@ -233,7 +244,7 @@ const submitBooking = async () => {
 
 const resetFlow = () => {
   form.value = {
-    service: 'Thu Âm Bài Hát',
+    service: 'thu-am',
     servicePrice: 350000,
     date: calendarDays.value[0]?.iso || '',
     timeSlot: '14:00 - 16:30',
@@ -241,7 +252,6 @@ const resetFlow = () => {
     phone: '',
     email: '',
     notes: '',
-    wantDeposit: false
   }
   addons.value.forEach(a => a.selected = false)
   step.value = 1
@@ -250,8 +260,9 @@ const resetFlow = () => {
 // Calendar & Zalo sync links
 const googleCalendarLink = computed(() => {
   if (!form.value.date) return '#'
-  const title = encodeURIComponent(`Lịch thu âm tại XKProduction (${form.value.service})`)
-  const details = encodeURIComponent(`Mã đặt chỗ: ${bookingId.value}\nDịch vụ: ${form.value.service}\nKhách hàng: ${form.value.name} (${form.value.phone})\nStudio: XKProduction, QL14 km25 xã Nghĩa Trung, Bù Đăng, Bình Phước.\nHotline: 0355.356.294`)
+  const svcName = selectedServiceName.value
+  const title = encodeURIComponent(`Lịch thu âm tại XKProduction (${svcName})`)
+  const details = encodeURIComponent(`Mã đặt chỗ: ${bookingId.value}\nDịch vụ: ${svcName}\nKhách hàng: ${form.value.name} (${form.value.phone})\nStudio: XKProduction, QL14 km25 xã Nghĩa Trung, Bù Đăng, Bình Phước.\nHotline: 0355.356.294`)
   const location = encodeURIComponent('XKProduction, QL14 km25, Nghĩa Trung, Bù Đăng, Bình Phước')
   
   let startHour = 14
@@ -260,10 +271,9 @@ const googleCalendarLink = computed(() => {
   else if (form.value.timeSlot.includes('17:30')) startHour = 17
   else if (form.value.timeSlot.includes('20:30')) startHour = 20
 
-  const dStart = new Date(form.value.date)
-  dStart.setHours(startHour, 0, 0, 0)
-  const dEnd = new Date(dStart)
-  dEnd.setHours(startHour + 2, 30, 0, 0)
+  const [y, m, d] = form.value.date.split('-').map(Number)
+  const dStart = new Date(y || 2026, (m || 1) - 1, d || 1, startHour, 0, 0)
+  const dEnd = new Date(y || 2026, (m || 1) - 1, d || 1, startHour + 2, 30, 0)
 
   const toIso = (dt: Date) => dt.toISOString().replace(/-|:|\.\d\d\d/g, '')
   return `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${title}&details=${details}&location=${location}&dates=${toIso(dStart)}/${toIso(dEnd)}`
@@ -272,7 +282,7 @@ const googleCalendarLink = computed(() => {
 const zaloConfirmLink = computed(() => {
   const text = encodeURIComponent(
     `Chào XKProduction, mình vừa đặt lịch online mã [${bookingId.value}].\n` +
-    `Dịch vụ: ${form.value.service}\n` +
+    `Dịch vụ: ${selectedServiceName.value}\n` +
     `Thời gian: ${form.value.timeSlot} - Ngày: ${form.value.date}\n` +
     `Họ tên: ${form.value.name} - ${form.value.phone}\n` +
     `Nhờ studio xác nhận giúp mình nhé!`
@@ -332,7 +342,7 @@ onMounted(() => {
                   :key="s.id"
                   type="button"
                   class="service-tile"
-                  :class="{ selected: form.service === s.name }"
+                  :class="{ selected: form.service === s.id }"
                   @click="selectService(s)"
                 >
                   <div class="tile-top">
@@ -512,7 +522,7 @@ onMounted(() => {
                 <div class="pass-body">
                   <div class="pass-item">
                     <span class="pass-label">DỊCH VỤ:</span>
-                    <strong class="pass-val">{{ form.service }}</strong>
+                    <strong class="pass-val">{{ selectedServiceName }}</strong>
                   </div>
                   <div class="pass-item">
                     <span class="pass-label">THỜI GIAN:</span>
@@ -560,7 +570,7 @@ onMounted(() => {
 
             <div class="pass-main-details">
               <span class="detail-kicker">DỊCH VỤ ĐÃ CHỌN:</span>
-              <strong class="detail-service-title">{{ form.service }}</strong>
+              <strong class="detail-service-title">{{ selectedServiceName }}</strong>
 
               <div class="detail-row">
                 <span class="row-label"><i class="fa-solid fa-calendar-days"></i> Ngày thu:</span>

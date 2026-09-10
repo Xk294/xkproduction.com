@@ -356,7 +356,13 @@ function statusMeta(status: string | null): StatusMeta {
 
 function fmtDate(d: string) {
   if (!d) return '—'
-  return new Date(d).toLocaleString('vi-VN', { dateStyle: 'short', timeStyle: 'short' })
+  const normalized = d.includes('T') ? (d.endsWith('Z') ? d : d + 'Z') : `${d.replace(' ', 'T')}Z`
+  const date = new Date(normalized)
+  if (isNaN(date.getTime())) {
+    const fallback = new Date(d)
+    return isNaN(fallback.getTime()) ? d : fallback.toLocaleString('vi-VN', { dateStyle: 'short', timeStyle: 'short', timeZone: 'Asia/Ho_Chi_Minh' })
+  }
+  return date.toLocaleString('vi-VN', { dateStyle: 'short', timeStyle: 'short', timeZone: 'Asia/Ho_Chi_Minh' })
 }
 function maskPhone(p: string) {
   if (!p) return '—'
