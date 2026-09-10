@@ -73,12 +73,25 @@ export interface XKCapability {
   investmentStarting: string
   timeline: string
   icon: string
+  viTitle?: string
+  enTitle?: string
+  enSubtitle?: string
+  enBadge?: string
+  enSummary?: string
+  enDeliverables?: string[]
+  enInvestmentStarting?: string
+  enTimeline?: string
   features: {
     title: string
     description: string
+    enTitle?: string
+    enDescription?: string
   }[]
   faq: {
     question: string
     answer: string
+    enQuestion?: string
+    enAnswer?: string
   }[]
 }
+

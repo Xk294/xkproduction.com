@@ -5,27 +5,45 @@
     role="banner"
   >
     <div class="editorial-container header-inner">
-      <!-- LOGO -->
-      <NuxtLink to="/" class="brand-logo" aria-label="XKProduction Trang Chủ">
-        <img
-          src="/images/logo-xkproduction.png"
-          alt="XKProduction Logo"
-          class="logo-img"
-          width="40"
-          height="40"
-        />
-        <div class="brand-titles">
-          <span class="brand-name">XKPRODUCTION</span>
-          <span class="brand-sub text-meta-mono">CREATIVE PRODUCTION HOUSE</span>
+      <!-- BRAND & LOCALE SWITCHER (IMAGE 3) -->
+      <div class="brand-group">
+        <NuxtLink to="/" class="brand-logo" :aria-label="isVi ? 'XKProduction Trang Chủ' : 'XKProduction Home'">
+          <img
+            src="/images/logo-xkproduction.png"
+            alt="XKProduction Logo"
+            class="logo-img"
+            width="40"
+            height="40"
+          />
+          <div class="brand-titles">
+            <span class="brand-name">XKPRODUCTION</span>
+            <span class="brand-sub text-meta-mono">{{ isVi ? 'PHÒNG THU & SẢN XUẤT ÂM NHẠC' : 'CREATIVE PRODUCTION HOUSE' }}</span>
+          </div>
+        </NuxtLink>
+
+        <!-- IMAGE 3 LANGUAGE TOGGLE PILL -->
+        <div class="locale-pill-widget" :title="isVi ? 'Chuyển sang Tiếng Anh' : 'Switch to Vietnamese'">
+          <span class="version-label">v0.35.6</span>
+          <button
+            type="button"
+            class="locale-pill-switch"
+            :class="{ 'is-en': isEn }"
+            @click="toggleLocale"
+            :aria-label="isVi ? 'Chuyển sang Tiếng Anh' : 'Switch to Vietnamese'"
+          >
+            <span class="switch-option opt-vi" :class="{ 'active': isVi }">VI</span>
+            <span class="switch-option opt-en" :class="{ 'active': isEn }">EN</span>
+            <span class="switch-slider" :class="{ 'to-en': isEn }"></span>
+          </button>
         </div>
-      </NuxtLink>
+      </div>
 
       <!-- DESKTOP NAVIGATION -->
-      <nav class="desktop-nav" role="navigation" aria-label="Main Navigation">
+      <nav class="desktop-nav" role="navigation" :aria-label="isVi ? 'Thanh điều hướng chính' : 'Main Navigation'">
         <!-- WORK WITH FLYOUT -->
         <div class="nav-item-dropdown" @mouseenter="hoverFlyout = 'work'" @mouseleave="hoverFlyout = null">
           <NuxtLink to="/work" class="nav-link" :class="{ 'is-active': route.path.startsWith('/work') }">
-            <span>WORK</span>
+            <span>{{ isVi ? 'TÁC PHẨM' : 'WORK' }}</span>
             <i class="fa-solid fa-chevron-down nav-chevron"></i>
           </NuxtLink>
 
@@ -33,8 +51,8 @@
           <Transition name="flyout-fade">
             <div v-if="hoverFlyout === 'work'" class="nav-flyout-panel matte-card">
               <div class="flyout-header">
-                <span class="text-meta-mono">TÁC PHẨM ĐẶC SẮC</span>
-                <NuxtLink to="/work" class="flyout-all-link">Xem tất cả <i class="fa-solid fa-arrow-right"></i></NuxtLink>
+                <span class="text-meta-mono">{{ isVi ? 'TÁC PHẨM NỔI BẬT' : 'FEATURED WORK' }}</span>
+                <NuxtLink to="/work" class="flyout-all-link">{{ isVi ? 'Xem tất cả' : 'View all' }} <i class="fa-solid fa-arrow-right"></i></NuxtLink>
               </div>
               <div class="flyout-works-grid">
                 <NuxtLink
@@ -58,7 +76,7 @@
         <!-- SERVICES WITH FLYOUT -->
         <div class="nav-item-dropdown" @mouseenter="hoverFlyout = 'services'" @mouseleave="hoverFlyout = null">
           <NuxtLink to="/services" class="nav-link" :class="{ 'is-active': route.path.startsWith('/services') }">
-            <span>SERVICES</span>
+            <span>{{ isVi ? 'DỊCH VỤ' : 'SERVICES' }}</span>
             <i class="fa-solid fa-chevron-down nav-chevron"></i>
           </NuxtLink>
 
@@ -66,8 +84,8 @@
           <Transition name="flyout-fade">
             <div v-if="hoverFlyout === 'services'" class="nav-flyout-panel services-flyout matte-card">
               <div class="flyout-header">
-                <span class="text-meta-mono">4 TRỤ CỘT NĂNG LỰC CỐT LÕI</span>
-                <NuxtLink to="/services" class="flyout-all-link">Tổng quan dịch vụ <i class="fa-solid fa-arrow-right"></i></NuxtLink>
+                <span class="text-meta-mono">{{ isVi ? '4 TRỤ CỘT NĂNG LỰC SẢN XUẤT' : '4 CORE PRODUCTION PILLARS' }}</span>
+                <NuxtLink to="/services" class="flyout-all-link">{{ isVi ? 'Tổng quan dịch vụ' : 'All services' }} <i class="fa-solid fa-arrow-right"></i></NuxtLink>
               </div>
               <div class="flyout-services-grid">
                 <NuxtLink
@@ -79,8 +97,8 @@
                 >
                   <div class="service-card-icon"><i :class="c.icon"></i></div>
                   <div>
-                    <strong class="service-card-title">{{ c.title }}</strong>
-                    <p class="service-card-sub">{{ c.subtitle }}</p>
+                    <strong class="service-card-title">{{ isVi ? c.viTitle || c.title : c.title }}</strong>
+                    <p class="service-card-sub">{{ isVi ? c.subtitle : (c.enSubtitle || c.subtitle) }}</p>
                   </div>
                 </NuxtLink>
               </div>
@@ -89,31 +107,31 @@
         </div>
 
         <NuxtLink to="/production" class="nav-link" :class="{ 'is-active': route.path === '/production' }">
-          <span>PRODUCTION</span>
+          <span>{{ isVi ? 'SẢN XUẤT' : 'PRODUCTION' }}</span>
         </NuxtLink>
 
         <NuxtLink to="/releases" class="nav-link" :class="{ 'is-active': route.path === '/releases' }">
-          <span>RELEASES</span>
+          <span>{{ isVi ? 'PHÁT HÀNH' : 'RELEASES' }}</span>
         </NuxtLink>
 
         <NuxtLink to="/about" class="nav-link" :class="{ 'is-active': route.path === '/about' }">
-          <span>ABOUT</span>
+          <span>{{ isVi ? 'GIỚI THIỆU' : 'ABOUT' }}</span>
         </NuxtLink>
 
         <NuxtLink to="/journal" class="nav-link" :class="{ 'is-active': route.path.startsWith('/journal') }">
-          <span>JOURNAL</span>
+          <span>{{ isVi ? 'BÀI VIẾT' : 'JOURNAL' }}</span>
         </NuxtLink>
       </nav>
 
       <!-- RIGHT ACTIONS -->
       <div class="header-actions">
-        <NuxtLink to="/build-project" class="btn-builder-link" title="Hoạch định dự án trực quan">
+        <NuxtLink to="/build-project" class="btn-builder-link" :title="isVi ? 'Hoạch định dự án trực quan' : 'Interactive Project Builder'">
           <i class="fa-solid fa-sliders"></i>
-          <span>Build Project</span>
+          <span>{{ isVi ? 'Dự Toán Chi Phí' : 'Build Project' }}</span>
         </NuxtLink>
 
         <NuxtLink to="/start-a-project" class="btn-start-project">
-          <span>START A PROJECT</span>
+          <span>{{ isVi ? 'BẮT ĐẦU DỰ ÁN' : 'START A PROJECT' }}</span>
           <i class="fa-solid fa-arrow-right"></i>
         </NuxtLink>
 
@@ -123,7 +141,7 @@
           class="mobile-toggle-btn"
           @click="mobileOpen = !mobileOpen"
           :aria-expanded="mobileOpen"
-          aria-label="Mở bảng điều hướng"
+          :aria-label="isVi ? 'Mở bảng điều hướng' : 'Open navigation'"
         >
           <i :class="mobileOpen ? 'fa-solid fa-xmark' : 'fa-solid fa-bars-staggered'"></i>
         </button>
@@ -137,37 +155,37 @@
           <div class="mobile-nav-links">
             <NuxtLink to="/work" class="mobile-link" @click="mobileOpen = false">
               <span class="m-num">01</span>
-              <span class="m-text">WORK</span>
+              <span class="m-text">{{ isVi ? 'TÁC PHẨM' : 'WORK' }}</span>
             </NuxtLink>
             <NuxtLink to="/services" class="mobile-link" @click="mobileOpen = false">
               <span class="m-num">02</span>
-              <span class="m-text">SERVICES</span>
+              <span class="m-text">{{ isVi ? 'DỊCH VỤ' : 'SERVICES' }}</span>
             </NuxtLink>
             <NuxtLink to="/production" class="mobile-link" @click="mobileOpen = false">
               <span class="m-num">03</span>
-              <span class="m-text">PRODUCTION</span>
+              <span class="m-text">{{ isVi ? 'SẢN XUẤT' : 'PRODUCTION' }}</span>
             </NuxtLink>
             <NuxtLink to="/releases" class="mobile-link" @click="mobileOpen = false">
               <span class="m-num">04</span>
-              <span class="m-text">RELEASES</span>
+              <span class="m-text">{{ isVi ? 'PHÁT HÀNH' : 'RELEASES' }}</span>
             </NuxtLink>
             <NuxtLink to="/about" class="mobile-link" @click="mobileOpen = false">
               <span class="m-num">05</span>
-              <span class="m-text">ABOUT</span>
+              <span class="m-text">{{ isVi ? 'GIỚI THIỆU' : 'ABOUT' }}</span>
             </NuxtLink>
             <NuxtLink to="/journal" class="mobile-link" @click="mobileOpen = false">
               <span class="m-num">06</span>
-              <span class="m-text">JOURNAL</span>
+              <span class="m-text">{{ isVi ? 'BÀI VIẾT' : 'JOURNAL' }}</span>
             </NuxtLink>
             <NuxtLink to="/build-project" class="mobile-link" @click="mobileOpen = false">
               <span class="m-num">07</span>
-              <span class="m-text">BUILD PROJECT</span>
+              <span class="m-text">{{ isVi ? 'DỰ TOÁN CHI PHÍ' : 'BUILD PROJECT' }}</span>
             </NuxtLink>
           </div>
 
           <div class="mobile-drawer-cta">
             <NuxtLink to="/start-a-project" class="btn-start-project btn-full" @click="mobileOpen = false">
-              <span>START A PROJECT</span>
+              <span>{{ isVi ? 'BẮT ĐẦU DỰ ÁN' : 'START A PROJECT' }}</span>
               <i class="fa-solid fa-arrow-right"></i>
             </NuxtLink>
 
@@ -188,8 +206,10 @@
 
 <script setup lang="ts">
 import { ref, onMounted, onUnmounted } from 'vue'
+import { useLocale } from '~/composables/useLocale'
 
 const route = useRoute()
+const { isVi, isEn, currentLocale, toggleLocale } = useLocale()
 const { getFeaturedProjects, capabilities } = useProductionProjects()
 const featuredProjects = getFeaturedProjects()
 
@@ -242,7 +262,13 @@ onUnmounted(() => {
   height: 76px;
 }
 
-/* BRAND LOGO */
+/* BRAND LOGO & LOCALE */
+.brand-group {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
 .brand-logo {
   display: flex;
   align-items: center;
@@ -272,6 +298,80 @@ onUnmounted(() => {
 .brand-sub {
   font-size: 0.625rem;
   color: var(--text-subtle);
+}
+
+/* IMAGE 3: LOCALE PILL WIDGET */
+.locale-pill-widget {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.15rem;
+  margin-left: 0.25rem;
+}
+
+.version-label {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 0.625rem;
+  color: #64748b;
+  letter-spacing: 0.05em;
+  line-height: 1;
+  padding-right: 0.35rem;
+}
+
+.locale-pill-switch {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  width: 66px;
+  height: 30px;
+  background: #0d111a;
+  border: 1.5px solid rgba(255, 255, 255, 0.15);
+  border-radius: 9999px;
+  padding: 2px;
+  cursor: pointer;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  user-select: none;
+}
+
+.locale-pill-switch:hover {
+  border-color: rgba(0, 210, 255, 0.5);
+  box-shadow: 0 0 12px rgba(0, 210, 255, 0.2);
+}
+
+.switch-option {
+  position: relative;
+  z-index: 2;
+  flex: 1;
+  text-align: center;
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  color: #00d2ff;
+  transition: color 0.25s ease;
+  line-height: 24px;
+}
+
+.switch-option.active {
+  color: #06080f;
+  font-weight: 900;
+}
+
+.switch-slider {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 28px;
+  height: 24px;
+  border-radius: 9999px;
+  background: linear-gradient(135deg, #00d2ff 0%, #3a86ff 60%, #8338ec 100%);
+  box-shadow: 0 0 10px rgba(0, 210, 255, 0.45);
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 1;
+}
+
+.switch-slider.to-en {
+  transform: translateX(32px);
 }
 
 /* DESKTOP NAV */

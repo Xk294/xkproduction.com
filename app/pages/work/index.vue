@@ -3,10 +3,13 @@
     <div class="editorial-container">
       <!-- HEADER -->
       <div class="page-header">
-        <span class="badge-v2 amber">EDITORIAL ARCHIVE</span>
-        <h1 class="archive-title">SELECTED WORK</h1>
+        <span class="badge-v2 amber">{{ isVi ? 'KHO TÁC PHẨM NGHỆ THUẬT' : 'EDITORIAL ARCHIVE' }}</span>
+        <h1 class="archive-title">{{ isVi ? 'DANH MỤC TÁC PHẨM' : 'SELECTED WORK' }}</h1>
         <p class="archive-subtitle">
-          Khám phá danh mục các tác phẩm âm nhạc được sản xuất, hoà âm phối khí, thu âm và hoàn thiện tại XKProduction. Mỗi dự án là một câu chuyện độc bản đồng hành cùng người nghệ sĩ.
+          {{ isVi
+            ? 'Khám phá danh mục các tác phẩm âm nhạc được sản xuất, hoà âm phối khí, thu âm và hoàn thiện tại XKProduction. Mỗi dự án là một câu chuyện độc bản đồng hành cùng người nghệ sĩ.'
+            : 'Explore our curated catalog of productions, bespoke arrangements, studio recordings, and master releases. Every track is a custom sonic journey created for the artist.'
+          }}
         </p>
 
         <!-- CATEGORY FILTER TABS -->
@@ -18,7 +21,7 @@
             :class="{ active: selectedCat === cat.value }"
             @click="selectedCat = cat.value"
           >
-            {{ cat.label }}
+            {{ isVi ? cat.viLabel : cat.enLabel }}
           </button>
         </div>
       </div>
@@ -35,12 +38,12 @@
       <!-- BOTTOM CALLOUT -->
       <div class="archive-cta-banner matte-card">
         <div>
-          <span class="badge-v2 teal">BẮT ĐẦU DỰ ÁN CỦA BẠN</span>
-          <h2 class="banner-title">Bạn Có Giai Điệu Muốn Thành Tác Phẩm?</h2>
-          <p class="banner-desc">Chúng tôi đồng hành từ giai đoạn demo sơ khởi nhất.</p>
+          <span class="badge-v2 teal">{{ isVi ? 'BẮT ĐẦU DỰ ÁN CỦA BẠN' : 'START YOUR PROJECT' }}</span>
+          <h2 class="banner-title">{{ isVi ? 'Bạn Có Giai Điệu Muốn Thành Tác Phẩm?' : 'Ready To Bring Your Melody To Life?' }}</h2>
+          <p class="banner-desc">{{ isVi ? 'Chúng tôi đồng hành từ giai đoạn demo sơ khởi nhất.' : 'We partner with you from your very first rough voice memo.' }}</p>
         </div>
         <NuxtLink to="/start-a-project" class="btn-banner-cta">
-          <span>GỬI PROJECT BRIEF</span>
+          <span>{{ isVi ? 'GỬI PROJECT BRIEF' : 'SUBMIT PROJECT BRIEF' }}</span>
           <i class="fa-solid fa-arrow-right"></i>
         </NuxtLink>
       </div>
@@ -50,17 +53,19 @@
 
 <script setup lang="ts">
 import { ref, computed } from 'vue'
+import { useLocale } from '~/composables/useLocale'
 
+const { isVi } = useLocale()
 const { projects } = useProductionProjects()
 
 const selectedCat = ref('all')
 
 const categories = [
-  { label: 'Tất Cả Dự Án', value: 'all' },
-  { label: 'Hoà Âm Phối Khí', value: 'Arrangement' },
-  { label: 'Mix & Master', value: 'Mix & Master' },
-  { label: 'Music Production', value: 'Music Production' },
-  { label: 'Thu Âm', value: 'Thu âm' }
+  { viLabel: 'Tất Cả Dự Án', enLabel: 'All Projects', value: 'all' },
+  { viLabel: 'Hoà Âm Phối Khí', enLabel: 'Arrangement', value: 'Arrangement' },
+  { viLabel: 'Mix & Master', enLabel: 'Mix & Master', value: 'Mix & Master' },
+  { viLabel: 'Sản Xuất Âm Nhạc', enLabel: 'Music Production', value: 'Music Production' },
+  { viLabel: 'Thu Âm', enLabel: 'Vocal Recording', value: 'Thu âm' }
 ]
 
 const filteredProjects = computed(() => {
@@ -69,10 +74,14 @@ const filteredProjects = computed(() => {
 })
 
 useSeoMeta({
-  title: 'Work — Danh Mục Tác Phẩm Sản Xuất | XKProduction',
-  description: 'Khám phá các sản phẩm âm nhạc, bản cover và ca khúc thương mại sản xuất tại XKProduction. Hoà âm phối khí, thu âm, mix master đạt chuẩn Spotify.',
-  ogTitle: 'Work — Selected Works | XKProduction',
-  ogDescription: 'Danh mục các tác phẩm âm nhạc sản xuất tại XKProduction. 2000+ dự án hoàn tất.',
+  title: () => isVi.value ? 'Work — Danh Mục Tác Phẩm Sản Xuất | XKProduction' : 'Work — Selected Music Productions | XKProduction',
+  description: () => isVi.value
+    ? 'Khám phá các sản phẩm âm nhạc, bản cover và ca khúc thương mại sản xuất tại XKProduction. Hoà âm phối khí, thu âm, mix master đạt chuẩn Spotify.'
+    : 'Explore commercial releases, bespoke arrangements and studio recordings engineered by XKProduction.',
+  ogTitle: () => isVi.value ? 'Work — Danh Mục Tác Phẩm | XKProduction' : 'Work — Selected Works | XKProduction',
+  ogDescription: () => isVi.value
+    ? 'Danh mục các tác phẩm âm nhạc sản xuất tại XKProduction. 2000+ dự án hoàn tất.'
+    : 'Selected portfolio of music productions at XKProduction. 2000+ completed projects.',
   ogImage: 'https://xkproduction.com/images/Xkpreviewnew.png',
   ogUrl: 'https://xkproduction.com/work'
 })

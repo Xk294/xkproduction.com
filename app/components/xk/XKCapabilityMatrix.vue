@@ -1,5 +1,5 @@
 <template>
-  <div class="xk-capability-matrix" role="region" aria-label="4 Trụ cột năng lực sản xuất">
+  <div class="xk-capability-matrix" role="region" :aria-label="isVi ? 'Hệ thống trụ cột năng lực sản xuất' : 'Core Production Capabilities Matrix'">
     <div class="capabilities-grid">
       <div
         v-for="(cap, idx) in capabilities"
@@ -8,18 +8,20 @@
       >
         <div class="card-top-row">
           <div class="cap-icon-box"><i :class="cap.icon"></i></div>
-          <span class="badge-v2" :class="idx % 2 === 0 ? 'amber' : 'teal'">{{ cap.badge }}</span>
+          <span class="badge-v2" :class="idx % 2 === 0 ? 'amber' : 'teal'">
+            {{ isVi ? cap.badge : (cap.enBadge || cap.badge) }}
+          </span>
         </div>
 
-        <h3 class="cap-card-title">{{ cap.title }}</h3>
-        <p class="cap-card-sub">{{ cap.subtitle }}</p>
-        <p class="cap-card-summary">{{ cap.summary }}</p>
+        <h3 class="cap-card-title">{{ isVi ? (cap.viTitle || cap.title) : (cap.enTitle || cap.title) }}</h3>
+        <p class="cap-card-sub">{{ isVi ? cap.subtitle : (cap.enSubtitle || cap.subtitle) }}</p>
+        <p class="cap-card-summary">{{ isVi ? cap.summary : (cap.enSummary || cap.summary) }}</p>
 
         <!-- DELIVERABLES LIST -->
         <div class="deliverables-box">
-          <span class="text-meta-mono d-label">SẢN PHẨM BÀN GIAO:</span>
+          <span class="text-meta-mono d-label">{{ isVi ? 'SẢN PHẨM BÀN GIAO:' : 'KEY DELIVERABLES:' }}</span>
           <ul class="deliverables-list">
-            <li v-for="(item, dIdx) in cap.deliverables.slice(0, 3)" :key="dIdx">
+            <li v-for="(item, dIdx) in (isVi ? cap.deliverables : (cap.enDeliverables || cap.deliverables)).slice(0, 3)" :key="dIdx">
               <i class="fa-solid fa-check"></i>
               <span>{{ item }}</span>
             </li>
@@ -29,12 +31,12 @@
         <!-- FOOTER INVESTMENT & LINK -->
         <div class="cap-card-footer">
           <div class="investment-info">
-            <span class="text-meta-mono">MỨC ĐẦU TƯ:</span>
-            <strong class="investment-val">{{ cap.investmentStarting }}</strong>
+            <span class="text-meta-mono">{{ isVi ? 'MỨC ĐẦU TƯ:' : 'INVESTMENT:' }}</span>
+            <strong class="investment-val">{{ isVi ? cap.investmentStarting : (cap.enInvestmentStarting || cap.investmentStarting) }}</strong>
           </div>
 
           <NuxtLink :to="`/services/${cap.slug}`" class="btn-cap-details">
-            <span>Chi tiết</span>
+            <span>{{ isVi ? 'Chi tiết' : 'Details' }}</span>
             <i class="fa-solid fa-arrow-right"></i>
           </NuxtLink>
         </div>
@@ -45,6 +47,9 @@
 
 <script setup lang="ts">
 import type { XKCapability } from '~/types/production'
+import { useLocale } from '~/composables/useLocale'
+
+const { isVi } = useLocale()
 
 defineProps<{
   capabilities: XKCapability[]

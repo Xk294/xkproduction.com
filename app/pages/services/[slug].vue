@@ -6,26 +6,26 @@
         <div class="editorial-container">
           <NuxtLink to="/services" class="back-link">
             <i class="fa-solid fa-arrow-left"></i>
-            <span>Tất cả năng lực sản xuất</span>
+            <span>{{ isVi ? 'Tất cả năng lực sản xuất' : 'All Production Services' }}</span>
           </NuxtLink>
 
           <div class="cap-badge-row">
-            <span class="badge-v2 amber">{{ cap.badge }}</span>
-            <span class="text-meta-mono">{{ cap.timeline }}</span>
+            <span class="badge-v2 amber">{{ isVi ? cap.badge : (cap.enBadge || cap.badge) }}</span>
+            <span class="text-meta-mono">{{ isVi ? cap.timeline : (cap.enTimeline || cap.timeline) }}</span>
           </div>
 
-          <h1 class="cap-hero-title">{{ cap.title }}</h1>
-          <p class="cap-hero-sub">{{ cap.subtitle }}</p>
-          <p class="cap-hero-desc">{{ cap.summary }}</p>
+          <h1 class="cap-hero-title">{{ isVi ? (cap.viTitle || cap.title) : (cap.enTitle || cap.title) }}</h1>
+          <p class="cap-hero-sub">{{ isVi ? cap.subtitle : (cap.enSubtitle || cap.subtitle) }}</p>
+          <p class="cap-hero-desc">{{ isVi ? cap.summary : (cap.enSummary || cap.summary) }}</p>
 
           <div class="cap-hero-actions">
             <NuxtLink to="/start-a-project" class="btn-start-cap">
-              <span>BẮT ĐẦU DỰ ÁN</span>
+              <span>{{ isVi ? 'BẮT ĐẦU DỰ ÁN' : 'START A PROJECT' }}</span>
               <i class="fa-solid fa-arrow-right"></i>
             </NuxtLink>
             <div class="cap-price-tag">
-              <span class="text-meta-mono">MỨC ĐẦU TƯ:</span>
-              <strong>{{ cap.investmentStarting }}</strong>
+              <span class="text-meta-mono">{{ isVi ? 'MỨC ĐẦU TƯ:' : 'INVESTMENT:' }}</span>
+              <strong>{{ isVi ? cap.investmentStarting : (cap.enInvestmentStarting || cap.investmentStarting) }}</strong>
             </div>
           </div>
         </div>
@@ -36,22 +36,22 @@
         <div class="editorial-container features-layout">
           <!-- MAIN FEATURES -->
           <div class="features-main-col">
-            <h2 class="col-heading">Điểm Khác Biệt Trong Kỹ Nghệ Sản Xuất</h2>
+            <h2 class="col-heading">{{ isVi ? 'Điểm Khác Biệt Trong Kỹ Nghệ Sản Xuất' : 'Production Engineering Highlights' }}</h2>
             <div class="features-list">
               <div v-for="(feat, fIdx) in cap.features" :key="fIdx" class="feature-card matte-card">
                 <div class="feat-num text-meta-mono">0{{ fIdx + 1 }}</div>
-                <strong class="feat-title">{{ feat.title }}</strong>
-                <p class="feat-desc">{{ feat.description }}</p>
+                <strong class="feat-title">{{ isVi ? feat.title : (feat.enTitle || feat.title) }}</strong>
+                <p class="feat-desc">{{ isVi ? feat.description : (feat.enDescription || feat.description) }}</p>
               </div>
             </div>
 
             <!-- FAQ SECTION -->
             <div v-if="cap.faq && cap.faq.length" class="cap-faq-block">
-              <h2 class="col-heading">Câu Hỏi Thường Gặp</h2>
+              <h2 class="col-heading">{{ isVi ? 'Câu Hỏi Thường Gặp' : 'Frequently Asked Questions' }}</h2>
               <div class="faq-accordion">
                 <div v-for="(q, qIdx) in cap.faq" :key="qIdx" class="faq-item matte-card">
-                  <strong class="faq-question">{{ q.question }}</strong>
-                  <p class="faq-answer">{{ q.answer }}</p>
+                  <strong class="faq-question">{{ isVi ? q.question : (q.enQuestion || q.question) }}</strong>
+                  <p class="faq-answer">{{ isVi ? q.answer : (q.enAnswer || q.answer) }}</p>
                 </div>
               </div>
             </div>
@@ -60,21 +60,21 @@
           <!-- SIDEBAR DELIVERABLES -->
           <aside class="deliverables-sidebar-col">
             <div class="sidebar-box matte-card">
-              <span class="text-meta-mono s-badge">HỒ SƠ BÀN GIAO</span>
+              <span class="text-meta-mono s-badge">{{ isVi ? 'HỒ SƠ BÀN GIAO' : 'PACKAGE DELIVERABLES' }}</span>
               <ul class="d-items-list">
-                <li v-for="(del, dIdx) in cap.deliverables" :key="dIdx">
+                <li v-for="(del, dIdx) in (isVi ? cap.deliverables : (cap.enDeliverables || cap.deliverables))" :key="dIdx">
                   <i class="fa-solid fa-check"></i>
                   <span>{{ del }}</span>
                 </li>
               </ul>
 
               <div class="sidebar-meta-item">
-                <span class="text-meta-mono">TIẾN ĐỘ THỰC HIỆN</span>
-                <strong>{{ cap.timeline }}</strong>
+                <span class="text-meta-mono">{{ isVi ? 'TIẾN ĐỘ THỰC HIỆN' : 'ESTIMATED TIMELINE' }}</span>
+                <strong>{{ isVi ? cap.timeline : (cap.enTimeline || cap.timeline) }}</strong>
               </div>
 
               <NuxtLink to="/start-a-project" class="btn-sidebar-submit">
-                <span>GỬI PROJECT BRIEF</span>
+                <span>{{ isVi ? 'GỬI PROJECT BRIEF' : 'SUBMIT PROJECT BRIEF' }}</span>
                 <i class="fa-solid fa-arrow-right"></i>
               </NuxtLink>
             </div>
@@ -85,26 +85,30 @@
 
     <div v-else class="editorial-container text-center not-found-wrap">
       <span class="badge-v2 amber">404</span>
-      <h1>Không Tìm Thấy Dịch Vụ</h1>
-      <NuxtLink to="/services" class="btn-start-cap">Xem Tất Cả Dịch Vụ</NuxtLink>
+      <h1>{{ isVi ? 'Không Tìm Thấy Dịch Vụ' : 'Service Not Found' }}</h1>
+      <NuxtLink to="/services" class="btn-start-cap">{{ isVi ? 'Xem Tất Cả Dịch Vụ' : 'View All Services' }}</NuxtLink>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
 import { computed } from 'vue'
+import { useLocale } from '~/composables/useLocale'
 
 const route = useRoute()
 const slug = computed(() => route.params.slug as string)
+const { isVi } = useLocale()
 
 const { getCapabilityBySlug } = useProductionProjects()
 const cap = computed(() => getCapabilityBySlug(slug.value))
 
 useSeoMeta({
-  title: () => cap.value ? `${cap.value.title} — ${cap.value.subtitle} | XKProduction` : 'Dịch Vụ | XKProduction',
-  description: () => cap.value ? cap.value.summary : '',
-  ogTitle: () => cap.value ? `${cap.value.title} | XKProduction` : 'XKProduction Capabilities',
-  ogDescription: () => cap.value ? cap.value.summary : '',
+  title: () => cap.value
+    ? `${isVi.value ? (cap.value.viTitle || cap.value.title) : (cap.value.enTitle || cap.value.title)} — ${isVi.value ? cap.value.subtitle : (cap.value.enSubtitle || cap.value.subtitle)} | XKProduction`
+    : 'Dịch Vụ | XKProduction',
+  description: () => cap.value ? (isVi.value ? cap.value.summary : (cap.value.enSummary || cap.value.summary)) : '',
+  ogTitle: () => cap.value ? `${isVi.value ? (cap.value.viTitle || cap.value.title) : (cap.value.enTitle || cap.value.title)} | XKProduction` : 'XKProduction Capabilities',
+  ogDescription: () => cap.value ? (isVi.value ? cap.value.summary : (cap.value.enSummary || cap.value.summary)) : '',
   ogImage: 'https://xkproduction.com/images/Xkpreviewnew.png',
   ogUrl: () => `https://xkproduction.com/services/${slug.value}`
 })
