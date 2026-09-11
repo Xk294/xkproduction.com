@@ -1,7 +1,7 @@
 <template>
   <header
     class="xk-header"
-    :class="{ 'is-scrolled': isScrolled, 'is-mobile-menu-open': mobileOpen }"
+    :class="{ 'is-scrolled': isScrolled, 'is-mobile-menu-open': mobileOpen || isDrawerLeaving }"
     role="banner"
   >
     <div class="editorial-container header-inner">
@@ -133,7 +133,7 @@
                 <a
                   :href="createTachnhacReferralUrl('navbar_tachnhac')"
                   target="_blank"
-                  rel="noopener noreferrer"
+                  rel="noopener"
                   class="flyout-tool-link"
                   @click="hoverFlyout = null"
                 >
@@ -178,7 +178,7 @@
         <button
           type="button"
           class="mobile-toggle-btn"
-          @click="mobileOpen = !mobileOpen"
+          @click.stop="toggleMobileMenu"
           :aria-expanded="mobileOpen"
           :aria-label="isVi ? 'Mở bảng điều hướng' : 'Open navigation'"
         >
@@ -188,18 +188,18 @@
     </div>
 
     <!-- MOBILE DRAWER MENU -->
-    <Transition name="drawer-slide">
+    <Transition name="drawer-slide" @after-leave="onDrawerAfterLeave">
       <div v-if="mobileOpen" class="mobile-drawer" role="dialog" aria-modal="true">
         <div class="mobile-drawer-inner">
           <div class="mobile-nav-links">
-            <NuxtLink to="/" class="mobile-link" @click="mobileOpen = false">
+            <NuxtLink to="/" class="mobile-link" @click="closeMobileMenu">
               <span class="m-num">00</span>
               <span class="m-text">{{ isVi ? 'TRANG CHỦ' : 'HOME' }}</span>
             </NuxtLink>
 
             <div class="mobile-group-item">
               <div class="mobile-link-header">
-                <NuxtLink to="/work" class="mobile-link mobile-link-main" @click="mobileOpen = false">
+                <NuxtLink to="/work" class="mobile-link mobile-link-main" @click="closeMobileMenu">
                   <span class="m-num">01</span>
                   <span class="m-text">{{ isVi ? 'TÁC PHẨM' : 'WORK' }}</span>
                 </NuxtLink>
@@ -219,13 +219,13 @@
                   :key="p.slug"
                   :to="`/work/${p.slug}`"
                   class="mobile-sub-link"
-                  @click="mobileOpen = false"
+                  @click="closeMobileMenu"
                 >
                   <i class="fa-solid fa-compact-disc sub-icon"></i>
                   <span>{{ p.title }}</span>
                   <span class="sub-artist">({{ p.artist }})</span>
                 </NuxtLink>
-                <NuxtLink to="/work" class="mobile-sub-all" @click="mobileOpen = false">
+                <NuxtLink to="/work" class="mobile-sub-all" @click="closeMobileMenu">
                   {{ isVi ? 'Xem toàn bộ tác phẩm →' : 'View all works →' }}
                 </NuxtLink>
               </div>
@@ -233,7 +233,7 @@
 
             <div class="mobile-group-item">
               <div class="mobile-link-header">
-                <NuxtLink to="/services" class="mobile-link mobile-link-main" @click="mobileOpen = false">
+                <NuxtLink to="/services" class="mobile-link mobile-link-main" @click="closeMobileMenu">
                   <span class="m-num">02</span>
                   <span class="m-text">{{ isVi ? 'DỊCH VỤ' : 'SERVICES' }}</span>
                 </NuxtLink>
@@ -253,39 +253,39 @@
                   :key="c.slug"
                   :to="`/services/${c.slug}`"
                   class="mobile-sub-link"
-                  @click="mobileOpen = false"
+                  @click="closeMobileMenu"
                 >
                   <i :class="c.icon" class="sub-icon"></i>
                   <span>{{ isVi ? c.viTitle || c.title : c.title }}</span>
                 </NuxtLink>
-                <NuxtLink to="/services" class="mobile-sub-all" @click="mobileOpen = false">
+                <NuxtLink to="/services" class="mobile-sub-all" @click="closeMobileMenu">
                   {{ isVi ? 'Tất cả bảng giá dịch vụ →' : 'All services & pricing →' }}
                 </NuxtLink>
               </div>
             </div>
 
-            <NuxtLink to="/production" class="mobile-link" @click="mobileOpen = false">
+            <NuxtLink to="/production" class="mobile-link" @click="closeMobileMenu">
               <span class="m-num">03</span>
               <span class="m-text">{{ isVi ? 'SẢN XUẤT' : 'PRODUCTION' }}</span>
             </NuxtLink>
-            <NuxtLink to="/about" class="mobile-link" @click="mobileOpen = false">
+            <NuxtLink to="/about" class="mobile-link" @click="closeMobileMenu">
               <span class="m-num">04</span>
               <span class="m-text">{{ isVi ? 'GIỚI THIỆU' : 'ABOUT' }}</span>
             </NuxtLink>
-            <NuxtLink to="/journal" class="mobile-link" @click="mobileOpen = false">
+            <NuxtLink to="/journal" class="mobile-link" @click="closeMobileMenu">
               <span class="m-num">05</span>
               <span class="m-text">{{ isVi ? 'BÀI VIẾT' : 'JOURNAL' }}</span>
             </NuxtLink>
-            <NuxtLink to="/build-project" class="mobile-link" @click="mobileOpen = false">
+            <NuxtLink to="/build-project" class="mobile-link" @click="closeMobileMenu">
               <span class="m-num">06</span>
               <span class="m-text">{{ isVi ? 'DỰ TOÁN CHI PHÍ' : 'BUILD PROJECT' }}</span>
             </NuxtLink>
             <a
               :href="createTachnhacReferralUrl('mobile_nav_tachnhac')"
               target="_blank"
-              rel="noopener noreferrer"
+              rel="noopener"
               class="mobile-link mobile-tool-link"
-              @click="mobileOpen = false"
+              @click="closeMobileMenu"
             >
               <span class="m-num"><i class="fa-solid fa-wand-magic-sparkles"></i></span>
               <span class="m-text">{{ isVi ? 'TÁCH NHẠC ONLINE (AI)' : 'AI STEM SEPARATOR' }}</span>
@@ -294,7 +294,7 @@
           </div>
 
           <div class="mobile-drawer-cta">
-            <NuxtLink to="/start-a-project" class="btn-start-project btn-full" @click="mobileOpen = false">
+            <NuxtLink to="/start-a-project" class="btn-start-project btn-full" @click="closeMobileMenu">
               <span>{{ isVi ? 'BẮT ĐẦU DỰ ÁN' : 'START A PROJECT' }}</span>
               <i class="fa-solid fa-arrow-right"></i>
             </NuxtLink>
@@ -325,9 +325,37 @@ const featuredProjects = getFeaturedProjects()
 
 const isScrolled = ref(false)
 const mobileOpen = ref(false)
+const isDrawerLeaving = ref(false)
 const mobileWorkOpen = ref(false)
 const mobileServicesOpen = ref(false)
 const hoverFlyout = ref<string | null>(null)
+
+function toggleMobileMenu() {
+  if (mobileOpen.value) {
+    closeMobileMenu()
+  } else {
+    mobileOpen.value = true
+    isDrawerLeaving.value = false
+    if (import.meta.client) {
+      document.body.style.overflow = 'hidden'
+    }
+  }
+}
+
+function closeMobileMenu() {
+  if (!mobileOpen.value && !isDrawerLeaving.value) return
+  if (mobileOpen.value) {
+    isDrawerLeaving.value = true
+    mobileOpen.value = false
+  }
+  if (import.meta.client) {
+    document.body.style.overflow = ''
+  }
+}
+
+function onDrawerAfterLeave() {
+  isDrawerLeaving.value = false
+}
 
 function toggleFlyout(name: string) {
   if (hoverFlyout.value === name) {
@@ -350,7 +378,7 @@ function handleScroll() {
 }
 
 watch(() => route.fullPath, () => {
-  mobileOpen.value = false
+  closeMobileMenu()
   hoverFlyout.value = null
 })
 
@@ -364,6 +392,7 @@ onMounted(() => {
 
 onUnmounted(() => {
   if (import.meta.client) {
+    document.body.style.overflow = ''
     window.removeEventListener('scroll', handleScroll)
     document.removeEventListener('click', handleDocumentClick)
   }
@@ -802,6 +831,12 @@ onUnmounted(() => {
 .xk-header.is-mobile-menu-open {
   background-color: rgba(5, 11, 20, 0.98);
   border-bottom-color: var(--border-subtle);
+  height: 100vh;
+  height: 100dvh;
+  bottom: 0;
+  z-index: 9999;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
 }
 
 .mobile-toggle-btn {
@@ -812,20 +847,31 @@ onUnmounted(() => {
   font-size: 1.35rem;
   cursor: pointer;
   padding: 0.5rem;
+  position: relative;
+  z-index: 1000;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
 }
 
 /* MOBILE DRAWER */
 .mobile-drawer {
-  position: fixed;
-  inset: 76px 0 0 0;
+  position: absolute;
+  top: 76px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: calc(100vh - 76px);
+  height: calc(100dvh - 76px);
   background: var(--bg-canvas, #050b14);
   z-index: 999;
   overflow-y: auto;
+  overscroll-behavior-y: contain;
+  -webkit-overflow-scrolling: touch;
   border-top: 1px solid var(--border-subtle);
 }
 
 .mobile-drawer-inner {
-  padding: 1.5rem 1.25rem 3rem 1.25rem;
+  padding: 1.5rem 1.25rem calc(3rem + env(safe-area-inset-bottom, 0px)) 1.25rem;
   display: flex;
   flex-direction: column;
   gap: 1.75rem;
@@ -1013,7 +1059,9 @@ onUnmounted(() => {
     display: none;
   }
   .mobile-toggle-btn {
-    display: block;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
   }
 }
 

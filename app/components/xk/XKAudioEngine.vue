@@ -183,6 +183,7 @@ const {
   currentTrack,
   isPlaying,
   isDockOpen,
+  isCollapsed,
   currentTimeFormatted,
   durationFormatted,
   progress,
@@ -202,7 +203,6 @@ const {
   cleanupGlobalAudio
 } = useStudioAudio()
 
-const isCollapsed = ref(false)
 const hoverProgress = ref<number | null>(null)
 const scrubberRef = ref<HTMLElement | null>(null)
 const volumeTrackRef = ref<HTMLElement | null>(null)
@@ -649,13 +649,20 @@ onUnmounted(() => {
   color: var(--text-subtle);
   cursor: pointer;
   font-size: 0.95rem;
-  padding: 0.3rem;
-  transition: color 0.15s ease;
+  min-width: 36px;
+  min-height: 36px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.4rem;
+  border-radius: 6px;
+  transition: color 0.15s ease, background-color 0.15s ease;
 }
 
 .collapse-btn:hover,
 .dismiss-btn:hover {
   color: var(--text-primary);
+  background-color: rgba(255, 255, 255, 0.06);
 }
 
 @media (max-width: 900px) {
@@ -669,7 +676,8 @@ onUnmounted(() => {
 
 @media (max-width: 768px) {
   .xk-audio-engine {
-    bottom: calc(52px + env(safe-area-inset-bottom, 0px));
+    bottom: 0;
+    padding-bottom: env(safe-area-inset-bottom, 0px);
   }
 }
 

@@ -72,7 +72,7 @@
             <li><NuxtLink to="/journal">{{ isVi ? 'Nhật Ký Phòng Thu' : 'Production Journal' }}</NuxtLink></li>
             <li><NuxtLink to="/build-project">{{ isVi ? 'Dự Toán Chi Phí Dự Án' : 'Project Builder' }}</NuxtLink></li>
             <li>
-              <a :href="createTachnhacReferralUrl('footer_tachnhac')" target="_blank" rel="noopener noreferrer" class="footer-tool-link" :title="isVi ? 'Tách beat, vocal & lọc tạp âm online bằng AI' : 'Free AI Vocal & Stem Separator'">
+              <a :href="createTachnhacReferralUrl('footer_tachnhac')" target="_blank" rel="noopener" class="footer-tool-link" :title="isVi ? 'Tách beat, vocal & lọc tạp âm online bằng AI' : 'Free AI Vocal & Stem Separator'">
                 <i class="fa-solid fa-wand-magic-sparkles"></i>
                 <span>{{ isVi ? 'Tách Nhạc AI (tachnhac.com)' : 'AI Stem Separator (tachnhac.com)' }}</span>
                 <i class="fa-solid fa-arrow-up-right-from-square footer-ext-icon"></i>
@@ -348,6 +348,12 @@ const { isVi } = useLocale()
   .footer-main-grid {
     grid-template-columns: 1fr 1fr;
     gap: 2.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .xk-footer {
+    padding-bottom: calc(6.5rem + env(safe-area-inset-bottom, 0px));
   }
 }
 

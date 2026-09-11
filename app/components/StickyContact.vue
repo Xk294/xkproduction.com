@@ -1,11 +1,13 @@
 <script setup lang="ts">
-import { ref, onMounted, onUnmounted } from 'vue'
+import { ref, computed, onMounted, onUnmounted } from 'vue'
 import { useLocale } from '~/composables/useLocale'
 import { useStudioAudio } from '~/composables/useStudioAudio'
 
 const { isVi } = useLocale()
-const { isDockOpen } = useStudioAudio()
+const { isDockOpen, isCollapsed } = useStudioAudio()
 const isVisible = ref(false)
+
+const isAudioActive = computed(() => isDockOpen.value && !isCollapsed.value)
 
 const { trackCta } = useAnalytics()
 
@@ -27,7 +29,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="studio-contact-wrapper" :class="{ visible: isVisible }">
+  <div class="studio-contact-wrapper" :class="{ visible: isVisible, 'has-audio-dock': isAudioActive }">
     <!-- DESKTOP DOCK (Minimalist & Luxurious) -->
     <div class="desktop-contact-dock glass-card">
       <div class="dock-status-pill">
@@ -82,7 +84,7 @@ onMounted(() => {
     </div>
 
     <!-- MOBILE BOTTOM BAR (Native App Ergonomics) -->
-    <div class="mobile-bottom-bar" :class="{ 'has-audio-dock': isDockOpen }">
+    <div class="mobile-bottom-bar" :class="{ 'has-audio-dock': isAudioActive }">
       <a href="tel:0355356294" class="mobile-bar-action" @click="trackCta('Sticky Phone Mobile')">
         <i class="fa-solid fa-phone"></i>
         <span>Gọi Ngay</span>
@@ -115,7 +117,7 @@ onMounted(() => {
   position: fixed;
   bottom: 1.75rem;
   right: 1.75rem;
-  z-index: 900;
+  z-index: 1000;
   display: flex;
   align-items: center;
   gap: 0.75rem;
@@ -129,7 +131,7 @@ onMounted(() => {
   box-shadow: 0 16px 40px rgba(0, 0, 0, 0.65), 0 0 24px rgba(217, 119, 6, 0.08);
   opacity: 0;
   transform: translateY(20px);
-  transition: opacity 0.35s var(--ease-out-expo), transform 0.35s var(--ease-out-expo);
+  transition: bottom 0.35s var(--ease-out-expo), opacity 0.35s var(--ease-out-expo), transform 0.35s var(--ease-out-expo);
   pointer-events: none;
 }
 
@@ -137,6 +139,10 @@ onMounted(() => {
   opacity: 1;
   transform: translateY(0);
   pointer-events: auto;
+}
+
+.studio-contact-wrapper.has-audio-dock .desktop-contact-dock {
+  bottom: calc(5.25rem + env(safe-area-inset-bottom, 0px));
 }
 
 .dock-status-pill {
@@ -256,7 +262,7 @@ onMounted(() => {
   }
 
   .mobile-bottom-bar.has-audio-dock {
-    bottom: 64px;
+    bottom: calc(85px + env(safe-area-inset-bottom, 0px));
     z-index: 1000;
     box-shadow: 0 -4px 16px rgba(0, 0, 0, 0.75);
   }

@@ -321,7 +321,7 @@
           <a
             :href="createTachnhacReferralUrl('services_banner_tachnhac')"
             target="_blank"
-            rel="noopener noreferrer"
+            rel="noopener"
             class="btn-visit-tool"
           >
             <span>{{ isVi ? 'TRẢI NGHIỆM TÁCHNHẠC.COM' : 'VISIT TACHNHAC.COM' }}</span>

@@ -77,6 +77,7 @@ export const studioPlaylist: StudioTrack[] = [
 const currentTrackIdx = ref(0)
 const isPlaying = ref(false)
 const isDockOpen = ref(false)
+const isCollapsed = ref(false)
 const currentTime = ref(0)
 const duration = ref(0)
 const progress = ref(0)
@@ -246,6 +247,7 @@ export function useStudioAudio() {
       await globalAudio.play()
       isPlaying.value = true
       isDockOpen.value = true
+      isCollapsed.value = false
       startVuLoop()
       try {
         const { trackAudioPlay } = useAnalytics()
@@ -330,6 +332,7 @@ export function useStudioAudio() {
     currentTrackIdx,
     isPlaying,
     isDockOpen,
+    isCollapsed,
     currentTime,
     duration,
     progress,

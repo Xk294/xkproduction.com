@@ -118,7 +118,7 @@
             <div class="callout-icon"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
             <div class="callout-body">
               <strong>Chưa có beat sạch (instrumental) hoặc cần tách vocal từ bài hát gốc?</strong>
-              <p>Nếu bạn chỉ có 1 file audio chứa cả nhạc và lời mà muốn tách vocal để gửi mix hoặc lấy beat làm cover, hãy trải nghiệm công cụ tách nhạc AI trực tuyến miễn phí của chúng tôi tại <a :href="createTachnhacReferralUrl('mix_online_callout_tachnhac')" target="_blank" rel="noopener noreferrer">TáchNhạc.com <i class="fa-solid fa-arrow-up-right-from-square"></i></a> (tách beat, tách vocal, khử ồn chỉ trong 10 giây).</p>
+              <p>Nếu bạn chỉ có 1 file audio chứa cả nhạc và lời mà muốn tách vocal để gửi mix hoặc lấy beat làm cover, hãy trải nghiệm công cụ tách nhạc AI trực tuyến miễn phí của chúng tôi tại <a :href="createTachnhacReferralUrl('mix_online_callout_tachnhac')" target="_blank" rel="noopener">TáchNhạc.com <i class="fa-solid fa-arrow-up-right-from-square"></i></a> (tách beat, tách vocal, khử ồn chỉ trong 10 giây).</p>
             </div>
           </div>
         </div>

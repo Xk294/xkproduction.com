@@ -232,7 +232,7 @@
             </p>
           </div>
           <div class="companion-cta">
-            <a :href="createTachnhacReferralUrl('presets_companion_tachnhac')" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-pulse">
+            <a :href="createTachnhacReferralUrl('presets_companion_tachnhac')" target="_blank" rel="noopener" class="btn btn-primary btn-pulse">
               <span>Mở TáchNhạc.com</span>
               <i class="fa-solid fa-arrow-up-right-from-square"></i>
             </a>
