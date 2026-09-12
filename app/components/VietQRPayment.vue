@@ -138,10 +138,13 @@ const props = withDefaults(defineProps<{
   amount?: number
   serviceName?: string
   clientName?: string
+  /** Mã đơn hàng duy nhất (VD: XK8821). Khi có, ưu tiên dùng làm nội dung chuyển khoản thay vì transferSyntax. */
+  orderCode?: string
 }>(), {
   amount: 0,
   serviceName: 'Dat lich thu am',
-  clientName: ''
+  clientName: '',
+  orderCode: ''
 })
 
 const paymentMethod = ref<'bank' | 'momo'>('bank')
@@ -158,6 +161,8 @@ function stripVietnameseDiacritics(str: string): string {
 }
 
 const transferSyntax = computed(() => {
+  // Khi có order_code duy nhất: dùng luôn làm nội dung chuyển khoản (ngắn gọn, dễ nhận diện bởi webhook)
+  if (props.orderCode) return props.orderCode
   const name = props.clientName ? props.clientName.trim().replace(/\s+/g, ' ') : 'KHACH HANG'
   const service = props.serviceName ? props.serviceName.trim() : 'DAT LICH'
   const raw = `${name} - ${service}`.toUpperCase()

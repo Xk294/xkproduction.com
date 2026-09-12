@@ -17,7 +17,7 @@ const user = ref<User | null>(null)
 const idToken = ref<string | null>(null)
 
 // ── Navigation & Views ───────────────────────────────────────────────────────
-type AdminView = 'overview' | 'traffic' | 'leads' | 'qr-builder' | 'music-stats' | 'visitors' | 'events' | 'projects' | 'journal'
+type AdminView = 'overview' | 'traffic' | 'leads' | 'orders' | 'qr-builder' | 'music-stats' | 'visitors' | 'events' | 'projects' | 'journal'
 const activeView = ref<AdminView>('overview')
 const sidebarOpen = ref(false)
 
@@ -60,6 +60,7 @@ function toggleAutoRefresh(seconds: number) {
     if (activeView.value === 'overview') await loadOverview()
     else if (activeView.value === 'traffic') await loadTrafficSources()
     else if (activeView.value === 'leads') await loadLeads()
+    else if (activeView.value === 'orders') await loadOrders()
     else if (activeView.value === 'music-stats') await loadMusicStats()
     else if (activeView.value === 'visitors') await loadVisitors()
     else if (activeView.value === 'events') await loadEvents()
@@ -116,6 +117,71 @@ const leadStatusCounts = ref<Record<string, number>>({
   cancelled: 0,
 })
 const totalLeadPages = computed(() => Math.max(1, Math.ceil(leadsTotal.value / leadLimit.value)))
+
+// ── Orders & Bookings State ──────────────────────────────────────────────────
+const orders = ref<any[]>([])
+const bookings = ref<any[]>([])
+const ordersStats = ref<{
+  total_orders: number
+  paid_revenue: number
+  pending_revenue: number
+  paid_count: number
+  pending_count: number
+}>({
+  total_orders: 0,
+  paid_revenue: 0,
+  pending_revenue: 0,
+  paid_count: 0,
+  pending_count: 0,
+})
+const orderStatusFilter = ref('all')
+const orderSearch = ref('')
+const updatingOrderId = ref<number | null>(null)
+
+function formatVND(amount: number) {
+  return new Intl.NumberFormat('vi-VN').format(amount || 0) + '₫'
+}
+
+async function loadOrders() {
+  const token = await getValidToken()
+  if (!token) return
+  loading.value = true
+  try {
+    const data = await $fetch<any>('/api/admin/orders', {
+      headers: { Authorization: `Bearer ${token}` },
+      query: {
+        status: orderStatusFilter.value !== 'all' ? orderStatusFilter.value : undefined,
+        q: orderSearch.value.trim() || undefined,
+      },
+    })
+    orders.value = data.orders || []
+    bookings.value = data.bookings || []
+    if (data.stats) ordersStats.value = data.stats
+  } catch (err: any) {
+    showToast('Lỗi tải danh sách đơn hàng: ' + (err.message || 'Lỗi mạng'), 'error')
+  } finally {
+    loading.value = false
+  }
+}
+
+async function updateOrderStatus(orderId: number, status: string) {
+  const token = await getValidToken()
+  if (!token) return
+  updatingOrderId.value = orderId
+  try {
+    await $fetch<any>(`/api/admin/orders/${orderId}`, {
+      method: 'PATCH',
+      headers: { Authorization: `Bearer ${token}` },
+      body: { status },
+    })
+    showToast(`Đã cập nhật đơn hàng sang: ${status}`, 'success')
+    await loadOrders()
+  } catch (err: any) {
+    showToast('Lỗi cập nhật đơn hàng: ' + (err.message || 'Lỗi mạng'), 'error')
+  } finally {
+    updatingOrderId.value = null
+  }
+}
 
 // Visitors Pagination & Filter
 const visitorPage = ref(1)
@@ -458,6 +524,7 @@ async function switchView(view: AdminView) {
   if (view === 'overview') await loadOverview()
   if (view === 'traffic') await loadTrafficSources()
   if (view === 'leads') await loadLeads()
+  if (view === 'orders') await loadOrders()
   if (view === 'music-stats') await loadMusicStats()
   if (view === 'visitors') await loadVisitors()
   if (view === 'events') await loadEvents()
@@ -704,6 +771,18 @@ onMounted(async () => {
 
           <button
             class="nav-item"
+            :class="{ active: activeView === 'orders' }"
+            @click="switchView('orders')"
+          >
+            <span class="nav-icon">💰</span>
+            <span class="nav-label">Đơn Hàng & Cọc QR</span>
+            <span v-if="ordersStats.paid_count + ordersStats.pending_count > 0" class="nav-badge nav-badge--emerald">
+              {{ ordersStats.paid_count + ordersStats.pending_count }}
+            </span>
+          </button>
+
+          <button
+            class="nav-item"
             :class="{ active: activeView === 'qr-builder' }"
             @click="switchView('qr-builder')"
           >
@@ -815,6 +894,7 @@ onMounted(async () => {
                   activeView === 'overview' ? 'Tổng Quan' :
                   activeView === 'traffic' ? 'Traffic Sources' :
                   activeView === 'leads' ? 'Leads & CRM' :
+                  activeView === 'orders' ? 'Đơn Hàng & Đặt Cọc' :
                   activeView === 'qr-builder' ? 'Lưu Lượng & Mã QR' :
                   activeView === 'music-stats' ? 'Demo Nhạc & Tương Tác' :
                   activeView === 'visitors' ? 'Visitors Log' :
@@ -1520,6 +1600,224 @@ onMounted(async () => {
                     Sau →
                   </button>
                 </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ═══════════════════════════════════════════════════════════════════
+               VIEW: ORDERS & BOOKINGS MANAGEMENT
+               ═══════════════════════════════════════════════════════════════════ -->
+          <div v-else-if="activeView === 'orders'" class="view-block space-y-6">
+            <div class="view-header">
+              <div>
+                <h1 class="view-title">Quản Lý Đơn Hàng & Đặt Cọc Studio</h1>
+                <p class="view-desc">Theo dõi đơn hàng tự động VietQR / SePay, đơn mua Preset, Khóa học và Lịch hẹn đặt cọc</p>
+              </div>
+              <button class="btn-primary" @click="loadOrders">
+                🔄 Tải Lại Dữ Liệu
+              </button>
+            </div>
+
+            <!-- KPI Summary Cards -->
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+              <div class="dashboard-panel text-center">
+                <div class="text-xs text-slate-400 mb-1">Tổng Số Đơn</div>
+                <div class="text-2xl font-bold text-white">{{ ordersStats.total_orders }}</div>
+              </div>
+              <div class="dashboard-panel text-center">
+                <div class="text-xs text-emerald-400 mb-1">Doanh Thu Đã Nhận</div>
+                <div class="text-2xl font-bold text-emerald-400">{{ formatVND(ordersStats.paid_revenue) }}</div>
+                <div class="text-xs text-slate-500 mt-0.5">{{ ordersStats.paid_count }} đơn đã xong</div>
+              </div>
+              <div class="dashboard-panel text-center">
+                <div class="text-xs text-amber-400 mb-1">Đang Chờ Thanh Toán</div>
+                <div class="text-2xl font-bold text-amber-400">{{ formatVND(ordersStats.pending_revenue) }}</div>
+                <div class="text-xs text-slate-500 mt-0.5">{{ ordersStats.pending_count }} đơn chờ</div>
+              </div>
+              <div class="dashboard-panel text-center">
+                <div class="text-xs text-cyan-400 mb-1">Lịch Cọc Studio</div>
+                <div class="text-2xl font-bold text-cyan-400">{{ bookings.length }}</div>
+                <div class="text-xs text-slate-500 mt-0.5">lịch hẹn đã ghi nhận</div>
+              </div>
+            </div>
+
+            <!-- Filter & Search Bar -->
+            <div class="dashboard-panel flex flex-wrap items-center justify-between gap-3">
+              <div class="flex items-center gap-2">
+                <button
+                  class="filter-pill"
+                  :class="{ active: orderStatusFilter === 'all' }"
+                  @click="orderStatusFilter = 'all'; loadOrders()"
+                >
+                  Tất cả ({{ ordersStats.total_orders }})
+                </button>
+                <button
+                  class="filter-pill"
+                  :class="{ active: orderStatusFilter === 'paid' }"
+                  @click="orderStatusFilter = 'paid'; loadOrders()"
+                >
+                  ✅ Đã thanh toán ({{ ordersStats.paid_count }})
+                </button>
+                <button
+                  class="filter-pill"
+                  :class="{ active: orderStatusFilter === 'pending' }"
+                  @click="orderStatusFilter = 'pending'; loadOrders()"
+                >
+                  ⏳ Chờ cọc / Pending ({{ ordersStats.pending_count }})
+                </button>
+              </div>
+
+              <div class="search-input-wrap">
+                <input
+                  v-model="orderSearch"
+                  type="text"
+                  placeholder="Tìm mã đơn XK, SĐT, tên khách..."
+                  class="search-input"
+                  @keyup.enter="loadOrders"
+                />
+                <button class="btn-search-icon" @click="loadOrders">🔍</button>
+              </div>
+            </div>
+
+            <!-- Orders Table -->
+            <div class="dashboard-panel table-panel">
+              <div class="panel-heading mb-3">
+                <h2 class="panel-h2">📦 Danh Sách Đơn Hàng Tự Động</h2>
+              </div>
+              <div class="table-scroll-wrapper">
+                <table class="leads-table">
+                  <thead>
+                    <tr>
+                      <th>MÃ ĐƠN</th>
+                      <th>KHÁCH HÀNG</th>
+                      <th>SẢN PHẨM / DỊCH VỤ</th>
+                      <th>SỐ TIỀN</th>
+                      <th>TRẠNG THÁI</th>
+                      <th>NGÀY TẠO</th>
+                      <th>THAO TÁC</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr v-if="!orders.length">
+                      <td colspan="7" class="text-center py-8 text-slate-400">
+                        Chưa có đơn hàng nào phù hợp với bộ lọc.
+                      </td>
+                    </tr>
+                    <tr v-for="ord in orders" :key="ord.id">
+                      <td>
+                        <strong class="font-mono text-amber-400">{{ ord.order_code }}</strong>
+                        <div v-if="ord.utm_source" class="text-xs text-slate-500 mt-0.5">
+                          🎯 {{ ord.utm_source }}
+                        </div>
+                      </td>
+                      <td>
+                        <div class="font-medium text-white">{{ ord.client_name || '(Chưa nhập tên)' }}</div>
+                        <div v-if="ord.client_phone" class="lead-phone-row mt-1">
+                          <span class="phone-display">{{ ord.client_phone }}</span>
+                          <a :href="`https://zalo.me/${cleanPhone(ord.client_phone)}`" target="_blank" class="btn-quick-zalo">
+                            💬 Zalo
+                          </a>
+                        </div>
+                        <div v-if="ord.client_email" class="text-xs text-slate-500 mt-0.5">{{ ord.client_email }}</div>
+                      </td>
+                      <td>
+                        <span class="badge-service">{{ ord.product_label || ord.product_type }}</span>
+                        <div v-if="ord.download_url" class="mt-1">
+                          <a :href="ord.download_url" target="_blank" class="text-xs text-cyan-400 hover:underline">
+                            🔗 Link tải Drive
+                          </a>
+                        </div>
+                      </td>
+                      <td>
+                        <strong class="text-emerald-400 font-mono">{{ formatVND(ord.amount) }}</strong>
+                      </td>
+                      <td>
+                        <span
+                          class="status-badge"
+                          :class="ord.status === 'paid' ? 'status-completed' : ord.status === 'cancelled' ? 'status-cancelled' : 'status-new'"
+                        >
+                          {{ ord.status === 'paid' ? '🟢 Đã thu tiền' : ord.status === 'cancelled' ? '⚪ Đã huỷ' : '🟡 Chờ thanh toán' }}
+                        </span>
+                      </td>
+                      <td class="text-xs text-slate-400 font-mono">
+                        {{ ord.created_at ? new Date(ord.created_at).toLocaleString('vi-VN') : '—' }}
+                      </td>
+                      <td>
+                        <div class="flex items-center gap-1.5">
+                          <button
+                            v-if="ord.status !== 'paid'"
+                            class="btn-xs-action bg-emerald-700/60 hover:bg-emerald-600 text-white"
+                            :disabled="updatingOrderId === ord.id"
+                            @click="updateOrderStatus(ord.id, 'paid')"
+                            title="Xác nhận đã nhận tiền thủ công"
+                          >
+                            ✓ Duyệt
+                          </button>
+                          <button
+                            v-if="ord.status === 'pending'"
+                            class="btn-xs-action bg-rose-900/40 hover:bg-rose-800 text-rose-300"
+                            :disabled="updatingOrderId === ord.id"
+                            @click="updateOrderStatus(ord.id, 'cancelled')"
+                            title="Huỷ đơn"
+                          >
+                            ✕ Huỷ
+                          </button>
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <!-- Bookings Table -->
+            <div class="dashboard-panel table-panel">
+              <div class="panel-heading mb-3">
+                <h2 class="panel-h2">🎙️ Lịch Đặt Cọc Phòng Thu (Studio Bookings)</h2>
+              </div>
+              <div class="table-scroll-wrapper">
+                <table class="leads-table">
+                  <thead>
+                    <tr>
+                      <th>MÃ ĐƠN</th>
+                      <th>KHÁCH HÀNG</th>
+                      <th>LỊCH HẸN THU</th>
+                      <th>TIỀN CỌC ĐÃ THU</th>
+                      <th>TRẠNG THÁI</th>
+                      <th>GHI CHÚ</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr v-if="!bookings.length">
+                      <td colspan="6" class="text-center py-6 text-slate-400">
+                        Chưa có lịch cọc studio nào được ghi nhận.
+                      </td>
+                    </tr>
+                    <tr v-for="b in bookings" :key="b.id">
+                      <td class="font-mono text-amber-400">{{ b.order_code }}</td>
+                      <td>
+                        <div class="font-medium text-white">{{ b.client_name }}</div>
+                        <span class="phone-display text-xs">{{ b.client_phone }}</span>
+                      </td>
+                      <td>
+                        <strong class="text-white">{{ b.booking_time || '' }} {{ b.booking_date || '' }}</strong>
+                        <div class="text-xs text-slate-400">Dịch vụ: {{ b.service_type }}</div>
+                      </td>
+                      <td>
+                        <span class="text-emerald-400 font-mono font-bold">{{ formatVND(b.deposit_amount || 0) }}</span>
+                      </td>
+                      <td>
+                        <span
+                          class="status-badge"
+                          :class="b.status === 'confirmed' ? 'status-completed' : 'status-new'"
+                        >
+                          {{ b.status === 'confirmed' ? '🟢 Đã khoá lịch' : '🟡 Chờ cọc' }}
+                        </span>
+                      </td>
+                      <td class="text-xs text-slate-400">{{ b.notes || '—' }}</td>
+                    </tr>
+                  </tbody>
+                </table>
               </div>
             </div>
           </div>
@@ -3216,6 +3514,7 @@ onMounted(async () => {
   margin-bottom: 0.4rem;
   display: -webkit-box;
   -webkit-line-clamp: 2;
+  line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }

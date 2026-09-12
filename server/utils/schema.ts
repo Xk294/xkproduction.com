@@ -15,7 +15,7 @@ let schemaEnsured = false
 let schemaPromise: Promise<void> | null = null
 
 /**
- * Lazy, idempotent migration check. Ensures columns exist without crashing.
+ * Lazy, idempotent migration check. Ensures columns and tables exist without crashing.
  * Caches in worker memory so it executes at most once per isolate.
  */
 export async function ensureSchema(db: D1Database | undefined): Promise<void> {
@@ -116,6 +116,47 @@ export async function ensureSchema(db: D1Database | undefined): Promise<void> {
         }
       }
 
+      // 4. Create orders table (auto-fulfillment for digital products)
+      await db.prepare(`
+        CREATE TABLE IF NOT EXISTS orders (
+          id INTEGER PRIMARY KEY AUTOINCREMENT,
+          order_code TEXT NOT NULL UNIQUE,
+          client_name TEXT,
+          client_phone TEXT,
+          client_email TEXT,
+          product_type TEXT NOT NULL,
+          product_id TEXT,
+          product_label TEXT,
+          amount INTEGER NOT NULL,
+          status TEXT NOT NULL DEFAULT 'pending',
+          download_url TEXT,
+          utm_source TEXT,
+          utm_medium TEXT,
+          utm_campaign TEXT,
+          landing_page TEXT,
+          created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+          updated_at DATETIME DEFAULT CURRENT_TIMESTAMP
+        )
+      `).run().catch(() => {})
+
+      // 5. Create bookings table (studio scheduling with deposit tracking)
+      await db.prepare(`
+        CREATE TABLE IF NOT EXISTS bookings (
+          id INTEGER PRIMARY KEY AUTOINCREMENT,
+          order_code TEXT NOT NULL,
+          client_name TEXT NOT NULL,
+          client_phone TEXT NOT NULL,
+          service_type TEXT NOT NULL,
+          booking_date TEXT,
+          booking_time TEXT,
+          notes TEXT,
+          status TEXT NOT NULL DEFAULT 'deposit_pending',
+          deposit_amount INTEGER,
+          total_estimate INTEGER,
+          created_at DATETIME DEFAULT CURRENT_TIMESTAMP
+        )
+      `).run().catch(() => {})
+
       schemaEnsured = true
     } catch (err) {
       console.warn('[schema] ensureSchema warning:', err)
@@ -130,4 +171,3 @@ export async function ensureSchema(db: D1Database | undefined): Promise<void> {
 export function getDB(event: Parameters<typeof getHeader>[0]): D1Database | undefined {
   return (event.context.cloudflare?.env as Record<string, unknown>)?.DB as D1Database | undefined
 }
-

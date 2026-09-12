@@ -75,3 +75,47 @@ CREATE TABLE events (
 );
 CREATE INDEX IF NOT EXISTS idx_events_action ON events(action, created_at DESC);
 
+-- 4. Orders — đơn hàng số tự động (preset, khoá học, cọc online)
+DROP TABLE IF EXISTS orders;
+CREATE TABLE orders (
+  id           INTEGER  PRIMARY KEY AUTOINCREMENT,
+  order_code   TEXT     NOT NULL UNIQUE,
+  client_name  TEXT,
+  client_phone TEXT,
+  client_email TEXT,
+  product_type TEXT     NOT NULL, -- 'preset' | 'course' | 'mix_deposit' | 'studio_deposit'
+  product_id   TEXT,
+  product_label TEXT,
+  amount       INTEGER  NOT NULL,
+  status       TEXT     NOT NULL DEFAULT 'pending', -- 'pending' | 'paid' | 'cancelled'
+  download_url TEXT,
+  utm_source   TEXT,
+  utm_medium   TEXT,
+  utm_campaign TEXT,
+  landing_page TEXT,
+  created_at   DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  updated_at   DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
+CREATE INDEX IF NOT EXISTS idx_orders_code ON orders(order_code);
+CREATE INDEX IF NOT EXISTS idx_orders_status ON orders(status);
+CREATE INDEX IF NOT EXISTS idx_orders_created ON orders(created_at DESC);
+
+-- 5. Bookings — lịch thu studio có cọc (zero no-show)
+DROP TABLE IF EXISTS bookings;
+CREATE TABLE bookings (
+  id             INTEGER  PRIMARY KEY AUTOINCREMENT,
+  order_code     TEXT     NOT NULL,
+  client_name    TEXT     NOT NULL,
+  client_phone   TEXT     NOT NULL,
+  service_type   TEXT     NOT NULL,
+  booking_date   TEXT,
+  booking_time   TEXT,
+  notes          TEXT,
+  status         TEXT     NOT NULL DEFAULT 'deposit_pending', -- 'deposit_pending' | 'confirmed' | 'completed' | 'cancelled'
+  deposit_amount INTEGER,
+  total_estimate INTEGER,
+  created_at     DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
+CREATE INDEX IF NOT EXISTS idx_bookings_code ON bookings(order_code);
+CREATE INDEX IF NOT EXISTS idx_bookings_status ON bookings(status);
+CREATE INDEX IF NOT EXISTS idx_bookings_date ON bookings(booking_date);
