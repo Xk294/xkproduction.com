@@ -9,9 +9,9 @@
     <!-- ===== HERO SECTION ===== -->
     <section class="page-hero">
       <div class="editorial-container">
-        <span class="hero-badge"><i class="fa-solid fa-circle-info"></i> GIỚI THIỆU</span>
-        <h1 class="page-hero-title">Phòng Thu Âm <span class="text-gradient-animated">Chuyên Nghiệp</span> &amp; Tận Tâm</h1>
-        <p class="page-hero-sub">Đồng hành cùng nghệ sĩ, ca sĩ và người yêu nhạc tạo nên những bài hát chỉnh chu, sạch sẽ và giàu cảm xúc.</p>
+        <span class="badge-v2 amber"><i class="fa-solid fa-circle-info"></i> GIỚI THIỆU</span>
+        <h1 class="page-hero-title">Phòng Thu Âm <span class="text-gold-gradient">Chuyên Nghiệp</span> &amp; Tận Tâm</h1>
+        <p class="page-hero-sub">Đồng hành cùng nghệ sĩ, ca sĩ và người yêu nhạc tạo nên những bài hát chỉn chu, sạch sẽ và giàu cảm xúc.</p>
       </div>
     </section>
 
@@ -19,8 +19,8 @@
     <section id="story" class="section-block">
       <div class="editorial-container">
         <div class="section-header-minimal">
-          <span class="header-tag">HÀNH TRÌNH KHỞI ĐẦU</span>
-          <h2 class="section-heading-heavy">Câu Chuyện Của Chúng Tôi</h2>
+          <span class="badge-v2 amber">HÀNH TRÌNH KHỞI ĐẦU</span>
+          <h2 class="editorial-heading mt-3">Câu Chuyện Của Chúng Tôi</h2>
         </div>
 
         <div class="grid-2-editorial">
@@ -36,14 +36,14 @@
             </p>
           </div>
 
-          <div class="founder-spotlight-card glass-card">
+          <div class="founder-spotlight-card matte-card">
             <div class="founder-portrait-wrap">
               <img src="/images/founder-kiet.jpg" alt="Nguyễn Xuân Kiệt - Founder & Music Producer tại XKProduction" class="founder-portrait-img" loading="lazy" width="160" height="160" />
               <div class="portrait-glow-border"></div>
             </div>
             <div class="founder-info-text text-center">
               <h3>Nguyễn Xuân Kiệt</h3>
-              <span class="founder-badge">Founder & Music Producer</span>
+              <span class="badge-v2 amber mt-1">Founder & Music Producer</span>
               <p class="founder-philosophy-quote">"Kỹ thuật là nền tảng, nhưng cảm xúc mới là thứ làm nên linh hồn của một bản phối."</p>
             </div>
           </div>
@@ -55,12 +55,12 @@
     <section class="section-block section-milestones">
       <div class="editorial-container">
         <div class="section-header-center text-center">
-          <span class="header-tag">CỘT MỐC LỊCH SỬ</span>
-          <h2 class="section-heading-heavy text-center">Lộ Trình Phát Triển</h2>
+          <span class="badge-v2 teal">CỘT MỐC LỊCH SỬ</span>
+          <h2 class="editorial-heading text-center mt-3">Lộ Trình Phát Triển</h2>
           <p class="section-subtitle">Từng bước khẳng định vị thế và chất lượng dịch vụ âm thanh</p>
         </div>
 
-        <div class="timeline-container glass-card">
+        <div class="timeline-container matte-card">
           <div class="timeline-line"></div>
           
           <div class="timeline-steps">
@@ -108,14 +108,14 @@
     <section id="artists" class="section-block section-artists">
       <div class="editorial-container">
         <div class="section-header-center text-center">
-          <span class="header-tag">NGHỆ SĨ TIÊU BIỂU</span>
-          <h2 class="section-heading-heavy text-center">Nghệ Sĩ Đã Tin Tưởng</h2>
+          <span class="badge-v2 amber">NGHỆ SĨ TIÊU BIỂU</span>
+          <h2 class="editorial-heading text-center mt-3">Nghệ Sĩ Đã Tin Tưởng</h2>
           <p class="section-subtitle">Họ nói gì về chất lượng âm thanh và tinh thần làm việc tại XKProduction</p>
         </div>
 
         <div class="artists-grid">
           <!-- Cao Thành Lâm -->
-          <div class="artist-card glass-card hover-lift">
+          <div class="artist-card matte-card hover-lift">
             <div class="artist-photo-wrap">
               <img src="/images/cao-thanh-lam.jpg" alt="Cao Thành Lâm - Singer tại XKProduction" class="artist-photo" loading="lazy" width="90" height="90" />
               <div class="artist-photo-glow"></div>
@@ -130,7 +130,7 @@
           </div>
 
           <!-- Revan -->
-          <div class="artist-card glass-card hover-lift">
+          <div class="artist-card matte-card hover-lift">
             <div class="artist-photo-wrap">
               <img src="/images/revan.jpg" alt="Revan - Rapper tại XKProduction" class="artist-photo" loading="lazy" width="90" height="90" />
               <div class="artist-photo-glow"></div>
@@ -145,7 +145,7 @@
           </div>
 
           <!-- Howl -->
-          <div class="artist-card glass-card hover-lift">
+          <div class="artist-card matte-card hover-lift">
             <div class="artist-photo-wrap">
               <img src="/images/howl.jpg" alt="Howl - Rapper tại XKProduction" class="artist-photo" loading="lazy" width="90" height="90" />
               <div class="artist-photo-glow"></div>
@@ -160,7 +160,7 @@
           </div>
 
           <!-- Fesu -->
-          <div class="artist-card glass-card hover-lift">
+          <div class="artist-card matte-card hover-lift">
             <div class="artist-photo-wrap">
               <img src="/images/fesu.jpg" alt="Fesu - Singer tại XKProduction" class="artist-photo" loading="lazy" width="90" height="90" />
               <div class="artist-photo-glow"></div>
@@ -181,12 +181,12 @@
     <section id="mission" class="section-block section-mission">
       <div class="editorial-container">
         <div class="section-header-minimal">
-          <span class="header-tag">ĐỊNH HƯỚNG</span>
-          <h2 class="section-heading-heavy">Mục Tiêu &amp; Giá Trị</h2>
+          <span class="badge-v2 teal">ĐỊNH HƯỚNG</span>
+          <h2 class="editorial-heading mt-3">Mục Tiêu &amp; Giá Trị</h2>
         </div>
 
         <div class="grid-2-editorial" style="margin-top: 3.5rem;">
-          <div class="mission-left glass-card">
+          <div class="mission-left matte-card">
             <div class="card-icon-icon"><i class="fa-solid fa-bullseye"></i></div>
             <h3>Mục tiêu làm nghề</h3>
             <p class="mission-lead">Mang lại cho bạn trải nghiệm thu âm thoải mái, một bản phối ưng ý và sản phẩm âm nhạc chỉn chu với chi phí hợp lý nhất:</p>
@@ -199,7 +199,7 @@
             </ul>
           </div>
           
-          <div class="mission-right glass-card">
+          <div class="mission-right matte-card">
             <div class="card-icon-icon"><i class="fa-solid fa-star"></i></div>
             <h3>Giá trị cốt lõi</h3>
             <p class="mission-lead">Những nguyên tắc bất biến định hình chất lượng dịch vụ và uy tín thương hiệu của XKProduction:</p>
@@ -219,16 +219,16 @@
     <section id="experience" class="section-block section-experience">
       <div class="editorial-container">
         <div class="section-header-center text-center">
-          <span class="header-tag">ĐẶC QUYỀN TRẢI NGHIỆM &amp; TRIẾT LÝ NGHỆ THUẬT</span>
-          <h2 class="section-heading-heavy text-center">Nơi Cảm Xúc Thăng Hoa Thành Tác Phẩm Để Đời</h2>
+          <span class="badge-v2 amber">ĐẶC QUYỀN TRẢI NGHIỆM &amp; TRIẾT LÝ NGHỆ THUẬT</span>
+          <h2 class="editorial-heading text-center mt-3">Nơi Cảm Xúc Thăng Hoa Thành Tác Phẩm Để Đời</h2>
           <p class="section-subtitle">Không phán xét, không thông số máy móc khô khan. Chúng tôi trao cho bạn sự tự tin tuyệt đối để cất cao tiếng hát và tự hào với bài hát của chính mình.</p>
         </div>
 
         <div class="experience-grid">
           <!-- Pillar 1 -->
-          <div class="experience-card glass-card">
+          <div class="experience-card matte-card">
             <div class="exp-card-header">
-              <span class="exp-badge">01 / TÂM LÝ &amp; SỰ TỰ TIN</span>
+              <span class="badge-v2 amber text-meta-mono">01 / TÂM LÝ &amp; SỰ TỰ TIN</span>
               <div class="exp-icon"><i class="fa-solid fa-heart-pulse"></i></div>
             </div>
             <h3>Thoải Mái Tuyệt Đối — Không Áp Lực, Không Phán Xét</h3>
@@ -241,9 +241,9 @@
           </div>
 
           <!-- Pillar 2 -->
-          <div class="experience-card glass-card">
+          <div class="experience-card matte-card">
             <div class="exp-card-header">
-              <span class="exp-badge">02 / TÔN VINH BẢN SẮC</span>
+              <span class="badge-v2 amber text-meta-mono">02 / TÔN VINH BẢN SẮC</span>
               <div class="exp-icon"><i class="fa-solid fa-fingerprint"></i></div>
             </div>
             <h3>Giữ Trọn Màu Giọng Thật Độc Bản</h3>
@@ -256,9 +256,9 @@
           </div>
 
           <!-- Pillar 3 -->
-          <div class="experience-card glass-card">
+          <div class="experience-card matte-card">
             <div class="exp-card-header">
-              <span class="exp-badge">03 / CHUẨN MỰC PHÁT HÀNH</span>
+              <span class="badge-v2 amber text-meta-mono">03 / CHUẨN MỰC PHÁT HÀNH</span>
               <div class="exp-icon"><i class="fa-solid fa-gem"></i></div>
             </div>
             <h3>Chất Âm Sang Trọng — Chuẩn Thương Mại</h3>
@@ -271,9 +271,9 @@
           </div>
 
           <!-- Pillar 4 -->
-          <div class="experience-card glass-card">
+          <div class="experience-card matte-card">
             <div class="exp-card-header">
-              <span class="exp-badge">04 / CHẮP CÁNH Ý TƯỞNG</span>
+              <span class="badge-v2 amber text-meta-mono">04 / CHẮP CÁNH Ý TƯỞNG</span>
               <div class="exp-icon"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
             </div>
             <h3>Biến Giai Điệu Mộc Thành Bản Phối Đỉnh Cao</h3>
@@ -286,9 +286,9 @@
           </div>
 
           <!-- Pillar 5 -->
-          <div class="experience-card glass-card">
+          <div class="experience-card matte-card">
             <div class="exp-card-header">
-              <span class="exp-badge">05 / CAM KẾT HÀI LÒNG</span>
+              <span class="badge-v2 amber text-meta-mono">05 / CAM KẾT HÀI LÒNG</span>
               <div class="exp-icon"><i class="fa-solid fa-shield-halved"></i></div>
             </div>
             <h3>Tỉ Mỉ Tinh Chỉnh Đến Khi Bạn Thật Sự Ưng Ý</h3>
@@ -301,9 +301,9 @@
           </div>
 
           <!-- Pillar 6 -->
-          <div class="experience-card glass-card">
+          <div class="experience-card matte-card">
             <div class="exp-card-header">
-              <span class="exp-badge">06 / AN TOÀN &amp; TÁC QUYỀN</span>
+              <span class="badge-v2 amber text-meta-mono">06 / AN TOÀN &amp; TÁC QUYỀN</span>
               <div class="exp-icon"><i class="fa-solid fa-award"></i></div>
             </div>
             <h3>Toàn Quyền Sở Hữu — Bệ Phóng Tỏa Sáng</h3>
@@ -317,7 +317,7 @@
         </div>
 
         <!-- Experience Pledge Trust Banner -->
-        <div class="experience-pledge glass-card">
+        <div class="experience-pledge matte-card">
           <div class="pledge-quote-col">
             <div class="pledge-quote-mark"><i class="fa-solid fa-quote-left"></i></div>
             <p class="pledge-quote-text">
@@ -354,11 +354,11 @@
     <!-- ===== FINAL CTA ===== -->
     <section class="final-cta-section text-center">
       <div class="editorial-container">
-        <div class="cta-card glass-card">
-          <div class="cta-glow-spot"></div>
-          <h2>Bắt Đầu Bài Hát Của Bạn Cùng XKProduction</h2>
+        <div class="cta-card matte-card">
+          <span class="badge-v2 amber">ĐỒNG HÀNH CÙNG BẠN</span>
+          <h2 class="mt-3">Bắt Đầu Bài Hát Của Bạn Cùng XKProduction</h2>
           <p>Dù bạn đã có bài hát hoàn chỉnh hay chỉ mới có một đoạn giai điệu ngâm nga, chúng tôi luôn sẵn sàng lắng nghe và đồng hành.</p>
-          <NuxtLink to="/start-a-project" class="btn btn-primary btn-pulse btn-large">Nhắn tin trao đổi ngay</NuxtLink>
+          <NuxtLink to="/start-a-project" class="btn btn-primary btn-large">Nhắn tin trao đổi ngay</NuxtLink>
         </div>
       </div>
     </section>

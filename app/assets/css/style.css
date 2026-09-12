@@ -889,6 +889,10 @@ p, .section-subtitle, .wizard-subtitle, .prose {
   text-wrap: balance;
 }
 
+.mt-3 {
+  margin-top: 0.85rem !important;
+}
+
 .text-gold-gradient {
   color: #f59e0b;
   background: linear-gradient(180deg, #FFFDF8 0%, #FDE08E 38%, #F59E0B 75%, #D97706 100%);

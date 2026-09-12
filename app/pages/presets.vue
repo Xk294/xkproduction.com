@@ -176,44 +176,83 @@
             <i class="fa-solid fa-xmark"></i>
           </button>
 
-          <div class="modal-header text-center">
-            <span class="header-tag">TẢI FILE NHANH CHÓNG</span>
-            <h3>Tải Gói {{ selectedPreset.title }}</h3>
-            <p class="modal-sub">Quét mã QR thanh toán và nhận ngay link Google Drive tốc độ cao qua Zalo</p>
+          <!-- Loading: đang tạo mã đơn -->
+          <div v-if="checkoutPhase === 'loading'" class="modal-body text-center" style="padding: 3rem 2rem;">
+            <i class="fa-solid fa-spinner fa-spin" style="font-size: 2rem; color: var(--accent); margin-bottom: 1rem;"></i>
+            <p style="color: var(--text-light);">Đang tạo mã đơn hàng...</p>
           </div>
 
-          <div class="modal-body">
-            <div class="client-input-row">
-              <label for="client-phone">Số điện thoại của bạn (để xác nhận tải file):</label>
-              <input 
-                id="client-phone" 
-                v-model="clientPhone" 
-                type="tel" 
-                placeholder="Nhập SĐT của bạn (VD: 09xx...)" 
-                class="phone-input"
-              />
+          <!-- QR Phase: chờ thanh toán -->
+          <template v-else-if="checkoutPhase === 'qr'">
+            <div class="modal-header text-center">
+              <span class="header-tag">TẢI FILE NHANH CHÓNG</span>
+              <h3>Tải Gói {{ selectedPreset.title }}</h3>
+              <p class="modal-sub">Quét mã QR thanh toán và hệ thống sẽ tự động giao file ngay cho bạn</p>
             </div>
 
-            <VietQRPayment 
-              :amount="selectedPreset.price" 
-              :service-name="`PRESET ${selectedPreset.code}`" 
-              :client-name="clientPhone || 'KHACH HANG'" 
-            />
+            <div class="modal-body">
+              <div class="client-input-row">
+                <label for="client-phone">Số điện thoại của bạn (để xác nhận tải file):</label>
+                <input
+                  id="client-phone"
+                  v-model="clientPhone"
+                  type="tel"
+                  placeholder="Nhập SĐT của bạn (VD: 09xx...)"
+                  class="phone-input"
+                />
+              </div>
 
-            <div class="instant-access-box glass-card text-center">
-              <i class="fa-solid fa-shield-check" style="color: var(--teal); font-size: 1.5rem; margin-bottom: 0.5rem;"></i>
-              <p>Sau khi quét mã, vui lòng bấm nút bên dưới để gửi tin nhắn xác nhận qua Zalo. Đội ngũ XKProduction sẽ gửi ngay link tải tốc độ cao!</p>
-              <a 
-                :href="`https://zalo.me/0355356294?text=${encodeURIComponent(`Chào XKProduction, tôi vừa chuyển khoản mua ${selectedPreset.title} qua SĐT ${clientPhone}`)}`" 
-                target="_blank" 
-                rel="noopener" 
+              <VietQRPayment
+                :amount="selectedPreset.price"
+                :service-name="`PRESET ${selectedPreset.code}`"
+                :client-name="clientPhone || 'KHACH HANG'"
+                :order-code="orderCode"
+              />
+
+              <div class="instant-access-box glass-card text-center">
+                <i class="fa-solid fa-shield-check" style="color: var(--teal); font-size: 1.5rem; margin-bottom: 0.5rem;"></i>
+                <p>Sau khi chuyển khoản, hệ thống sẽ tự động xác nhận và hiển thị link tải ngay tại đây trong vài giây. Nếu cần hỗ trợ, bấm nút Zalo bên dưới.</p>
+                <a
+                  :href="`https://zalo.me/0355356294?text=${encodeURIComponent(`Chào XKProduction, tôi vừa chuyển khoản mua ${selectedPreset.title} mã ${orderCode} qua SĐT ${clientPhone}`)}`"
+                  target="_blank"
+                  rel="noopener"
+                  class="btn btn-secondary full-width"
+                  style="margin-top: 1rem;"
+                >
+                  <i class="fa-solid fa-comment-dots"></i> Hỗ trợ Zalo (0355.356.294)
+                </a>
+              </div>
+            </div>
+          </template>
+
+          <!-- Success Phase: đã nhận tiền, trao file ngay -->
+          <template v-else-if="checkoutPhase === 'success'">
+            <div class="modal-body text-center" style="padding: 2.5rem 2rem;">
+              <i class="fa-solid fa-circle-check" style="font-size: 3rem; color: var(--teal); margin-bottom: 1rem;"></i>
+              <h3 style="color: #fff; margin-bottom: 0.5rem;">Thanh Toán Thành Công!</h3>
+              <p style="color: var(--text-light); margin-bottom: 1.5rem;">
+                Cảm ơn bạn đã mua <strong style="color: var(--text-main);">{{ selectedPreset.title }}</strong>. Bấm nút bên dưới để tải file ngay!
+              </p>
+              <a
+                v-if="downloadUrl"
+                :href="downloadUrl"
+                target="_blank"
+                rel="noopener noreferrer"
                 class="btn btn-primary full-width"
-                style="margin-top: 1rem;"
+                style="margin-bottom: 1rem;"
               >
-                <i class="fa-solid fa-comment-dots"></i> Nhận Link File Qua Zalo (0355.356.294)
+                <i class="fa-solid fa-download"></i> Tải Bộ Preset Ngay (Google Drive)
+              </a>
+              <a
+                :href="`https://zalo.me/0355356294?text=${encodeURIComponent(`Chào XKProduction, tôi vừa mua ${selectedPreset.title} mã ${orderCode}. Cần hỗ trợ cài đặt!`)}`"
+                target="_blank"
+                rel="noopener"
+                class="btn btn-secondary full-width"
+              >
+                <i class="fa-solid fa-comment-dots"></i> Hỗ trợ cài đặt qua Zalo
               </a>
             </div>
-          </div>
+          </template>
         </div>
       </div>
     </Transition>
@@ -268,19 +307,89 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref, onUnmounted } from 'vue'
 
 const clientPhone = ref('')
 const selectedPreset = ref<{ title: string; price: number; code: string } | null>(null)
 
-const openCheckout = (title: string, price: number) => {
+// Checkout state machine: 'qr' = đang chờ thanh toán, 'success' = đã thanh toán xong
+type CheckoutPhase = 'idle' | 'loading' | 'qr' | 'success'
+const checkoutPhase = ref<CheckoutPhase>('idle')
+const orderCode = ref('')
+const downloadUrl = ref('')
+
+let pollInterval: ReturnType<typeof setInterval> | null = null
+
+function clearPoll() {
+  if (pollInterval !== null) {
+    clearInterval(pollInterval)
+    pollInterval = null
+  }
+}
+
+const openCheckout = async (title: string, price: number) => {
   const code = title.replace(/\s+/g, '').toUpperCase().slice(0, 10)
   selectedPreset.value = { title, price, code }
+  checkoutPhase.value = 'loading'
+  orderCode.value = ''
+  downloadUrl.value = ''
+
+  try {
+    const res = await fetch('/api/payment/create-order', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        product_type: 'preset',
+        product_id: code,
+        product_label: title,
+        amount: price,
+        client_name: clientPhone.value || undefined,
+      }),
+    })
+    if (res.ok) {
+      const data = await res.json() as { order_code: string }
+      orderCode.value = data.order_code
+    }
+  } catch {
+    // Nếu API lỗi, vẫn hiển thị QR với cú pháp cũ (fallback graceful)
+  }
+
+  checkoutPhase.value = 'qr'
+
+  // Bắt đầu polling kiểm tra thanh toán mỗi 4 giây (tối đa 10 phút)
+  clearPoll()
+  if (orderCode.value) {
+    let attempts = 0
+    const MAX_ATTEMPTS = 150
+    pollInterval = setInterval(async () => {
+      attempts++
+      if (attempts > MAX_ATTEMPTS) {
+        clearPoll()
+        return
+      }
+      try {
+        const res = await fetch(`/api/payment/check-status?code=${orderCode.value}`)
+        if (!res.ok) return
+        const data = await res.json() as { status: string; download_url?: string }
+        if (data.status === 'paid') {
+          clearPoll()
+          downloadUrl.value = data.download_url || ''
+          checkoutPhase.value = 'success'
+        }
+      } catch {}
+    }, 4000)
+  }
 }
 
 const closeCheckout = () => {
+  clearPoll()
   selectedPreset.value = null
+  checkoutPhase.value = 'idle'
+  orderCode.value = ''
+  downloadUrl.value = ''
 }
+
+onUnmounted(clearPoll)
 
 useSeoMeta({
   title: 'Kho Vocal Presets & Template Phòng Thu — Logic Pro, FL Studio | XKProduction',

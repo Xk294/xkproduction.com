@@ -139,22 +139,28 @@
               <h3 style="color: #fff; margin-bottom: 0.5rem;">Đã nhận thông tin bài hát!</h3>
               <p style="color: var(--text-light); max-width: 600px; margin: 0 auto 1.5rem;">
                 XKProduction đã tiếp nhận link dự án gói <strong>Online {{ lastOrder.package }}</strong> của bạn.
-                Để producer xếp lịch và bắt tay vào xử lý ngay trong 48h, bạn có thể chuyển khoản thanh toán hoặc đặt cọc qua mã QR bên dưới:
+                Để producer xếp lịch và bắt tay vào xử lý ngay trong 48h, vui lòng chuyển khoản đặt cọc 50% (<strong>{{ formatCurrency(lastOrder.depositAmount) }}</strong>) qua mã QR bên dưới:
               </p>
               
-              <div style="max-width: 650px; margin: 0 auto 2rem; text-align: left;">
+              <div v-if="isPaid" class="instant-access-box glass-card text-center" style="max-width: 650px; margin: 0 auto 2rem; padding: 2rem; border-color: rgba(0, 212, 170, 0.3);">
+                <i class="fa-solid fa-circle-check" style="color: var(--teal); font-size: 2.5rem; margin-bottom: 0.75rem;"></i>
+                <h4 style="color: #fff; margin-bottom: 0.5rem; font-size: 1.3rem;">Đã Nhận Tiền Cọc 50% Thành Công!</h4>
+                <p style="color: var(--text-light); margin-bottom: 0;">XKProduction đã khóa lịch sản xuất bài hát của bạn. Producer Nguyễn Xuân Kiệt sẽ tiến hành mix và gửi bản draft demo đầu tiên qua Zalo/Email trong vòng 48h.</p>
+              </div>
+              <div v-else style="max-width: 650px; margin: 0 auto 2rem; text-align: left;">
                 <VietQRPayment 
-                  :amount="lastOrder.amount" 
-                  :service-name="`MIX ONLINE ${lastOrder.package}`" 
+                  :amount="lastOrder.depositAmount || lastOrder.amount" 
+                  :service-name="`MIX ONLINE ${lastOrder.package} (COC 50%)`" 
                   :client-name="lastOrder.name" 
+                  :order-code="lastOrder.orderCode"
                 />
               </div>
 
               <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
-                <a href="https://zalo.me/0355356294" target="_blank" rel="noopener" class="btn btn-primary">
+                <a :href="`https://zalo.me/0355356294?text=${encodeURIComponent(`Chào XKProduction, mình vừa gửi dự án Mix Online gói ${lastOrder.package}${lastOrder.orderCode ? ` (Mã đơn: ${lastOrder.orderCode})` : ''} từ SĐT ${lastOrder.phone}`)}`" target="_blank" rel="noopener" class="btn btn-primary">
                   <i class="fa-solid fa-comment-dots"></i> Nhắn Zalo xác nhận (0355.356.294)
                 </a>
-                <button class="btn btn-secondary" @click="submitState = 'idle'">Gửi dự án khác</button>
+                <button class="btn btn-secondary" @click="resetForm">Gửi dự án khác</button>
               </div>
             </div>
             <div v-else-if="submitState === 'error'" class="form-toast-error text-center">
@@ -216,7 +222,7 @@
 </template>
 
 <script setup lang="ts">
-import { reactive, ref } from 'vue'
+import { reactive, ref, onUnmounted } from 'vue'
 
 useSeoMeta({
   title: 'Mix & Master Online — Gửi File Nhận Bản Mix Chuyên Nghiệp | XKProduction',
@@ -275,9 +281,33 @@ const packageAmounts: Record<string, number> = {
 
 const lastOrder = reactive({
   name: '',
+  phone: '',
   package: '',
-  amount: 0
+  amount: 0,
+  depositAmount: 0,
+  orderCode: '',
 })
+const isPaid = ref(false)
+let mixPollInterval: ReturnType<typeof setInterval> | null = null
+
+const formatCurrency = (val: number) => {
+  return new Intl.NumberFormat('vi-VN').format(val) + '₫'
+}
+
+function clearMixPoll() {
+  if (mixPollInterval) {
+    clearInterval(mixPollInterval)
+    mixPollInterval = null
+  }
+}
+
+function resetForm() {
+  clearMixPoll()
+  isPaid.value = false
+  submitState.value = 'idle'
+}
+
+onUnmounted(clearMixPoll)
 
 function selectPackage(pkg: string) {
   form.package = pkg
@@ -313,6 +343,13 @@ async function handleSubmit() {
     ...getTrackingPayload()
   }
 
+  const selectedPkg = form.package
+  const clientName = form.name
+  const clientPhone = form.phone
+  const clientEmail = form.email
+  const fullPrice = packageAmounts[selectedPkg] || 0
+  const deposit = Math.round(fullPrice * 0.5)
+
   try {
     const res = await fetch('/api/notify', {
       method: 'POST',
@@ -320,9 +357,58 @@ async function handleSubmit() {
       body: JSON.stringify(payload)
     })
     if (res.ok) {
-      lastOrder.name = form.name
-      lastOrder.package = form.package
-      lastOrder.amount = packageAmounts[form.package] || 0
+      lastOrder.name = clientName
+      lastOrder.phone = clientPhone
+      lastOrder.package = selectedPkg
+      lastOrder.amount = fullPrice
+      lastOrder.depositAmount = deposit
+      lastOrder.orderCode = ''
+      isPaid.value = false
+
+      try {
+        const orderRes = await fetch('/api/payment/create-order', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            product_type: 'mix_deposit',
+            product_id: selectedPkg,
+            product_label: `Mix Online Gói ${selectedPkg} (Cọc 50%)`,
+            amount: deposit,
+            client_name: clientName,
+            client_phone: clientPhone,
+            client_email: clientEmail || undefined,
+          })
+        })
+        if (orderRes.ok) {
+          const orderData = await orderRes.json() as { order_code: string }
+          lastOrder.orderCode = orderData.order_code
+        }
+      } catch (orderErr) {
+        console.warn('[mix-online] Tạo mã đơn cọc thất bại:', orderErr)
+      }
+
+      clearMixPoll()
+      if (lastOrder.orderCode) {
+        let attempts = 0
+        const MAX_ATTEMPTS = 150 // 10 phút
+        mixPollInterval = setInterval(async () => {
+          attempts++
+          if (attempts > MAX_ATTEMPTS) {
+            clearMixPoll()
+            return
+          }
+          try {
+            const pollRes = await fetch(`/api/payment/check-status?code=${lastOrder.orderCode}`)
+            if (!pollRes.ok) return
+            const pollData = await pollRes.json() as { status: string }
+            if (pollData.status === 'paid') {
+              clearMixPoll()
+              isPaid.value = true
+            }
+          } catch {}
+        }, 4000)
+      }
+
       submitState.value = 'success'
       Object.assign(form, { name: '', phone: '', email: '', package: '', link: '', notes: '' })
       return
@@ -337,13 +423,17 @@ async function handleSubmit() {
           headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
           body: JSON.stringify({
             ...payload,
-            _subject: `[XKProduction Mix Online] Gói ${form.package} từ ${payload.name} (${payload.phone})`
+            _subject: `[XKProduction Mix Online] Gói ${selectedPkg} từ ${payload.name} (${payload.phone})`
           })
         })
         if (fbRes.ok) {
-          lastOrder.name = form.name
-          lastOrder.package = form.package
-          lastOrder.amount = packageAmounts[form.package] || 0
+          lastOrder.name = clientName
+          lastOrder.phone = clientPhone
+          lastOrder.package = selectedPkg
+          lastOrder.amount = fullPrice
+          lastOrder.depositAmount = deposit
+          lastOrder.orderCode = ''
+          isPaid.value = false
           submitState.value = 'success'
           Object.assign(form, { name: '', phone: '', email: '', package: '', link: '', notes: '' })
           return

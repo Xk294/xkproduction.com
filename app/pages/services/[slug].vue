@@ -19,7 +19,7 @@
           <p class="cap-hero-desc">{{ isVi ? cap.summary : (cap.enSummary || cap.summary) }}</p>
 
           <div class="cap-hero-actions">
-            <NuxtLink to="/start-a-project" class="btn-start-cap">
+            <NuxtLink :to="`/start-a-project?service=${cap.slug}`" class="btn-start-cap">
               <span>{{ isVi ? 'BẮT ĐẦU DỰ ÁN' : 'START A PROJECT' }}</span>
               <i class="fa-solid fa-arrow-right"></i>
             </NuxtLink>
@@ -36,6 +36,15 @@
               </div>
             </div>
           </div>
+
+          <!-- TECHNICAL SPECIFICATIONS STRIP -->
+          <div v-if="cap.techSpecs && cap.techSpecs.length" class="cap-tech-specs-strip">
+            <div v-for="(spec, sIdx) in cap.techSpecs" :key="sIdx" class="spec-strip-card matte-card">
+              <span class="spec-label text-meta-mono">{{ isVi ? spec.label : (spec.enLabel || spec.label) }}</span>
+              <strong class="spec-value">{{ isVi ? spec.value : (spec.enValue || spec.value) }}</strong>
+              <p class="spec-desc">{{ isVi ? spec.desc : (spec.enDesc || spec.desc) }}</p>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -44,12 +53,26 @@
         <div class="editorial-container features-layout">
           <!-- MAIN FEATURES -->
           <div class="features-main-col">
-            <h2 class="col-heading">{{ isVi ? 'Điểm Nổi Bật Tại XKProduction' : 'Production Highlights' }}</h2>
+            <h2 class="col-heading">{{ isVi ? 'Điểm Tựa Cảm Xúc &amp; Quyền Lợi Của Bạn' : 'Emotional Care &amp; Studio Benefits' }}</h2>
             <div class="features-list">
               <div v-for="(feat, fIdx) in cap.features" :key="fIdx" class="feature-card matte-card">
                 <div class="feat-num text-meta-mono">0{{ fIdx + 1 }}</div>
                 <strong class="feat-title">{{ isVi ? feat.title : (feat.enTitle || feat.title) }}</strong>
                 <p class="feat-desc">{{ isVi ? feat.description : (feat.enDescription || feat.description) }}</p>
+              </div>
+            </div>
+
+            <!-- WORKFLOW SECTION -->
+            <div v-if="cap.workflow && cap.workflow.length" class="cap-workflow-block">
+              <h2 class="col-heading">{{ isVi ? 'Hành Trình Đồng Hành Cùng Bạn' : 'How We Walk Beside You' }}</h2>
+              <div class="workflow-steps-list">
+                <div v-for="(step, stIdx) in cap.workflow" :key="stIdx" class="workflow-step-card matte-card">
+                  <div class="step-badge text-meta-mono">{{ isVi ? step.step : (step.enStep || step.step) }}</div>
+                  <div class="step-content">
+                    <strong class="step-title">{{ isVi ? step.title : (step.enTitle || step.title) }}</strong>
+                    <p class="step-desc">{{ isVi ? step.desc : (step.enDesc || step.desc) }}</p>
+                  </div>
+                </div>
               </div>
             </div>
 
@@ -81,7 +104,33 @@
                 <strong>{{ isVi ? cap.timeline : (cap.enTimeline || cap.timeline) }}</strong>
               </div>
 
-              <NuxtLink to="/start-a-project" class="btn-sidebar-submit">
+              <!-- STUDIO GUARANTEES -->
+              <div v-if="cap.guarantees && cap.guarantees.length" class="sidebar-guarantees-section">
+                <span class="text-meta-mono s-badge">{{ isVi ? 'CAM KẾT CỦA STUDIO' : 'STUDIO ASSURANCE' }}</span>
+                <ul class="guarantees-list">
+                  <li v-for="(g, gIdx) in cap.guarantees" :key="gIdx" class="guarantee-item">
+                    <i class="fa-solid fa-shield-halved"></i>
+                    <div>
+                      <strong>{{ isVi ? g.title : (g.enTitle || g.title) }}</strong>
+                      <p>{{ isVi ? g.desc : (g.enDesc || g.desc) }}</p>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+
+              <!-- DIRECT STUDIO CONSULTATION -->
+              <div class="sidebar-direct-contact">
+                <span class="text-meta-mono s-badge">{{ isVi ? 'TƯ VẤN TRỰC TIẾP' : 'DIRECT ADVICE' }}</span>
+                <p class="direct-contact-note">
+                  {{ isVi ? 'Cần nghe thử demo hoặc trao đổi nhanh về bài hát của bạn?' : 'Want to discuss your track or demo directly?' }}
+                </p>
+                <a href="https://zalo.me/0355356294" target="_blank" rel="noopener noreferrer" class="btn-zalo-direct">
+                  <i class="fa-solid fa-comment-dots"></i>
+                  <span>Zalo: 0355.356.294 (Studio)</span>
+                </a>
+              </div>
+
+              <NuxtLink :to="`/start-a-project?service=${cap.slug}`" class="btn-sidebar-submit">
                 <span>{{ isVi ? 'GỬI YÊU CẦU DỰ ÁN' : 'SUBMIT PROJECT BRIEF' }}</span>
                 <i class="fa-solid fa-arrow-right"></i>
               </NuxtLink>
@@ -273,6 +322,44 @@ useSchemaOrg([
   color: var(--text-primary);
 }
 
+/* TECH SPECS STRIP */
+.cap-tech-specs-strip {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.25rem;
+  margin-top: 2.5rem;
+  padding-top: 2.5rem;
+  border-top: 1px solid var(--border-subtle);
+  width: 100%;
+}
+
+.spec-strip-card {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.spec-label {
+  font-size: 0.6875rem;
+  color: #fbbf24;
+  letter-spacing: 0.06em;
+}
+
+.spec-value {
+  font-size: 1.125rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  line-height: 1.3;
+}
+
+.spec-desc {
+  font-size: 0.8125rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  margin-top: 0.25rem;
+}
+
 /* FEATURES LAYOUT */
 .features-layout {
   display: grid;
@@ -317,6 +404,55 @@ useSchemaOrg([
 }
 
 .feat-desc {
+  font-size: 0.9375rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+/* WORKFLOW BLOCK */
+.cap-workflow-block {
+  margin-top: 1rem;
+}
+
+.workflow-steps-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.workflow-step-card {
+  padding: 1.75rem 2rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 1.5rem;
+}
+
+.step-badge {
+  font-size: 0.75rem;
+  font-weight: 800;
+  color: #14b8a6;
+  background: rgba(20, 184, 166, 0.12);
+  border: 1px solid rgba(20, 184, 166, 0.3);
+  padding: 0.35rem 0.65rem;
+  border-radius: 4px;
+  white-space: nowrap;
+  letter-spacing: 0.05em;
+  flex-shrink: 0;
+}
+
+.step-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.step-title {
+  font-size: 1.125rem;
+  color: var(--text-primary);
+  font-weight: 700;
+}
+
+.step-desc {
   font-size: 0.9375rem;
   color: var(--text-secondary);
   line-height: 1.6;
@@ -404,6 +540,86 @@ useSchemaOrg([
   color: var(--text-primary);
 }
 
+/* SIDEBAR GUARANTEES */
+.sidebar-guarantees-section {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border-subtle);
+}
+
+.guarantees-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.guarantee-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.65rem;
+}
+
+.guarantee-item i {
+  color: #fbbf24;
+  font-size: 0.8125rem;
+  margin-top: 0.25rem;
+  flex-shrink: 0;
+}
+
+.guarantee-item strong {
+  display: block;
+  font-size: 0.8125rem;
+  color: var(--text-primary);
+  line-height: 1.35;
+  margin-bottom: 0.15rem;
+}
+
+.guarantee-item p {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  line-height: 1.45;
+}
+
+/* SIDEBAR DIRECT CONTACT */
+.sidebar-direct-contact {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border-subtle);
+}
+
+.direct-contact-note {
+  font-size: 0.8125rem;
+  color: var(--text-secondary);
+  line-height: 1.45;
+}
+
+.btn-zalo-direct {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1rem;
+  background: rgba(22, 119, 255, 0.12);
+  border: 1px solid rgba(22, 119, 255, 0.3);
+  color: #60cfff;
+  font-weight: 700;
+  font-size: 0.8125rem;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.btn-zalo-direct:hover {
+  background: rgba(22, 119, 255, 0.22);
+  border-color: rgba(22, 119, 255, 0.55);
+  color: #ffffff;
+}
+
 .btn-sidebar-submit {
   display: inline-flex;
   align-items: center;
@@ -426,6 +642,20 @@ useSchemaOrg([
 @media (max-width: 1024px) {
   .features-layout {
     grid-template-columns: 1fr;
+  }
+  .cap-tech-specs-strip {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .cap-tech-specs-strip {
+    grid-template-columns: 1fr;
+  }
+  .workflow-step-card {
+    flex-direction: column;
+    gap: 0.75rem;
+    padding: 1.5rem;
   }
 }
 </style>

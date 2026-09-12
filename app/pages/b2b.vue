@@ -8,9 +8,9 @@
 
     <!-- 2. Hero -->
     <section class="page-hero">
-      <div class="max-width text-center">
-        <span class="hero-badge"><i class="fa-solid fa-briefcase"></i> DOANH NGHIỆP</span>
-        <h1 class="page-hero-title">Giải Pháp Âm Nhạc Cho <span class="text-gradient-animated">Thương Hiệu</span></h1>
+      <div class="editorial-container text-center">
+        <span class="badge-v2 amber"><i class="fa-solid fa-briefcase"></i> DOANH NGHIỆP</span>
+        <h1 class="page-hero-title">Giải Pháp Âm Nhạc Cho <span class="text-gold-gradient">Thương Hiệu</span></h1>
         <p class="page-hero-sub">Từ jingle TVC đến nhạc chủ đề sự kiện — XKProduction sản xuất âm nhạc thương mại chuyên nghiệp, đúng hạn, đúng cảm xúc brand.</p>
       </div>
     </section>
@@ -19,22 +19,22 @@
     <section class="services-b2b-section">
       <div class="editorial-container">
         <div class="b2b-services-grid">
-          <div class="glass-card hover-lift text-center b2b-service-card">
+          <div class="matte-card hover-lift text-center b2b-service-card">
             <div class="b2b-icon-wrap"><i class="fa-solid fa-film"></i></div>
             <h3>Nhạc TVC &amp; Quảng cáo</h3>
             <p>Sản xuất nhạc nền cho TVC 15s-60s, jingle, voice-over music.</p>
           </div>
-          <div class="glass-card hover-lift text-center b2b-service-card">
+          <div class="matte-card hover-lift text-center b2b-service-card">
             <div class="b2b-icon-wrap"><i class="fa-solid fa-crown"></i></div>
             <h3>Nhạc Thương Hiệu</h3>
             <p>Brand sound identity, nhạc chủ đề nhận diện.</p>
           </div>
-          <div class="glass-card hover-lift text-center b2b-service-card">
+          <div class="matte-card hover-lift text-center b2b-service-card">
             <div class="b2b-icon-wrap"><i class="fa-solid fa-building-columns"></i></div>
             <h3>Sự Kiện Doanh Nghiệp</h3>
             <p>Âm nhạc và âm thanh cho gala, hội nghị, team-building.</p>
           </div>
-          <div class="glass-card hover-lift text-center b2b-service-card">
+          <div class="matte-card hover-lift text-center b2b-service-card">
             <div class="b2b-icon-wrap"><i class="fa-solid fa-podcast"></i></div>
             <h3>Podcast &amp; Corporate Video</h3>
             <p>Underscore, bed music, cue sheets.</p>
@@ -47,20 +47,20 @@
     <section class="why-b2b-section">
       <div class="editorial-container">
         <div class="why-b2b-grid">
-          <div class="why-b2b-item glass-card text-center">
+          <div class="why-b2b-item matte-card text-center">
             <div class="why-icon"><i class="fa-solid fa-shield-halved"></i></div>
             <h4>Bảo mật dự án</h4>
-            <p>NDA sẵn sàng ký.</p>
+            <p>NDA sẵn sàng ký kết.</p>
           </div>
-          <div class="why-b2b-item glass-card text-center">
+          <div class="why-b2b-item matte-card text-center">
             <div class="why-icon"><i class="fa-solid fa-stopwatch"></i></div>
             <h4>Đúng deadline</h4>
-            <p>Cam kết bàn giao theo timeline.</p>
+            <p>Cam kết bàn giao theo timeline thoả thuận.</p>
           </div>
-          <div class="why-b2b-item glass-card text-center">
+          <div class="why-b2b-item matte-card text-center">
             <div class="why-icon"><i class="fa-solid fa-handshake-angle"></i></div>
             <h4>Flexible budget</h4>
-            <p>Báo giá theo quy mô dự án.</p>
+            <p>Báo giá linh hoạt theo quy mô dự án.</p>
           </div>
         </div>
       </div>
@@ -70,9 +70,9 @@
     <section class="process-section">
       <div class="editorial-container">
         <div class="section-header-minimal text-center" style="margin-bottom: 2rem;">
-          <span class="header-tag">QUY TRÌNH</span>
+          <span class="badge-v2 amber">QUY TRÌNH HỢP TÁC</span>
         </div>
-        <div class="process-b2b-grid glass-card">
+        <div class="process-b2b-grid matte-card">
           <div class="process-step">
             <span class="step-num">1</span>
             <strong>Nhận brief</strong>
@@ -95,19 +95,19 @@
 
     <!-- 6. Stats bar -->
     <section class="stats-section">
-      <div class="max-width text-center">
-        <div class="glass-card stats-bar-inner">
+      <div class="editorial-container text-center">
+        <div class="matte-card stats-bar-inner">
           <div class="stat-item">
             <strong>2000+</strong>
-            <span>Dự Án</span>
+            <span>Dự Án Hoàn Thành</span>
           </div>
           <div class="stat-item">
             <strong>7+</strong>
-            <span>Năm</span>
+            <span>Năm Hoạt Động</span>
           </div>
           <div class="stat-item">
             <strong>300+</strong>
-            <span>Nghệ sĩ tin tưởng</span>
+            <span>Nghệ sĩ &amp; Đối tác</span>
           </div>
         </div>
       </div>
@@ -116,9 +116,13 @@
     <!-- 7. CTA section with a contact form -->
     <section class="b2b-cta-section" style="margin-top: 4rem; padding-bottom: 6rem;">
       <div class="editorial-container">
-        <div class="glass-card b2b-form-wrap">
-          <div class="text-center" style="margin-bottom: 2rem;">
-            <h2>Đăng Ký Tư Vấn Doanh Nghiệp</h2>
+        <div class="matte-card b2b-form-wrap">
+          <div class="text-center" style="margin-bottom: 2.5rem;">
+            <span class="badge-v2 amber" style="margin-bottom: 1rem;">LIÊN HỆ TRỰC TIẾP</span>
+            <h2 class="editorial-heading">Đăng Ký Tư Vấn Doanh Nghiệp</h2>
+            <p class="text-muted" style="margin-top: 0.5rem; max-width: 540px; margin-left: auto; margin-right: auto;">
+              Gửi yêu cầu dự án âm nhạc thương mại. XKProduction sẽ phản hồi phương án &amp; báo giá sơ bộ trong vòng 24h. Hoặc có thể tạo brief trực tiếp tại <NuxtLink to="/start-a-project?service=b2b" class="link-gold">Start a Project</NuxtLink>.
+            </p>
           </div>
           
           <Transition name="toast">
@@ -398,17 +402,17 @@ async function handleSubmit() {
 }
 
 .b2b-icon-wrap {
-  width: 50px;
-  height: 50px;
+  width: 52px;
+  height: 52px;
   margin: 0 auto 1.5rem;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(217, 119, 6, 0.1);
+  border: 1px solid rgba(217, 119, 6, 0.25);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.2rem;
-  color: var(--accent);
+  font-size: 1.25rem;
+  color: #fbbf24;
 }
 
 .b2b-service-card h3 {
@@ -441,7 +445,7 @@ async function handleSubmit() {
 
 .why-icon {
   font-size: 2rem;
-  color: var(--primary);
+  color: #fbbf24;
   margin-bottom: 1rem;
 }
 
@@ -477,12 +481,13 @@ async function handleSubmit() {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 36px;
-  height: 36px;
-  background: var(--primary);
-  color: white;
+  width: 38px;
+  height: 38px;
+  background: rgba(217, 119, 6, 0.15);
+  border: 1px solid rgba(217, 119, 6, 0.35);
+  color: #fbbf24;
   border-radius: 50%;
-  font-weight: bold;
+  font-weight: 700;
   margin-bottom: 1rem;
 }
 
@@ -507,7 +512,7 @@ async function handleSubmit() {
 .stat-item strong {
   display: block;
   font-size: 2.5rem;
-  color: var(--text-main);
+  color: #fbbf24;
   margin-bottom: 0.5rem;
 }
 
@@ -516,6 +521,16 @@ async function handleSubmit() {
   text-transform: uppercase;
   font-size: 0.85rem;
   letter-spacing: 1px;
+}
+
+.link-gold {
+  color: #fbbf24;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.link-gold:hover {
+  color: #f59e0b;
 }
 
 .b2b-cta-section {
@@ -578,9 +593,9 @@ async function handleSubmit() {
 .form-group-premium textarea:focus,
 .form-group-premium select:focus {
   outline: none;
-  border-color: rgba(125, 211, 252, 0.4);
+  border-color: rgba(217, 119, 6, 0.5);
   background: rgba(255, 255, 255, 0.04);
-  box-shadow: 0 4px 20px rgba(125, 211, 252, 0.06);
+  box-shadow: 0 4px 20px rgba(217, 119, 6, 0.1);
 }
 
 .form-group-premium input.error,

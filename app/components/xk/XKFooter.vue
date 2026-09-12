@@ -68,6 +68,7 @@
           <ul class="footer-links-list">
             <li><NuxtLink to="/work">{{ isVi ? 'Tác Phẩm Tuyển Chọn' : 'Selected Works' }}</NuxtLink></li>
             <li><NuxtLink to="/production">{{ isVi ? 'Quy Trình Sản Xuất (8 Bước)' : 'Production Process' }}</NuxtLink></li>
+            <li><NuxtLink to="/courses">{{ isVi ? 'Khóa Học Music Producer' : 'Music Producer Courses' }}</NuxtLink></li>
             <li><NuxtLink to="/about">{{ isVi ? 'Về Chúng Tôi & Triết Lý' : 'About & Philosophy' }}</NuxtLink></li>
             <li><NuxtLink to="/journal">{{ isVi ? 'Nhật Ký Phòng Thu' : 'Production Journal' }}</NuxtLink></li>
             <li><NuxtLink to="/build-project">{{ isVi ? 'Dự Toán Chi Phí Dự Án' : 'Project Builder' }}</NuxtLink></li>

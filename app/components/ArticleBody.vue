@@ -43,7 +43,8 @@ defineProps<{
 
 <style scoped>
 .article-body {
-  max-width: 760px;
+  width: 100%;
+  max-width: 100%;
 }
 .article-cover {
   width: 100%;

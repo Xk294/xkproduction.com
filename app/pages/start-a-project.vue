@@ -122,6 +122,8 @@
                     <option value="live-production">Sound &amp; Light / Âm Thanh Ánh Sáng Sự Kiện</option>
                     <option value="creative-sound">Mixing &amp; Mastering (-14 LUFS)</option>
                     <option value="recording">Thu Âm Ca Khúc Chuyên Nghiệp</option>
+                    <option value="commercial-audio">Âm Nhạc Doanh Nghiệp (B2B / TVC / Thương Mại)</option>
+                    <option value="khoa-hoc">Khóa Học Music Producer / Kỹ Sư Âm Thanh</option>
                   </select>
                 </div>
 
@@ -173,7 +175,29 @@
 </template>
 
 <script setup lang="ts">
-import { reactive, ref } from 'vue'
+import { reactive, ref, onMounted } from 'vue'
+
+const route = useRoute()
+
+const serviceQueryMap: Record<string, string> = {
+  'music-production': 'music-production',
+  'hoa-am-phoi-khi': 'music-production',
+  'hoa-am': 'music-production',
+  'full-package': 'full-package',
+  'project-production': 'full-package',
+  'live-production': 'live-production',
+  'live-band': 'live-production',
+  'creative-sound': 'creative-sound',
+  'mix-master': 'creative-sound',
+  'mixing-mastering': 'creative-sound',
+  'recording': 'recording',
+  'thu-am': 'recording',
+  'studio-recording': 'recording',
+  'commercial-audio': 'commercial-audio',
+  'b2b': 'commercial-audio',
+  'khoa-hoc': 'khoa-hoc',
+  'courses': 'khoa-hoc'
+}
 
 const submitting = ref(false)
 const submitted = ref(false)
@@ -186,6 +210,16 @@ const form = reactive({
   timeline: 'standard',
   demoUrl: '',
   message: ''
+})
+
+onMounted(() => {
+  const q = route.query.service as string | undefined
+  if (q) {
+    const mapped = serviceQueryMap[q.toLowerCase().trim()]
+    if (mapped) {
+      form.service = mapped
+    }
+  }
 })
 
 const errors = reactive({

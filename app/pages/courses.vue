@@ -9,8 +9,8 @@
     <!-- ===== HERO SECTION ===== -->
     <section class="page-hero">
       <div class="editorial-container">
-        <div class="hero-badge"><i class="fa-solid fa-graduation-cap"></i> ĐÀO TẠO THỰC CHIẾN</div>
-        <h1 class="page-hero-title">Khóa Học <span class="text-gradient-animated">Music Producer</span></h1>
+        <span class="badge-v2 amber"><i class="fa-solid fa-graduation-cap"></i> ĐÀO TẠO THỰC CHIẾN</span>
+        <h1 class="page-hero-title">Khóa Học <span class="text-gold-gradient">Music Producer</span></h1>
         <p class="page-hero-sub">Nâng tầm kỹ năng hoà âm phối khí, mixing &amp; mastering cùng đội ngũ producer/sound engineer giàu kinh nghiệm tại XKProduction.</p>
       </div>
     </section>
@@ -19,13 +19,13 @@
     <section class="section-block">
       <div class="editorial-container">
         <div class="section-header-center text-center">
-          <span class="header-tag">TẠI SAO CHỌN CHÚNG TÔI</span>
-          <h2 class="section-heading-heavy text-center">Đặc Quyền Học Viên</h2>
-          <p class="section-subtitle">Phương pháp đào tạo thực chiến, bám sát thực tế thị trường</p>
+          <span class="badge-v2 amber">TẠI SAO CHỌN CHÚNG TÔI</span>
+          <h2 class="editorial-heading text-center mt-3">Đặc Quyền Học Viên</h2>
+          <p class="section-subtitle">Phương pháp đào tạo thực chiến 1 kèm 1, bám sát thực tế thị trường</p>
         </div>
 
         <div class="why-grid">
-          <div v-for="item in whyUs" :key="item.title" class="why-card glass-card hover-lift">
+          <div v-for="item in whyUs" :key="item.title" class="why-card matte-card hover-lift">
             <div class="why-icon"><i :class="item.icon"></i></div>
             <h3>{{ item.title }}</h3>
             <p>{{ item.desc }}</p>
@@ -38,17 +38,17 @@
     <section class="section-block section-courses">
       <div class="editorial-container">
         <div class="section-header-center text-center">
-          <span class="header-tag">CHƯƠNG TRÌNH ĐÀO TẠO</span>
-          <h2 class="section-heading-heavy text-center">Lộ Trình Học Chuyên Sâu</h2>
+          <span class="badge-v2 teal">CHƯƠNG TRÌNH ĐÀO TẠO</span>
+          <h2 class="editorial-heading text-center mt-3">Lộ Trình Học Chuyên Sâu</h2>
           <p class="section-subtitle">Đầy đủ các kỹ năng từ nhạc lý căn bản đến hoàn thiện master thương mại</p>
         </div>
 
         <div class="courses-grid">
-          <div v-for="course in courses" :key="course.title" class="course-card glass-card hover-lift" :class="'accent-' + course.accent">
+          <div v-for="course in courses" :key="course.title" class="course-card matte-card hover-lift" :class="'accent-' + course.accent">
             <div class="course-header">
               <div class="course-icon"><i :class="course.icon"></i></div>
               <div class="course-meta">
-                <span class="course-level">{{ course.level }}</span>
+                <span class="course-level text-meta-mono">{{ course.level }}</span>
                 <span class="course-duration"><i class="fa-regular fa-clock"></i> {{ course.duration }}</span>
               </div>
             </div>
@@ -59,7 +59,7 @@
             </ul>
             <div class="course-footer">
               <div class="course-price">{{ course.price }}</div>
-              <NuxtLink to="/contact?service=khoa-hoc" class="btn btn-primary course-cta">Đăng ký ngay</NuxtLink>
+              <NuxtLink to="/start-a-project?service=khoa-hoc" class="btn btn-primary course-cta">Đăng ký tư vấn</NuxtLink>
             </div>
           </div>
         </div>
@@ -70,12 +70,12 @@
     <section class="section-block">
       <div class="editorial-container">
         <div class="section-header-center text-center">
-          <span class="header-tag">LỘ TRÌNH CHI TIẾT</span>
-          <h2 class="section-heading-heavy text-center">Hành Trình Chinh Phục</h2>
+          <span class="badge-v2 amber">LỘ TRÌNH CHI TIẾT</span>
+          <h2 class="editorial-heading text-center mt-3">Hành Trình Chinh Phục</h2>
           <p class="section-subtitle"> XKProduction đồng hành cùng học viên xuyên suốt từ con số 0</p>
         </div>
 
-        <div class="path-timeline-shell glass-card">
+        <div class="path-timeline-shell matte-card">
           <div class="path-timeline">
             <div v-for="(step, i) in learningPath" :key="i" class="path-step">
               <div class="step-number">{{ i + 1 }}</div>
@@ -93,15 +93,15 @@
     <section class="section-block section-faq">
       <div class="editorial-container">
         <div class="section-header-center text-center">
-          <span class="header-tag">HỎI &amp; ĐÁP</span>
-          <h2 class="section-heading-heavy text-center">Câu Hỏi Thường Gặp</h2>
+          <span class="badge-v2 teal">HỎI &amp; ĐÁP</span>
+          <h2 class="editorial-heading text-center mt-3">Câu Hỏi Thường Gặp</h2>
           <p class="section-subtitle">Giải đáp nhanh các thắc mắc phổ biến của học viên trước khóa học</p>
         </div>
 
         <div class="faq-list">
           <div
             v-for="(faq, i) in faqs" :key="i"
-            class="faq-accordion-item glass-card"
+            class="faq-accordion-item matte-card"
             :class="{ open: openFaq === i }"
             @click="openFaq = openFaq === i ? -1 : i"
           >
@@ -122,15 +122,14 @@
     <!-- ===== SECTION 5: FINAL CALL TO ACTION ===== -->
     <section class="section-block final-cta">
       <div class="editorial-container">
-        <div class="cta-block glass-card text-center">
-          <div class="cta-glow-spot"></div>
-          <div class="cta-icon"><i class="fa-solid fa-rocket"></i></div>
-          <h2>Sẵn sàng bắt đầu hành trình của bạn?</h2>
+        <div class="cta-block matte-card text-center">
+          <span class="badge-v2 amber">KHỞI ĐẦU ĐAM MÊ</span>
+          <h2 class="mt-3">Sẵn sàng bắt đầu hành trình của bạn?</h2>
           <p>Đăng ký tư vấn miễn phí ngay hôm nay để nhận đề xuất lộ trình học và test trình độ nhạc lý ban đầu hoàn toàn miễn phí.</p>
           <div class="cta-actions">
-            <NuxtLink to="/contact?service=khoa-hoc" class="btn btn-primary btn-pulse btn-large">Đăng ký tư vấn</NuxtLink>
+            <NuxtLink to="/start-a-project?service=khoa-hoc" class="btn btn-primary btn-large">Đăng ký tư vấn</NuxtLink>
             <a href="https://zalo.me/0355356294" target="_blank" rel="noopener" class="btn btn-secondary btn-large btn-zalo">
-              <i class="fa-solid fa-comment"></i> Nhắn qua Zalo
+              <i class="fa-solid fa-comment-dots"></i> Nhắn Zalo Studio
             </a>
           </div>
         </div>

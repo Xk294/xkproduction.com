@@ -153,6 +153,10 @@
           <span>{{ isVi ? 'SẢN XUẤT' : 'PRODUCTION' }}</span>
         </NuxtLink>
 
+        <NuxtLink to="/courses" class="nav-link" :class="{ 'is-active': route.path.startsWith('/courses') }">
+          <span>{{ isVi ? 'KHÓA HỌC' : 'COURSES' }}</span>
+        </NuxtLink>
+
         <NuxtLink to="/about" class="nav-link" :class="{ 'is-active': route.path === '/about' }">
           <span>{{ isVi ? 'GIỚI THIỆU' : 'ABOUT' }}</span>
         </NuxtLink>
@@ -268,16 +272,20 @@
               <span class="m-num">03</span>
               <span class="m-text">{{ isVi ? 'SẢN XUẤT' : 'PRODUCTION' }}</span>
             </NuxtLink>
-            <NuxtLink to="/about" class="mobile-link" @click="closeMobileMenu">
+            <NuxtLink to="/courses" class="mobile-link" @click="closeMobileMenu">
               <span class="m-num">04</span>
+              <span class="m-text">{{ isVi ? 'KHÓA HỌC' : 'COURSES' }}</span>
+            </NuxtLink>
+            <NuxtLink to="/about" class="mobile-link" @click="closeMobileMenu">
+              <span class="m-num">05</span>
               <span class="m-text">{{ isVi ? 'GIỚI THIỆU' : 'ABOUT' }}</span>
             </NuxtLink>
             <NuxtLink to="/journal" class="mobile-link" @click="closeMobileMenu">
-              <span class="m-num">05</span>
+              <span class="m-num">06</span>
               <span class="m-text">{{ isVi ? 'BÀI VIẾT' : 'JOURNAL' }}</span>
             </NuxtLink>
             <NuxtLink to="/build-project" class="mobile-link" @click="closeMobileMenu">
-              <span class="m-num">06</span>
+              <span class="m-num">07</span>
               <span class="m-text">{{ isVi ? 'DỰ TOÁN CHI PHÍ' : 'BUILD PROJECT' }}</span>
             </NuxtLink>
             <a

@@ -99,7 +99,7 @@ onMounted(() => {
         <span>Chat Zalo Báo Giá</span>
       </a>
 
-      <NuxtLink to="/contact" class="mobile-bar-action" @click="trackCta('Sticky Booking Mobile')">
+      <NuxtLink to="/contact?mode=booking" class="mobile-bar-action" @click="trackCta('Sticky Booking Mobile')">
         <i class="fa-solid fa-calendar-check"></i>
         <span>Đặt Lịch</span>
       </NuxtLink>

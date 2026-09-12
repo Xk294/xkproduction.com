@@ -203,6 +203,13 @@ useSchemaOrg([
   align-items: start;
 }
 
+.article-main-content {
+  width: 100%;
+  max-width: 780px;
+  min-width: 0;
+  margin: 0 auto;
+}
+
 .article-left-rail {
   position: sticky;
   top: 100px;

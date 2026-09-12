@@ -13,7 +13,7 @@
             class="rel-cover-img"
             loading="lazy"
             width="320"
-            height="320"
+            height="180"
           />
           <div class="rel-scrim"></div>
 
@@ -85,7 +85,7 @@ function getPlatformIcon(platform: string) {
 .rel-cover-wrap {
   position: relative;
   width: 100%;
-  aspect-ratio: 1 / 1;
+  aspect-ratio: 16 / 9;
   background: #090b10;
   overflow: hidden;
 }

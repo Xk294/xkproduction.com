@@ -9,9 +9,9 @@
     <!-- ===== HERO SECTION ===== -->
     <section class="page-hero">
       <div class="editorial-container">
-        <span class="hero-badge"><i class="fa-solid fa-sliders"></i> MIXING &amp; MASTERING</span>
-        <h1 class="page-hero-title">Dịch Vụ <span class="text-gradient-animated">Mix &amp; Master</span> Chuyên Nghiệp</h1>
-        <p class="page-hero-sub">Chuẩn phát hành thương mại số — Giúp ca khúc có chiều sâu không gian tối đa, dải tần sạch sẽ, sắc nét và loudness chuẩn Spotify.</p>
+        <span class="hero-badge"><i class="fa-solid fa-sliders"></i> HẬU KỲ ÂM THANH</span>
+        <h1 class="page-hero-title">Dịch Vụ <span class="text-gradient-animated">Mix &amp; Master</span> Cảm Xúc</h1>
+        <p class="page-hero-sub">Trau chuốt giọng hát êm ái, sáng rõ trên nền nhạc — Tôn trọng chất giọng riêng, tự nhiên không robot và nghe tròn đầy trên mọi chiếc điện thoại, tai nghe.</p>
       </div>
     </section>
 
@@ -21,9 +21,9 @@
         <!-- Main Info Content -->
         <div class="main-content-area">
           <div class="content-header-area">
-            <span class="header-tag">BÁO GIÁ DỊCH VỤ</span>
-            <h2>Các Gói Mix &amp; Master</h2>
-            <p>XKProduction tiếp nhận từ Stereo mix đơn lẻ cho đến trọn bộ Multi-tracks (Stems) nhạc cụ riêng biệt.</p>
+            <span class="header-tag">BÁO GIÁ MINH BẠCH</span>
+            <h2>Các Gói Trau Chuốt &amp; Hoàn Thiện Bài Hát</h2>
+            <p>Dành cho bạn muốn có một bản thu kỷ niệm chỉn chu, êm tai và tự hào chia sẻ cùng người thân.</p>
           </div>
 
           <div class="pricing-grid-detail">
@@ -53,19 +53,19 @@
 
           <!-- Story Rich Text -->
           <div class="details-rich-text">
-            <span class="header-tag">KIẾN THỨC NỀN TẢNG</span>
-            <h3>Sự Khác Biệt Giữa Mixing &amp; Mastering</h3>
-            <p>Rất nhiều nghệ sĩ mới bắt đầu sản xuất âm nhạc nhầm lẫn giữa hai quy trình này. Thực chất, đây là hai khâu xử lý âm thanh độc lập và riêng biệt:</p>
+            <span class="header-tag">ĐIỂM TỰA CẢM XÚC</span>
+            <h3>Hai Bước Giúp Giọng Hát Của Bạn Tỏa Sáng Mà Vẫn Là Chính Mình</h3>
+            <p>Nhiều bạn e ngại đi mix bài vì sợ giọng bị chỉnh méo mó thành robot, hoặc bị chìm nghỉm trong tiếng nhạc. Tại XKProduction, quy trình được thực hiện tỉ mỉ bằng sự thấu cảm và đôi tai kiên nhẫn:</p>
 
             <div class="text-block-group">
               <div class="sub-text-block glass-card">
-                <h4>1. Mixing (Trộn âm)</h4>
-                <p>Là quá trình cân bằng âm lượng (Volume Balance), định hình tần số (EQ), kiểm soát độ động (Compression) và thiết kế không gian (Reverb, Delay) cho từng track nhạc cụ lẻ và vocal riêng biệt để gắn kết chúng thành một bản phối tổng thể hài hòa nhất.</p>
+                <h4>1. Hòa Quyện Cảm Xúc (Mixing — Đặt Giọng Hát Ở Vị Trí Trung Tâm)</h4>
+                <p>Chúng tôi lắng nghe chất giọng của bạn để tìm ra nét đẹp tự nhiên nhất. Từng nốt phô nhẹ được nắn nót thủ công bằng tai, vuốt êm tiếng lấy hơi nặng nề và giữ trọn độ rung ngân mộc mạc. Giọng hát của bạn được đặt êm ái, nổi bật trên nền nhạc chứ không bị nhạc đè lấn át.</p>
               </div>
               
               <div class="sub-text-block glass-card">
-                <h4>2. Mastering (Hoàn thiện âm thanh)</h4>
-                <p>Là khâu cuối cùng xử lý trên bản mix stereo tổng thể đã xuất ra. Mục tiêu là làm mượt tần số tổng, nén nhẹ độ động, tối ưu hóa độ to (Loudness) và xuất đúng định dạng chuẩn để phát hành mượt mà trên Spotify (-14 LUFS), Apple Music, hay YouTube.</p>
+                <h4>2. Hoàn Thiện Êm Ái (Mastering — Nghe Hay Trên Mọi Thiết Bị)</h4>
+                <p>Khâu chăm chút cuối cùng để bài hát của bạn nghe to tròn, dày dặn và ấm áp. Dù bạn nghe bằng tai nghe nhỏ, loa ngoài điện thoại hay trên xe hơi, âm thanh vẫn cân bằng êm dịu, không bị chói tai, không bị rè khi mở lớn, mang lại cảm giác dễ chịu và tự hào khi gửi tặng mọi người.</p>
               </div>
             </div>
           </div>
@@ -74,24 +74,30 @@
         <!-- Sidebar Area -->
         <aside class="sidebar-area">
           <div class="sidebar-card glass-card">
-            <h3>Chuẩn bị gì trước khi gửi file?</h3>
+            <h3>Gửi file đến Studio thật dễ dàng:</h3>
             <ul class="why-us-list">
               <li>
-                <i class="fa-solid fa-circle-info"></i>
+                <i class="fa-solid fa-circle-check"></i>
                 <div>
-                  <strong>Xuất file WAV chất lượng cao:</strong> Gửi file dạng WAV (24-bit/44.1kHz hoặc 48kHz). Vui lòng không gửi file nén MP3.
+                  <strong>Gửi file ghi âm bạn có sẵn:</strong> Có thể là file thu tại phòng thu, hoặc bạn tự thu bằng điện thoại, tai nghe ở nhà. Studio luôn hỗ trợ nghe thử và tư vấn trước cho bạn.
                 </div>
               </li>
               <li>
-                <i class="fa-solid fa-circle-info"></i>
+                <i class="fa-solid fa-circle-check"></i>
                 <div>
-                  <strong>Bypass các hiệu ứng không gian:</strong> Tắt toàn bộ Reverb, Delay trên track vocal mộc (trừ các hiệu ứng creative bắt buộc).
+                  <strong>Gửi kèm bản beat nhạc bạn đã dùng:</strong> Để studio dễ dàng bắt đúng nhịp điệu và hòa quyện giọng hát của bạn vào bài hát một cách mượt mà nhất.
                 </div>
               </li>
               <li>
-                <i class="fa-solid fa-circle-info"></i>
+                <i class="fa-solid fa-circle-check"></i>
                 <div>
-                  <strong>Gửi kèm Demo &amp; Reference:</strong> Gửi bản demo thu nháp ban đầu kèm 1-2 bài hát tham khảo mà bạn mong muốn hướng tới.
+                  <strong>Chia sẻ mong muốn của bạn:</strong> Bạn thích giọng hát nghe mộc mạc, ấm áp hay bay bổng nhiều tiếng vang? Hãy cứ thoải mái nhắn cho studio.
+                </div>
+              </li>
+              <li>
+                <i class="fa-solid fa-circle-check"></i>
+                <div>
+                  <strong>Cùng nghe thử và chỉnh sửa:</strong> Bạn nghe bản demo và thoải mái góp ý chỉnh sửa cho đến khi bài hát đúng theo cảm nhận bạn ưng ý nhất.
                 </div>
               </li>
             </ul>
@@ -115,14 +121,14 @@
 
 <script setup lang="ts">
 useSeoMeta({
-  title: 'Dịch vụ Mixing & Mastering Chuẩn Spotify Chuyên Nghiệp | XKProduction',
-  description: 'Dịch vụ mixing và mastering bài hát chuyên nghiệp, chuẩn phát hành Spotify, Apple Music. Nhận mix master online multi-track chất lượng cao từ 350k. Đặt lịch tư vấn miễn phí.',
-  ogTitle: 'Mixing & Mastering Chuyên Nghiệp - XKProduction',
-  ogDescription: 'Biến đổi bản thu của bạn thành tác phẩm thương mại chất lượng cao chuẩn quốc tế. Cân chỉnh vocal, không gian âm thanh, độ động chuyên sâu.',
+  title: 'Dịch vụ Mix & Master Bài Hát Tự Nhiên, Cảm Xúc | XKProduction',
+  description: 'Dịch vụ mixing và mastering bài hát giữ trọn cảm xúc thật, giọng hát sáng rõ tự nhiên không robot. Nhận mix online toàn quốc từ 350k. Tư vấn tận tâm.',
+  ogTitle: 'Mix & Master Cảm Xúc, Tự Nhiên - XKProduction',
+  ogDescription: 'Trau chuốt bản thu của bạn thành tác phẩm êm ái, nâng đỡ giọng hát sáng rõ và giữ trọn hồn giọng thật trên mọi thiết bị.',
   ogImage: 'https://xkproduction.com/images/Xkpreviewnew.png',
   ogUrl: 'https://xkproduction.com/mix-master',
   twitterCard: 'summary_large_image',
-  keywords: 'mix master, mixing mastering, mix master online, mix nhạc, mastering chuẩn spotify, làm master nhạc chuyên nghiệp, xkproduction'
+  keywords: 'mix master, mixing mastering, mix master online, mix nhạc, làm nhạc kỷ niệm, xkproduction'
 })
 
 useHead({
@@ -132,14 +138,14 @@ useHead({
       innerHTML: JSON.stringify({
         "@context": "https://schema.org",
         "@type": "Service",
-        "serviceType": "Mixing & Mastering chuyên nghiệp",
+        "serviceType": "Trau chuốt & Hoàn thiện âm thanh bài hát",
         "provider": {
           "@type": "MusicStore",
           "name": "XKProduction",
           "url": "https://xkproduction.com"
         },
-        "name": "Dịch vụ Mixing & Mastering",
-        "description": "Cân bằng tần số, xử lý dynamics, tạo không gian nhạc cụ và tối ưu âm lượng chuẩn phát hành Spotify/Apple Music.",
+        "name": "Dịch vụ Mix & Master Bài Hát",
+        "description": "Nâng đỡ giọng hát sáng rõ, tự nhiên không robot, âm thanh êm tai trên mọi thiết bị nghe nhạc.",
         "offers": {
           "@type": "AggregateOffer",
           "lowPrice": "350000",
@@ -154,33 +160,48 @@ useHead({
 
 useSchemaOrg([
   defineWebPage({
-    name: 'Dịch vụ Mixing & Mastering Chuyên Nghiệp - XKProduction',
-    description: 'Bảng giá dịch vụ Mixing & Mastering chất lượng cao từ 350.000₫ đến 500.000₫ chuẩn phát hành quốc tế.'
+    name: 'Dịch vụ Mix & Master Bài Hát Tự Nhiên - XKProduction',
+    description: 'Bảng giá dịch vụ Mix & Master từ 350.000₫ đến 500.000₫, giữ trọn cảm xúc chân thật.'
   }),
   defineProduct({
-    name: 'Dịch vụ Mixing & Mastering Chuyên Nghiệp XKProduction',
-    description: 'Mixing & mastering chuyên nghiệp chuẩn streaming cho ca sĩ, nghệ sĩ tự do.',
+    name: 'Dịch vụ Mix & Master Bài Hát XKProduction',
+    description: 'Trau chuốt âm thanh êm ái, giữ trọn vẹn chất giọng riêng, tự nhiên không méo tiếng robot.',
     image: 'https://xkproduction.com/logo.png',
     offers: [
-      { name: 'Mix & Master Cơ Bản', price: '350000', priceCurrency: 'VND' },
-      { name: 'Mix & Master Chuyên Nghiệp', price: '500000', priceCurrency: 'VND' }
+      { name: 'Trau Chuốt Ca Khúc Cơ Bản (Vocal + Beat)', price: '350000', priceCurrency: 'VND' },
+      { name: 'Trau Chuốt Tác Phẩm Chuyên Sâu (Đa Nhạc Cụ)', price: '500000', priceCurrency: 'VND' }
     ]
   })
 ])
 
 const mixPlans = [
   {
-    name: 'Mix & Master Cơ Bản',
+    name: 'Trau Chuốt Ca Khúc Cơ Bản (Vocal + Beat)',
     price: 'Từ 350.000₫',
-    desc: 'Phù hợp với ca khúc thu âm dạng cover chỉ gồm 1 track vocal và 1 track beat nhạc nền stereo.',
-    features: ['Nhận stereo mix từ khách', 'Cân chỉnh tần số (EQ) tổng thể', 'Mastering chuẩn loudness phát hành số', 'Xuất file WAV + MP3 chất lượng cao', '1 lần revision chi tiết'],
+    desc: 'Phù hợp cho các bản thu âm cover, hát kỷ niệm với 1 track giọng hát và 1 bản beat nhạc nền.',
+    features: [
+      'Nâng đỡ giọng hát sáng rõ, nổi bật ở trung tâm bài hát',
+      'Vuốt êm các nốt hơi chênh, nắn nót nhẹ nhàng giữ trọn giọng thật',
+      'Lọc sạch tạp âm và tiếng thở nặng nề, giữ cảm giác mộc mạc',
+      'Không gian âm thanh ấm áp, êm tai, không bị chói gắt',
+      'Âm lượng to tròn, nghe dễ chịu trên tai nghe và loa điện thoại',
+      'Xuất đầy đủ file chất lượng cao để nghe và tự tin chia sẻ'
+    ],
     featured: false, badge: ''
   },
   {
-    name: 'Mix & Master Chuyên Nghiệp',
+    name: 'Trau Chuốt Tác Phẩm Chuyên Sâu (Đa Nhạc Cụ & Bè)',
     price: 'Từ 500.000₫',
-    desc: 'Xử lý multi-track (stems) riêng biệt, tối ưu hoá chi tiết mọi nhạc cụ và bè phối vocal.',
-    features: ['Nhận full stems nhạc cụ lẻ', 'Tuning & timing vocal chuyên nghiệp thủ công', 'Xử lý reverb/delay không gian đa chiều', 'Master chuẩn phát hành Spotify/Apple Music', '2 lần revision linh hoạt', 'Xuất multi-tracks gốc'],
+    desc: 'Dành cho bài hát sáng tác mới hoặc bản phối có nhiều bè phụ, nhiều nhạc cụ cần hòa quyện tinh tế.',
+    features: [
+      'Tiếp nhận toàn bộ bè chính, bè phụ và các lớp nhạc cụ riêng biệt',
+      'Trau chuốt tỉ mỉ từng câu chữ, nâng niu độ rung ngân tự nhiên',
+      'Căn chỉnh các giọng bè ăn khớp nhịp nhàng, tạo chiều sâu cuốn hút',
+      'Hòa quyện tinh tế để nhạc nền nâng đỡ tiếng hát, không lấn át lời ca',
+      'Tối ưu âm thanh nghe to rõ, đầy đặn trên mọi dòng điện thoại, loa xe hơi',
+      'Bàn giao đầy đủ bản hát chính, bản beat không lời và bản beat có bè',
+      'Lắng nghe và chỉnh sửa cùng bạn đến khi bạn thật sự ưng ý'
+    ],
     featured: true, badge: 'Phổ biến'
   }
 ]

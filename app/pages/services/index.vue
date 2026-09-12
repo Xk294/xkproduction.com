@@ -205,7 +205,7 @@
                   <span>{{ isVi ? 'Xem Chi Tiết' : 'Explore' }}</span>
                   <i class="fa-solid fa-arrow-right"></i>
                 </NuxtLink>
-                <NuxtLink to="/start-a-project" class="btn-quick-brief">
+                <NuxtLink :to="`/start-a-project?service=${cap.slug}`" class="btn-quick-brief">
                   <span>{{ isVi ? 'Đặt Lịch' : 'Book' }}</span>
                 </NuxtLink>
               </div>
@@ -235,14 +235,14 @@
         </div>
       </section>
 
-      <!-- STUDIO GEAR RACK & ACOUSTIC LAB -->
+      <!-- STUDIO VALUE PILLARS -->
       <section class="studio-gear-section">
-        <span class="badge-v2 amber">{{ isVi ? 'THIẾT BỊ SẢN XUẤT & SÂN KHẤU' : 'PRODUCTION & STAGE GEAR' }}</span>
-        <h2 class="section-heading">{{ isVi ? 'Trang Thiết Bị Sản Xuất, Kiểm Âm & Sound Light' : 'Production, Monitoring & Stage Systems' }}</h2>
+        <span class="badge-v2 amber">{{ isVi ? 'ĐIỂM TỰA AN TÂM' : 'CLIENT REASSURANCE' }}</span>
+        <h2 class="section-heading">{{ isVi ? '6 Điểm Tựa Giúp Bạn Tự Tin Cất Tiếng Hát' : '6 Pillars of Peace of Mind at XKProduction' }}</h2>
         <p class="section-desc">
           {{ isVi
-            ? 'Chúng tôi đầu tư nghiêm túc vào chuỗi thiết bị analog và digital hàng đầu để mỗi bản mix đều đạt độ dày, ấm và chi tiết cao nhất.'
-            : 'We invest heavily in discrete analog and high-end digital signal chains to guarantee exceptional clarity, warmth, and headroom.'
+            ? 'Chúng tôi hiểu rằng lần đầu làm nhạc hay bước vào phòng thu có thể làm bạn lo lắng. Tại XKProduction, sự thấu hiểu, kiên nhẫn và đồng hành tận tâm luôn là giá trị cốt lõi.'
+            : 'We understand stepping into music creation can feel daunting. At XKProduction, empathy, patience, and supportive guidance come first.'
           }}
         </p>
 
@@ -457,18 +457,18 @@ const workflowSteps = [
   {
     viTitle: 'Thu Âm & Hướng Dẫn Hát',
     enTitle: 'Vocal Tracking & Coaching',
-    viDesc: 'Thu âm tại phòng thu tiêu âm chuẩn với Neumann TLM 102. Producer trực tiếp hướng dẫn lấy hơi, ngân rung từng câu.',
-    enDesc: 'Tracking in an acoustically calibrated room with Neumann microphones and hands-on vocal direction.',
+    viDesc: 'Thu âm tại phòng thu tiêu âm chuẩn, tạo tâm lý thoải mái tối đa. Producer trực tiếp hướng dẫn lấy hơi, ngân rung từng câu.',
+    enDesc: 'Tracking in an acoustically calibrated room with encouraging guidance and hands-on vocal direction.',
     viOutput: 'File thu âm vocal sạch, rõ nét',
     enOutput: '24-bit Raw Vocal Multitrack Stems'
   },
   {
-    viTitle: 'Mixing & Spatial Mastering',
-    enTitle: 'Spatial Mixing & Mastering',
-    viDesc: 'Nắn Melodyne tự nhiên, cân bằng dải tần, mở rộng không gian và đẩy âm lượng đạt chuẩn -14 LUFS Spotify.',
-    enDesc: 'Precision Melodyne tuning, dynamic multi-band EQ, 3D stereo imaging, and -14 LUFS loudness calibration.',
-    viOutput: 'Master số WAV 24-bit + Beat playback',
-    enOutput: 'Digital Master (WAV 24-bit) + Backing Track'
+    viTitle: 'Mixing & Hoàn Thiện Âm Thanh',
+    enTitle: 'Gentle Mixing & Polishing',
+    viDesc: 'Nắn nót nốt phô nhẹ nhàng mộc mạc, giữ trọn độ rung ngân thật của giọng bạn, âm thanh to rõ và êm ái trên mọi thiết bị.',
+    enDesc: 'Gentle hand-tuned pitch polishing preserving your natural vibrato, with warm, balanced loudness across all devices.',
+    viOutput: 'Bản nhạc hoàn chỉnh nghe êm tai + Beat playback',
+    enOutput: 'Polished Track (WAV 24-bit) + Backing Track'
   },
   {
     viTitle: 'Bàn Giao & Hỗ Trợ Phát Hành',
@@ -480,55 +480,55 @@ const workflowSteps = [
   }
 ]
 
-// Studio Gear Arsenal
+// Client Reassurance Pillars
 const studioGear = [
   {
-    icon: 'fa-solid fa-sliders',
-    viRole: 'BÀN MIXER KỸ THUẬT SỐ',
-    enRole: 'DIGITAL LIVE & FOH CONSOLE',
-    name: 'Midas M32R Digital Console',
-    viDesc: '40 kênh âm thanh kỹ thuật số cao cấp, xử lý tín hiệu mượt mà và chống hú rít hiệu quả cho cả phòng thu lẫn sân khấu.',
-    enDesc: '40-channel 96kHz digital console delivering surgical clarity for both studio monitoring and live stage FOH.'
+    icon: 'fa-solid fa-heart',
+    viRole: 'TÂM LÝ THOẢI MÁI',
+    enRole: 'SAFE & WARM SPACE',
+    name: '100% Không Phán Xét',
+    viDesc: 'Dù bạn chưa từng học hát hay sợ hát phô, chúng tôi luôn đón nhận bạn bằng sự ấm áp, tôn trọng và kiên nhẫn nhất.',
+    enDesc: 'Whether you are a beginner or shy of singing flat, we welcome you with warmth, respect, and utmost patience.'
   },
   {
-    icon: 'fa-solid fa-wave-square',
-    viRole: 'SOUNDCARD & XỬ LÝ DSP',
-    enRole: 'AUDIO INTERFACE & DSP',
-    name: 'Universal Audio Apollo Twin X Duo',
-    viDesc: 'Công nghệ pre-amp Unison danh tiếng và bộ xử lý DSP thời gian thực mang lại chất âm analog ấm áp, tự nhiên và sắc nét.',
-    enDesc: 'Industry-standard Unison preamps and real-time DSP emulation generating authentic analogue warmth.'
+    icon: 'fa-solid fa-clock',
+    viRole: 'KHÔNG GIAN THƯ THÁI',
+    enRole: 'ZERO PRESSURE',
+    name: 'Không Áp Lực Giờ Giấc',
+    viDesc: 'Không bấm giờ tính từng phút làm bạn căng thẳng. Bạn được nghỉ ngơi, uống nước và thu âm từng câu đến khi thật sự ưng ý.',
+    enDesc: 'No stressful clock-watching. Take your time, sip warm tea, and record phrase by phrase until you feel truly happy.'
   },
   {
-    icon: 'fa-solid fa-microphone',
-    viRole: 'MICROPHONE PHÒNG THU',
-    enRole: 'STUDIO CONDENSER MICROPHONES',
-    name: 'Neumann TLM 102 & Rode NT1-A',
-    viDesc: 'Dàn microphone condenser màng rung lớn thu trọn vẹn dải tần, giữ độ dày cho giọng nam và độ thanh thoát mượt mà cho giọng nữ.',
-    enDesc: 'Large-diaphragm German capsules capturing nuanced vocal air, chest resonance, and dynamic breath detail.'
+    icon: 'fa-solid fa-user-check',
+    viRole: 'ĐỒNG HÀNH 1-KÈM-1',
+    enRole: '1-ON-1 COACHING',
+    name: 'Vocal Coaching Tận Tình',
+    viDesc: 'Producer Kiệt trực tiếp hướng dẫn lấy hơi cơ hoành, bắt nhịp và gợi ý cách đưa cảm xúc chân thật nhất vào từng câu hát.',
+    enDesc: 'Producer Xuan Kiet personally guides breath control, timing, and genuine emotional phrasing.'
   },
   {
-    icon: 'fa-solid fa-bolt',
-    viRole: 'PREAMP ANALOG ANH QUỐC',
-    enRole: 'DISCRETE BRITISH PREAMP',
-    name: 'Warm Audio WA73-EQ',
-    viDesc: 'Mạch Class-A rời rạc với biến áp Carnhill mô phỏng chiếc Neve 1073 huyền thoại, tạo độ dày dặn và keo dính tự nhiên cho vocal.',
-    enDesc: 'Discrete Class-A circuitry with Carnhill transformers delivering legendary British Neve 1073 saturation.'
-  },
-  {
-    icon: 'fa-solid fa-volume-high',
-    viRole: 'HỆ THỐNG LOA KIỂM ÂM',
-    enRole: 'REFERENCE STUDIO MONITORS',
-    name: 'Yamaha HS8 & Genelec 8030C',
-    viDesc: 'Đáp tuyến tần số siêu phẳng giúp kỹ sư phát hiện mọi lỗi xung đột pha, cân chỉnh dải bass chính xác và không bị lừa tai.',
-    enDesc: 'Ultra-flat reference monitors ensuring accurate low-end translation and phase coherence across consumer devices.'
+    icon: 'fa-solid fa-wand-magic-sparkles',
+    viRole: 'TÔN TRỌNG GIỌNG THẬT',
+    enRole: 'AUTHENTIC POLISHING',
+    name: 'Tự Nhiên — Không Robot',
+    viDesc: 'Nắn nót từng nốt chênh nhẹ nhàng bằng tai, giữ trọn vẹn độ rung ngân và cái hồn mộc mạc, tuyệt đối không méo tiếng.',
+    enDesc: 'Gentle phrase-by-phrase tuning by ear, keeping your genuine vibrato without robotic distortion.'
   },
   {
     icon: 'fa-solid fa-headphones',
-    viRole: 'TAI NGHE KIỂM ÂM CHUYÊN DỤNG',
-    enRole: 'CRITICAL MONITORING HEADPHONES',
-    name: 'Focal Listen Pro & Audio-Technica M50x',
-    viDesc: 'Kiểm tra chi tiết từng tạp âm nhỏ nhất, kiểm âm chéo không gian stereo trước khi xuất xưởng bản master.',
-    enDesc: 'Closed-back precision staging headphones for surgical noise floor scrubbing and stereo placement verification.'
+    viRole: 'NGHE HAY MỌI NƠI',
+    enRole: 'PLEASANT EVERYWHERE',
+    name: 'Âm Thanh Êm Dịu, To Tròn',
+    viDesc: 'Cân chỉnh âm lượng vừa vặn, không chói gắt, nghe ấm áp và rõ ràng trên mọi dòng điện thoại, tai nghe hay loa xe hơi.',
+    enDesc: 'Warm, balanced volume that never clips or tires ears across phones, earbuds, or car audio.'
+  },
+  {
+    icon: 'fa-solid fa-shield-halved',
+    viRole: 'AN TÂM TUYỆT ĐỐI',
+    enRole: 'FULL ARTIST RIGHTS',
+    name: 'Toàn Quyền Sở Hữu 100%',
+    viDesc: 'Bài hát là kỷ niệm để đời và tài sản của riêng bạn. Toàn quyền chia sẻ, phát hành và lưu giữ an toàn dài lâu.',
+    enDesc: 'Your song is your lifelong artistic keepsake. Full freedom to share, release, and cherish forever.'
   }
 ]
 
@@ -545,18 +545,18 @@ const comparisonRows = [
   {
     viCriteria: 'Xử Lý Cao Độ Vocal',
     enCriteria: 'Vocal Pitch & Timing Correction',
-    viXK: 'Melodyne nắn nót thủ công từng nốt, bảo toàn độ rung tự nhiên',
-    enXK: 'Precision hand-drawn Melodyne preserving authentic natural vibrato',
+    viXK: 'Nắn nót thủ công từng nốt bằng tai, bảo toàn độ rung tự nhiên',
+    enXK: 'Carefully tuned phrase-by-phrase by ear, preserving authentic natural vibrato',
     viOther: 'Bật Autotune tự động rẻ tiền làm giọng bị nhựa và biến dạng méo mó',
     enOther: 'Cheap automated plugins causing robotic, metallic, phasey artifacts'
   },
   {
-    viCriteria: 'Chuẩn Âm Lượng & Độ Sắc Nét',
-    enCriteria: 'Mastering Loudness & Headroom',
-    viXK: 'Đạt chuẩn -14 LUFS Spotify, dynamic range thoáng, âm bass đầm sâu',
-    enXK: '-14 LUFS international streaming spec with wide dynamic headroom',
-    viOther: 'Kéo limiter quá tay làm bẹt dynamic range, vỡ tiếng khi bật loa lớn',
-    enOther: 'Over-limited sausage waveforms that clip and distort on phones'
+    viCriteria: 'Chất Lượng Nghe Thực Tế',
+    enCriteria: 'Everyday Listening Experience',
+    viXK: 'Âm thanh to tròn, êm ái, không bị chói tai hay rè vỡ khi mở lớn trên điện thoại và xe hơi',
+    enXK: 'Warm and comfortable loudness that never clips or sounds harsh on phones and car audio',
+    viOther: 'Âm thanh bị chói gắt hoặc rè vỡ khi bật lớn, nghe lâu rất mỏi tai',
+    enOther: 'Over-compressed harsh audio that causes ear fatigue and distorts easily'
   },
   {
     viCriteria: 'Bản Quyền & Quyền Khai Thác',

@@ -9,32 +9,31 @@
     <!-- ===== HERO SECTION ===== -->
     <section class="page-hero">
       <div class="editorial-container">
-        <span class="hero-badge"><i class="fa-solid fa-circle-question"></i> HỎI &amp; ĐÁP</span>
-        <h1 class="page-hero-title">Giải Đáp <span class="text-gradient-animated">Thắc Mắc</span></h1>
-        <p class="page-hero-sub">Tổng hợp câu hỏi thường gặp về dịch vụ thu âm, hoà âm phối khí, mix &amp; master và chính sách tại XKProduction.</p>
+        <span class="badge-v2 amber"><i class="fa-solid fa-circle-question"></i> HỎI &amp; ĐÁP</span>
+        <h1 class="page-hero-title">Giải Đáp <span class="text-gold-gradient">Thắc Mắc</span></h1>
+        <p class="page-hero-sub">Tổng hợp câu hỏi thường gặp về dịch vụ sản xuất âm nhạc, hoà âm phối khí, mix &amp; master và chính sách tại XKProduction.</p>
       </div>
     </section>
 
     <!-- ===== FAQ CONTENT ACCORDION ===== -->
     <section class="section-block faq-section" aria-labelledby="faq-list-heading">
       <h2 id="faq-list-heading" class="sr-only">Danh sách câu hỏi thường gặp</h2>
-      <div class="max-width faq-container">
+      <div class="editorial-container faq-container">
         <FaqItem v-for="faq in faqs" :key="faq.question" :question="faq.question" :answer="faq.answer" />
       </div>
     </section>
 
     <!-- ===== FINAL CALL TO ACTION ===== -->
     <section class="section-block final-cta">
-      <div class="max-width text-center">
-        <div class="cta-box glass-card">
-          <div class="cta-glow-spot"></div>
-          <div class="cta-icon"><i class="fa-solid fa-headset"></i></div>
-          <h2>Vẫn còn những câu hỏi khác?</h2>
-          <p>Đừng ngần ngại liên hệ trực tiếp với chúng tôi. Đội ngũ tiếp nhận của XKProduction sẽ hỗ trợ giải đáp nhanh nhất trong vòng 24 giờ.</p>
+      <div class="editorial-container text-center">
+        <div class="cta-box matte-card">
+          <span class="badge-v2 amber">HỖ TRỢ TRỰC TIẾP</span>
+          <h2 class="mt-3">Vẫn còn những câu hỏi khác?</h2>
+          <p>Đừng ngần ngại liên hệ trực tiếp với chúng tôi. Đội ngũ sản xuất của XKProduction sẽ tư vấn chi tiết phương án phù hợp nhất cho bài hát của bạn.</p>
           <div class="cta-actions">
-            <NuxtLink to="/contact" class="btn btn-primary btn-pulse btn-large">Liên hệ tư vấn ngay</NuxtLink>
+            <NuxtLink to="/start-a-project" class="btn btn-primary btn-large">Gửi Yêu Cầu Dự Án</NuxtLink>
             <a href="https://zalo.me/0355356294" target="_blank" rel="noopener" class="btn btn-secondary btn-large">
-              <i class="fa-solid fa-comment"></i> Nhắn qua Zalo
+              <i class="fa-solid fa-comment-dots"></i> Nhắn Zalo Studio
             </a>
           </div>
         </div>

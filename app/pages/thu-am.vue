@@ -11,7 +11,7 @@
       <div class="editorial-container">
         <span class="hero-badge"><i class="fa-solid fa-microphone"></i> DỊCH VỤ PHÒNG THU</span>
         <h1 class="page-hero-title">Dịch Vụ <span class="text-gradient-animated">Thu Âm</span> Chuyên Nghiệp</h1>
-        <p class="page-hero-sub">Phòng thu tiêu chuẩn cao tại Thủ Đức, TP. Hồ Chí Minh — Nơi thăng hoa giọng hát của bạn với trang thiết bị chuẩn quốc tế và hỗ trợ vocal coaching tận tình.</p>
+        <p class="page-hero-sub">Không gian thu âm ấm cúng, thân thiện tại Thủ Đức, TP. Hồ Chí Minh — Không áp lực thời gian, không sợ hát phô, Producer Kiệt trực tiếp đồng hành giúp bạn tự tin cất cao tiếng hát.</p>
       </div>
     </section>
 
@@ -21,9 +21,9 @@
         <!-- Main Info Content -->
         <div class="main-content-area">
           <div class="content-header-area">
-            <span class="header-tag">BÁO GIÁ DỊCH VỤ</span>
+            <span class="header-tag">BÁO GIÁ MINH BẠCH</span>
             <h2>Các Gói Thu Âm Bài Hát</h2>
-            <p>Mỗi gói thu âm được thiết kế tối ưu, minh bạch tuyệt đối, cam kết không có chi phí ẩn.</p>
+            <p>Mỗi gói thu âm được thiết kế tối ưu, tâm lý thoải mái, minh bạch tuyệt đối và cam kết không phát sinh chi phí ẩn.</p>
           </div>
 
           <div class="pricing-grid-detail">
@@ -48,26 +48,26 @@
 
           <!-- Story Workflow Steps -->
           <div class="details-rich-text">
-            <span class="header-tag">QUY TRÌNH THU ÂM</span>
-            <h3>Quy Trình Hoạt Động Tại Phòng Thu</h3>
-            <p>XKProduction hỗ trợ coaching chuyên sâu, giúp bạn gỡ bỏ sự tự ti và đạt cảm xúc trọn vẹn nhất:</p>
+            <span class="header-tag">QUY TRÌNH THÂN THIỆN &amp; TÂM LÝ</span>
+            <h3>Trải Nghiệm Thu Âm Nhẹ Nhàng &amp; Dễ Chịu</h3>
+            <p>XKProduction xây dựng quy trình thu âm thoải mái, hỗ trợ vocal coaching chuyên sâu giúp bạn giải tỏa áp lực, giữ vững cột hơi và truyền tải trọn vẹn cảm xúc ca khúc:</p>
 
             <ol class="workflow-steps">
               <li>
-                <strong>Đặt lịch &amp; Chuẩn bị:</strong>
-                <span>Đăng ký lịch thu trước tối thiểu 24 giờ. Chúng tôi gửi bạn checklist chuẩn bị giọng hát và lời bài hát.</span>
+                <strong>01. Lên Lịch &amp; Trò Chuyện Thả Lỏng:</strong>
+                <span>Đặt lịch hẹn trước nhẹ nhàng. Studio tư vấn chọn tone nhạc dễ hát nhất và chuẩn bị sẵn bản nhạc trước khi bạn bước vào phòng thu.</span>
               </li>
               <li>
-                <strong>Vocal Direction &amp; Coaching:</strong>
-                <span>Trong suốt buổi thu, Xuân Kiệt trực tiếp đồng hành hướng dẫn bạn cách lấy hơi, nhả chữ và truyền tải cảm xúc tốt nhất.</span>
+                <strong>02. Vocal Direction &amp; Coaching 1-Kèm-1:</strong>
+                <span>Producer Nguyễn Xuân Kiệt trực tiếp đồng hành hướng dẫn tư thế đứng, cách lấy hơi cơ hoành, nhả chữ và gợi ý đặt cảm xúc vào từng câu từ.</span>
               </li>
               <li>
-                <strong>Hậu kỳ Vocal Editing:</strong>
-                <span>Kỹ sư âm thanh tiến hành làm sạch dải tần, chỉnh phô (Vocal Tuning) và sửa nhịp (Vocal Timing) thủ công tỉ mỉ.</span>
+                <strong>03. Ghép Đoạn Hát Đẹp &amp; Trau Chuốt Tự Nhiên:</strong>
+                <span>Chọn lọc những câu hát mộc mạc và cảm xúc nhất từ các lần thu, nhẹ nhàng vuốt êm các nốt chênh mà vẫn giữ trọn vẹn chất giọng thật của bạn.</span>
               </li>
               <li>
-                <strong>Bàn giao master thương mại:</strong>
-                <span>Nghệ sĩ nghe thử bản demo, gửi phản hồi chỉnh sửa và nhận file master WAV/MP3 chất lượng cao hoàn thiện.</span>
+                <strong>04. Bàn Giao &amp; Nghe Thử Êm Tai:</strong>
+                <span>Xuất file chất lượng cao, kiểm tra kỹ lưỡng trên tai nghe và loa điện thoại để bạn yên tâm gửi tặng người thân và tự hào chia sẻ.</span>
               </li>
             </ol>
           </div>
@@ -81,19 +81,25 @@
               <li>
                 <i class="fa-solid fa-circle-check"></i>
                 <div>
-                  <strong>Trang thiết bị chuyên sâu:</strong> Sử dụng microphone condenser Neumann, preamp SSL phần cứng cao cấp đạt chuẩn studio.
+                  <strong>Tâm lý thoải mái tuyệt đối:</strong> Không phán xét, không áp lực. Producer trực tiếp đồng hành vocal coaching, tạo không gian ấm cúng giúp bạn hoàn toàn tự tin cất giọng.
                 </div>
               </li>
               <li>
                 <i class="fa-solid fa-circle-check"></i>
                 <div>
-                  <strong>7+ năm thực chiến:</strong> Sound Engineer Nguyễn Xuân Kiệt đã đồng hành cùng 2000+ dự án đa dạng của nghệ sĩ.
+                  <strong>7+ năm kinh nghiệm &amp; 2000+ dự án:</strong> Producer Nguyễn Xuân Kiệt đã đồng hành sản xuất cùng hàng nghìn ca sĩ, nghệ sĩ độc lập và người yêu ca hát.
                 </div>
               </li>
               <li>
                 <i class="fa-solid fa-circle-check"></i>
                 <div>
-                  <strong>Hỗ trợ bè phối tận tâm:</strong> Không chỉ bấm nút ghi âm, chúng tôi hỗ trợ bè phối, dựng câu từ đầu đến cuối bài hát.
+                  <strong>Vocal coaching &amp; Bè phối tận tâm:</strong> Không chỉ đơn thuần bấm nút thu, chúng tôi hướng dẫn bạn dựng câu, hát bè và gợi ý cách xử lý tinh tế.
+                </div>
+              </li>
+              <li>
+                <i class="fa-solid fa-circle-check"></i>
+                <div>
+                  <strong>Toàn quyền sở hữu bản quyền 100%:</strong> Nghệ sĩ toàn quyền sử dụng tác phẩm để phát hành thương mại, biểu diễn và kiếm doanh thu trực tuyến.
                 </div>
               </li>
             </ul>
@@ -115,7 +121,7 @@
 <script setup lang="ts">
 useSeoMeta({
   title: 'Dịch vụ Thu Âm Bài Hát Chuyên Nghiệp TP. Hồ Chí Minh | XKProduction',
-  description: 'Bảng giá dịch vụ thu âm bài hát chuyên nghiệp từ 499k tại TP. Hồ Chí Minh. Phòng thu âm đạt chuẩn cách âm, microphone Neumann, preamp SSL cao cấp. Đặt lịch thu âm ngay.',
+  description: 'Bảng giá dịch vụ thu âm bài hát chuyên nghiệp từ 499k tại TP. Hồ Chí Minh. Phòng thu âm tiêu âm chuẩn, vocal coaching tận tình, tâm lý thoải mái không áp lực.',
   ogTitle: 'Dịch Vụ Thu Âm Bài Hát Chuyên Nghiệp - XKProduction',
   ogDescription: 'Thu âm bài hát chất lượng cao từ 499k tại TP. Hồ Chí Minh. Đội ngũ kỹ sư âm thanh 7 năm kinh nghiệm hỗ trợ bè phối, vocal coaching tận tình.',
   ogImage: 'https://xkproduction.com/images/Xkpreviewnew.png',
@@ -131,7 +137,7 @@ useSchemaOrg([
   }),
   defineProduct({
     name: 'Dịch vụ Thu Âm Bài Hát Chuyên Nghiệp XKProduction',
-    description: 'Thu âm bài hát chuyên nghiệp với trang thiết bị chuẩn quốc tế và hỗ trợ vocal coaching tận tình.',
+    description: 'Thu âm bài hát ấm cúng, thoải mái tâm lý không áp lực, Producer Kiệt hỗ trợ vocal coaching tận tình.',
     image: 'https://xkproduction.com/logo.png',
     offers: [
       { name: 'Gói Thu Âm Cơ Bản', price: '499000', priceCurrency: 'VND' },
@@ -146,29 +152,58 @@ const thuAmPlans = [
   {
     name: 'Gói Cơ Bản',
     price: 'Từ 499.000₫',
-    desc: 'Phù hợp với người mới bắt đầu thu âm, thu âm bài hát cover hoặc học viên thanh nhạc.',
-    features: ['Thu âm trong 1-2 tiếng', 'Chỉnh sửa vocal cơ bản (tuning, timing)', 'Xuất file WAV + MP3 chất lượng tốt', '1 lần chỉnh sửa chi tiết'],
+    desc: 'Phù hợp với người mới lần đầu đi thu âm, thu bài hát kỷ niệm gia đình hoặc người yêu với tâm lý thoải mái, nhẹ nhàng.',
+    features: [
+      'Thu âm thoải mái, không hối thúc giờ giấc',
+      'Không gian ấm cúng, thân thiện như ở nhà',
+      'Hướng dẫn lấy hơi và giữ nhịp nhẹ nhàng',
+      'Trau chuốt giọng hát tự nhiên, giữ trọn cảm xúc thật',
+      'Xuất file âm thanh chất lượng cao để nghe và chia sẻ',
+      '1 lần chỉnh sửa chi tiết theo cảm nhận của bạn'
+    ],
     featured: false, badge: ''
   },
   {
     name: 'Gói Nâng Cao',
     price: 'Từ 550.000₫',
-    desc: 'Dành cho ca sĩ bán chuyên, làm sản phẩm phát hành YouTube, TikTok cá nhân chỉnh chu.',
-    features: ['Thu âm trong 2-3 tiếng', 'Vocal production chi tiết chuyên nghiệp', 'Xuất file đa định dạng stems', '2 lần chỉnh sửa chi tiết', 'Tư vấn kỹ thuật thu'],
+    desc: 'Dành cho bạn muốn có một bản thu kỷ niệm chỉn chu, mượt mà để tặng người thương, mừng sinh nhật hoặc lưu giữ thanh xuân.',
+    features: [
+      'Buổi thu âm thư giãn, giải tỏa mọi e ngại',
+      'Vocal coaching 1-kèm-1 hướng dẫn truyền tải cảm xúc',
+      'Nắn nót từng nốt chênh nhẹ nhàng bằng tai, không robot',
+      'Ghép chọn những câu hát đẹp nhất từ nhiều lần thu',
+      'Xuất file bài hát hoàn chỉnh kèm bản beat để bạn tự tin biểu diễn',
+      '2 lần chỉnh sửa chi tiết cùng studio'
+    ],
     featured: false, badge: ''
   },
   {
     name: 'Gói Chuyên Sâu (Pro)',
     price: 'Từ 1.000.000₫',
-    desc: 'Dành cho ca sĩ chuyên nghiệp, phát hành thương mại số Spotify, Apple Music.',
-    features: ['Thu âm không giới hạn buổi', 'Vocal direction & coaching trực tiếp', 'Vocal production nâng cao đa lớp bè', 'Xuất stems multi-tracks', '3 lần revision', 'Hỗ trợ chiến lược phát hành'],
+    desc: 'Dành cho bạn muốn đầu tư một tác phẩm âm nhạc nghiêm túc, phát hành lên mạng xã hội với chiều sâu cảm xúc trọn vẹn nhất.',
+    features: [
+      'Thu âm kiên nhẫn đến khi bạn thật sự ưng ý với bài hát',
+      'Tâm lý thoải mái tuyệt đối, không lo áp lực thời gian',
+      'Producer trực tiếp lắng nghe, gợi ý cách nhả chữ tinh tế',
+      'Hỗ trợ dựng bè, tạo chiều sâu không gian âm thanh ấm áp',
+      'Trau chuốt âm thanh to tròn, êm ái trên mọi thiết bị nghe nhạc',
+      'Bàn giao trọn bộ: bài hát hoàn chỉnh, beat không lời và beat có bè',
+      '3 lần tinh chỉnh linh hoạt theo ý muốn của bạn'
+    ],
     featured: true, badge: 'Phổ biến'
   },
   {
     name: 'Gói Cao Cấp (Ultimate)',
     price: 'Từ 1.800.000₫',
-    desc: 'Dành cho dự án nghệ thuật chuyên sâu đòi hỏi độ chỉnh chu và cảm xúc hoàn hảo nhất.',
-    features: ['Thu âm không giới hạn', 'Coaching cảm xúc và cách kể chuyện', 'Xử lý âm thanh cao cấp analog', 'Revision không giới hạn', 'Priority booking lịch thu'],
+    desc: 'Dành cho single đầu tay hoặc dự án âm nhạc cuộc đời đòi hỏi sự chăm chút từng nốt nhạc, trân trọng từng khoảnh khắc cảm xúc.',
+    features: [
+      'Buổi thu âm dành trọn thời gian cho tác phẩm của bạn',
+      'Coaching chiều sâu cảm xúc, khơi gợi chất tự sự mộc mạc',
+      'Hậu kỳ âm thanh chuyên sâu đa tầng, tôn vinh hồn giọng riêng',
+      'Hỗ trợ dựng bè phối và đoạn cao trào độc quyền',
+      'Tinh chỉnh tận tâm đến khi bạn hoàn toàn tự hào để ra mắt',
+      'Lưu trữ bài hát an toàn, gửi lại bất cứ khi nào bạn cần'
+    ],
     featured: false, badge: ''
   }
 ]

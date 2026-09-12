@@ -305,6 +305,10 @@ export default defineNuxtConfig({
     routeRules: {
       '/releases': { redirect: { to: '/work', statusCode: 301 } },
       '/releases/**': { redirect: { to: '/work', statusCode: 301 } },
+      '/products': { redirect: { to: '/work', statusCode: 301 } },
+      '/products/**': { redirect: { to: '/work', statusCode: 301 } },
+      '/blog': { redirect: { to: '/journal', statusCode: 301 } },
+      '/blog/**': { redirect: { to: '/journal', statusCode: 301 } },
       '/admin/**': { ssr: false },
       '/**': {
         headers: {

@@ -1,7 +1,20 @@
 <script setup lang="ts">
-import { ref, computed, onMounted } from 'vue'
+import { ref, computed, onMounted, onUnmounted } from 'vue'
 
 const step = ref(1)
+const depositAmount = ref(0)
+const bookingOrderCode = ref('')
+const isDepositPaid = ref(false)
+let bookingPollInterval: ReturnType<typeof setInterval> | null = null
+
+function clearBookingPoll() {
+  if (bookingPollInterval) {
+    clearInterval(bookingPollInterval)
+    bookingPollInterval = null
+  }
+}
+
+onUnmounted(clearBookingPoll)
 
 interface ServiceItem {
   id: string
@@ -210,6 +223,57 @@ const submitBooking = async () => {
     
     if (res.ok) {
       trackCta(`Booking Submit: ${selectedServiceName.value}`)
+      
+      depositAmount.value = Math.round(calculatedTotal.value * 0.3)
+      bookingOrderCode.value = ''
+      isDepositPaid.value = false
+
+      if (depositAmount.value > 0) {
+        try {
+          const orderRes = await fetch('/api/payment/create-order', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              product_type: 'studio_deposit',
+              product_id: form.value.service,
+              product_label: `Cọc Studio 30% - ${selectedServiceName.value} (${form.value.timeSlot} ${form.value.date})`,
+              amount: depositAmount.value,
+              client_name: form.value.name,
+              client_phone: cleanPhone,
+              client_email: form.value.email || undefined,
+            })
+          })
+          if (orderRes.ok) {
+            const orderData = await orderRes.json() as { order_code: string }
+            bookingOrderCode.value = orderData.order_code
+          }
+        } catch (orderErr) {
+          console.warn('[booking-flow] Lỗi tạo mã đơn cọc:', orderErr)
+        }
+
+        clearBookingPoll()
+        if (bookingOrderCode.value) {
+          let attempts = 0
+          const MAX_ATTEMPTS = 150 // 10 phút (150 * 4s)
+          bookingPollInterval = setInterval(async () => {
+            attempts++
+            if (attempts > MAX_ATTEMPTS) {
+              clearBookingPoll()
+              return
+            }
+            try {
+              const pollRes = await fetch(`/api/payment/check-status?code=${bookingOrderCode.value}`)
+              if (!pollRes.ok) return
+              const pollData = await pollRes.json() as { status: string }
+              if (pollData.status === 'paid') {
+                clearBookingPoll()
+                isDepositPaid.value = true
+              }
+            } catch {}
+          }, 4000)
+        }
+      }
+
       step.value = 4 // success
       return
     }
@@ -230,6 +294,10 @@ const submitBooking = async () => {
         })
         if (fbRes.ok) {
           trackCta(`Booking Submit (Fallback): ${selectedServiceName.value}`)
+          
+          depositAmount.value = Math.round(calculatedTotal.value * 0.3)
+          bookingOrderCode.value = ''
+          isDepositPaid.value = false
           step.value = 4
           return
         }
@@ -244,6 +312,10 @@ const submitBooking = async () => {
 }
 
 const resetFlow = () => {
+  clearBookingPoll()
+  isDepositPaid.value = false
+  bookingOrderCode.value = ''
+  depositAmount.value = 0
   form.value = {
     service: 'thu-am',
     servicePrice: 499000,
@@ -537,9 +609,42 @@ onMounted(() => {
                     <span class="pass-label">ĐỊA ĐIỂM:</span>
                     <span class="pass-val-sub">Thủ Đức, Thành phố Hồ Chí Minh</span>
                   </div>
+                  <div v-if="depositAmount > 0" class="pass-item">
+                    <span class="pass-label">TRẠNG THÁI LỊCH:</span>
+                    <strong class="pass-val" :style="isDepositPaid ? 'color: var(--teal);' : 'color: #fbbf24;'">
+                      {{ isDepositPaid ? '🟢 ĐÃ CỌC 30% — ĐÃ KHÓA LỊCH' : '🟡 CHỜ ĐẶT CỌC GIỮ LỊCH' }}
+                    </strong>
+                  </div>
                 </div>
                 <div class="pass-footer">
                   <span class="pass-note">Mang theo file beat/nhạc nền trên điện thoại hoặc USB khi đến phòng thu.</span>
+                </div>
+              </div>
+
+              <!-- Automated 30% Deposit Section (Zero No-Show) -->
+              <div v-if="depositAmount > 0" class="deposit-booking-block" style="margin-top: 1.5rem;">
+                <div v-if="isDepositPaid" class="instant-access-box glass-card text-center" style="padding: 1.75rem 1.5rem; border: 1px solid rgba(0, 212, 170, 0.35); background: rgba(0, 212, 170, 0.05); border-radius: 14px;">
+                  <i class="fa-solid fa-shield-check" style="color: var(--teal); font-size: 2.2rem; margin-bottom: 0.5rem;"></i>
+                  <h4 style="color: #fff; margin-bottom: 0.35rem; font-size: 1.15rem;">ĐÃ XÁC NHẬN CỌC 30% — KHÓA LỊCH ĐỘC QUYỀN!</h4>
+                  <p style="color: var(--text-light); font-size: 0.88rem; margin: 0; line-height: 1.5;">
+                    Hệ thống đã nhận cọc <strong>{{ formatCurrency(depositAmount) }}</strong>. Slot phòng thu vào lúc <strong>{{ form.timeSlot }} ngày {{ form.date }}</strong> đã được khóa riêng cho bạn.
+                  </p>
+                </div>
+                <div v-else class="deposit-pending-box glass-card" style="padding: 1.5rem; border: 1px solid rgba(26, 140, 255, 0.25); border-radius: 14px;">
+                  <div style="text-align: center; margin-bottom: 1.25rem;">
+                    <span style="display: inline-block; font-size: 0.72rem; font-weight: 800; padding: 0.3rem 0.85rem; border-radius: 20px; background: rgba(26, 140, 255, 0.15); color: var(--accent); letter-spacing: 0.5px; margin-bottom: 0.6rem;">
+                      <i class="fa-solid fa-lock"></i> ĐẶT CỌC 30% ĐỂ KHÓA LỊCH PHÒNG THU
+                    </span>
+                    <p style="font-size: 0.88rem; color: var(--text-light); line-height: 1.5; margin: 0 auto; max-width: 540px;">
+                      Để đảm bảo kỹ sư âm thanh giữ phòng thu riêng cho bạn (tránh bị trùng ca), vui lòng chuyển cọc 30% (<strong>{{ formatCurrency(depositAmount) }}</strong>) qua mã QR bên dưới. Số tiền này sẽ được trừ trực tiếp khi thanh toán buổi thu.
+                    </p>
+                  </div>
+                  <VietQRPayment
+                    :amount="depositAmount"
+                    :service-name="`COC 30% ${selectedServiceName}`"
+                    :client-name="form.name"
+                    :order-code="bookingOrderCode"
+                  />
                 </div>
               </div>
 

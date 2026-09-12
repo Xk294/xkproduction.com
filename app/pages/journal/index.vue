@@ -3,10 +3,12 @@
     <div class="editorial-container">
       <!-- HEADER -->
       <div class="page-header">
-        <span class="badge-v2 teal">PRODUCTION NOTES</span>
-        <h1 class="journal-title">THE JOURNAL</h1>
+        <span class="badge-v2 teal">{{ isVi ? 'CHIA SẺ KINH NGHIỆM' : 'PRODUCTION NOTES' }}</span>
+        <h1 class="journal-title">{{ isVi ? 'GÓC NHÌN ÂM NHẠC' : 'THE JOURNAL' }}</h1>
         <p class="journal-subtitle">
-          Nhật ký sản xuất, phân tích kỹ thuật âm học, hậu trường các bản hit và kinh nghiệm làm nghề thực chiến từ người làm sản xuất tại XKProduction.
+          {{ isVi
+            ? 'Nhật ký sản xuất, phân tích kỹ thuật âm học, hậu trường các bản hit và kinh nghiệm làm nghề thực chiến từ người làm sản xuất tại XKProduction.'
+            : 'Production notes, acoustic analysis, behind-the-scenes hit records and hands-on experience from XKProduction producers.' }}
         </p>
 
         <!-- CATEGORIES -->
@@ -60,6 +62,7 @@
 <script setup lang="ts">
 import { ref, computed } from 'vue'
 
+const { isVi } = useLocale()
 const { allBlogPosts } = useBlog()
 const selectedCategory = ref('Tất Cả')
 
@@ -77,9 +80,13 @@ const filteredPosts = computed(() => {
 })
 
 useSeoMeta({
-  title: 'Journal — Production Notes & Hậu Trường Sản Xuất | XKProduction',
+  title: () => isVi.value
+    ? 'Góc Nhìn Âm Nhạc — Chia Sẻ Kinh Nghiệm | XKProduction'
+    : 'Journal — Production Notes & Behind The Scenes | XKProduction',
   description: 'Nhật ký sản xuất âm nhạc, kỹ thuật thu âm, bí quyết mix vocal và hậu trường các ca khúc sản xuất tại XKProduction.',
-  ogTitle: 'The Journal — Production Notes | XKProduction',
+  ogTitle: () => isVi.value
+    ? 'Góc Nhìn Âm Nhạc — XKProduction'
+    : 'The Journal — Production Notes | XKProduction',
   ogDescription: 'Nhật ký sản xuất âm nhạc và kỹ thuật phòng thu chuyên sâu tại XKProduction.',
   ogImage: 'https://xkproduction.com/images/Xkpreviewnew.png',
   ogUrl: 'https://xkproduction.com/journal'
@@ -215,6 +222,7 @@ useSeoMeta({
   line-height: 1.4;
   display: -webkit-box;
   -webkit-line-clamp: 2;
+  line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
@@ -225,6 +233,7 @@ useSeoMeta({
   line-height: 1.55;
   display: -webkit-box;
   -webkit-line-clamp: 3;
+  line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
   flex: 1;

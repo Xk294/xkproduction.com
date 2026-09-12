@@ -375,11 +375,11 @@ function handleTogglePlayDemo() {
   font-weight: 800;
   letter-spacing: -0.005em;
   text-shadow: 0 4px 24px rgba(0, 0, 0, 0.5);
-  white-space: nowrap;
+  text-wrap: balance;
 }
 
 .hero-title-statement {
-  font-size: clamp(1.05rem, 1.85vw, 1.95rem);
+  font-size: clamp(1.25rem, 2vw, 2rem);
   font-weight: 800;
   letter-spacing: -0.005em;
   line-height: 1.25;
@@ -391,12 +391,12 @@ function handleTogglePlayDemo() {
   display: inline-block;
   width: fit-content;
   max-width: 100%;
+  text-wrap: balance;
   filter: drop-shadow(0 2px 20px rgba(245, 158, 11, 0.25));
 }
 
 @media (min-width: 1024px) {
-  .hero-title-lead,
-  .hero-title-statement {
+  .hero-title-lead {
     white-space: nowrap;
   }
 }
@@ -907,6 +907,7 @@ function handleTogglePlayDemo() {
   line-height: 1.45;
   display: -webkit-box;
   -webkit-line-clamp: 2;
+  line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
@@ -964,11 +965,39 @@ function handleTogglePlayDemo() {
   .bento-card-desc {
     display: -webkit-box;
     -webkit-line-clamp: 2;
+    line-clamp: 2;
     -webkit-box-orient: vertical;
     overflow: hidden;
   }
   .mobile-bento-bar {
     display: flex;
+  }
+}
+
+@media (max-width: 640px) {
+  .hero-primary-ctas {
+    width: 100%;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.85rem;
+  }
+  .btn-hero-primary,
+  .btn-hero-secondary,
+  .btn-hero-play-demo {
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+  }
+  .btn-hero-play-demo {
+    padding: 0.75rem 1.25rem;
+  }
+  .hero-action-split {
+    gap: 1.75rem;
+    margin-bottom: 2.5rem;
+  }
+  .hero-proof-strip {
+    width: 100%;
+    justify-content: flex-start;
   }
 }
 </style>
