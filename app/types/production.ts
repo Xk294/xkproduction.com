@@ -96,5 +96,27 @@ export interface XKCapability {
     enQuestion?: string
     enAnswer?: string
   }[]
+  workflow?: {
+    step: string
+    title: string
+    desc: string
+    enStep?: string
+    enTitle?: string
+    enDesc?: string
+  }[]
+  techSpecs?: {
+    label: string
+    value: string
+    desc: string
+    enLabel?: string
+    enValue?: string
+    enDesc?: string
+  }[]
+  guarantees?: {
+    title: string
+    desc: string
+    enTitle?: string
+    enDesc?: string
+  }[]
 }
 

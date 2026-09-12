@@ -5,23 +5,25 @@
     "title": "Music Production",
     "viTitle": "Sản Xuất & Phối Khí",
     "enTitle": "Music Production",
-    "subtitle": "Hoà âm phối khí, làm beat theo đúng màu giọng & phong cách của bạn",
-    "enSubtitle": "Bespoke Music Arrangement, Composition & Sonic Branding",
+    "subtitle": "Biến giai điệu mộc mạc của bạn thành bài hát hoàn chỉnh đầy cảm xúc",
+    "enSubtitle": "Turning Your Raw Musical Sketches Into Expressive Bespoke Tracks",
     "badge": "SẢN XUẤT & PHỐI KHÍ",
     "enBadge": "MUSIC PRODUCTION",
-    "summary": "Từ giai điệu bạn ngâm nga trên điện thoại hay vài câu guitar mộc, chúng tôi giúp bạn xây dựng bản phối hoàn chỉnh, chọn nhạc cụ và tiết tấu phù hợp nhất với phong cách của bạn.",
-    "enSummary": "From a rough voice memo sketch or acoustic guitar chords, we build a complete musical arrangement tailored to your identity with contemporary sound design and zero generic loops.",
+    "summary": "Bạn không cần phải biết nhạc lý hay biết chơi nhạc cụ. Dù chỉ là một đoạn ngâm nga trong điện thoại hay vài câu hát mộc mạc, XKProduction luôn trân trọng và lắng nghe câu chuyện của bạn. Chúng tôi đồng hành phối khí riêng biệt theo đúng màu giọng và cảm xúc thật của bạn, tuyệt đối không dùng beat rập khuôn đại trà.",
+    "enSummary": "No musical theory or instrument skills needed. Even from a rough voice memo sketch, we listen deeply to your story. We build an original musical arrangement tailored to your voice and emotion, zero generic loops.",
     "deliverables": [
-      "Bản hoà âm phối khí full multitrack 24-bit/48kHz",
-      "Track Beat Playback chất lượng cao cho biểu diễn sân khấu",
-      "Định hình cấu trúc Intro, Verse, Chorus, Bridge, Outro bài hát",
-      "Tư vấn tone giọng, BPM và hợp âm tối ưu cho chất giọng ca sĩ"
+      "Bản hoà âm phối khí trọn vẹn được làm riêng cho chất giọng của bạn",
+      "Bản beat playback chất lượng cao để bạn tự tin biểu diễn sân khấu",
+      "Bản beat có bè hỗ trợ giúp bạn dễ hát và tự tin hơn",
+      "Tư vấn tone giọng thoải mái nhất, không lo bị quá cao hay quá trầm",
+      "Toàn quyền sở hữu bài hát và tự do chia sẻ cùng mọi người"
     ],
     "enDeliverables": [
-      "Full 24-bit/48kHz multitrack arrangement stems",
-      "High-fidelity stage performance backing track",
-      "Arranged song structure: Intro, Verse, Chorus, Bridge, Outro",
-      "Vocal key, BPM and harmonic voicing consultation"
+      "Complete custom musical arrangement tailored to your voice",
+      "High-fidelity backing track for stage performance",
+      "Accompaniment track with backing vocals for easy singing",
+      "Vocal key consultation for maximum singing comfort",
+      "Full artist ownership to freely share with everyone"
     ],
     "investmentStarting": "Từ 2.000.000₫ / tác phẩm",
     "enInvestmentStarting": "From 2,000,000₫ / track",
@@ -31,90 +33,150 @@
     "timeline": "5 — 10 ngày làm việc",
     "enTimeline": "5 — 10 business days",
     "icon": "fa-solid fa-music",
+    "techSpecs": [
+      {
+        "label": "TÔN TRỌNG Ý TƯỞNG",
+        "value": "Lắng Nghe Mọi Giai Điệu",
+        "desc": "Dù chỉ là đoạn ghi âm ngẫu hứng trên điện thoại, chúng tôi luôn trân trọng và giúp bạn hiện thực hóa.",
+        "enLabel": "RESPECTING IDEAS",
+        "enValue": "Listening to Every Melody",
+        "enDesc": "Even a raw voice memo is deeply appreciated and brought to life with genuine care."
+      },
+      {
+        "label": "TÔN VINH BẢN SẮC",
+        "value": "Độc Bản — Không Rập Khuôn",
+        "desc": "Mỗi bài hát là một câu chuyện riêng, được hòa âm đúng theo tính cách và màu giọng thật của bạn.",
+        "enLabel": "AUTHENTIC IDENTITY",
+        "enValue": "100% Bespoke — No Templates",
+        "enDesc": "Every song reflects your unique personality and vocal color without recycled formulas."
+      },
+      {
+        "label": "SỰ THOẢI MÁI",
+        "value": "Tone Giọng Dễ Hát Nhất",
+        "desc": "Tìm cữ nốt đẹp và thoải mái nhất để bạn cất giọng tự nhiên, không bị gồng hay hụt hơi.",
+        "enLabel": "SINGING EASE",
+        "enValue": "Optimal Vocal Comfort",
+        "enDesc": "Tailoring the song key to your natural sweet spot so singing feels effortless."
+      },
+      {
+        "label": "SỰ AN TÂM",
+        "value": "100% Của Riêng Bạn",
+        "desc": "Bạn toàn quyền sở hữu đứa con tinh thần của mình, tự hào chia sẻ và lưu giữ kỷ niệm để đời.",
+        "enLabel": "PEACE OF MIND",
+        "enValue": "100% Artist Ownership",
+        "enDesc": "Full ownership of your musical creation to cherish and share with pride."
+      }
+    ],
+    "workflow": [
+      {
+        "step": "BƯỚC 01",
+        "title": "Lắng Nghe Ý Tưởng & Câu Chuyện Của Bạn",
+        "desc": "Trò chuyện thân tình, nghe bạn chia sẻ cảm xúc và giai điệu bạn đang ấp ủ để thấu hiểu tinh thần bài hát.",
+        "enStep": "STEP 01",
+        "enTitle": "Listening to Your Story & Melody",
+        "enDesc": "An open, friendly chat to understand the heart, emotion, and personal story behind your song."
+      },
+      {
+        "step": "BƯỚC 02",
+        "title": "Bản Phối Phác Thảo Demo Nghe Thử",
+        "desc": "Gửi bạn nghe thử khung giai điệu ban đầu để bạn cảm nhận và thoải mái góp ý chỉnh sửa theo ý mình.",
+        "enStep": "STEP 02",
+        "enTitle": "Draft Arrangement Preview",
+        "enDesc": "We craft a demo sketch for you to listen to and share honest thoughts with zero pressure."
+      },
+      {
+        "step": "BƯỚC 03",
+        "title": "Trau Chuốt Từng Đoạn Cảm Xúc",
+        "desc": "Thêm thắt những đoạn nhạc đệm tinh tế, đẩy cao trào đoạn điệp khúc để bài hát chạm đến trái tim người nghe.",
+        "enStep": "STEP 03",
+        "enTitle": "Nurturing Emotional Dynamics",
+        "enDesc": "Refining melodies and musical arcs so your chorus feels uplifting and deeply memorable."
+      },
+      {
+        "step": "BƯỚC 04",
+        "title": "Bàn Giao & Đồng Hành Đến Cùng",
+        "desc": "Bàn giao bài hát hoàn chỉnh và file beat sẵn sàng để bạn tự tin biểu diễn hoặc bước vào phòng thu.",
+        "enStep": "STEP 04",
+        "enTitle": "Final Delivery & Support",
+        "enDesc": "Delivering your complete song and backing tracks ready for performance or recording."
+      }
+    ],
     "features": [
       {
-        "title": "Phối khí riêng biệt, không dùng mẫu có sẵn",
-        "description": "Mỗi bản phối đều được làm riêng từ đầu theo đúng quãng giọng và phong cách bài hát của bạn.",
-        "enTitle": "100% Bespoke Tailoring",
-        "enDescription": "Zero template beats or recycled patterns. Every production is engineered from scratch for your voice."
+        "title": "Không cần biết nhạc lý — Chỉ cần bạn có cảm xúc",
+        "description": "Bạn đừng lo lắng nếu chưa từng học qua trường lớp âm nhạc. Chúng tôi lắng nghe giai điệu bạn hát mộc và giúp bạn xây dựng thành một bản nhạc trọn vẹn.",
+        "enTitle": "No Music Theory Needed — Just Your Heart",
+        "enDescription": "Do not worry if you never studied music. We take your raw singing and gently build it into a finished song."
       },
       {
-        "title": "Kết hợp hài hoà nhạc cụ mộc & hiện đại",
-        "description": "Kết hợp tiếng piano, guitar mộc mạc với các âm sắc synthesizer hiện đại, tạo nên bản phối vừa ấm vừa thời thượng.",
-        "enTitle": "Acoustic & Modern Synthesis",
-        "enDescription": "Seamless blend of authentic acoustic instruments (Piano, Guitar) and cutting-edge sound design."
+        "title": "Phối khí theo màu giọng — Tôn vinh cá tính riêng",
+        "description": "Chúng tôi không dùng beat làm sẵn đại trà. Mỗi bản phối đều được đo đạc theo cữ giọng thật của bạn để bạn hát thoải mái và truyền cảm nhất.",
+        "enTitle": "Arranged for Your Natural Voice",
+        "enDescription": "Zero generic templates. Every arrangement is tailored around your vocal comfort and unique artistic timbre."
       },
       {
-        "title": "Đồng hành từ demo đến khi ưng ý",
-        "description": "Chỉnh sửa thoải mái ở giai đoạn demo để đảm bảo bạn hoàn toàn hài lòng với nhịp điệu bài hát trước khi hoàn thiện.",
-        "enTitle": "Collaborative Pre-Production",
-        "enDescription": "Unlimited feedback iterations during the draft stage to ensure complete artist alignment."
+        "title": "Lắng nghe và chỉnh sửa đến khi bạn thật sự ưng ý",
+        "description": "Bạn là linh hồn của bài hát. Chúng tôi luôn sẵn sàng lắng nghe mọi góp ý ở giai đoạn demo để bạn hoàn toàn hài lòng với nhịp điệu bài hát.",
+        "enTitle": "Patient Listening Until You Love It",
+        "enDescription": "You are the soul of the track. We listen attentively and refine the draft until you feel completely proud."
+      },
+      {
+        "title": "Giai điệu cuốn hút — Dễ nghe và đọng lại trong lòng người thân",
+        "description": "Bài hát được sắp xếp đoạn dạo đầu êm ái, đoạn điệp khúc bùng nổ để người nghe dễ nhớ, dễ thuộc và đồng cảm cùng bạn.",
+        "enTitle": "Memorable & Touching to Every Listener",
+        "enDescription": "Thoughtfully paced with gentle intros and uplifting choruses that stay warmly in listeners' hearts."
+      },
+      {
+        "title": "Toàn quyền sở hữu — Một tác phẩm để đời của bạn",
+        "description": "Bài hát là tài sản và kỷ niệm quý giá của riêng bạn. Bạn tự do chia sẻ lên mạng xã hội, tặng người thân hay biểu diễn trên sân khấu.",
+        "enTitle": "100% Yours — A Lifelong Artistic Keepsake",
+        "enDescription": "Full personal and commercial freedom to share, dedicate to loved ones, or perform wherever you wish."
+      }
+    ],
+    "guarantees": [
+      {
+        "title": "Đồng Hành Kiên Nhẫn",
+        "desc": "Lắng nghe và tinh chỉnh thoải mái ở bước demo đến khi bạn thật sự ưng ý.",
+        "enTitle": "Patient Guidance",
+        "enDesc": "Attentive revisions during the draft stage until you feel totally happy."
+      },
+      {
+        "title": "Tôn Trọng Bản Sắc Riêng",
+        "desc": "Giữ trọn vẹn cảm xúc và màu giọng thật, không biến đổi thành người khác.",
+        "enTitle": "Honoring Your Identity",
+        "enDesc": "Preserving your authentic voice and emotions without artificial changes."
+      },
+      {
+        "title": "Lưu Giữ An Toàn",
+        "desc": "Bài hát và các file của bạn được lưu trữ an toàn, gửi lại bất cứ khi nào bạn cần.",
+        "enTitle": "Safe Long-Term Storage",
+        "enDesc": "Your project files are safely archived and always ready whenever you need them."
       }
     ],
     "faq": [
       {
-        "question": "Tôi chỉ có một đoạn thu âm giọng hát qua điện thoại, có phối thành bài được không?",
-        "answer": "Chính xác là thế mạnh của chúng tôi. Chúng tôi sẽ phân tích tone giọng, đo tempo, đệm hợp âm mẫu và gửi bạn nghe thử trước khi triển khai bản phối hoàn thiện.",
-        "enQuestion": "Can you build a full track from a rough phone recording?",
-        "enAnswer": "That is our core specialty. We analyze your vocal key, tempo, map out harmonic chords, and send you a draft preview before completing the master arrangement."
+        "question": "Tôi không biết nhạc lý, chỉ biết ngâm nga bằng miệng thì có làm thành bài hát được không?",
+        "answer": "Hoàn toàn được và đó là điều rất bình thường! Hầu hết các ca khúc hay đều bắt đầu từ một giai điệu ngẫu hứng mộc mạc. Producer sẽ ngồi lại cùng bạn, nghe đoạn ngâm nga, đệm thử đàn để bạn nghe và cùng bạn hoàn thiện bài hát từng bước.",
+        "enQuestion": "I don't know music theory, I only hummed a melody. Can you turn it into a song?",
+        "enAnswer": "Absolutely! Most great songs begin with a simple hummed melody. Our producer will sit with you, listen patiently, play piano/guitar chords, and shape it into a full song."
       },
       {
-        "question": "Bản phối hoàn chỉnh có bao gồm bản quyền độc quyền không?",
-        "answer": "Có. Mọi bản phối do XKProduction sản xuất theo yêu cầu đều trao toàn quyền thương mại và phát hành cho nghệ sĩ.",
-        "enQuestion": "Does the arrangement include full commercial ownership?",
-        "enAnswer": "Yes. 100% of commercial and publishing rights belong exclusively to the artist."
-      }
-    ]
-  },
-  {
-    "id": "live-production",
-    "slug": "live-production",
-    "title": "Live Production",
-    "viTitle": "Sound & Light Sự Kiện",
-    "enTitle": "Sound & Light / Live Events",
-    "subtitle": "Hệ thống âm thanh ánh sáng sân khấu, mixer số Midas M32R & ban nhạc live chuyên nghiệp",
-    "enSubtitle": "Stage Audio & Lighting Engineering, Midas M32R FOH & Live Band",
-    "badge": "SOUND & LIGHT SỰ KIỆN",
-    "enBadge": "SOUND & LIGHT",
-    "summary": "Cung cấp giải pháp âm thanh và ánh sáng (Sound & Light) trọn gói cho sân khấu, tiệc cưới và sự kiện. Vận hành bàn mixer Midas M32R chống hú rít, âm thanh sạch sẽ, hiệu ứng ánh sáng đồng bộ, kết hợp ban nhạc live chuyên nghiệp.",
-    "enSummary": "Turnkey stage sound and lighting reinforcement for live events and concerts. Powered by Midas M32R digital console, feedback-free FOH tuning, pro stage lighting, and live acoustic band.",
-    "deliverables": [
-      "Hệ thống âm thanh và ánh sáng sân khấu theo quy mô sự kiện",
-      "Kỹ sư FOH & kỹ thuật viên ánh sáng vận hành trực tiếp",
-      "Mixer số Midas M32R & microphone không dây chống hú tuyệt đối",
-      "Ban nhạc Live Acoustic (Guitar, Trống/Cajon, Keyboard, Bass)"
-    ],
-    "enDeliverables": [
-      "Full stage sound & lighting reinforcement scaled to event size",
-      "Dedicated FOH sound engineer and lighting operator on-site",
-      "Midas M32R console with feedback-free wireless mic systems",
-      "Live Acoustic Band ensemble (Guitar, Percussion, Keyboard, Bass)"
-    ],
-    "investmentStarting": "Liên hệ theo quy mô sự kiện",
-    "enInvestmentStarting": "Custom quote based on event scale",
-    "timeline": "Đặt lịch trước 3 — 7 ngày",
-    "enTimeline": "Reserve 3 — 7 days in advance",
-    "icon": "fa-solid fa-sliders",
-    "features": [
-      {
-        "title": "Kỹ sư âm thanh trực tiếp điều khiển",
-        "description": "Nguyễn Xuân Kiệt trực tiếp căn chỉnh và quản lý hệ thống âm thanh, đảm bảo tiếng hát trong trẻo và không bị chói gắt.",
-        "enTitle": "Midas M32R Digital Precision",
-        "enDescription": "Calibrated by founder Nguyen Xuan Kiet to ensure clean, balanced sound without piercing peaks."
+        "question": "Tôi sợ giọng mình hát yếu hoặc không lên được nốt cao thì sao?",
+        "answer": "Bạn hoàn toàn yên tâm. Chúng tôi sẽ chọn tone nhạc phù hợp nhất với quãng giọng thoải mái nhất của bạn. Bạn không cần phải cố gồng hay hát với, mà chỉ cần hát đúng cảm xúc tự nhiên nhất của mình.",
+        "enQuestion": "What if my voice is soft or I struggle with high notes?",
+        "enAnswer": "No worries at all. We transpose the song key to your easiest, most comfortable range so you can sing naturally without straining."
       },
       {
-        "title": "Ban nhạc chơi live ăn ý",
-        "description": "Các nhạc công giàu kinh nghiệm biểu diễn, nắm vững hàng trăm ca khúc pop, ballad, acoustic quen thuộc.",
-        "enTitle": "Seasoned Live Musicians",
-        "enDescription": "Professional instrumentalists with deep repertoire across contemporary pop, ballad, and acoustic sets."
-      }
-    ],
-    "faq": [
+        "question": "Tôi có được nghe thử và sửa lại bản phối nếu chưa ưng không?",
+        "answer": "Chắc chắn có. Chúng tôi luôn gửi bạn bản demo phác thảo để bạn nghe thử trước. Bạn thấy đoạn nào nhanh quá, chậm quá hay muốn thêm bớt nhạc cụ, chúng tôi sẽ điều chỉnh cùng bạn cho đến khi bạn thấy thật sự vừa ý.",
+        "enQuestion": "Can I listen to drafts and request changes?",
+        "enAnswer": "Certainly. We always send you a preview draft first. Any tempo adjustment or melody preference you want will be refined until you are completely pleased."
+      },
       {
-        "question": "Studio có nhận setup âm thanh cho sự kiện tại TP. Hồ Chí Minh, Bình Phước và các khu vực lân cận không?",
-        "answer": "Có. Chúng tôi nhận phục vụ tại TP. Hồ Chí Minh, Bình Phước, Bình Dương và các khu vực lân cận với đầy đủ trang thiết bị sân khấu.",
-        "enQuestion": "Do you provide event sound setups across Ho Chi Minh City and surrounding areas?",
-        "enAnswer": "Yes. We service Ho Chi Minh City, Binh Phuoc, Binh Duong and neighboring provinces with turnkey stage gear."
+        "question": "Sau khi hoàn thành, tôi có toàn quyền sử dụng bài hát không?",
+        "answer": "Có. Bài hát hoàn chỉnh là của riêng bạn 100%. Bạn có toàn quyền chia sẻ, phát hành, biểu diễn hoặc lưu giữ làm kỷ niệm mà không phải chịu bất kỳ ràng buộc nào.",
+        "enQuestion": "Do I have full ownership after the track is completed?",
+        "enAnswer": "Yes. 100% of the song belongs exclusively to you to share, perform, or cherish forever with complete freedom."
       }
     ]
   },
@@ -124,23 +186,25 @@
     "title": "Creative Sound",
     "viTitle": "Mixing & Mastering",
     "enTitle": "Creative Sound",
-    "subtitle": "Mixing & Mastering hoàn thiện bài hát chuẩn âm lượng Spotify, YouTube & Apple Music",
-    "enSubtitle": "International Spotify/Apple Music Standard Mixing & Mastering",
+    "subtitle": "Trau chuốt âm thanh êm ái, nâng đỡ giọng hát sáng rõ và tự nhiên",
+    "enSubtitle": "Polishing Your Audio with Natural Warmth and Clear Emotional Presence",
     "badge": "HẬU KỲ CHUYÊN SÂU",
     "enBadge": "MIX & MASTER",
-    "summary": "Biến các track thu âm mộc thành bản nhạc hoàn chỉnh, cân bằng âm sắc từng nhạc cụ, xử lý vocal dày ấm, sáng rõ và đạt độ lớn tiêu chuẩn phát hành số mà không bị vỡ tiếng hay chói gắt.",
-    "enSummary": "Transform raw multitrack stems into cohesive, spacious audio masters calibrated to -14 LUFS international streaming standards with zero harsh distortion.",
+    "summary": "Nhiều người ngại đi mix bài vì sợ giọng mình bị chỉnh méo mó thành robot hoặc nghe quá ảo. Tại XKProduction, chúng tôi tin rằng cái hay nhất của một bài hát là cảm xúc chân thật. Chúng tôi trau chuốt từng nốt phô nhẹ nhàng, làm giọng hát của bạn trở nên dày ấm, sáng rõ trên nền nhạc mà vẫn giữ trọn sự mộc mạc, tự nhiên nhất của chính bạn.",
+    "enSummary": "Many people fear over-processed robotic autotune. At XKProduction, we believe authentic emotion is what touches hearts. We gently polish vocal imperfections, bringing warmth and upfront clarity while preserving your natural soul.",
     "deliverables": [
-      "Bản Master phát hành số chuẩn -14 LUFS (WAV 24-bit & MP3 320kbps)",
-      "Bản Master Beat không lời (Backing Track)",
-      "Bản TV Track (Beat + bè) phục vụ biểu diễn sân khấu / sự kiện",
-      "File lưu trữ multitrack đã cân chỉnh time & tune"
+      "Bản nhạc hoàn chỉnh nghe êm ái, to rõ trên mọi loa điện thoại và tai nghe",
+      "Bản beat không lời để bạn tự tin mang đi biểu diễn hoặc làm kỷ niệm",
+      "Bản beat có bè hỗ trợ để bạn dễ hát lại bất cứ lúc nào",
+      "Giọng hát được trau chuốt mượt mà nhưng vẫn nhận ra chất giọng riêng của bạn",
+      "Lắng nghe và chỉnh sửa cùng bạn đến khi bạn thật sự hài lòng"
     ],
     "enDeliverables": [
-      "Digital Master file at -14 LUFS (WAV 24-bit & MP3 320kbps)",
-      "Instrumental Backing Track Master",
-      "TV Performance Track (Beat + Backing Vocals)",
-      "Archival multitrack files with precision pitch & time alignment"
+      "Polished audio that sounds warm and clear across all headphones and phones",
+      "Instrumental backing track ready for stage performance",
+      "Accompaniment track with backing vocals for easy singing",
+      "Gently refined vocals that stay true to your natural timbre",
+      "Attentive revisions until you are completely satisfied"
     ],
     "investmentStarting": "Từ 350.000₫ / bản thu",
     "enInvestmentStarting": "From 350,000₫ / track",
@@ -150,38 +214,150 @@
     "timeline": "2 — 4 ngày làm việc",
     "enTimeline": "2 — 4 business days",
     "icon": "fa-solid fa-sliders",
+    "techSpecs": [
+      {
+        "label": "TÔN TRỌNG GIỌNG THẬT",
+        "value": "Tự Nhiên — Không Robot",
+        "desc": "Chỉnh phô nhẹ nhàng mộc mạc, giữ trọn độ rung ngân và cái hồn riêng của giọng hát.",
+        "enLabel": "HONORING YOUR VOICE",
+        "enValue": "Natural — No Robotic Glitch",
+        "enDesc": "Gentle tuning that honors your natural vibrato and emotional character."
+      },
+      {
+        "label": "ĐỘ ÊM ÁI DỄ CHỊU",
+        "value": "Không Gian Thoáng Đãng",
+        "desc": "Âm thanh trong trẻo, không bị chói tai, không bí bách, nghe nhiều lần vẫn thấy dễ chịu.",
+        "enLabel": "LISTENING COMFORT",
+        "enValue": "Warm & Spacious",
+        "enDesc": "Clear, comfortable sound with zero harshness, pleasant even on repeat listening."
+      },
+      {
+        "label": "GIỌNG HÁT TRUNG TÂM",
+        "value": "Sáng Rõ Trên Nền Nhạc",
+        "desc": "Nhạc nền nâng đỡ giọng hát chứ không nuốt chìm hay lấn át lời ca của bạn.",
+        "enLabel": "VOCAL FOCUS",
+        "enValue": "Upfront & Intimate",
+        "enDesc": "The backing music gently cradles your vocal, never overpowering your words."
+      },
+      {
+        "label": "NGHE HAY MỌI NƠI",
+        "value": "Rõ Ràng Trên Điện Thoại",
+        "desc": "Dù bạn nghe bằng tai nghe nhỏ, loa điện thoại hay trên xe hơi đều to tròn, êm ái.",
+        "enLabel": "CONSISTENT PLAYBACK",
+        "enValue": "Great on Any Device",
+        "enDesc": "Sounds balanced and warm whether played on phone speakers, earbuds, or car audio."
+      }
+    ],
+    "workflow": [
+      {
+        "step": "BƯỚC 01",
+        "title": "Lắng Nghe Bản Thu & Mong Muốn Của Bạn",
+        "desc": "Nghe thử file bạn gửi, trao đổi về phong cách bạn yêu thích và cảm xúc bạn muốn truyền tải.",
+        "enStep": "STEP 01",
+        "enTitle": "Listening to Your Audio & Wishes",
+        "enDesc": "We listen to your raw tracks and discuss your preferred mood and listening style."
+      },
+      {
+        "step": "BƯỚC 02",
+        "title": "Nâng Đỡ Giọng Hát Mộc Mạc Tự Nhiên",
+        "desc": "Nắn nót những chỗ hơi phô, vuốt êm tiếng lấy hơi mà vẫn giữ nguyên độ rung ngân thật của giọng bạn.",
+        "enStep": "STEP 02",
+        "enTitle": "Gentle Natural Vocal Polishing",
+        "enDesc": "Softening pitch wobbles and smoothing breath noise while keeping your genuine vocal character."
+      },
+      {
+        "step": "BƯỚC 03",
+        "title": "Hòa Quyện Giọng Hát Cùng Nhạc Nền",
+        "desc": "Tạo không gian ấm áp, để tiếng hát nổi bật ở vị trí trung tâm, lời ca rõ ràng, truyền cảm.",
+        "enStep": "STEP 03",
+        "enTitle": "Harmonizing Voice with Music",
+        "enDesc": "Placing your vocal upfront with warm spatial ambience so every lyric connects with the listener."
+      },
+      {
+        "step": "BƯỚC 04",
+        "title": "Nghe Thử Cùng Bạn & Hoàn Thiện",
+        "desc": "Gửi bạn nghe thử, cùng bạn lắng nghe và tinh chỉnh đến khi bạn hoàn toàn tự tin chia sẻ bài hát.",
+        "enStep": "STEP 04",
+        "enTitle": "Preview Together & Fine-Tune",
+        "enDesc": "We review the draft together and make personal tweaks until you are proud to share it."
+      }
+    ],
     "features": [
       {
-        "title": "Chỉnh phô & nhịp tự nhiên",
-        "description": "Xử lý cao độ và nhịp thở tỉ mỉ từng câu chữ bằng Melodyne, giữ trọn vẹn cảm xúc nguyên bản của giọng hát.",
-        "enTitle": "Natural Pitch & Time Alignment",
-        "enDescription": "Precision Melodyne editing preserves vocal emotion, micro-vibratos and nuances without synthetic artifacts."
+        "title": "Giữ trọn chất giọng thật — Tuyệt đối không méo tiếng robot",
+        "description": "Chúng tôi biết bạn muốn bài hát hay hơn nhưng vẫn phải là chính mình. Kỹ thuật chỉnh phô được thực hiện tỉ mỉ từng câu để giữ trọn cảm xúc mộc mạc và những rung ngân tự nhiên.",
+        "enTitle": "Honoring Your True Voice — No Robotic Artifacts",
+        "enDescription": "We know you want to sound better while still sounding like yourself. Tuning is delicately done to preserve your real emotions."
       },
       {
-        "title": "Không gian mở rộng, vocal rõ nét",
-        "description": "Cân chỉnh không gian và dải tần hài hoà để giọng hát luôn nổi bật, sáng rõ trên nền nhạc.",
-        "enTitle": "3D Spatial Depth & Imaging",
-        "enDescription": "Sculpted stereo imaging and multi-band dynamic EQ keep the lead vocal upfront and crystal-clear."
+        "title": "Giọng hát sáng rõ — Không bị nhạc đè lấn át",
+        "description": "Nhiều bản thu nghe bị chìm nghỉm trong tiếng nhạc. Chúng tôi xử lý để giọng hát của bạn luôn nổi bật, rõ ràng từng lời ca mà nhạc nền vẫn êm dịu nâng đỡ.",
+        "enTitle": "Crystal-Clear Vocals — Never Drowned by Music",
+        "enDescription": "We ensure your voice sits warmly upfront, allowing your lyrics to be heard clearly without fighting the instruments."
       },
       {
-        "title": "Kiểm tra trên nhiều loại loa và tai nghe",
-        "description": "Bản mix được kiểm âm chéo trên loa phòng thu, tai nghe in-ear, loa điện thoại và loa xe hơi để đảm bảo nghe tốt ở mọi nơi.",
-        "enTitle": "Cross-Device Acoustic Verification",
-        "enDescription": "A-B tested across studio reference monitors, smartphone speakers, car audio, and consumer earbuds."
+        "title": "Âm thanh to tròn, êm ái — Không bị chói tai hay rè vỡ",
+        "description": "Bài hát được cân chỉnh âm lượng to rõ, đầy đặn, nghe lâu không bị mỏi tai và không bị rè khi bạn mở lớn trên điện thoại hay loa ngoài.",
+        "enTitle": "Warm & Balanced Loudness — Zero Harshness",
+        "enDescription": "Calibrated for rich, comfortable volume that never distorts or causes ear fatigue even at high listening levels."
+      },
+      {
+        "title": "Nghe hay trên mọi phương tiện hàng ngày",
+        "description": "Chúng tôi kiểm tra kỹ bài hát trên tai nghe bình thường, loa điện thoại và loa xe hơi để bạn gửi cho ai nghe cũng đều thấy hay và êm tai.",
+        "enTitle": "Tested on Real Everyday Devices",
+        "enDescription": "Carefully verified on everyday smartphone speakers, earbuds, and car audio so your song sounds wonderful everywhere."
+      },
+      {
+        "title": "Đồng hành lắng nghe — Chỉnh sửa đến khi bạn ưng ý",
+        "description": "Không có sự áp đặt nào cả. Bạn muốn vocal lớn hơn, ấm hơn hay vang hơn một chút, chúng tôi luôn vui vẻ điều chỉnh cùng bạn.",
+        "enTitle": "Collaborative Listening — Revisions Welcome",
+        "enDescription": "No rigid rules. Whether you want your vocal slightly louder, warmer, or more intimate, we gladly tweak it with you."
+      }
+    ],
+    "guarantees": [
+      {
+        "title": "Tôn Trọng Cảm Xúc Thật",
+        "desc": "Cam kết giữ trọn vẹn giọng thật của bạn, không chỉnh méo mó thành giọng người khác.",
+        "enTitle": "True-to-You Guarantee",
+        "enDesc": "Guaranteed to preserve your authentic natural voice without synthetic distortion."
+      },
+      {
+        "title": "Chỉnh Sửa Theo Ý Bạn",
+        "desc": "Sẵn sàng lắng nghe và tinh chỉnh theo cảm nhận nghe thực tế của bạn.",
+        "enTitle": "Attentive Revisions",
+        "enDesc": "Always ready to adjust balance and tone according to how you feel."
+      },
+      {
+        "title": "Lưu Trữ Bài Hát Chu Đáo",
+        "desc": "File bài hát của bạn được cất giữ an toàn, bạn có thể xin lại bất kỳ lúc nào.",
+        "enTitle": "Thoughtful Archival",
+        "enDesc": "Your audio masters are safely stored and always accessible whenever you need."
       }
     ],
     "faq": [
       {
-        "question": "Tôi có thể gửi multitrack thu từ phòng thu khác để XKProduction mix được không?",
-        "answer": "Hoàn toàn được. Chúng tôi hỗ trợ nhận file online từ khắp mọi tỉnh thành qua Google Drive với hướng dẫn xuất stem chi tiết.",
-        "enQuestion": "Can I send vocal stems recorded at another studio for mixing?",
-        "enAnswer": "Absolutely. We regularly mix stems submitted online via Google Drive or Dropbox with detailed export guides."
+        "question": "Tôi tự thu âm bằng điện thoại hoặc tai nghe ở nhà, gửi cho studio mix có hay lên được không?",
+        "answer": "Hoàn toàn được! Rất nhiều bạn thu âm tại nhà và gửi cho chúng tôi. Studio sẽ giúp bạn lọc bỏ tiếng ồn xung quanh, làm mượt các nốt chưa chuẩn và hòa quyện giọng bạn vào beat để bài hát nghe sạch sẽ, ấm áp hơn rất nhiều.",
+        "enQuestion": "I recorded on my phone or home headset. Can mixing really make it sound good?",
+        "enAnswer": "Yes, absolutely! We frequently work with home recordings. We clean background hums, smooth out pitch wobbles, and blend your voice warmly into the music."
       },
       {
-        "question": "Tôi có bài hát đã mix sẵn, muốn tách riêng beat hoặc tách acapella để làm cover thì sao?",
-        "answer": "Nếu bạn cần bóc tách vocal/beat chất lượng cao nhất cho dự án sản xuất chuyên sâu, chúng tôi có công nghệ de-mixing studio. Ngoài ra nếu bạn cần tách nhanh trực tuyến miễn phí bằng AI (tách beat, tách vocal, khử noise), bạn có thể sử dụng ngay công cụ Tách Nhạc AI của chúng tôi tại tachnhac.com.",
-        "enQuestion": "Can you isolate vocals or instrumental beats from an existing mixed song?",
-        "enAnswer": "Yes, we provide studio-grade de-mixing for commercial projects. For fast, free online AI separation of vocals, beats, and noise removal, you can also use our dedicated web tool at tachnhac.com."
+        "question": "Chỉnh phô xong có bị giống giọng robot không?",
+        "answer": "Tuyệt đối không. Chúng tôi không sử dụng các hiệu ứng tự động làm méo giọng. Mọi nốt nhạc đều được nắn chỉnh thủ công bằng tay từng chút một để giữ trọn vẹn độ rung tự nhiên và cảm xúc thật của bạn.",
+        "enQuestion": "Will pitch correction make me sound robotic?",
+        "enAnswer": "Never. We do not use aggressive robotic presets. Every note is adjusted manually and gently by ear to preserve your authentic vibrato and feeling."
+      },
+      {
+        "question": "Nếu nghe bản demo mà tôi muốn chỉnh lại theo ý mình thì sao?",
+        "answer": "Đó là điều studio luôn khuyến khích! Bạn nghe và cảm nhận thế nào, chỉ cần nhắn lại cho chúng tôi: ví dụ 'cho giọng ấm hơn một chút' hoặc 'cho tiếng vang ít lại'. Chúng tôi sẽ điều chỉnh cùng bạn đến khi bạn thật sự ưng ý.",
+        "enQuestion": "What if I listen to the preview and want adjustments?",
+        "enAnswer": "We actively encourage that! Just let us know your feeling — like 'make it a bit warmer' or 'less reverb' — and we will adjust it until you love it."
+      },
+      {
+        "question": "Thời gian hoàn thành mất bao lâu?",
+        "answer": "Với các ca khúc đơn giản, bạn sẽ nhận được bản nghe thử đầu tiên chỉ sau 24 — 48 giờ. Chúng tôi làm việc nhanh chóng để bạn không phải sốt ruột chờ đợi.",
+        "enQuestion": "How fast will I get to listen to my song?",
+        "enAnswer": "For most tracks, you will receive your first preview within 24 to 48 hours so you won't have to wait anxiously."
       }
     ]
   },
@@ -191,23 +367,25 @@
     "title": "Studio Recording",
     "viTitle": "Thu Âm Ca Khúc",
     "enTitle": "Studio Recording",
-    "subtitle": "Thu âm ca khúc với microphone tiêu chuẩn & producer hướng dẫn tận tình",
-    "enSubtitle": "Vocal & Instrument Tracking with In-Studio Vocal Coaching",
+    "subtitle": "Phòng thu ấm cúng, không áp lực — Nơi bạn tự tin cất cao tiếng hát",
+    "enSubtitle": "Warm, Pressure-Free Recording — Where You Can Sing With Total Confidence",
     "badge": "THU ÂM CHUYÊN NGHIỆP",
     "enBadge": "STUDIO TRACKING",
-    "summary": "Không gian phòng thu cách âm và tiêu âm yên tĩnh, trang bị microphone Neumann/Rode và pre-amp analog ấm áp. Producer trực tiếp hướng dẫn lấy hơi, nhả chữ và bắt nhịp, giúp bạn thoải mái thể hiện bài hát trọn vẹn nhất.",
-    "enSummary": "Acoustically calibrated tracking room equipped with Neumann/Rode condenser microphones and discrete preamps. In-house vocal coaching guarantees your most expressive performance without hourly pressure.",
+    "summary": "Chúng tôi hiểu rằng bước vào phòng thu có thể khiến bạn lo lắng, sợ bị phán xét hay sợ hát phô. Tại XKProduction, bạn không phải đối mặt với sự lạnh lùng hay những chiếc đồng hồ bấm giờ tính từng phút. Producer Nguyễn Xuân Kiệt sẽ trực tiếp đồng hành như một người bạn: trò chuyện thoải mái, hướng dẫn lấy hơi nhẹ nhàng, kiên nhẫn thu từng câu để bạn hoàn toàn tự tin và thăng hoa cảm xúc.",
+    "enSummary": "Stepping into a recording studio can feel intimidating. At XKProduction, there is zero judgment and no clock-watching stress. Producer Nguyen Xuan Kiet guides you like a supportive friend: relaxing your nerves, helping you breathe with ease, and patiently coaching you phrase by phrase.",
     "deliverables": [
-      "Bản thu Vocal đa track độ phân giải cao 24-bit/48kHz",
-      "Xử lý làm sạch tạp âm, tiếng thở và sibilance",
-      "Định hướng thanh nhạc & chỉnh sửa trực tiếp từng take",
-      "Bản Rough Mix demo nghe thử ngay sau buổi thu"
+      "Trải nghiệm thu âm thoải mái, vui vẻ, không một chút áp lực thời gian",
+      "Producer hướng dẫn lấy hơi, nhả chữ và cách thể hiện cảm xúc tận tình",
+      "Ghép chọn những câu hát đẹp nhất từ nhiều lần thu để có bản thu ưng ý nhất",
+      "Xử lý làm sạch tạp âm và trau chuốt giọng hát mộc mạc tự nhiên",
+      "Nhận ngay bản demo nghe thử ngay sau buổi thu để cùng chia sẻ với người thân"
     ],
     "enDeliverables": [
-      "High-resolution 24-bit/48kHz raw vocal multitrack stems",
-      "Advanced noise reduction, de-breath and de-essing cleanup",
-      "Live vocal coaching and take selection guidance",
-      "Immediate rough mix preview delivered upon session wrap"
+      "Relaxed, joyful recording experience with zero hourly pressure",
+      "Gentle producer coaching on breath control, phrasing, and emotional expression",
+      "Seamlessly piecing together your best vocal moments into one cohesive track",
+      "Cleaning breath noise and gently refining pitch while keeping your real voice",
+      "Immediate rough mix demo takeaway upon session wrap to share with friends"
     ],
     "investmentStarting": "Từ 499.000₫ / buổi (hoặc theo bài)",
     "enInvestmentStarting": "From 499,000₫ / session",
@@ -217,26 +395,150 @@
     "timeline": "1 — 2 ngày làm việc",
     "enTimeline": "1 — 2 business days",
     "icon": "fa-solid fa-microphone-lines",
-    "features": [
+    "techSpecs": [
       {
-        "title": "Microphone & Preamp Tiêu Chuẩn",
-        "description": "Microphone condenser Neumann TLM 102 cùng Warm Audio WA73 mang lại chất giọng dày dặn, ấm áp và rõ nét.",
-        "enTitle": "Studio-Grade Mic & Preamp Chain",
-        "enDescription": "Neumann TLM 102 and Warm Audio preamps deliver rich, warm and upfront vocal presence."
+        "label": "TÂM LÝ THOẢI MÁI",
+        "value": "Không Phán Xét 100%",
+        "desc": "Không ai chê bai hay đánh giá bạn. Studio là nơi bạn được thoải mái cất tiếng hát là chính mình.",
+        "enLabel": "EMOTIONAL COMFORT",
+        "enValue": "100% Zero Judgment",
+        "enDesc": "Nobody judges you. The studio is a safe, warm space where you can sing authentically."
       },
       {
-        "title": "Producer Hướng Dẫn Trực Tiếp",
-        "description": "Producer trực tiếp đồng hành hướng dẫn nhả chữ, ngân rung và biểu cảm để bản thu đạt cảm xúc chân thực nhất.",
-        "enTitle": "Direct Vocal Coaching",
-        "enDescription": "Hands-on producer guidance on breath control, phrasing, and dynamic emotional delivery."
+        "label": "KHÔNG ÁP LỰC GIỜ GIẤC",
+        "value": "Tập Trung Vào Cảm Xúc",
+        "desc": "Không bấm giờ hối thúc làm bạn run. Bạn được nghỉ ngơi, uống nước và thu đến khi ưng ý.",
+        "enLabel": "NO RUSHED SESSIONS",
+        "enValue": "Quality & Feelings First",
+        "enDesc": "No clock-watching anxiety. Take breaks, sip warm tea, and record until you feel happy."
+      },
+      {
+        "label": "ĐỒNG HÀNH 1-KÈM-1",
+        "value": "Vocal Coaching Tận Tâm",
+        "desc": "Producer Kiệt trực tiếp hướng dẫn nhả chữ, giữ nhịp và gợi ý cách đưa cảm xúc vào bài hát.",
+        "enLabel": "1-ON-1 COACHING",
+        "enValue": "Caring Vocal Guidance",
+        "enDesc": "Producer Xuan Kiet personally guides breath, phrasing, and emotional connection."
+      },
+      {
+        "label": "GHÉP TAKE ĐẸP NHẤT",
+        "value": "Hát Từng Câu Thoải Mái",
+        "desc": "Không cần hát đúng một mạch từ đầu đến cuối. Chúng tôi chọn lọc những câu hay nhất ghép lại cho bạn.",
+        "enLabel": "BEST TAKE SELECTION",
+        "enValue": "Phrase-by-Phrase Ease",
+        "enDesc": "No need to be flawless from start to finish. We combine your sweetest phrases seamlessly."
+      }
+    ],
+    "workflow": [
+      {
+        "step": "BƯỚC 01",
+        "title": "Trò Chuyện & Thả Lỏng Tâm Lý",
+        "desc": "Ngồi uống nước, trò chuyện về bài hát để xóa tan cảm giác bỡ ngỡ trước khi bước vào phòng thu.",
+        "enStep": "STEP 01",
+        "enTitle": "Warm Welcome & Settling In",
+        "enDesc": "Relax with warm water, chat about your song, and melt away initial nervousness."
+      },
+      {
+        "step": "BƯỚC 02",
+        "title": "Thử Giọng & Tìm Cữ Hát Dễ Chịu Nhất",
+        "desc": "Chỉnh micro vừa tầm vóc, cân chỉnh tai nghe êm ái để bạn nghe rõ tiếng mình mà không bị ngượng.",
+        "enStep": "STEP 02",
+        "enTitle": "Comfortable Mic & Headphone Setup",
+        "enDesc": "Setting mic height and soft headphone volume so hearing your voice feels natural."
+      },
+      {
+        "step": "BƯỚC 03",
+        "title": "Thu Âm Từng Đoạn & Đồng Hành Tận Tình",
+        "desc": "Chia nhỏ từng câu để thu. Chỗ nào chưa quen, producer kiên nhẫn làm mẫu và hướng dẫn bạn hát lại.",
+        "enStep": "STEP 03",
+        "enTitle": "Patient Coaching Section by Section",
+        "enDesc": "We take it section by section. If a line feels tricky, we patiently demonstrate and retry."
+      },
+      {
+        "step": "BƯỚC 04",
+        "title": "Nghe Lại Bản Demo & Mỉm Cười Tự Hào",
+        "desc": "Ghép các đoạn đẹp nhất và xuất bản nghe thử ngay tại chỗ để bạn cùng nghe lại thành quả của mình.",
+        "enStep": "STEP 04",
+        "enTitle": "Immediate Preview & Proud Smile",
+        "enDesc": "We assemble your best takes on the spot so you can hear how wonderful you sound."
+      }
+    ],
+    "features": [
+      {
+        "title": "Không phán xét — Bất kỳ ai cũng có thể tự tin cất giọng",
+        "description": "Hơn 70% khách hàng tại phòng thu là các bạn học sinh, sinh viên, người đi làm lần đầu đi thu âm. Chúng tôi đón tiếp bạn bằng sự ấm áp, kiên nhẫn và chân thành nhất.",
+        "enTitle": "Zero Judgment — Anyone Can Sing With Confidence",
+        "enDescription": "Over 70% of our clients are first-timers. We welcome you with genuine warmth, patience, and encouragement."
+      },
+      {
+        "title": "Không áp lực thời gian — Bạn được nghỉ ngơi thoải mái",
+        "description": "Chúng tôi không tính từng phút để tạo áp lực cho bạn. Tiêu chí quan trọng nhất là bạn cảm thấy vui vẻ, nhẹ nhõm và tự hào với bài hát của mình.",
+        "enTitle": "Zero Clock-Watching — Relax at Your Own Pace",
+        "enDescription": "We do not rush you by the minute. What matters most is that you leave feeling happy, relieved, and proud."
+      },
+      {
+        "title": "Vocal Coaching 1-kèm-1 — Có người bạn cùng sửa từng câu",
+        "description": "Bạn không phải đứng cô đơn trong phòng thu. Producer Kiệt luôn lắng nghe qua tai nghe, chỉ bạn cách lấy hơi cơ hoành, cách ngân nga và nhả chữ sao cho truyền cảm nhất.",
+        "enTitle": "1-on-1 Caring Direction — A Friend Beside You",
+        "enDescription": "You are never alone in the booth. Producer Xuan Kiet gently guides your breath support and emotional phrasing."
+      },
+      {
+        "title": "Chia nhỏ từng đoạn — Không sợ bị hụt hơi hay quên lời",
+        "description": "Bạn không cần phải hát một lèo từ đầu đến cuối bài. Chúng tôi chia nhỏ từng đoạn Verse, từng câu điệp khúc để bạn hát nhiều lần và chọn ra câu đẹp nhất.",
+        "enTitle": "Take It Phrase by Phrase — No Fear of Breath Loss",
+        "enDescription": "No need to sing the entire song in one breath. We break it down into easy phrases and keep the most beautiful takes."
+      },
+      {
+        "title": "Bản thu âm là kỷ niệm quý giá của riêng bạn",
+        "description": "Mọi bản thu đều được làm sạch và lưu giữ cẩn thận. Bạn có một tác phẩm âm nhạc chỉn chu để chia sẻ lên mạng xã hội hay gửi tặng người thương.",
+        "enTitle": "A Precious Musical Memory Just for You",
+        "enDescription": "Your recording is lovingly polished and preserved — a heartwarming keepsake to share or gift to loved ones."
+      }
+    ],
+    "guarantees": [
+      {
+        "title": "Không Gian Thân Thiện, Ấm Cúng",
+        "desc": "Tạo tâm lý thoải mái tối đa, kiên nhẫn đồng hành kể cả người chưa từng thu.",
+        "enTitle": "Warm, Friendly Atmosphere",
+        "enDesc": "Maximum comfort and patience, especially for complete first-timers."
+      },
+      {
+        "title": "Kiên Nhẫn Đến Khi Bạn Ưng Ý",
+        "desc": "Không hối thúc, luôn cùng bạn tìm kiếm những khoảnh khắc cảm xúc nhất.",
+        "enTitle": "Patience Until You're Happy",
+        "enDesc": "No rushing, patiently finding your most emotionally touching takes."
+      },
+      {
+        "title": "Có Bản Nghe Thử Liền Tay",
+        "desc": "Nhận ngay bản nghe thử rough mix ngay sau buổi thu để cùng nghe lại.",
+        "enTitle": "Immediate Session Preview",
+        "enDesc": "Walk away with a rough preview track directly after your session."
       }
     ],
     "faq": [
       {
-        "question": "Người chưa từng thu âm bao giờ có thu được không?",
-        "answer": "Hoàn toàn yên tâm. Hơn 70% khách hàng tại XKStudio là người mới bắt đầu. Producer sẽ hướng dẫn bạn từng nhịp và chọn ra các take đẹp nhất.",
-        "enQuestion": "Can beginners with zero studio experience record here?",
-        "enAnswer": "Absolutely. Over 70% of our clients are first-timers. Our producer guides you step-by-step to capture your best natural performance."
+        "question": "Tôi chưa bao giờ đi thu âm, giọng tôi bình thường và rất sợ hát trước mặt người khác thì sao?",
+        "answer": "Đó chính là lý do bạn nên đến với XKProduction! Rất nhiều bạn khi mới bước vào phòng thu đều run và ngại ngùng. Producer Kiệt sẽ ngồi trò chuyện cùng bạn, kể chuyện vui, hướng dẫn bạn cách thả lỏng cơ thể. Trong phòng thu chỉ có bạn và âm nhạc, producer sẽ hỗ trợ bạn như một người bạn thân thiết.",
+        "enQuestion": "I have never recorded before, my voice is ordinary, and I'm shy singing in front of people?",
+        "enAnswer": "That is exactly why you'll love XKProduction! Most people feel nervous at first. Producer Xuan Kiet chats warmly with you to break the ice. Inside the booth, you are in a safe space with a supportive friend."
+      },
+      {
+        "question": "Tôi có bị tính thêm tiền nếu thu lâu quá giờ không?",
+        "answer": "Không. Chúng tôi không bao giờ tạo áp lực giờ giấc lên khách hàng. Buổi thu được dành trọn vẹn để bạn và producer cùng làm việc thoải mái cho đến khi có được những đoạn thu ưng ý nhất.",
+        "enQuestion": "Will I be charged extra if my session takes a bit longer?",
+        "enAnswer": "No. We never impose stressful overtime pressure. The session is dedicated to working comfortably until you have takes you genuinely love."
+      },
+      {
+        "question": "Nếu tôi hát bị quên lời hoặc lệch nhịp thì có sao không?",
+        "answer": "Hoàn toàn không sao cả! Bạn có thể nhìn lời trên điện thoại hoặc giấy. Hát sai đoạn nào chúng ta chỉ cần thu lại riêng câu đó, producer sẽ bắt nhịp cho bạn vào đúng lúc. Rất nhẹ nhàng và không có gì phải lo lắng.",
+        "enQuestion": "What if I forget lyrics or lose the rhythm?",
+        "enAnswer": "Not a problem at all! You can read lyrics right off your phone. If a line is missed, we simply re-record that single phrase with easy cueing."
+      },
+      {
+        "question": "Sau khi thu xong bao lâu thì tôi nhận được bài hát hoàn chỉnh?",
+        "answer": "Ngay sau khi bước ra khỏi phòng thu, bạn đã có ngay một bản rough demo để nghe trên đường về. Sau đó kỹ sư sẽ trau chuốt lại cao độ, nhịp điệu và gửi bản hoàn thiện cho bạn trong vòng 1 — 2 ngày.",
+        "enQuestion": "How soon will I receive the final polished song?",
+        "enAnswer": "Right after your session, you get an immediate rough demo for the ride home. Our engineer then gently cleans and polishes it, delivering the final version in 1-2 days."
       }
     ]
   },
@@ -246,23 +548,25 @@
     "title": "Project Production",
     "viTitle": "Sản Xuất Trọn Gói",
     "enTitle": "Full Single & MV Production",
-    "subtitle": "Trọn gói từ ý tưởng ban đầu, làm beat, thu âm đến mix master và video studio",
-    "enSubtitle": "End-to-End Single Production & 4K Cinematic Music Video",
+    "subtitle": "Đồng hành từ ý tưởng đầu tiên đến khi tác phẩm của bạn tỏa sáng",
+    "enSubtitle": "Walking Beside You from the First Spark to Your Official Release",
     "badge": "SẢN XUẤT TRỌN GÓI",
     "enBadge": "END-TO-END PRODUCTION",
-    "summary": "Đồng hành cùng bạn từ khâu lên ý tưởng bài hát, phối khí làm beat, hướng dẫn thu âm, mix master cho đến quay video studio và hỗ trợ phát hành lên các nền tảng số.",
-    "enSummary": "Full-service single production from conception, custom beat arranging, vocal coaching, Spotify-grade mixing to 4K studio music video production and digital distribution support.",
+    "summary": "Tự mình làm một bài hát hoàn chỉnh và quay video thường khiến bạn cảm thấy quá tải: phải tìm người làm beat, tìm phòng thu, tìm thợ mix, rồi tìm người quay phim, dễ bị đội chi phí và thiếu sự đồng bộ. Tại XKProduction, bạn có một người bạn đồng hành duy nhất: chúng tôi lo trọn vẹn từ hòa âm, hướng dẫn thu âm, trau chuốt âm thanh cho đến ghi hình video studio đẹp mắt và hướng dẫn phát hành bài bản.",
+    "enSummary": "Producing a complete single and video alone can feel overwhelming. At XKProduction, you have one trusted creative companion overseeing everything from beat arranging, vocal coaching, audio mixing to 4K studio video and digital release.",
     "deliverables": [
-      "Bài hát hoàn chỉnh trọn gói (Arrangement + Recording + Mix & Master)",
-      "Video Studio Session hoặc MV Cinematic chất lượng 4K",
-      "Hồ sơ đăng ký bản quyền tác giả & phân phối nhạc số",
-      "Bộ ảnh nghệ sĩ chụp tại studio phục vụ thiết kế bìa phát hành"
+      "Bài hát hoàn chỉnh trọn gói (Hòa âm độc quyền + Thu âm thoải mái + Trau chuốt âm thanh)",
+      "Video ghi hình tại studio với ánh sáng ấm cúng, hình ảnh đẹp mắt",
+      "Bộ ảnh kỷ niệm chụp tại studio phục vụ làm ảnh đại diện, ảnh bìa bài hát",
+      "Được hướng dẫn chi tiết cách đưa bài hát lên các trang nghe nhạc số",
+      "An tâm tuyệt đối về chi phí trọn gói, không phát sinh bất kỳ khoản nào"
     ],
     "enDeliverables": [
-      "Mastered single package (Arrangement + Tracking + Mix & Master)",
-      "4K Cinematic Studio Session or narrative Music Video",
-      "Full commercial ownership certification & digital release setup",
-      "High-res artist photo package for Spotify & social artwork"
+      "Complete finished single (Bespoke arrangement + Comfortable tracking + Polished mix)",
+      "Warm, beautifully lit 4K studio session video",
+      "Studio portrait photography package for song cover art and social profiles",
+      "Step-by-step guidance on publishing your song on streaming platforms",
+      "Total peace of mind with transparent all-inclusive flat pricing"
     ],
     "investmentStarting": "Từ 3.500.000₫ / dự án trọn gói",
     "enInvestmentStarting": "From 3,500,000₫ / project",
@@ -272,26 +576,150 @@
     "timeline": "7 — 14 ngày làm việc",
     "enTimeline": "7 — 14 business days",
     "icon": "fa-solid fa-film",
-    "features": [
+    "techSpecs": [
       {
-        "title": "Một đầu mối chịu trách nhiệm duy nhất",
-        "description": "Bạn không cần phải tìm kiếm nhiều bên riêng lẻ. Toàn bộ quy trình được thực hiện đồng bộ, tiết kiệm thời gian và chi phí.",
-        "enTitle": "Single Point of Accountability",
-        "enDescription": "One unified producer oversees every stage, preventing miscommunication and ensuring cohesive sonic and visual vision."
+        "label": "MỘT ĐẦU MỐI DUY NHẤT",
+        "value": "An Tâm — Không Rời Rạc",
+        "desc": "Một producer duy nhất thấu hiểu ý tưởng của bạn và chăm chút từ âm thanh đến hình ảnh.",
+        "enLabel": "UNIFIED COMPANION",
+        "enValue": "Consistent & Caring",
+        "enDesc": "One dedicated producer who understands your vision from sonic heart to visual soul."
       },
       {
-        "title": "Hình ảnh & âm thanh ăn khớp",
-        "description": "Hình ảnh video được ghi hình và dựng khớp theo từng giai điệu, giúp sản phẩm đồng bộ và ấn tượng.",
-        "enTitle": "Sonic & Visual Harmony",
-        "enDescription": "Cinematic video pacing cut precisely to the musical dynamics and emotional arcs of the song."
+        "label": "HÌNH ẢNH CẢM XÚC",
+        "value": "Ấm Cúng & Chân Thật",
+        "desc": "Góc quay nhẹ nhàng, tôn vinh nụ cười và cảm xúc chân thật nhất của bạn khi hát.",
+        "enLabel": "VISUAL STORYTELLING",
+        "enValue": "Warm & Expressive",
+        "enDesc": "Gentle camera angles capturing your genuine smile and heartfelt performance."
+      },
+      {
+        "label": "TIẾT KIỆM TỐI ĐA",
+        "value": "Trọn Gói Minh Bạch",
+        "desc": "Không phải trả tiền lắt nhắt cho từng bên riêng lẻ, chi phí rõ ràng ngay từ đầu.",
+        "enLabel": "BUDGET TRANSPARENCY",
+        "enValue": "Clear All-Inclusive",
+        "enDesc": "No surprise fees from fragmented vendors, honest investment from day one."
+      },
+      {
+        "label": "TỰ HÀO TỎA SÁNG",
+        "value": "Bài Hát Kỷ Niệm Để Đời",
+        "desc": "Sản phẩm chỉn chu để bạn tự hào khoe với gia đình, bạn bè và lưu giữ mãi về sau.",
+        "enLabel": "CHERISHED LEGACY",
+        "enValue": "A Lifelong Keepsake",
+        "enDesc": "A polished musical masterpiece you'll proudly share with family and friends forever."
+      }
+    ],
+    "workflow": [
+      {
+        "step": "BƯỚC 01",
+        "title": "Ngồi Lại Chia Sẻ Ước Mơ Âm Nhạc",
+        "desc": "Lắng nghe mong muốn, cùng bạn chọn bài hát, phong cách và ý tưởng hình ảnh bạn muốn thể hiện.",
+        "enStep": "STEP 01",
+        "enTitle": "Sharing Your Musical Dream",
+        "enDesc": "We sit down together, listening to your hopes, song selection, and visual style preferences."
+      },
+      {
+        "step": "BƯỚC 02",
+        "title": "Làm Bản Phối & Thu Âm Thoải Mái",
+        "desc": "Xây dựng bản beat riêng cho bạn và tổ chức buổi thu âm ấm áp, vui vẻ với sự hướng dẫn tận tình.",
+        "enStep": "STEP 02",
+        "enTitle": "Custom Arrangement & Singing Session",
+        "enDesc": "Crafting your bespoke beat followed by a relaxed, joyful recording session with hands-on coaching."
+      },
+      {
+        "step": "BƯỚC 03",
+        "title": "Trau Chuốt Bài Hát & Ghi Hình Studio",
+        "desc": "Hậu kỳ âm thanh êm ái, ghi hình video studio với ánh sáng lung linh, tôn vinh hình ảnh của bạn.",
+        "enStep": "STEP 03",
+        "enTitle": "Audio Polish & Studio Filming",
+        "enDesc": "Polishing the audio with warmth and filming your studio session under flattering lighting."
+      },
+      {
+        "step": "BƯỚC 04",
+        "title": "Bàn Giao Trọn Vẹn Tác Phẩm Để Đời",
+        "desc": "Nhận bài hát hoàn thiện, video sắc nét và bộ ảnh đẹp, sẵn sàng để bạn ra mắt mọi người.",
+        "enStep": "STEP 04",
+        "enTitle": "Complete Delivery Ready to Share",
+        "enDesc": "Delivering your mastered audio, stunning video, and portraits ready for your debut."
+      }
+    ],
+    "features": [
+      {
+        "title": "Một người đồng hành từ đầu đến cuối — Không phải lo lắng",
+        "description": "Bạn không cần phải tự mình kết nối nhạc sĩ, phòng thu, thợ dựng video. Producer của XKProduction sẽ lo chu toàn mọi khâu để bạn chỉ cần tập trung tận hưởng niềm vui ca hát.",
+        "enTitle": "One Caring Creative Guide — Zero Coordination Stress",
+        "enDescription": "No need to juggle multiple freelancers. Your producer oversees every detail so you can simply enjoy singing."
+      },
+      {
+        "title": "Âm thanh và hình ảnh ăn khớp trọn vẹn cảm xúc",
+        "description": "Video ghi hình được quay và dựng nhịp nhàng theo đúng giai điệu bài hát, giúp người xem cảm nhận được trọn vẹn sự chân thành và cảm xúc trong ánh mắt bạn.",
+        "enTitle": "Sound & Video United in Heartfelt Emotion",
+        "enDescription": "Filmed and cut in harmony with your musical rhythm, letting viewers feel the genuine sincerity in your eyes."
+      },
+      {
+        "title": "Tặng kèm bộ ảnh kỷ niệm chụp tại studio",
+        "description": "Chúng tôi chụp cho bạn những bức ảnh chân dung rạng rỡ nhất tại studio để làm ảnh đại diện, ảnh bìa bài hát và lưu giữ lại khoảnh khắc thanh xuân đáng nhớ.",
+        "enTitle": "Complimentary Studio Portrait Photography",
+        "enDescription": "Capturing your brightest, most radiant portraits to use as cover art and treasure as a timeless memory."
+      },
+      {
+        "title": "Tư vấn đưa bài hát lên các trang nghe nhạc",
+        "description": "Nếu bạn muốn chia sẻ bài hát của mình lên Spotify, Apple Music hay YouTube như một ca sĩ thực thụ, chúng tôi sẽ hướng dẫn bạn từng bước thật dễ hiểu.",
+        "enTitle": "Friendly Guidance on Streaming Release",
+        "enDescription": "If you dream of having your song on Spotify and Apple Music like an artist, we guide you step-by-step."
+      },
+      {
+        "title": "Chi phí rõ ràng, minh bạch — Không phát sinh chi phí ẩn",
+        "description": "Cam kết báo giá trọn gói ngay từ đầu, bạn hoàn toàn yên tâm tận hưởng hành trình làm âm nhạc mà không phải bận tâm về bất kỳ chi phí phát sinh nào.",
+        "enTitle": "Transparent Flat Pricing — Zero Hidden Surcharges",
+        "enDescription": "All-inclusive investment agreed upfront so you can savor your artistic journey with complete peace of mind."
+      }
+    ],
+    "guarantees": [
+      {
+        "title": "Đồng Hành Trọn Vẹn",
+        "desc": "Hỗ trợ và chăm chút cho tác phẩm của bạn từ nốt nhạc đầu tiên đến ngày ra mắt.",
+        "enTitle": "Full Journey Support",
+        "enDesc": "Caring for your music from the very first chord through your official launch."
+      },
+      {
+        "title": "Minh Bạch Chi Phí",
+        "desc": "Cam kết báo giá trọn gói, tuyệt đối không có chi phí ẩn phát sinh.",
+        "enTitle": "Transparent Investment",
+        "enDesc": "Clear all-in pricing with zero unexpected extra charges."
+      },
+      {
+        "title": "Tác Phẩm Thuộc Về Riêng Bạn",
+        "desc": "Bạn là chủ nhân duy nhất của bài hát, toàn quyền sử dụng và lưu giữ kỷ niệm.",
+        "enTitle": "100% Artist Ownership",
+        "enDesc": "You remain the sole owner of your song with total freedom to share and treasure."
       }
     ],
     "faq": [
       {
-        "question": "Gói trọn gói có giới hạn thời gian thu âm không?",
-        "answer": "Chúng tôi không tính theo giờ để tránh gây áp lực cho bạn. Buổi thu sẽ tiếp tục cho đến khi cả bạn và producer đều hài lòng với chất lượng.",
-        "enQuestion": "Is studio recording time capped in the all-in package?",
-        "enAnswer": "No hourly pressure. Sessions continue until both artist and producer agree on the perfect takes."
+        "question": "Tôi là người bình thường, không phải ca sĩ thì có làm trọn gói thế này được không?",
+        "answer": "Hoàn toàn được! Rất nhiều khách hàng của chúng tôi là người đi làm, học sinh, sinh viên, hoặc các cô chú yêu văn nghệ muốn làm một bài hát và video kỷ niệm để đời mừng sinh nhật, kỷ niệm ngày cưới hay chỉ đơn giản là thỏa niềm đam mê ca hát. Chúng tôi luôn chào đón và nâng niu ước mơ của bạn.",
+        "enQuestion": "I am an everyday person, not a singer. Can I do an all-in package like this?",
+        "enAnswer": "Absolutely! Many of our clients are everyday people, students, or couples creating a song and video to celebrate birthdays, anniversaries, or simply fulfill a lifelong dream."
+      },
+      {
+        "question": "Quay video tại studio có cần biết diễn xuất không?",
+        "answer": "Không cần chút nào! Bạn chỉ cần là chính mình, mặc bộ trang phục bạn thấy tự tin nhất và cất tiếng hát. Ekip studio sẽ chọn góc máy đẹp nhất, ánh sáng ấm cúng nhất và hướng dẫn bạn cử chỉ tự nhiên để video toát lên vẻ đẹp rạng rỡ của bạn.",
+        "enQuestion": "Do I need acting experience for the studio video?",
+        "enAnswer": "Not at all! Just wear your favorite comfortable outfit and sing. We set up warm, flattering lighting and guide you naturally so your genuine smile shines through."
+      },
+      {
+        "question": "Bao lâu thì tôi nhận được toàn bộ bài hát và video?",
+        "answer": "Thông thường sau khoảng 7 — 14 ngày làm việc, toàn bộ bài hát được trau chuốt, video sắc nét và bộ ảnh kỷ niệm sẽ được bàn giao đầy đủ để bạn sẵn sàng chia sẻ cùng mọi người.",
+        "enQuestion": "How long until I receive the final song and video?",
+        "enAnswer": "Typically within 7 to 14 business days, your finished audio, crisp video, and portraits will be delivered ready for you to share proudly."
+      },
+      {
+        "question": "Tôi có được yêu cầu chỉnh sửa lại video hoặc bài hát sau khi xem demo không?",
+        "answer": "Chắc chắn có. Chúng tôi luôn gửi bản demo để bạn xem trước, cùng bạn góp ý về màu sắc, nhịp điệu và chỉnh sửa đến khi bạn cảm thấy thật sự tự hào về sản phẩm của mình.",
+        "enQuestion": "Can I request revisions to the video or audio?",
+        "enAnswer": "Certainly. We always share previews first and refine colors, tempo, and audio balance until you feel truly proud."
       }
     ]
   },
@@ -301,49 +729,353 @@
     "title": "Commercial Audio & TVC",
     "viTitle": "Âm Thanh Quảng Cáo & TVC",
     "enTitle": "Commercial Audio & TVC",
-    "subtitle": "Nhạc hiệu nhận diện thương hiệu, thu âm giọng đọc TVC quảng cáo & podcast",
-    "enSubtitle": "B2B Audio Branding, Commercial Jingles, TVC & Podcast Production",
+    "subtitle": "Giai điệu chạm đến trái tim khách hàng, nâng tầm hình ảnh thương hiệu",
+    "enSubtitle": "Melodies that Touch Consumer Hearts and Elevate Your Brand Presence",
     "badge": "DOANH NGHIỆP & TVC",
     "enBadge": "COMMERCIAL AUDIO",
-    "summary": "Sản xuất nhạc hiệu nhận diện thương hiệu, thu âm và xử lý giọng đọc TVC quảng cáo, nhạc intro/outro cho kênh YouTube, TikTok và podcast chuyên nghiệp.",
-    "enSummary": "Bespoke sonic branding, high-conversion commercial voice-overs, branded jingles, and broadcast-ready podcast post-production.",
+    "summary": "Âm nhạc là con đường ngắn nhất đi thẳng vào cảm xúc của khách hàng. Chúng tôi giúp thương hiệu của bạn kể câu chuyện bằng âm thanh: từ những đoạn nhạc hiệu ngắn dễ nhớ (jingle), giọng đọc truyền cảm cho video quảng cáo đến âm thanh podcast chuyên nghiệp. Mang lại cảm giác tin cậy, ấm áp và gần gũi trong tâm trí khách hàng.",
+    "enSummary": "Music is the fastest way into customer hearts. We help your brand tell its story with audio: memorable jingles, engaging voice-overs, and polished podcast sound, creating trust and warmth in consumers' minds.",
     "deliverables": [
-      "Bộ nhận diện âm thanh (Audio Logo / Jingle) độc quyền",
-      "File Voice-over TVC master theo chuẩn phát thanh truyền hình",
-      "Nhạc nền thương mại không bản quyền (Royalty-free) có hợp đồng",
-      "Định dạng xuất chuẩn cho YouTube, Facebook, TikTok và TV Broadcast"
+      "Đoạn nhạc hiệu (Jingle) độc quyền dễ nhớ, tạo dấu ấn nhận diện thương hiệu",
+      "Giọng đọc truyền cảm, rõ nét, cân bằng hài hòa trên nền nhạc",
+      "Các phiên bản độ dài tối ưu cho mạng xã hội (15s, 30s, 60s)",
+      "Bản quyền thương mại minh bạch, yên tâm sử dụng dài lâu",
+      "Cam kết đúng tiến độ chiến dịch truyền thông của doanh nghiệp"
     ],
     "enDeliverables": [
-      "Exclusive Sonic Brand Identity (Audio Logo / Jingle)",
-      "Broadcast-compliant mastered commercial voice-over files",
-      "Legally cleared commercial background music scoring",
-      "Multi-platform output formats for TV, YouTube, and TikTok"
+      "Exclusive, memorable sonic jingle anchoring brand recall",
+      "Engaging voice-over balanced clearly over warm music",
+      "Optimized cutdown lengths for social media (15s, 30s, 60s)",
+      "Transparent commercial clearance with zero copyright worries",
+      "Punctual delivery synchronized with your campaign launch"
     ],
     "investmentStarting": "Báo giá theo brief dự án",
     "enInvestmentStarting": "Custom quote per project brief",
     "timeline": "3 — 7 ngày làm việc",
     "enTimeline": "3 — 7 business days",
     "icon": "fa-solid fa-bullhorn",
-    "features": [
+    "techSpecs": [
       {
-        "title": "Âm Thanh Chuẩn Truyền Hình & Mạng Xã Hội",
-        "description": "Tối ưu độ rõ nét của giọng đọc trên loa điện thoại, loa tivi và thiết bị di động mà không bị rè hay lấn át nhạc nền.",
-        "enTitle": "Broadcast & Social Media Compliant",
-        "enDescription": "Engineered for voice clarity across mobile devices, laptops, and television broadcast."
+        "label": "GẮN KẾT CẢM XÚC",
+        "value": "Dễ Nhớ — Chạm Trái Tim",
+        "desc": "Biến thông điệp thương hiệu thành giai điệu thân thiện, tạo sự tin cậy tự nhiên.",
+        "enLabel": "EMOTIONAL CONNECTION",
+        "enValue": "Catchy & Heartfelt",
+        "enDesc": "Transforming brand messages into warm melodies that build organic consumer trust."
       },
       {
-        "title": "Hợp Đồng Bản Quyền Rõ Ràng",
-        "description": "Cung cấp đầy đủ giấy phép bản quyền âm nhạc thương mại cho doanh nghiệp sử dụng vĩnh viễn trên mọi phương tiện truyền thông.",
-        "enTitle": "Full Commercial Clearance",
-        "enDescription": "Complete commercial usage licenses with zero recurring copyright royalties."
+        "label": "GIỌNG ĐỌC TRUYỀN CẢM",
+        "value": "Rõ Ràng & Ấm Áp",
+        "desc": "Lời thoại rõ từng chữ trên điện thoại, truyền tải thông điệp bán hàng êm ái.",
+        "enLabel": "ENGAGING VOICE",
+        "enValue": "Clear & Relatable",
+        "enDesc": "Crystal-clear voice articulation that delivers your value message smoothly."
+      },
+      {
+        "label": "AN TÂM BẢN QUYỀN",
+        "value": "Sở Hữu Thương Mại 100%",
+        "desc": "Giấy phép bản quyền sạch sẽ, không lo bị khóa âm thanh hay gậy bản quyền.",
+        "enLabel": "COPYRIGHT PEACE",
+        "enValue": "100% Commercial Cleared",
+        "enDesc": "Clean commercial licenses with zero copyright strike concerns on social media."
+      },
+      {
+        "label": "TIẾN ĐỘ ĐÚNG HẸN",
+        "value": "Đồng Hành Sát Sao",
+        "desc": "Bàn giao đúng hạn theo lịch trình chiến dịch marketing của doanh nghiệp.",
+        "enLabel": "PUNCTUAL DELIVERY",
+        "enValue": "Strict Schedule Alignment",
+        "enDesc": "Reliable milestone delivery aligned with your marketing launch deadlines."
+      }
+    ],
+    "workflow": [
+      {
+        "step": "BƯỚC 01",
+        "title": "Thấu Hiểu Tinh Thần Thương Hiệu",
+        "desc": "Lắng nghe câu chuyện doanh nghiệp, khách hàng mục tiêu và cảm xúc nhãn hàng muốn truyền tải.",
+        "enStep": "STEP 01",
+        "enTitle": "Understanding Your Brand Soul",
+        "enDesc": "Learning about your brand story, customer persona, and the emotional tone you wish to project."
+      },
+      {
+        "step": "BƯỚC 02",
+        "title": "Đề Xuất Giai Điệu Mẫu & Mẫu Giọng Đọc",
+        "desc": "Gửi bạn nghe thử 2-3 giai điệu ngắn và giọng đọc mẫu để bạn chọn phong cách ưng ý nhất.",
+        "enStep": "STEP 02",
+        "enTitle": "Melody Sketches & Voice Auditions",
+        "enDesc": "Presenting short melodic motifs and voice samples so you can pick the best brand fit."
+      },
+      {
+        "step": "BƯỚC 03",
+        "title": "Sản Xuất & Hòa Quyện Tinh Tế",
+        "desc": "Thu âm giọng đọc, cân bằng âm lượng để lời thoại sáng rõ, nổi bật và dễ nghe trên điện thoại.",
+        "enStep": "STEP 03",
+        "enTitle": "Production & Balanced Harmony",
+        "enDesc": "Tracking voice talent and balancing music so your message cuts through clearly on phones."
+      },
+      {
+        "step": "BƯỚC 04",
+        "title": "Bàn Giao Trọn Bộ Đúng Hẹn",
+        "desc": "Xuất các phiên bản ngắn dài đầy đủ kèm hợp đồng bản quyền sẵn sàng cho chiến dịch.",
+        "enStep": "STEP 04",
+        "enTitle": "Punctual Delivery Ready for Ads",
+        "enDesc": "Delivering multi-format cuts with full commercial clearance documentation."
+      }
+    ],
+    "features": [
+      {
+        "title": "Âm thanh gần gũi — Đi thẳng vào lòng khách hàng",
+        "description": "Chúng tôi không làm những bản nhạc quảng cáo ồn ào gượng gạo. Mỗi giai điệu đều được thiết kế để tạo cảm giác thân thiện, đáng tin cậy và ấm áp.",
+        "enTitle": "Relatable Sound — Reaching Customer Hearts",
+        "enDescription": "We avoid loud, artificial jingles. Every melody is crafted to feel warm, friendly, and trustworthy."
+      },
+      {
+        "title": "Giọng đọc rõ ràng, êm tai trên mọi thiết bị di động",
+        "description": "Khách hàng thường xem video trên điện thoại ở nơi ồn ào. Âm thanh được cân chỉnh để giọng đọc luôn rõ từng chữ mà nhạc nền không bị lấn át.",
+        "enTitle": "Clear, Intimate Voice on Mobile Phones",
+        "enDescription": "People watch videos on noisy commutes. Voice tracks are balanced so every word is effortlessly understood."
+      },
+      {
+        "title": "Bản quyền thương mại minh bạch — Tuyệt đối an tâm",
+        "description": "Bạn không bao giờ phải lo lắng video quảng cáo bị tắt tiếng hay dính gậy bản quyền trên Facebook, TikTok hay YouTube.",
+        "enTitle": "Clean Commercial Licensing — Total Peace of Mind",
+        "enDescription": "Zero worries about muted audio or copyright strikes across Facebook, TikTok, or YouTube."
+      },
+      {
+        "title": "Cam kết đồng hành đúng tiến độ chiến dịch",
+        "description": "Chúng tôi hiểu thời gian là vàng đối với các chiến dịch marketing. Mọi cột mốc đều được bàn giao đúng hạn để chiến dịch của bạn thành công.",
+        "enTitle": "Strict Adherence to Campaign Timelines",
+        "enDescription": "We honor marketing schedules, delivering milestones punctually so your launch runs smoothly."
+      },
+      {
+        "title": "Bảo mật thông tin sản phẩm mới trước ngày ra mắt",
+        "description": "Mọi ý tưởng, kịch bản và tài liệu chiến dịch của doanh nghiệp đều được bảo mật tuyệt đối.",
+        "enTitle": "Strict Confidentiality for New Launches",
+        "enDescription": "Complete confidentiality for campaign scripts and upcoming product launches before debut."
+      }
+    ],
+    "guarantees": [
+      {
+        "title": "An Toàn Bản Quyền 100%",
+        "desc": "Bản quyền thương mại sạch sẽ, thoải mái chạy quảng cáo trên mọi nền tảng.",
+        "enTitle": "100% Cleared Rights",
+        "enDesc": "Fully cleared commercial licensing for worry-free multi-platform advertising."
+      },
+      {
+        "title": "Cam Kết Đúng Hẹn",
+        "desc": "Bàn giao đúng tiến độ đã thống nhất, không để bạn phải chờ đợi.",
+        "enTitle": "On-Time Delivery",
+        "enDesc": "Guaranteed on-schedule milestone delivery matching your marketing timeline."
+      },
+      {
+        "title": "Bảo Mật Dự Án",
+        "desc": "Bảo mật toàn bộ kịch bản và thông điệp chiến dịch trước ngày công bố.",
+        "enTitle": "Total Confidentiality",
+        "enDesc": "Complete project confidentiality before your official campaign launch."
       }
     ],
     "faq": [
       {
-        "question": "Doanh nghiệp có được cung cấp hóa đơn và hợp đồng không?",
-        "answer": "Có. Chúng tôi cung cấp đầy đủ hợp đồng sản xuất và chứng từ thanh toán hợp lệ cho doanh nghiệp.",
-        "enQuestion": "Do you provide formal contracts and tax receipts?",
-        "enAnswer": "Yes. We provide full commercial service contracts and business documentation."
+        "question": "Âm thanh của studio có bị Facebook hay TikTok đánh gậy bản quyền không?",
+        "answer": "Tuyệt đối không. Toàn bộ nhạc nền và âm thanh do XKProduction sản xuất đều có bản quyền thương mại minh bạch, giúp video quảng cáo của bạn chạy mượt mà mà không lo bị tắt tiếng.",
+        "enQuestion": "Will audio trigger copyright strikes on Facebook or TikTok?",
+        "enAnswer": "Never. All background music and voice-overs are legally cleared and certified for commercial use."
+      },
+      {
+        "question": "Studio có hỗ trợ chọn mẫu giọng đọc phù hợp với thương hiệu không?",
+        "answer": "Có. Tùy thuộc vào tính cách nhãn hàng (ấm áp, trẻ trung, trang trọng, gần gũi...), chúng tôi gửi bạn các mẫu giọng đọc phù hợp để bạn lắng nghe và lựa chọn.",
+        "enQuestion": "Do you help select suitable voice talent for our brand?",
+        "enAnswer": "Yes. Depending on your brand persona (warm, youthful, authoritative), we provide curated voice reels for you to choose from."
+      },
+      {
+        "question": "Thời gian hoàn thành một đoạn nhạc quảng cáo mất bao lâu?",
+        "answer": "Thông thường chỉ từ 3 — 5 ngày làm việc. Chúng tôi luôn linh hoạt ưu tiên để kịp tiến độ chạy chiến dịch của bạn.",
+        "enQuestion": "How fast can commercial audio be delivered?",
+        "enAnswer": "Typically within 3 to 5 business days. We stay flexible to support your urgent campaign schedules."
+      },
+      {
+        "question": "Doanh nghiệp có nhận được hợp đồng và hóa đơn dịch vụ không?",
+        "answer": "Có. XKProduction cung cấp đầy đủ hợp đồng kinh tế và chứng từ thanh toán hợp lệ theo quy định cho doanh nghiệp.",
+        "enQuestion": "Do you provide business contracts and tax receipts?",
+        "enAnswer": "Yes. We execute formal commercial contracts and provide valid financial documentation."
+      }
+    ]
+  },
+  {
+    "id": "live-production",
+    "slug": "live-production",
+    "title": "Live Production",
+    "viTitle": "Sound & Light Sự Kiện",
+    "enTitle": "Sound & Light / Live Events",
+    "subtitle": "Âm thanh êm dịu, không hú rít — Ban nhạc nhiệt tình, gắn kết cảm xúc",
+    "enSubtitle": "Smooth Feedback-Free Audio and Joyful Live Acoustic Band",
+    "badge": "SOUND & LIGHT SỰ KIỆN",
+    "enBadge": "SOUND & LIGHT",
+    "summary": "Điều đáng sợ nhất trong một buổi tiệc hay sự kiện là âm thanh quá ồn làm khách nhức đầu, hoặc tiếng hú rít bất ngờ làm ngắt quãng giây phút trang trọng. Tại XKProduction, chúng tôi ưu tiên sự dễ chịu của khách mời: âm thanh trong trẻo, tiếng nói ấm áp, âm lượng vừa vặn để mọi người vừa thưởng thức âm nhạc vừa trò chuyện thoải mái, kết hợp cùng ban nhạc Acoustic nhiệt tình và thân thiện.",
+    "enSummary": "The worst event experience is loud harsh audio or piercing microphone feedback. At XKProduction, we prioritize guest comfort: smooth vocal clarity, pleasant volume for dining and chatting, and a genuinely warm acoustic band.",
+    "deliverables": [
+      "Hệ thống âm thanh sân khấu êm ái, phủ đều, vừa vặn không gây chói tai",
+      "Kỹ thuật viên túc trực chăm chút từng micro suốt sự kiện, cam kết không hú rít",
+      "Ánh sáng sân khấu ấm cúng, sang trọng, tôn vinh không gian sự kiện",
+      "Ban nhạc Live Acoustic nhiệt tình, sẵn sàng đệm hát cho khách mời ngẫu hứng",
+      "Setup hoàn tất sớm trước giờ đón khách để bạn hoàn toàn an tâm"
+    ],
+    "enDeliverables": [
+      "Smooth, balanced stage sound coverage that never hurts guest ears",
+      "Dedicated technician monitoring microphones throughout, 100% feedback-free",
+      "Warm, elegant stage lighting enhancing your venue's atmosphere",
+      "Enthusiastic acoustic band ready to accompany spontaneous guest singing",
+      "Early setup completion well before guest arrival for complete peace of mind"
+    ],
+    "investmentStarting": "Liên hệ theo quy mô sự kiện",
+    "enInvestmentStarting": "Custom quote based on event scale",
+    "timeline": "Đặt lịch trước 3 — 7 ngày",
+    "enTimeline": "Reserve 3 — 7 days in advance",
+    "icon": "fa-solid fa-sliders",
+    "techSpecs": [
+      {
+        "label": "SỰ DỄ CHỊU CHO KHÁCH",
+        "value": "Êm Ái — Không Nhức Đầu",
+        "desc": "Âm lượng được kiểm soát vừa vặn, khách mời vừa nghe nhạc vừa trò chuyện thoải mái.",
+        "enLabel": "GUEST COMFORT",
+        "enValue": "Pleasant & Conversation-Friendly",
+        "enDesc": "Volume is comfortably balanced so guests can enjoy music while chatting with ease."
+      },
+      {
+        "label": "TUYỆT ĐỐI KHÔNG HÚ RÍT",
+        "value": "An Tâm Suốt Buổi Tiệc",
+        "desc": "Kỹ thuật viên túc trực điều chỉnh thời gian thực, không để xảy ra tiếng rít gián đoạn.",
+        "enLabel": "ZERO FEEDBACK",
+        "enValue": "Total Peace of Mind",
+        "enDesc": "Real-time engineer oversight eliminates embarrassing high-frequency squeals."
+      },
+      {
+        "label": "BAN NHẠC THÂN THIỆN",
+        "value": "Nhiệt Tình Đệm Hát",
+        "desc": "Nhạc công vui vẻ, sẵn sàng bắt tone và đệm cho bất kỳ vị khách nào muốn cất giọng.",
+        "enLabel": "FRIENDLY BAND",
+        "enValue": "Warm & Welcoming",
+        "enDesc": "Engaging musicians who cheerfully catch keys to accompany spontaneous singers."
+      },
+      {
+        "label": "CHUẨN BỊ CHU ĐÁO",
+        "value": "Setup Xong Sớm",
+        "desc": "Lắp đặt và kiểm tra âm thanh hoàn tất trước giờ G tối thiểu 2 tiếng để bạn thảnh thơi.",
+        "enLabel": "EARLY PREPARATION",
+        "enValue": "Done Hours in Advance",
+        "enDesc": "Setup and soundcheck completed at least 2 hours before guests arrive."
+      }
+    ],
+    "workflow": [
+      {
+        "step": "BƯỚC 01",
+        "title": "Lắng Nghe Nhu Cầu & Khảo Sát Không Gian",
+        "desc": "Hỏi thăm tính chất sự kiện, số lượng khách mời để tư vấn âm thanh vừa vặn nhất.",
+        "enStep": "STEP 01",
+        "enTitle": "Understanding Your Event & Space",
+        "enDesc": "Consulting on your event vibe and guest count to tailor balanced sound coverage."
+      },
+      {
+        "step": "BƯỚC 02",
+        "title": "Lắp Đặt Sớm & Thử Âm Thanh Kỹ Lưỡng",
+        "desc": "Có mặt trước giờ đón khách vài tiếng để setup chỉn chu, thử từng micro êm ái.",
+        "enStep": "STEP 02",
+        "enTitle": "Early Setup & Thorough Soundcheck",
+        "enDesc": "Arriving hours early to rig neatly and test every microphone for smooth projection."
+      },
+      {
+        "step": "BƯỚC 03",
+        "title": "Túc Trực Chăm Chút Suốt Chương Trình",
+        "desc": "Kỹ thuật viên điều chỉnh âm lượng từng tiết mục, giữ cho không gian luôn vui vẻ, ấm áp.",
+        "enStep": "STEP 03",
+        "enTitle": "Dedicated On-Site Show Monitoring",
+        "enDesc": "Technicians actively fine-tune volume for each speech and song to preserve a joyful vibe."
+      },
+      {
+        "step": "BƯỚC 04",
+        "title": "Thu Dọn Gọn Gàng & Chúc Mừng Sự Kiện",
+        "desc": "Tháo dỡ thiết bị an toàn, nhanh nhẹn, trả lại mặt bằng sạch sẽ ngay sau chương trình.",
+        "enStep": "STEP 04",
+        "enTitle": "Clean Strike & Warm Congratulations",
+        "enDesc": "Prompt, courteous equipment pack-down leaving the venue clean and tidy."
+      }
+    ],
+    "features": [
+      {
+        "title": "Âm thanh êm dịu — Khách vừa nghe hát vừa trò chuyện vui vẻ",
+        "description": "Nhiều buổi tiệc âm thanh bị mở quá lớn làm khách nhức đầu, phải gào lên mới nói chuyện được. Chúng tôi kiểm soát âm lượng vừa phải, tiếng nói rõ ràng, tiếng nhạc du dương để mọi người đều thấy thoải mái.",
+        "enTitle": "Pleasant Audio — Guests Can Chat Comfortably",
+        "enDescription": "We avoid overwhelming volume. Sound is tuned so conversation flows easily while music feels warm and joyful."
+      },
+      {
+        "title": "Cam kết không hú rít làm gián đoạn khoảnh khắc trang trọng",
+        "description": "Kỹ thuật viên âm thanh của XKProduction luôn túc trực bàn máy 100% thời gian, chăm chút từng chiếc micro để sự kiện của bạn diễn ra hoàn hảo và êm đẹp.",
+        "enTitle": "Zero Feedback Squeals During Important Moments",
+        "enDescription": "Our sound technician is present 100% of the show, proactively managing microphones so your moments stay pure."
+      },
+      {
+        "title": "Ban nhạc Acoustic thân thiện, nhiệt tình hòa nhịp cùng khách",
+        "description": "Các nhạc công của chúng tôi rất cởi mở, không khoảng cách. Khách mời thích bài nào chỉ cần bước lên sân khấu, ban nhạc sẽ bắt tone ngay và đệm hát nhiệt tình.",
+        "enTitle": "Friendly Acoustic Band — Welcoming Every Singer",
+        "enDescription": "Our musicians are warm and accessible. Whenever a guest wants to sing, the band happily accommodates on the fly."
+      },
+      {
+        "title": "Ánh sáng sân khấu ấm cúng, sang trọng",
+        "description": "Đèn sân khấu tạo không gian ấm áp, chụp hình quay phim đẹp mắt mà không gây chói mắt người ngồi dưới khán phòng.",
+        "enTitle": "Warm & Flattering Stage Lighting",
+        "enDescription": "Soft, elegant stage lighting that looks beautiful in photos without blinding seated guests."
+      },
+      {
+        "title": "Có mặt sớm, tác phong chu đáo, lịch sự",
+        "description": "Chúng tôi luôn đến sớm setup hoàn chỉnh trước giờ đón khách. Đội ngũ trang phục lịch sự, hòa nhã và luôn sẵn sàng hỗ trợ bạn mọi lúc.",
+        "enTitle": "Early Arrival & Courteous Etiquette",
+        "enDescription": "Always set up well ahead of time. Our crew is politely dressed, respectful, and helpful throughout."
+      }
+    ],
+    "guarantees": [
+      {
+        "title": "Không Hú Rít Khó Chịu",
+        "desc": "Cam kết âm thanh trong trẻo, không để xảy ra tiếng rít gián đoạn sự kiện.",
+        "enTitle": "100% Feedback-Free",
+        "enDesc": "Pristine vocal projection with zero painful microphone feedback squeals."
+      },
+      {
+        "title": "Túc Trực 100% Thời Gian",
+        "desc": "Kỹ thuật viên chăm chút âm thanh từ đầu đến khi kết thúc buổi tiệc.",
+        "enTitle": "Full Show Technician Presence",
+        "enDesc": "Dedicated sound and lighting technicians on-site for the entire duration."
+      },
+      {
+        "title": "Đúng Giờ & Chu Đáo",
+        "desc": "Setup hoàn tất sớm trước giờ đón khách, tác phong vui vẻ, lịch sự.",
+        "enTitle": "Punctual & Courteous",
+        "enDesc": "Early setup completion with warm, respectful, and helpful demeanor."
+      }
+    ],
+    "faq": [
+      {
+        "question": "Tôi sợ âm thanh bị hú rít làm hỏng buổi tiệc của tôi thì sao?",
+        "answer": "Đó là nỗi lo lớn nhất của mọi gia chủ, và cũng là cam kết hàng đầu của XKProduction. Chúng tôi căn chỉnh kỹ lưỡng trước giờ G và kỹ thuật viên luôn túc trực tay trên bàn chỉnh suốt buổi tiệc để bảo đảm âm thanh luôn trong trẻo, mượt mà và tuyệt đối không hú rít.",
+        "enQuestion": "I am terrified of microphone feedback ruining my wedding or party?",
+        "enAnswer": "That is every host's biggest fear, and our top guarantee. We fine-tune early and a dedicated engineer actively monitors volume so feedback never happens."
+      },
+      {
+        "question": "Khách dự tiệc của tôi có người già và trẻ nhỏ, âm thanh có bị quá ồn không?",
+        "answer": "Chúng tôi bố trí dàn loa phủ đều khắp không gian thay vì dồn âm lượng quá lớn vào một chỗ. Nhờ đó, người ngồi gần sân khấu không bị chói tai, người ngồi xa vẫn nghe rõ ràng êm ái.",
+        "enQuestion": "My guests include elderly relatives and kids. Will it be too loud?",
+        "enAnswer": "We distribute speakers evenly throughout the room rather than blasting from one spot. Guests close by won't get ear fatigue, and those further back hear clearly."
+      },
+      {
+        "question": "Ban nhạc có đệm được nếu khách mời ngẫu hứng lên hát không?",
+        "answer": "Rất hoan nghênh điều đó! Các nhạc công của chúng tôi rất vui vẻ và nhiệt tình, quen thuộc hàng trăm bài hát pop, ballad, trữ tình... Khách chỉ cần lên sân khấu nói tên bài hoặc hát thử một câu, ban nhạc sẽ bắt nhịp ngay.",
+        "enQuestion": "Can the live band accompany spontaneous guest singers?",
+        "enAnswer": "We welcome that with open arms! Our musicians are friendly and know hundreds of popular songs. A guest just needs to hum a line and the band joins in."
+      },
+      {
+        "question": "Đội ngũ có mặt setup trước giờ đón khách bao lâu?",
+        "answer": "Chúng tôi luôn có mặt và hoàn tất việc lắp đặt, kiểm tra âm thanh trước giờ đón khách tối thiểu 2 tiếng để bạn hoàn toàn an tâm đón tiếp người thân và bạn bè.",
+        "enQuestion": "How early does the crew set up before guests arrive?",
+        "enAnswer": "We always arrive and finish setup and soundchecks at least 2 hours before your guests walk in, giving you complete peace of mind."
       }
     ]
   }
