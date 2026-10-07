@@ -4,9 +4,9 @@
       <!-- HEADER -->
       <div class="page-header">
         <span class="badge-v2 amber">QUY TRÌNH LÀM VIỆC</span>
-        <h1 class="process-title">Quy Trình Hoàn Thiện Bài Hát</h1>
+        <h1 class="process-title">Quy Trình Sản Xuất Tác Phẩm</h1>
         <p class="process-subtitle">
-          Hành trình 8 bước từ giai điệu ngâm nga hoặc bản thu mộc ban đầu thành bài hát hoàn chỉnh sẵn sàng phát hành trên các nền tảng số.
+          Hành trình 8 giai đoạn từ giai điệu mộc sơ khởi đến bản master hoàn chỉnh đạt chuẩn streaming, đồng hành cùng nghệ sĩ trong từng bước sáng tạo.
         </p>
       </div>
 
@@ -18,32 +18,32 @@
       <!-- HARDWARE & ACOUSTIC ENVIRONMENT BLOCK -->
       <section class="gear-standards-section">
         <div class="gear-card matte-card">
-          <span class="badge-v2 teal">TRANG THIẾT BỊ &amp; PHÒNG THU</span>
-          <h2 class="gear-title">Không Gian Tiêu Âm &amp; Thiết Bị Phòng Thu</h2>
+          <span class="badge-v2 teal">TRANG THIẾT BỊ &amp; KHÔNG GIAN ÂM HỌC</span>
+          <h2 class="gear-title">Không Gian Âm Học &amp; Chuỗi Thiết Bị Tinh Tuyển</h2>
           <p class="gear-desc">
-            Phòng thu được xử lý tiêu âm kỹ lưỡng, kết hợp cùng chuỗi thiết bị analog và kỹ thuật số chất lượng cao giúp giọng hát và nhạc cụ luôn đạt độ trong trẻo, tự nhiên.
+            Không gian âm học được xử lý tối ưu, kết hợp cùng chuỗi thiết bị analog và digital chọn lọc giúp tái hiện trọn vẹn sự tinh tế của nhạc cụ và độ ấm áp của giọng hát.
           </p>
 
           <div class="gear-specs-grid">
             <div class="spec-item">
-              <span class="text-meta-mono spec-label">BÀN CONSOLE SÂN KHẤU & FOH</span>
+              <span class="text-meta-mono spec-label">BÀN CONSOLE SÂN KHẤU</span>
               <strong>Midas M32R Digital Console</strong>
-              <p>Hệ thống tiền khuếch đại Midas Pro lừng danh thế giới cho âm thanh ấm áp và trong trẻo tuyệt đối.</p>
+              <p>Hệ thống xử lý âm thanh kỹ thuật số cho chất âm ấm áp, rõ nét và chống hú rít hiệu quả.</p>
             </div>
             <div class="spec-item">
-              <span class="text-meta-mono spec-label">MICROPHONE THU ÂM CHÍNH</span>
-              <strong>Large Diaphragm Condenser</strong>
-              <p>Thu trọn từng sắc thái biểu cảm, dải động rộng và độ nhạy tối đa cho vocal tự nhiên.</p>
+              <span class="text-meta-mono spec-label">MICROPHONE THU ÂM</span>
+              <strong>Micro Condenser Độ Nhạy Cao</strong>
+              <p>Thu trọn từng sắc thái biểu cảm, bắt trọn chất giọng tự nhiên và mộc mạc của bạn.</p>
             </div>
             <div class="spec-item">
-              <span class="text-meta-mono spec-label">DAW & HẬU KỲ CHUYÊN SÂU</span>
-              <strong>Logic Pro X &amp; Melodyne Studio</strong>
-              <p>Môi trường xử lý âm thanh 32-bit float, nắn nót cao độ thủ công từng nốt phách.</p>
+              <span class="text-meta-mono spec-label">PHẦN MỀM & HẬU KỲ</span>
+              <strong>Logic Pro &amp; Melodyne</strong>
+              <p>Hiệu chỉnh cao độ và nhịp phách tinh tế bằng tay, bảo toàn màu giọng tự nhiên và cảm xúc gốc.</p>
             </div>
             <div class="spec-item">
-              <span class="text-meta-mono spec-label">CHUẨN ĐỘ LỚN PHÁT HÀNH SỐ</span>
-              <strong>-14 LUFS Integrated Loudness</strong>
-              <p>Tối ưu headroom phát hành Spotify, Apple Music và YouTube không bị méo tiếng.</p>
+              <span class="text-meta-mono spec-label">ÂM LƯỢNG CHUẨN PHÁT HÀNH</span>
+              <strong>Âm Học Đạt Chuẩn Streaming</strong>
+              <p>Kiểm soát dải động (Dynamic Range) tối ưu, âm sắc cân bằng và sắc nét trên mọi hệ thống loa và tai nghe.</p>
             </div>
           </div>
         </div>
@@ -52,8 +52,8 @@
       <!-- BOTTOM CTA -->
       <div class="process-cta matte-card text-center">
         <span class="badge-v2 amber">SẴN SÀNG BẮT ĐẦU</span>
-        <h2 class="cta-title">Bắt Đầu Bài Hát Của Bạn Ngay Hôm Nay</h2>
-        <p class="cta-desc">Đừng ngần ngại, hãy gửi bản thu mộc hoặc giai điệu bạn có cho studio.</p>
+        <h2 class="cta-title">Khởi Động Tác Phẩm Cùng XKProduction</h2>
+        <p class="cta-desc">Hãy chia sẻ bản thu mộc hoặc ý tưởng bạn đang ấp ủ để nhận tư vấn trực tiếp từ Producer.</p>
         <div class="cta-buttons">
           <NuxtLink to="/start-a-project" class="btn-start">GỬI YÊU CẦU DỰ ÁN</NuxtLink>
           <NuxtLink to="/build-project" class="btn-build">DỰ TOÁN CHI PHÍ</NuxtLink>
@@ -70,6 +70,9 @@ useSeoMeta({
   ogTitle: 'The Production Process — XKProduction',
   ogDescription: 'Quy trình sản xuất âm nhạc 8 bước chuẩn mực: Idea -> Direction -> Production -> Recording -> Editing -> Mix -> Master -> Release.',
   ogImage: 'https://xkproduction.com/images/Xkpreviewnew.png',
+  ogImageWidth: '1200',
+  ogImageHeight: '630',
+  ogImageAlt: 'Quy Trình Sản Xuất Âm Nhạc 8 Bước - XKProduction',
   ogUrl: 'https://xkproduction.com/production',
   twitterCard: 'summary_large_image',
   twitterImage: 'https://xkproduction.com/images/Xkpreviewnew.png',

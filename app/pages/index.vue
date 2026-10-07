@@ -12,7 +12,7 @@
             <h2 class="editorial-heading">{{ isVi ? 'Các Tác Phẩm & Dự Án Đã Thực Hiện' : 'Featured Releases & Productions' }}</h2>
           </div>
           <NuxtLink to="/work" class="link-arrow-v2">
-            <span>{{ isVi ? 'Xem Tất Cả Bài Hát' : 'All Projects' }}</span>
+            <span>{{ isVi ? 'Khám Phá Tất Cả Tác Phẩm' : 'All Projects' }}</span>
             <i class="fa-solid fa-arrow-right"></i>
           </NuxtLink>
         </div>
@@ -45,7 +45,7 @@
             <div class="m-pillar">
               <span class="m-pillar-num font-mono">01</span>
               <strong class="m-pillar-title">{{ isVi ? 'SẢN XUẤT ÂM NHẠC' : 'MUSIC PRODUCTION' }}</strong>
-              <p>{{ isVi ? 'Quy trình sản xuất bài bản, định hình cấu trúc, phong cách âm nhạc và hoàn thiện master chuẩn Spotify quốc tế.' : 'End-to-end track production, songwriting development, and streaming-standard mastering.' }}</p>
+              <p>{{ isVi ? 'Quy trình sản xuất bài bản, định hình cấu trúc, phong cách âm nhạc và hoàn thiện tác phẩm chỉn chu, sẵn sàng phát hành trên mọi nền tảng số.' : 'End-to-end track production, songwriting development, and streaming-ready mastering.' }}</p>
             </div>
             <div class="m-pillar">
               <span class="m-pillar-num font-mono">02</span>
@@ -60,7 +60,7 @@
             <div class="m-pillar">
               <span class="m-pillar-num font-mono">04</span>
               <strong class="m-pillar-title">{{ isVi ? 'MINH BẠCH & BẢO MẬT' : 'CLEAR COMMITMENT' }}</strong>
-              <p>{{ isVi ? 'Tặng 2 lần sửa bài miễn phí, không chi phí ẩn và cam kết bảo mật 100% bản quyền bài hát của bạn.' : '2 free revision rounds, transparent pricing, and 100% intellectual property privacy.' }}</p>
+              <p>{{ isVi ? 'Hỗ trợ 2 đợt tinh chỉnh chu đáo, ngân sách minh bạch không phát sinh và bảo mật 100% bản quyền tác phẩm.' : '2 free revision rounds, transparent pricing, and 100% intellectual property privacy.' }}</p>
             </div>
           </div>
         </div>
@@ -160,7 +160,7 @@
               </div>
 
               <NuxtLink to="/work/nhat-ki-cua-me" class="btn-read-case">
-                <span>{{ isVi ? 'Xem Chi Tiết Bài Thu Này' : 'Read Production Journal' }}</span>
+                <span>{{ isVi ? 'Xem Chi Tiết Tác Phẩm' : 'Read Production Journal' }}</span>
                 <i class="fa-solid fa-arrow-right"></i>
               </NuxtLink>
             </div>
@@ -174,10 +174,10 @@
       <div class="editorial-container">
         <div class="section-title-centered text-center">
           <span class="badge-v2 teal">{{ isVi ? 'SO SÁNH TRỰC TIẾP' : 'DIRECT COMPARISON' }}</span>
-          <h2 class="editorial-heading">{{ isVi ? 'Nghe Thử: Giọng Thu Mộc & Bản Sau Khi Mix Master' : 'Listen: Raw Vocal vs. Mastered Track' }}</h2>
+          <h2 class="editorial-heading">{{ isVi ? 'Trải Nghiệm: Bản Thu Mộc & Bản Master Hoàn Thiện' : 'Listen: Raw Vocal vs. Mastered Track' }}</h2>
           <p class="section-subtitle">
             {{ isVi
-              ? 'Kéo thanh trượt qua lại để nghe sự khác biệt rõ rệt giữa bản thu thô ban đầu và bài hát sau khi được cân chỉnh, hoà âm và hậu kỳ chuyên nghiệp.'
+              ? 'Kéo thanh trượt qua lại để cảm nhận sự khác biệt rõ nét giữa bản thu mộc ban đầu và tác phẩm sau khi được cân chỉnh dải tần, hoà âm và master chuyên sâu.'
               : 'Drag the fader back and forth to hear the difference between raw microphone takes and the final polished master.'
             }}
           </p>
@@ -193,7 +193,7 @@
         <div class="section-title-header">
           <div>
             <span class="badge-v2 amber">{{ isVi ? 'QUY TRÌNH LÀM VIỆC' : 'OUR WORKFLOW' }}</span>
-            <h2 class="editorial-heading">{{ isVi ? '8 Bước Hoàn Thiện Bài Hát Cùng Bạn' : '8 Steps to Completing Your Song' }}</h2>
+            <h2 class="editorial-heading">{{ isVi ? 'Quy Trình 8 Giai Đoạn Hoàn Thiện Tác Phẩm' : '8 Stages to Completing Your Song' }}</h2>
           </div>
           <NuxtLink to="/production" class="link-arrow-v2">
             <span>{{ isVi ? 'Xem Chi Tiết Từng Bước' : 'Process Details' }}</span>
@@ -211,7 +211,7 @@
         <div class="section-title-header">
           <div>
             <span class="badge-v2 amber">{{ isVi ? 'BÀI HÁT ĐÃ PHÁT HÀNH' : 'RELEASED TRACKS' }}</span>
-            <h2 class="editorial-heading">{{ isVi ? 'Các Sản Phẩm Đã Lên Sóng Nền Tảng Số' : 'Streamed Tracks & Digital Releases' }}</h2>
+            <h2 class="editorial-heading">{{ isVi ? 'Các Tác Phẩm Đã Phát Hành Trên Nền Tảng Số' : 'Streamed Tracks & Digital Releases' }}</h2>
           </div>
           <NuxtLink to="/work" class="link-arrow-v2">
             <span>{{ isVi ? 'Xem Tất Cả Tác Phẩm' : 'All Works' }}</span>
@@ -269,8 +269,8 @@
                   <span class="stat-label text-meta-mono">{{ isVi ? 'Kinh Nghiệm Làm Nghề' : 'Years Experience' }}</span>
                 </div>
                 <div>
-                  <strong class="stat-number">Tận Tâm</strong>
-                  <span class="stat-label text-meta-mono">{{ isVi ? 'Với Từng Khách Hàng' : 'Dedicated Support' }}</span>
+                  <strong class="stat-number">0đ</strong>
+                  <span class="stat-label text-meta-mono">{{ isVi ? 'Hỗ Trợ Phát Hành Số' : 'Free Digital Distribution' }}</span>
                 </div>
               </div>
             </div>
@@ -399,7 +399,7 @@ const testimonials = [
     role: 'Nghệ Sĩ / Rapper',
     avatar: '/images/revan.jpg',
     project: 'Chẳng Muốn Nói Nhiều Lời',
-    body: 'Mình đã làm qua không ít phòng thu, nhưng XKProduction là nơi đầu tiên mình cảm thấy âm nhạc của mình được thực sự lắng nghe. Kiệt và team biết cách đẩy bản nhạc lên một tầm vóc khác biệt.'
+    body: 'Mình đã cộng tác qua không ít nơi sản xuất âm nhạc, nhưng XKProduction là nơi đầu tiên mình cảm thấy tác phẩm của mình được thực sự chăm chút và thấu hiểu. Kiệt biết cách đẩy bản phối lên một tầm vóc khác biệt.'
   },
   {
     name: 'Howl',

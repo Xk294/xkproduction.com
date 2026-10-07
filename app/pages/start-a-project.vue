@@ -4,9 +4,9 @@
       <!-- HEADER -->
       <div class="page-header text-center">
         <span class="badge-v2 amber">LIÊN HỆ SẢN XUẤT</span>
-        <h1 class="start-title">Bắt Đầu Bài Hát Của Bạn</h1>
+        <h1 class="start-title">Khởi Động Dự Án Âm Nhạc</h1>
         <p class="start-subtitle">
-          Hãy chia sẻ ý tưởng, bản thu mộc hoặc giai điệu bạn muốn thực hiện. Chúng tôi sẽ lắng nghe và tư vấn hướng làm phù hợp nhất cho bạn.
+          Hãy chia sẻ ý tưởng, bản thu mộc hoặc giai điệu bạn đang ấp ủ. Producer của XKProduction sẽ trực tiếp lắng nghe, phân tích và tư vấn định hướng sản xuất tối ưu nhất cho tác phẩm.
         </p>
       </div>
 
@@ -16,30 +16,38 @@
         <div class="start-info-col">
           <div class="studio-commit-card matte-card">
             <span class="badge-v2 teal">CAM KẾT CỦA STUDIO</span>
-            <h2 class="commit-title">Cam Kết Khi Làm Việc Cùng Studio</h2>
+            <h2 class="commit-title">Giá Trị Cốt Lõi &amp; Cam Kết Sản Xuất</h2>
             
             <div class="commit-items">
               <div class="commit-item">
                 <div class="c-icon"><i class="fa-solid fa-lock"></i></div>
                 <div>
-                  <strong>Bảo Mật Ý Tưởng Của Bạn</strong>
-                  <p>Mọi bản demo, giai điệu sơ khởi hay file bạn gửi đều thuộc quyền sở hữu của riêng bạn.</p>
+                  <strong>Bảo Mật Tuyệt Đối Bản Quyền &amp; Ý Tưởng</strong>
+                  <p>Mọi bản demo, giai điệu sơ khởi hay tệp âm thanh bạn gửi đều thuộc quyền sở hữu độc quyền của bạn.</p>
                 </div>
               </div>
 
               <div class="commit-item">
                 <div class="c-icon"><i class="fa-solid fa-clock"></i></div>
                 <div>
-                  <strong>Phản Hồi Nhanh Trong Ngày</strong>
-                  <p>Producer sẽ trực tiếp nghe file demo và gửi gợi ý triển khai cụ thể cho bạn.</p>
+                  <strong>Tư Vấn Trực Tiếp Cùng Music Producer</strong>
+                  <p>Producer sẽ trực tiếp lắng nghe file demo, đánh giá cấu trúc bài và đề xuất phương án hoà âm phù hợp.</p>
                 </div>
               </div>
 
               <div class="commit-item">
                 <div class="c-icon"><i class="fa-solid fa-handshake"></i></div>
                 <div>
-                  <strong>Minh Bạch Chi Phí &amp; Tiến Độ</strong>
-                  <p>Báo giá rõ ràng trọn gói, không phát sinh chi phí ẩn và bàn giao đúng hẹn.</p>
+                  <strong>Minh Bạch Ngân Sách &amp; Đúng Tiến Độ</strong>
+                  <p>Báo giá rõ ràng trọn gói, không phát sinh chi phí và cam kết bàn giao đúng hạn định.</p>
+                </div>
+              </div>
+
+              <div class="commit-item">
+                <div class="c-icon"><i class="fa-solid fa-cloud-arrow-up"></i></div>
+                <div>
+                  <strong>Đồng Hành Phát Hành Nhạc Số 0đ</strong>
+                  <p>Hỗ trợ đưa tác phẩm hoàn chỉnh lên Spotify, Apple Music, YouTube Music, Zing MP3... Nghệ sĩ giữ trọn 100% doanh thu.</p>
                 </div>
               </div>
             </div>
@@ -72,6 +80,16 @@
                 <div>
                   <strong>Gửi Brief Thành Công!</strong>
                   <p>XKProduction đã nhận được thông tin dự án. Chúng tôi sẽ lắng nghe demo và liên hệ lại với bạn trong vòng 2 giờ.</p>
+                </div>
+              </div>
+            </Transition>
+
+            <Transition name="toast">
+              <div v-if="submitError" class="error-banner" role="alert">
+                <i class="fa-solid fa-triangle-exclamation"></i>
+                <div>
+                  <strong>Chưa thể gửi yêu cầu tự động</strong>
+                  <p>Vui lòng thử lại hoặc nhắn tin trực tiếp qua Zalo Studio <a href="https://zalo.me/0355356294" target="_blank" rel="noopener">0355.356.294</a> để được tư vấn ngay lập tức.</p>
                 </div>
               </div>
             </Transition>
@@ -117,13 +135,14 @@
                 <div class="form-field">
                   <label for="f-service">Dịch vụ bạn cần <span class="req">*</span></label>
                   <select id="f-service" v-model="form.service">
-                    <option value="music-production">Hoà Âm Phối Khí (Làm Beat)</option>
-                    <option value="full-package">Sản Xuất Bài Hát Trọn Gói (A đến Z)</option>
-                    <option value="live-production">Sound &amp; Light / Âm Thanh Ánh Sáng Sự Kiện</option>
-                    <option value="creative-sound">Mixing &amp; Mastering (-14 LUFS)</option>
-                    <option value="recording">Thu Âm Ca Khúc Chuyên Nghiệp</option>
-                    <option value="commercial-audio">Âm Nhạc Doanh Nghiệp (B2B / TVC / Thương Mại)</option>
-                    <option value="khoa-hoc">Khóa Học Music Producer / Kỹ Sư Âm Thanh</option>
+                    <option value="music-production">Hoà Âm Phối Khí (Bản Phối Độc Bản)</option>
+                    <option value="full-package">Sản Xuất Tác Phẩm Trọn Gói (A đến Z)</option>
+                    <option value="ki-am">Kí Âm &amp; Viết Sheet Nhạc (Lead Sheet / Score)</option>
+                    <option value="creative-sound">Mixing &amp; Mastering (Chuẩn Phát Hành Số)</option>
+                    <option value="live-production">Sound &amp; Light Sự Kiện (Midas M32R)</option>
+                    <option value="recording">Thu Âm Vocal &amp; Nhạc Cụ Tại Studio</option>
+                    <option value="commercial-audio">Âm Nhạc Doanh Nghiệp (TVC / Brand Theme)</option>
+                    <option value="khoa-hoc">Khóa Học Sản Xuất Âm Nhạc / Music Producer</option>
                   </select>
                 </div>
 
@@ -148,12 +167,12 @@
               </div>
 
               <div class="form-field">
-                <label for="f-message">Mô tả bài hát hoặc ý tưởng của bạn</label>
+                <label for="f-message">Chia sẻ ý tưởng, thể loại hoặc định hướng nghệ thuật</label>
                 <textarea
                   id="f-message"
                   v-model="form.message"
                   rows="4"
-                  placeholder="Chia sẻ về thể loại nhạc bạn thích, phong cách mong muốn hoặc bài hát bạn muốn tham khảo..."
+                  placeholder="Chia sẻ về phong cách âm nhạc bạn hướng tới, cảm xúc chủ đạo hoặc ca khúc tham khảo (reference track)..."
                 ></textarea>
               </div>
 
@@ -163,7 +182,7 @@
                 :disabled="submitting"
               >
                 <i v-if="submitting" class="fa-solid fa-spinner fa-spin"></i>
-                <span>{{ submitting ? 'ĐANG GỬI...' : 'GỬI YÊU CẦU CHO STUDIO' }}</span>
+                <span>{{ submitting ? 'ĐANG GỬI...' : 'GỬI YÊU CẦU DỰ ÁN' }}</span>
                 <i v-if="!submitting" class="fa-solid fa-arrow-right"></i>
               </button>
             </form>
@@ -185,6 +204,9 @@ const serviceQueryMap: Record<string, string> = {
   'hoa-am': 'music-production',
   'full-package': 'full-package',
   'project-production': 'full-package',
+  'ki-am': 'ki-am',
+  'viet-sheet': 'ki-am',
+  'sheet-nhac': 'ki-am',
   'live-production': 'live-production',
   'live-band': 'live-production',
   'creative-sound': 'creative-sound',
@@ -201,6 +223,7 @@ const serviceQueryMap: Record<string, string> = {
 
 const submitting = ref(false)
 const submitted = ref(false)
+const submitError = ref(false)
 
 const form = reactive({
   name: '',
@@ -253,6 +276,7 @@ async function handleSubmit() {
   if (!validate()) return
 
   submitting.value = true
+  submitError.value = false
 
   const cleanPhone = form.phone.replace(/[.\s-]/g, '').replace(/^\+84/, '0')
   const { trackCta, getTrackingPayload } = useAnalytics()
@@ -283,6 +307,7 @@ async function handleSubmit() {
     } catch {}
 
     submitted.value = true
+    submitError.value = false
     form.name = ''
     form.phone = ''
     form.email = ''
@@ -294,7 +319,7 @@ async function handleSubmit() {
       const config = useRuntimeConfig()
       const endpoint = config.public.formspreeEndpoint
       if (endpoint) {
-        await fetch(endpoint, {
+        const fbRes = await fetch(endpoint, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
           body: JSON.stringify({
@@ -302,8 +327,12 @@ async function handleSubmit() {
             _subject: `[Project Brief V2] ${payload.name} (${payload.phone})`
           })
         })
+        if (!fbRes.ok) {
+          throw new Error(`Formspree returned status ${fbRes.status}`)
+        }
       }
       submitted.value = true
+      submitError.value = false
       form.name = ''
       form.phone = ''
       form.email = ''
@@ -311,7 +340,8 @@ async function handleSubmit() {
       form.message = ''
     } catch (fbErr) {
       console.error('[StartAProject] Fallback Formspree lỗi:', fbErr)
-      submitted.value = true
+      submitError.value = true
+      submitted.value = false
     }
   } finally {
     submitting.value = false
@@ -503,6 +533,40 @@ useSchemaOrg([
 .success-banner p {
   font-size: 0.875rem;
   color: var(--text-secondary);
+}
+
+.error-banner {
+  padding: 1.25rem;
+  background: rgba(239, 68, 68, 0.12);
+  border: 1px solid rgba(239, 68, 68, 0.35);
+  border-radius: 8px;
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+  color: #f87171;
+  margin-bottom: 2rem;
+}
+
+.error-banner i {
+  font-size: 1.25rem;
+  margin-top: 0.2rem;
+}
+
+.error-banner strong {
+  display: block;
+  font-size: 1rem;
+  color: #ffffff;
+  margin-bottom: 0.25rem;
+}
+
+.error-banner p {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+}
+
+.error-banner a {
+  color: #fbbf24;
+  text-decoration: underline;
 }
 
 .form-field {

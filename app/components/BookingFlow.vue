@@ -33,7 +33,7 @@ const services: ServiceItem[] = [
     price: 499000,
     duration: '2.5 giờ / ca',
     icon: 'fa-microphone',
-    desc: 'Phòng tiêu âm chuẩn quốc tế, micro condenser, kèm vocal coaching',
+    desc: 'Phòng tiêu âm êm ái, micro thu ấm áp, có người hướng dẫn lấy hơi tận tình',
     popular: true
   },
   {
@@ -42,7 +42,7 @@ const services: ServiceItem[] = [
     price: 350000,
     duration: '2-3 ngày',
     icon: 'fa-sliders',
-    desc: 'Vocal tuning tự nhiên, cân bằng âm sắc, chuẩn Spotify -14 LUFS'
+    desc: 'Nắn nốt phô nhẹ nhàng, cân bằng giọng hát và nhạc nền nghe êm tai'
   },
   {
     id: 'hoa-am',

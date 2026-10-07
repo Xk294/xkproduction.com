@@ -15,8 +15,8 @@
           </h1>
           <p class="services-subtitle">
             {{ isVi
-              ? 'Chúng tôi không sử dụng beat làm sẵn đại trà. Mỗi tác phẩm tại XKProduction đều được phối khí riêng theo chất giọng của bạn, sản xuất bài bản và đạt chuẩn nghe nhạc trực tuyến, sẵn sàng phát hành trên Spotify, YouTube và bùng nổ trên sân khấu sự kiện.'
-              : 'Zero generic templates. Every song at XKProduction is custom-arranged for your voice, produced with precision, and mastered to streaming standards ready for Spotify, YouTube, and dynamic live staging.'
+              ? 'Tại XKProduction, mỗi tác phẩm là một bản phối độc bản được đo ni đóng giày theo đúng chất giọng và tư duy âm nhạc của bạn. Chúng tôi đồng hành cùng nghệ sĩ từ những giai điệu mộc đầu tiên đến bản master hoàn chỉnh, cùng chính sách hỗ trợ phát hành nhạc số 0đ lên Spotify, Apple Music.'
+              : 'Zero generic templates. Every song at XKProduction is custom-arranged for your voice, produced with care, backed with free streaming release support, and ready to share with everyone.'
             }}
           </p>
         </div>
@@ -24,9 +24,9 @@
         <!-- KEY STUDIO METRICS -->
         <div class="studio-metrics-grid">
           <div class="metric-card matte-card">
-            <span class="metric-number">{{ isVi ? 'Phối Riêng' : 'Custom' }}</span>
-            <strong class="metric-title">{{ isVi ? 'Theo Đúng Màu Giọng' : 'Custom Arrangement' }}</strong>
-            <p class="metric-desc">{{ isVi ? 'Phối khí riêng biệt, không dùng beat rập khuôn' : 'Original production tailored to your vocal tone' }}</p>
+            <span class="metric-number">{{ isVi ? 'Độc Bản' : 'Bespoke' }}</span>
+            <strong class="metric-title">{{ isVi ? 'May Đo Theo Chất Giọng' : 'Custom Arrangement' }}</strong>
+            <p class="metric-desc">{{ isVi ? 'Hoà âm sáng tạo riêng biệt, tôn vinh cá tính nghệ thuật' : 'Original production tailored to your vocal tone' }}</p>
           </div>
           <div class="metric-card matte-card">
             <span class="metric-number">-14 LUFS</span>
@@ -39,9 +39,9 @@
             <p class="metric-desc">{{ isVi ? 'Toàn quyền sử dụng bài hát và doanh thu phát hành' : 'Full commercial rights & 100% digital royalties' }}</p>
           </div>
           <div class="metric-card matte-card">
-            <span class="metric-number">{{ isVi ? 'Tận Tình' : 'Support' }}</span>
-            <strong class="metric-title">{{ isVi ? 'Đồng Hành Từng Bước' : 'Dedicated Guidance' }}</strong>
-            <p class="metric-desc">{{ isVi ? 'Góp ý demo, hướng dẫn thu âm đến khi ưng ý' : 'Step-by-step guidance from demo to broadcast master' }}</p>
+            <span class="metric-number">{{ isVi ? 'Đồng Hành' : 'Guidance' }}</span>
+            <strong class="metric-title">{{ isVi ? 'Tận Tâm Từng Khâu' : 'Artisan Dedication' }}</strong>
+            <p class="metric-desc">{{ isVi ? 'Trau chuốt demo, định hướng thanh nhạc và hỗ trợ phát hành 0đ' : 'Step-by-step guidance from demo to broadcast master' }}</p>
           </div>
         </div>
 
@@ -241,7 +241,7 @@
         <h2 class="section-heading">{{ isVi ? '6 Điểm Tựa Giúp Bạn Tự Tin Cất Tiếng Hát' : '6 Pillars of Peace of Mind at XKProduction' }}</h2>
         <p class="section-desc">
           {{ isVi
-            ? 'Chúng tôi hiểu rằng lần đầu làm nhạc hay bước vào phòng thu có thể làm bạn lo lắng. Tại XKProduction, sự thấu hiểu, kiên nhẫn và đồng hành tận tâm luôn là giá trị cốt lõi.'
+            ? 'Chúng tôi hiểu rằng lần đầu sản xuất bài hát hay thu âm có thể làm bạn lo lắng. Tại XKProduction, sự thấu hiểu, kiên nhẫn và đồng hành tận tâm luôn là giá trị cốt lõi.'
             : 'We understand stepping into music creation can feel daunting. At XKProduction, empathy, patience, and supportive guidance come first.'
           }}
         </p>
@@ -299,7 +299,7 @@
       <section class="ecosystem-tool-banner matte-card">
         <div class="tool-banner-content">
           <div class="tool-banner-badge">
-            <span class="badge-v2 amber"><i class="fa-solid fa-wand-magic-sparkles"></i> {{ isVi ? 'HỆ SINH THÁI CÔNG CỤ TRỰC TUYẾN' : 'ONLINE AI TOOLS' }}</span>
+            <span class="badge-v2 amber"><i class="fa-solid fa-wand-magic-sparkles"></i> {{ isVi ? 'CÔNG CỤ HỖ TRỢ LÀM NHẠC' : 'ONLINE AI TOOLS' }}</span>
             <span class="text-meta-mono">{{ isVi ? 'XỬ LÝ ÂM THANH NHANH' : 'FREE WEB APP' }}</span>
           </div>
           <h2 class="tool-banner-title">
@@ -307,8 +307,8 @@
           </h2>
           <p class="tool-banner-desc">
             {{ isVi
-              ? 'Bên cạnh dịch vụ sản xuất phòng thu may đo chuyên sâu, chúng tôi phát triển nền tảng TáchNhạc (tachnhac.com) — công cụ AI trực tuyến giúp bạn bóc tách giọng hát, tách beat karaoke chất lượng cao và khử tạp âm chỉ trong 10 giây.'
-              : 'Alongside bespoke studio engineering, we developed TáchNhạc (tachnhac.com) — an intelligent web application for instant AI vocal removal, beat extraction, and audio cleanup.'
+              ? 'Để hỗ trợ bạn làm nhạc tiện lợi hơn, studio phát triển TáchNhạc (tachnhac.com) — công cụ AI giúp bạn tách giọng hát, lấy beat karaoke hoặc lọc tạp âm nhanh chóng chỉ trong 10 giây.'
+              : 'To make your music-making smoother, we built TáchNhạc (tachnhac.com) — a quick AI tool for vocal removal, beat extraction, and audio cleanup.'
             }}
           </p>
           <div class="tool-banner-tags">
@@ -407,11 +407,12 @@ const activeFilter = ref('all')
 const openFaqIdx = ref<number | null>(0)
 
 const filterTabs = [
-  { id: 'all', viLabel: 'Tất Cả Dịch Vụ (6)', enLabel: 'All Services (6)' },
+  { id: 'all', viLabel: 'Tất Cả Dịch Vụ (7)', enLabel: 'All Services (7)' },
   { id: 'music-production', viLabel: 'Sản Xuất & Phối Khí', enLabel: 'Arrangement' },
+  { id: 'ki-am', viLabel: 'Kí Âm (Viết Sheet)', enLabel: 'Sheet Music' },
   { id: 'creative-sound', viLabel: 'Mixing & Mastering', enLabel: 'Mix & Master' },
-  { id: 'studio-recording', viLabel: 'Thu Âm Phòng Thu', enLabel: 'Studio Recording' },
   { id: 'project-production', viLabel: 'Trọn Gói Single & MV', enLabel: 'Single & MV' },
+  { id: 'studio-recording', viLabel: 'Thu Âm Vocal', enLabel: 'Vocal Tracking' },
   { id: 'live-production', viLabel: 'Âm Thanh & Live Band', enLabel: 'Live Sound' },
   { id: 'commercial-audio', viLabel: 'Quảng Cáo & B2B', enLabel: 'Commercial B2B' }
 ]
@@ -605,7 +606,7 @@ const serviceFaqs = [
   {
     viQ: 'Tôi có bài hát đã mix sẵn, muốn tách beat để hát karaoke/cover hoặc tách lấy acapella thì studio có hỗ trợ không?',
     enQ: 'Can you isolate instrumental beats or extract acapella vocals from an existing song?',
-    viA: 'Có. Đối với dự án cần chất lượng phòng thu cao nhất để phối lại hoặc biểu diễn, studio hỗ trợ bóc tách âm thanh chuyên sâu. Ngoài ra, nếu bạn cần tách nhạc nhanh chóng trực tuyến bằng AI ngay tại nhà (tách beat, tách vocal, khử ồn tự động), bạn có thể dùng ngay công cụ miễn phí do chính chúng tôi phát triển tại tachnhac.com.',
+    viA: 'Có. Đối với dự án cần chất lượng âm thanh cao nhất để phối lại hoặc biểu diễn, studio hỗ trợ bóc tách âm thanh chuyên sâu. Ngoài ra, nếu bạn cần tách nhạc nhanh chóng trực tuyến bằng AI ngay tại nhà (tách beat, tách vocal, khử ồn tự động), bạn có thể dùng ngay công cụ miễn phí do chính chúng tôi phát triển tại tachnhac.com.',
     enA: 'Yes. For professional remixing or live performances, we offer high-grade audio de-mixing. If you need quick, automated online AI separation (beat separation, vocal isolation, noise removal), you can also use our dedicated web tool at tachnhac.com.'
   },
   {
@@ -617,14 +618,14 @@ const serviceFaqs = [
 ]
 
 useSeoMeta({
-  title: () => isVi.value ? 'Dịch Vụ Âm Nhạc — 6 Trụ Cột Năng Lực Sản Xuất | XKProduction' : 'Services — 6 Core Music Production Pillars | XKProduction',
+  title: () => isVi.value ? 'Dịch Vụ Sản Xuất Âm Nhạc & Phối Khí | XKProduction' : 'Music Production & Arrangement Services | XKProduction',
   description: () => isVi.value
-    ? 'Hệ sinh thái sản xuất âm nhạc chuyên nghiệp: Hoà âm phối khí độc bản, Mixing & Mastering -14 LUFS Spotify, Thu âm vocal, Live band sân khấu và sản xuất MV 4K trọn gói tại XKProduction.'
-    : 'Comprehensive music production solutions: Bespoke arrangement, Spotify-standard mixing & mastering, vocal tracking, live stage sound, and full MV production.',
-  ogTitle: () => isVi.value ? 'Dịch Vụ Sản Xuất Âm Nhạc Chuẩn Mực | XKProduction' : 'Professional Music Production Services | XKProduction',
+    ? 'Dịch vụ làm nhạc tận tâm: Hoà âm phối khí, Kí âm sheet nhạc, Thu âm bài hát, Mix & Master và hỗ trợ phát hành nhạc số miễn phí tại XKProduction.'
+    : 'Dedicated music production services: Custom arrangement, sheet music transcription, recording, and mix & master at XKProduction.',
+  ogTitle: () => isVi.value ? 'Dịch Vụ Sản Xuất Âm Nhạc & Phối Khí | XKProduction' : 'Music Production & Arrangement Services | XKProduction',
   ogDescription: () => isVi.value
-    ? '2000+ dự án phát hành. Chuẩn âm thanh -14 LUFS Spotify. Hoà âm độc bản, không template.'
-    : 'Over 2,000 released tracks. Mastered to -14 LUFS. Zero generic templates.',
+    ? 'Làm beat riêng theo chất giọng, thu âm tận tình, kí âm sheet nhạc và hỗ trợ đăng bài hát lên Spotify miễn phí.'
+    : 'Bespoke music arrangement, patient tracking, sheet transcription, and free streaming release support.',
   ogImage: 'https://xkproduction.com/images/Xkpreviewnew.png',
   ogUrl: 'https://xkproduction.com/services',
   twitterCard: 'summary_large_image',
@@ -633,8 +634,8 @@ useSeoMeta({
 
 useSchemaOrg([
   defineWebPage({
-    name: 'Dịch Vụ Sản Xuất Âm Nhạc Chuyên Nghiệp — XKProduction',
-    description: 'Hệ sinh thái dịch vụ âm nhạc chuẩn quốc tế: Hoà âm phối khí, Mix & Master, Thu âm, Live band, Sản xuất MV.'
+    name: 'Dịch Vụ Sản Xuất Âm Nhạc & Phối Khí — XKProduction',
+    description: 'Dịch vụ âm nhạc tận tâm: Hoà âm phối khí, Kí âm sheet nhạc, Mix & Master, Thu âm và Sound & Light sự kiện.'
   })
 ])
 </script>

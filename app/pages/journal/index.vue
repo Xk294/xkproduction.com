@@ -87,10 +87,25 @@ useSeoMeta({
   ogTitle: () => isVi.value
     ? 'Góc Nhìn Âm Nhạc — XKProduction'
     : 'The Journal — Production Notes | XKProduction',
-  ogDescription: 'Nhật ký sản xuất âm nhạc và kỹ thuật phòng thu chuyên sâu tại XKProduction.',
+  ogDescription: () => isVi.value
+    ? 'Nhật ký sản xuất âm nhạc và kỹ thuật phòng thu chuyên sâu tại XKProduction.'
+    : 'Production journal and behind-the-scenes recording techniques from XKProduction.',
   ogImage: 'https://xkproduction.com/images/Xkpreviewnew.png',
-  ogUrl: 'https://xkproduction.com/journal'
+  ogImageWidth: '1200',
+  ogImageHeight: '630',
+  ogImageAlt: 'Nhật Ký & Chia Sẻ Kinh Nghiệm Sản Xuất Âm Nhạc - XKProduction',
+  ogUrl: 'https://xkproduction.com/journal',
+  twitterCard: 'summary_large_image',
+  twitterImage: 'https://xkproduction.com/images/Xkpreviewnew.png'
 })
+
+useSchemaOrg([
+  defineWebPage({
+    '@type': 'CollectionPage',
+    name: 'Góc Nhìn Âm Nhạc — XKProduction',
+    description: 'Chia sẻ kiến thức sản xuất âm nhạc, kỹ thuật phòng thu và hậu trường làm nhạc tại XKProduction.'
+  })
+])
 </script>
 
 <style scoped>

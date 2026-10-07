@@ -100,8 +100,12 @@
 </template>
 
 <script setup lang="ts">
-const goToContact = (_isPremium = false) => {
-  navigateTo('/build-project?service=hoa-am')
+const goToContact = (isPremium = false) => {
+  if (isPremium) {
+    navigateTo('/start-a-project?service=hoa-am')
+  } else {
+    navigateTo('/build-project?service=hoa-am')
+  }
 }
 
 useSeoMeta({
@@ -110,36 +114,13 @@ useSeoMeta({
   ogTitle: 'Hoà Âm Phối Khí Chuyên Nghiệp - XKProduction',
   ogDescription: 'Biến giai điệu thô thành tác phẩm âm nhạc hoàn chỉnh. Phối nhạc online chất lượng cao, nhạc cụ thật, tư vấn concept âm nhạc tận tâm.',
   ogImage: 'https://xkproduction.com/images/Xkpreviewnew.png',
+  ogImageWidth: '1200',
+  ogImageHeight: '630',
+  ogImageAlt: 'Dịch vụ Hoà Âm Phối Khí - XKProduction',
   ogUrl: 'https://xkproduction.com/hoa-am-phoi-khi',
   twitterCard: 'summary_large_image',
+  twitterImage: 'https://xkproduction.com/images/Xkpreviewnew.png',
   keywords: 'hoà âm phối khí, phối nhạc online, làm beat nhạc, dịch vụ hoà âm, làm nhạc chuyên nghiệp, hoà âm phối khí online, xkproduction'
-})
-
-useHead({
-  script: [
-    {
-      type: 'application/ld+json',
-      innerHTML: JSON.stringify({
-        "@context": "https://schema.org",
-        "@type": "Service",
-        "serviceType": "Hoà âm phối khí",
-        "provider": {
-          "@type": "MusicStore",
-          "name": "XKProduction",
-          "url": "https://xkproduction.com"
-        },
-        "name": "Dịch vụ Hoà âm phối khí",
-        "description": "Sản xuất beat, tạo arrangement nhạc cụ đầy đặn, thiết kế sound design phù hợp với tone giọng nghệ sĩ.",
-        "offers": {
-          "@type": "AggregateOffer",
-          "lowPrice": "2000000",
-          "highPrice": "3000000",
-          "priceCurrency": "VND",
-          "offerCount": "2"
-        }
-      })
-    }
-  ]
 })
 
 useSchemaOrg([

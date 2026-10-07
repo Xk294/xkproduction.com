@@ -4,12 +4,12 @@
       <!-- TOP STATEMENT ROW -->
       <div class="footer-top-strip">
         <div class="footer-manifesto">
-          <span class="badge-v2 amber">{{ isVi ? 'PHÒNG THU ÂM XKPRODUCTION' : 'XKPRODUCTION STUDIO' }}</span>
+          <span class="badge-v2 amber">{{ isVi ? 'SẢN XUẤT ÂM NHẠC XKPRODUCTION' : 'XKPRODUCTION MUSIC STUDIO' }}</span>
           <h2 class="footer-statement-title">{{ isVi ? 'ĐỒNG HÀNH CÙNG BẠN TỪ BẢN THU ĐẦU TIÊN.' : 'FROM YOUR FIRST DEMO TO FINAL MASTER.' }}</h2>
           <p class="footer-statement-sub">
             {{ isVi
-              ? 'Phòng thu âm chuyên nghiệp, hoà âm phối khí và hoàn thiện bài hát tận tâm tại Thủ Đức, TP. Hồ Chí Minh & nhận làm online toàn quốc.'
-              : 'Dedicated studio recording, custom music production, and balanced mix & mastering in Thu Duc, HCMC and online nationwide.'
+              ? 'Sản xuất âm nhạc bài bản, hoà âm phối khí độc bản và hỗ trợ phát hành nhạc số miễn phí tại Thủ Đức, TP. Hồ Chí Minh & nhận làm online toàn quốc.'
+              : 'Dedicated bespoke music production, custom arrangement, and free DSP release support in Thu Duc, HCMC & online nationwide.'
             }}
           </p>
         </div>
@@ -53,9 +53,10 @@
           <span class="col-title text-meta-mono">{{ isVi ? 'NĂNG LỰC SẢN XUẤT' : 'CAPABILITIES' }}</span>
           <ul class="footer-links-list">
             <li><NuxtLink to="/services/music-production">{{ isVi ? 'Sản Xuất Âm Nhạc Trọn Gói' : 'Music Production' }}</NuxtLink></li>
+            <li><NuxtLink to="/services/ki-am">{{ isVi ? 'Kí Âm (Viết Sheet Nhạc)' : 'Sheet Music Transcription' }}</NuxtLink></li>
             <li><NuxtLink to="/services/creative-sound">{{ isVi ? 'Kỹ Thuật Mix & Master' : 'Creative Sound (Mix & Master)' }}</NuxtLink></li>
-            <li><NuxtLink to="/services/studio-recording">{{ isVi ? 'Thu Âm Studio Chuyên Nghiệp' : 'Studio Recording' }}</NuxtLink></li>
             <li><NuxtLink to="/services/project-production">{{ isVi ? 'Sản Xuất Đĩa & Album Dự Án' : 'Project Production' }}</NuxtLink></li>
+            <li><NuxtLink to="/services/studio-recording">{{ isVi ? 'Thu Âm Vocal & Nhạc Cụ' : 'Studio Vocal Recording' }}</NuxtLink></li>
             <li><NuxtLink to="/services/live-production">{{ isVi ? 'Âm Thanh Biểu Diễn & Sân Khấu' : 'Live Production & FOH' }}</NuxtLink></li>
             <li><NuxtLink to="/services/commercial-audio">{{ isVi ? 'Âm Thanh Quảng Cáo & TVC' : 'Commercial Audio & TVC' }}</NuxtLink></li>
             <li><NuxtLink to="/services">{{ isVi ? 'Tất Cả Giải Pháp' : 'All Services' }}</NuxtLink></li>
@@ -70,7 +71,7 @@
             <li><NuxtLink to="/production">{{ isVi ? 'Quy Trình Sản Xuất (8 Bước)' : 'Production Process' }}</NuxtLink></li>
             <li><NuxtLink to="/courses">{{ isVi ? 'Khóa Học Music Producer' : 'Music Producer Courses' }}</NuxtLink></li>
             <li><NuxtLink to="/about">{{ isVi ? 'Về Chúng Tôi & Triết Lý' : 'About & Philosophy' }}</NuxtLink></li>
-            <li><NuxtLink to="/journal">{{ isVi ? 'Nhật Ký Phòng Thu' : 'Production Journal' }}</NuxtLink></li>
+            <li><NuxtLink to="/journal">{{ isVi ? 'Nhật Ký Sản Xuất' : 'Production Journal' }}</NuxtLink></li>
             <li><NuxtLink to="/build-project">{{ isVi ? 'Dự Toán Chi Phí Dự Án' : 'Project Builder' }}</NuxtLink></li>
             <li>
               <a :href="createTachnhacReferralUrl('footer_tachnhac')" target="_blank" rel="noopener" class="footer-tool-link" :title="isVi ? 'Tách beat, vocal & lọc tạp âm online bằng AI' : 'Free AI Vocal & Stem Separator'">

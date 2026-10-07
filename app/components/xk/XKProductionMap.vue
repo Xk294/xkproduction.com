@@ -75,7 +75,7 @@ const stages = [
     title: 'Melody & Demo',
     category: 'BƯỚC 1 · KHỞI TẠO',
     enCategory: 'STAGE 1 · GENESIS',
-    headline: 'Lắng Nghe Giai Điệu & Định Hướng Bài Hát',
+    headline: 'Lắng Nghe Giai Điệu & Định Hướng Nghệ Thuật',
     enHeadline: 'Melody Consultation & Direction',
     description: 'Mọi bài hát đều bắt đầu từ một đoạn ghi âm mộc: tiếng hát chay qua điện thoại hay tiếng đàn guitar đơn sơ. Studio sẽ nghe thử, nhận xét tone giọng và cùng bạn chọn hướng phát triển phù hợp nhất.',
     enDescription: 'Every song begins with a raw sketch: a voice memo or acoustic chords. We listen, assess your vocal key, and establish the musical direction.',
@@ -84,7 +84,7 @@ const stages = [
       { name: 'Xác định phong cách bài hát', detail: 'Lựa chọn dòng nhạc mong muốn: Ballad, Pop R&B, Acoustic hay Remix sôi động.' },
       { name: 'Tư vấn hướng hoàn thiện', detail: 'Góp ý lời ca và cấu trúc đoạn điệp khúc để bài hát thêm bắt tai và truyền cảm.' }
     ],
-    producerNote: 'Đừng ngại nếu bản thu âm điện thoại của bạn chưa chuẩn hay lẫn tạp âm. Việc của producer là giúp bạn phát triển nó thành bài hát hoàn chỉnh.',
+    producerNote: 'Đừng ngần ngại nếu bản demo điện thoại còn mộc mạc hay lẫn tạp âm. Vai trò của Producer là thấu cảm và chắp cánh để ý tưởng đó trở thành một tác phẩm hoàn chỉnh.',
     enProducerNote: 'Never worry about imperfect phone demos. Our role as producers is to develop it into a complete release.'
   },
   {
@@ -108,21 +108,21 @@ const stages = [
   },
   {
     step: '03',
-    viTitle: 'Phối Khí & Làm Beat',
+    viTitle: 'Hoà Âm Độc Bản',
     enTitle: 'Arrangement & Beat',
     title: 'Arrangement & Beat',
     category: 'BƯỚC 3 · PHỐI KHÍ',
     enCategory: 'STAGE 3 · ARRANGEMENT',
-    headline: 'Dựng Bản Phối Đầy Đủ Nhạc Cụ',
+    headline: 'Kiến Tạo Bản Phối Khí Độc Bản',
     enHeadline: 'Bespoke Instrumentation & Beatmaking',
-    description: 'Khoác lên bài hát bản phối hoàn chỉnh với trống, bass, đàn piano, guitar và dàn dây. Từng âm thanh được căn chỉnh theo đúng màu giọng của bạn.',
+    description: 'Khoác lên tác phẩm không gian âm nhạc sống động: trống, bass, grand piano, guitar và dàn dây acoustic. Từng nhạc cụ được hoà trộn hài hoà và đo ni đóng giày theo âm sắc giọng hát.',
     enDescription: 'Dressing the song with drums, bass, piano, guitars, and orchestral strings—tailored from scratch to your vocal tone.',
     actions: [
       { name: 'Xây dựng nhịp trống & Bass', detail: 'Tạo phần nhịp điệu sinh động, giúp bài hát có độ nảy và lực đầm chắc.' },
       { name: 'Phối các lớp nhạc cụ', detail: 'Thêm tiếng đàn guitar, piano, dàn dây để tạo cảm xúc dày dặn và đầy đặn cho bài hát.' },
       { name: 'Thiết kế đoạn dồn cao trào', detail: 'Bố trí các đoạn chuyển tiếp và cao trào để bài hát lôi cuốn từ đầu đến cuối.' }
     ],
-    producerNote: 'Studio không dùng beat làm sẵn đại trà. Mỗi bản phối đều được làm riêng theo đúng chất giọng và ý muốn của bạn.',
+    producerNote: 'Chúng tôi không sử dụng beat mẫu đại trà. Mỗi bản phối là một tác phẩm độc bản được sáng tạo riêng cho cá tính âm nhạc của bạn.',
     enProducerNote: 'Zero generic template loops. Every arrangement is crafted specifically for your vocal character.'
   },
   {
@@ -132,9 +132,9 @@ const stages = [
     title: 'Vocal Recording',
     category: 'BƯỚC 4 · THU ÂM',
     enCategory: 'STAGE 4 · TRACKING',
-    headline: 'Buổi Thu Âm Thoải Mái & Tận Tình',
+    headline: 'Không Gian Thu Thanh Chuyên Sâu & Thoải Mái',
     enHeadline: 'Supportive & Patient Vocal Tracking',
-    description: 'Bước vào phòng thu với micro chuyên dụng và không gian tiêu âm chuẩn. Producer sẽ trực tiếp hướng dẫn lấy hơi, nhả chữ và đồng hành đến khi bạn hài lòng.',
+    description: 'Bước vào phòng thu với micro condenser chuyên dụng và không gian tiêu âm chuẩn. Producer sẽ trực tiếp hướng dẫn lấy hơi, nhả chữ và đồng hành đến khi bạn hài lòng.',
     enDescription: 'Step into an acoustically treated booth with premium microphones. Your producer guides phrasing, breath control, and confidence.',
     actions: [
       { name: 'Khởi động giọng & Hướng dẫn nhả chữ', detail: 'Giúp bạn giải toả căng thẳng, mở khẩu hình và lấy hơi đúng cách trước khi thu.' },
@@ -170,7 +170,7 @@ const stages = [
     title: 'Mixing',
     category: 'BƯỚC 6 · MIX NHẠC',
     enCategory: 'STAGE 6 · MIXING',
-    headline: 'Cân Bằng Giọng Hát & Nhạc Nền',
+    headline: 'Xử Lý Không Gian & Cân Bằng Đa Chiều',
     enHeadline: 'Vocal Clarity & 3D Spatial Balance',
     description: 'Hoà trộn giọng hát vào nhạc nền một cách êm ái: tạo độ dày cho giọng, mở không gian vang vọng tự nhiên và giúp tiếng trống, tiếng bass nghe êm tai.',
     enDescription: 'Blending multitrack layers seamlessly: sculpt EQ, control dynamics with compression, and craft immersive depth with reverb and delay.',
@@ -189,7 +189,7 @@ const stages = [
     title: 'Mastering',
     category: 'BƯỚC 7 · HOÀN THIỆN',
     enCategory: 'STAGE 7 · MASTERING',
-    headline: 'Tối Ưu Âm Lượng Cho Mọi Thiết Bị',
+    headline: 'Mastering Đạt Chuẩn Streaming & Dải Động',
     enHeadline: 'Balanced Loudness for Global Streaming',
     description: 'Khâu hoàn thiện âm thanh cuối cùng. Đảm bảo bài hát phát to rõ, không bị rè hay méo tiếng trên loa điện thoại, tai nghe và loa xe hơi.',
     enDescription: 'The final acoustic benchmark: ensuring full, clean loudness (-14 LUFS) that sounds great on phone speakers, earbuds, and car sound systems.',
@@ -203,22 +203,22 @@ const stages = [
   },
   {
     step: '08',
-    viTitle: 'Bàn Giao Sản Phẩm',
-    enTitle: 'Delivery & Release',
-    title: 'Delivery & Release',
-    category: 'BƯỚC 8 · BÀN GIAO',
-    enCategory: 'STAGE 8 · DELIVERY',
-    headline: 'Bàn Giao Đầy Đủ File & Hỗ Trợ Đăng Nhạc',
-    enHeadline: 'Full Master Delivery & Distribution Guidance',
-    description: 'Bàn giao trọn gói bản Master chất lượng cao WAV, MP3 và bản beat không lời để bạn biểu diễn, đồng thời hỗ trợ tư vấn đăng nhạc lên mạng xã hội.',
-    enDescription: 'Delivery of high-res 24-bit WAV masters, 320kbps MP3s, instrumental backing tracks, and guidance for digital distribution.',
+    viTitle: 'Bàn Giao & Phát Hành Số',
+    enTitle: 'Delivery & Free Release',
+    title: 'Delivery & Free Release',
+    category: 'BƯỚC 8 · BÀN GIAO & PHÁT HÀNH',
+    enCategory: 'STAGE 8 · DELIVERY & RELEASE',
+    headline: 'Bàn Giao Trọn Bộ Master & Hỗ Trợ Phát Hành Số 0đ',
+    enHeadline: 'Full Master Delivery & Free Streaming Release',
+    description: 'Bàn giao trọn bộ master chất lượng cao phục vụ lưu trữ và biểu diễn, đồng thời hỗ trợ phát hành tác phẩm lên toàn bộ nền tảng số (Spotify, Apple Music, YouTube Music...) hoàn toàn miễn phí, giữ trọn 100% doanh thu.',
+    enDescription: 'Delivery of high-res WAV masters, MP3s, backing tracks, and free music release support for Spotify & Apple Music.',
     actions: [
-      { name: 'Bàn giao đầy đủ định dạng file', detail: 'Gồm bản Master WAV 24-bit chất lượng cao, MP3 320kbps và beat không lời để đi diễn.' },
-      { name: 'Lưu trữ file dự án an toàn', detail: 'Lưu trữ toàn bộ file thu âm gốc trên máy chủ của studio để bạn có thể xin lại khi cần.' },
-      { name: 'Tư vấn đăng tải bài hát', detail: 'Hướng dẫn cách đăng bài hát lên YouTube, Facebook, TikTok và các trang nhạc số.' }
+      { name: 'Bàn giao đầy đủ file nhạc', detail: 'File Master chất lượng cao để nghe, file MP3 chia sẻ nhanh và beat không lời để bạn đi hát hoặc biểu diễn.' },
+      { name: 'Lưu trữ file an toàn', detail: 'Studio lưu trữ file cẩn thận trên máy tính để nếu mất file bạn có thể xin lại bất cứ lúc nào.' },
+      { name: 'Hỗ trợ phát hành số 0đ', detail: 'Đồng hành đưa bài hát lên Spotify, Apple Music, YouTube Music, Zing MP3... hoàn toàn 0đ, nghệ sĩ giữ trọn 100% doanh thu.' }
     ],
-    producerNote: 'Sau khi nhận bài, nếu bạn cần hỗ trợ xuất thêm bản beat hay điều chỉnh nhỏ, studio luôn sẵn sàng hỗ trợ.',
-    enProducerNote: 'Delivery is not the end of our partnership. We are always here to support your upcoming musical releases.'
+    producerNote: 'Sau khi hoàn thiện tác phẩm, chúng tôi tiếp tục đồng hành hỗ trợ phát hành số, giúp âm nhạc của bạn tiếp cận rộng rãi người nghe mà không phát sinh thêm chi phí.',
+    enProducerNote: 'We provide free streaming distribution support. You retain full royalties and copyright.'
   }
 ]
 

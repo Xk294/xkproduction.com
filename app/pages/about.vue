@@ -10,8 +10,8 @@
     <section class="page-hero">
       <div class="editorial-container">
         <span class="badge-v2 amber"><i class="fa-solid fa-circle-info"></i> GIỚI THIỆU</span>
-        <h1 class="page-hero-title">Phòng Thu Âm <span class="text-gold-gradient">Chuyên Nghiệp</span> &amp; Tận Tâm</h1>
-        <p class="page-hero-sub">Đồng hành cùng nghệ sĩ, ca sĩ và người yêu nhạc tạo nên những bài hát chỉn chu, sạch sẽ và giàu cảm xúc.</p>
+        <h1 class="page-hero-title">Sản Xuất Âm Nhạc <span class="text-gold-gradient">Độc Bản</span> &amp; Tận Tâm</h1>
+        <p class="page-hero-sub">Đồng hành cùng nghệ sĩ, tác giả và người yêu nhạc kiến tạo những tác phẩm giàu cảm xúc, bản phối tinh tế và chất âm chuẩn mực.</p>
       </div>
     </section>
 
@@ -26,7 +26,7 @@
         <div class="grid-2-editorial">
           <div class="story-text-column">
             <p class="lead-text">
-              XKProduction được thành lập từ mong muốn đơn giản: tạo ra một không gian làm nhạc thân thiện và chuyên nghiệp, nơi bất kỳ ai yêu âm nhạc cũng có thể tự tin thu âm, phối khí và hoàn thiện bài hát của mình một cách ưng ý nhất.
+              XKProduction được xây dựng từ niềm đam mê thuần khiết với âm thanh: tạo nên một không gian sáng tạo tinh tế và tận tâm, nơi mọi ý niệm âm nhạc đều được trân trọng, nâng niu và phát triển thành tác phẩm hoàn chỉnh.
             </p>
             <p>
               Xuất thân từ sân khấu biểu diễn và phòng thu thực chiến, chúng tôi hiểu rằng âm nhạc không chỉ nằm ở các thông số kỹ thuật khô khan. Một bản phối hay phải bắt đầu từ cảm xúc tự nhiên của người hát và sự hài hoà giữa từng tiếng nhạc cụ.
@@ -77,7 +77,7 @@
               <div class="step-dot"><span class="dot-inner"></span></div>
               <div class="step-meta">
                 <span class="step-year">2021</span>
-                <h3>Nâng Cấp Thiết Bị &amp; Phòng Thu</h3>
+                <h3>Nâng Cấp Thiết Bị &amp; Không Gian Sản Xuất</h3>
               </div>
               <p>Đầu tư microphone, pre-amp và cách âm tiêu chuẩn, mở rộng dịch vụ hoà âm phối khí chuyên sâu.</p>
             </div>
@@ -266,7 +266,7 @@
             <p class="exp-desc">Âm thanh có chiều sâu, ấm áp và tách bạch ở mọi dải tần, đạt chuẩn khắt khe của Spotify, Apple Music và YouTube. Bạn hoàn toàn tự tin mang tác phẩm giới thiệu đến bạn bè, đối tác hoặc ra mắt khán giả đại chúng.</p>
             <div class="exp-benefits">
               <div class="exp-benefit-item"><i class="fa-solid fa-check"></i> <span>Âm thanh cân bằng, nghe đã tai trên mọi thiết bị</span></div>
-              <div class="exp-benefit-item"><i class="fa-solid fa-check"></i> <span>Âm lượng &amp; độ động đạt chuẩn streaming quốc tế</span></div>
+              <div class="exp-benefit-item"><i class="fa-solid fa-check"></i> <span>Âm lượng to rõ, êm dịu, không bị chói hay méo tiếng</span></div>
             </div>
           </div>
 
@@ -367,9 +367,9 @@
 
 <script setup lang="ts">
 useSeoMeta({
-  title: 'Giới Thiệu XKProduction - Phòng Thu Âm & Âm Thanh Ánh Sáng Chuyên Nghiệp',
-  description: 'XKProduction — Phòng thu âm và media production chuyên nghiệp. Hơn 7 năm đồng hành cùng 2000+ dự án âm nhạc, 30+ đối tác, 50+ học viên đào tạo. Founder: Nguyễn Xuân Kiệt — Music Producer & Sound Engineer.',
-  ogTitle: 'Giới Thiệu XKProduction - Phòng Thu Âm & Media Production',
+  title: 'Giới Thiệu XKProduction - Sản Xuất Âm Nhạc & Hoà Âm Phối Khí Chuyên Nghiệp',
+  description: 'XKProduction — Đơn vị sản xuất âm nhạc và hoà âm phối khí chuyên nghiệp. Hơn 7 năm đồng hành cùng 2000+ dự án âm nhạc, Sound & Light sự kiện. Founder: Nguyễn Xuân Kiệt — Music Producer.',
+  ogTitle: 'Giới Thiệu XKProduction - Sản Xuất Âm Nhạc & Hoà Âm Phối Khí',
   ogDescription: 'Khám phá câu chuyện XKProduction: Hơn 7 năm xây dựng, 2000+ dự án, đội ngũ Founder Nguyễn Xuân Kiệt và sứ mệnh nâng tầm âm nhạc Việt.',
   ogImage: 'https://xkproduction.com/images/Xkpreviewnew.png',
   ogImageWidth: '1200',
@@ -378,7 +378,7 @@ useSeoMeta({
   ogUrl: 'https://xkproduction.com/about',
   twitterCard: 'summary_large_image',
   twitterImage: 'https://xkproduction.com/images/Xkpreviewnew.png',
-  keywords: 'giới thiệu XKProduction, Nguyễn Xuân Kiệt, founder XKProduction, music producer, phòng thu âm chuyên nghiệp, về chúng tôi'
+  keywords: 'giới thiệu XKProduction, Nguyễn Xuân Kiệt, founder XKProduction, music producer, sản xuất âm nhạc, hoà âm phối khí, về chúng tôi'
 })
 
 useSchemaOrg([

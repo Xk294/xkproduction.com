@@ -10,20 +10,20 @@
         <div class="hero-badge-row">
           <span class="badge-v2 amber">
             <span class="pulsing-dot"></span>
-            {{ isVi ? 'XKPRODUCTION ARCHIVE · TIÊU CHUẨN PHÒNG THU QUỐC TẾ' : 'XKPRODUCTION ARCHIVE · STUDIO MASTER GRADE' }}
+            {{ isVi ? 'XKPRODUCTION ARCHIVE · TÁC PHẨM ĐÃ THỰC HIỆN' : 'XKPRODUCTION ARCHIVE · SELECTED WORKS' }}
           </span>
-          <span class="hero-edition-tag font-mono text-meta-mono">{{ isVi ? 'PHIÊN BẢN 2026' : 'CATALOG 2026' }}</span>
+          <span class="hero-edition-tag font-mono text-meta-mono">{{ isVi ? 'DANH MỤC BÀI HÁT' : 'SONG CATALOG' }}</span>
         </div>
 
         <h1 class="archive-title">
-          {{ isVi ? 'KHO TÁC PHẨM &' : 'SELECTED WORK &' }}
-          <span class="gold-gradient-text">{{ isVi ? 'BẢN GHI MASTER' : 'MASTER RELEASES' }}</span>
+          {{ isVi ? 'DANH MỤC DỰ ÁN &' : 'SELECTED WORK &' }}
+          <span class="gold-gradient-text">{{ isVi ? 'TÁC PHẨM SẢN XUẤT' : 'SIGNATURE PRODUCTIONS' }}</span>
         </h1>
 
         <p class="archive-subtitle">
           {{ isVi
-            ? 'Tuyển tập những tác phẩm âm nhạc độc bản, bản hoà âm phối khí chuyên nghiệp và sản phẩm phát hành số hoàn thiện tại XKProduction. Nơi chuẩn mực âm học -14 LUFS giao hoà cùng cảm xúc chân thật nhất của người nghệ sĩ.'
-            : 'A curated anthology of bespoke arrangements, commercial music productions, and master records engineered at XKProduction. Where precision acoustics meet the authentic soul of every artist.'
+            ? 'Tuyển tập những tác phẩm âm nhạc và bản phối độc bản được sản xuất tại XKProduction. Tinh tuyển từ cảm xúc chân thật, đo ni đóng giày theo âm vực nghệ sĩ và hoàn thiện với chất âm chuẩn mực.'
+            : 'Listen to tracks and custom musical arrangements crafted at XKProduction. Every piece is nurtured with care to match each artist’s true voice and emotion.'
           }}
         </p>
 
@@ -56,8 +56,8 @@
           <div class="metric-card">
             <div class="metric-icon"><i class="fa-solid fa-globe"></i></div>
             <div class="metric-data">
-              <strong class="metric-value">ISRC &amp; UPC</strong>
-              <span class="metric-label">{{ isVi ? 'Hỗ trợ phát hành toàn cầu' : 'Global Distribution Ready' }}</span>
+              <strong class="metric-value">0 ĐỒNG</strong>
+              <span class="metric-label">{{ isVi ? 'Hỗ trợ phát hành số toàn diện' : 'Free DSP Release Support' }}</span>
             </div>
           </div>
         </div>
@@ -220,12 +220,12 @@
           <div class="disco-header-box">
             <div class="disco-title-group">
               <span class="badge-v2 teal">{{ isVi ? 'DANH MỤC PHÁT HÀNH SỐ' : 'DIGITAL DISCOGRAPHY' }}</span>
-              <h2 class="disco-heading">{{ isVi ? 'Đĩa Nhạc & Ca Khúc Phát Hành Thương Mại' : 'Streamed Tracks & Public Catalog' }}</h2>
+              <h2 class="disco-heading">{{ isVi ? 'Các Bài Hát Đã Phát Hành' : 'Streamed Tracks & Public Catalog' }}</h2>
             </div>
             <p class="disco-desc">
               {{ isVi
-                ? 'Các bản ghi do XKProduction thu âm, hoà âm và mix master đang có mặt trên các nền tảng streaming âm nhạc toàn cầu.'
-                : 'Selected tracks engineered, arranged, and mastered by XKProduction streaming globally on official platforms.'
+                ? 'Những bài hát do XKProduction phối khí, thu âm và hoàn thiện hiện đang có mặt trên Spotify, Apple Music, YouTube Music và Zing MP3.'
+                : 'Selected tracks engineered, arranged, and mastered by XKProduction streaming on official music platforms.'
               }}
             </p>
           </div>
@@ -239,16 +239,16 @@
         <div class="ecosystem-card matte-card">
           <div class="eco-header text-center">
             <span class="badge-v2 teal">
-              <i class="fa-solid fa-satellite-dish"></i>
-              {{ isVi ? 'KẾT NỐI TOÀN CẦU' : 'GLOBAL REACH' }}
+              <i class="fa-solid fa-cloud-arrow-up"></i>
+              {{ isVi ? 'HỖ TRỢ PHÁT HÀNH NHẠC SỐ' : 'DIGITAL MUSIC RELEASE' }}
             </span>
             <h2 class="eco-title">
-              {{ isVi ? 'Tiêu Chuẩn Phát Hành Quốc Tế & Mạng Lưới Streaming' : 'International Distribution & Streaming Readiness' }}
+              {{ isVi ? 'Đưa Bài Hát Của Bạn Lên Mạng Thật Dễ Dàng' : 'Sharing Your Music with the World' }}
             </h2>
             <p class="eco-subtitle">
               {{ isVi
-                ? 'Mỗi tác phẩm sản xuất tại XKProduction đều được thiết kế để phát huy chất lượng tốt nhất trên các hệ thống phát nhạc chất lượng cao nhất.'
-                : 'Every project engineered at XKProduction is optimized for maximum fidelity across high-resolution streaming networks.'
+                ? 'Bạn không cần lo lắng về các khâu kỹ thuật phức tạp, studio sẽ hỗ trợ đưa bài hát của bạn lên Spotify, Apple Music, YouTube Music, Zing MP3... hoàn toàn miễn phí.'
+                : 'Zero technical headaches. We assist you in publishing your songs onto Spotify, Apple Music, YouTube Music, and Zing MP3 at zero cost.'
               }}
             </p>
           </div>
@@ -257,33 +257,33 @@
           <div class="eco-pillars-grid">
             <div class="eco-pillar">
               <div class="pillar-number font-mono">01</div>
-              <h3 class="pillar-title">{{ isVi ? 'Mastering Đạt Chuẩn -14 LUFS' : '-14 LUFS True-Peak Master' }}</h3>
+              <h3 class="pillar-title">{{ isVi ? 'Âm Lượng To Rõ, Cân Bằng' : 'Balanced & Clean Loudness' }}</h3>
               <p class="pillar-text">
                 {{ isVi
-                  ? 'Kiểm soát dynamic range khắt khe, giúp ca khúc của bạn giữ nguyên độ nảy, không bị thuật toán của Spotify hay Apple Music nén dập âm sắc.'
-                  : 'Rigorous dynamic range control ensuring your track preserves headroom and punch without destructive normalization compression.'
+                  ? 'Âm thanh được cân chỉnh êm ái, rõ ràng và mượt mà khi nghe qua tai nghe, điện thoại hay loa ngoài mà không bị méo tiếng.'
+                  : 'Balanced volume optimized for phone speakers, earphones, and car audio systems.'
                 }}
               </p>
             </div>
 
             <div class="eco-pillar">
               <div class="pillar-number font-mono">02</div>
-              <h3 class="pillar-title">{{ isVi ? 'Bảo Trợ ISRC &amp; Mã Vạch UPC' : 'ISRC & UPC Rights Metadata' }}</h3>
+              <h3 class="pillar-title">{{ isVi ? 'Đầy Đủ Tên Tác Giả & Tác Quyền' : 'Full Artist Credits & Metadata' }}</h3>
               <p class="pillar-text">
                 {{ isVi
-                  ? 'Tư vấn đăng ký mã nhận dạng bản quyền số quốc tế, hỗ trợ bảo vệ quyền tác giả và tối ưu hoá doanh thu phân phối streaming.'
-                  : 'Full guidance on digital audio encoding, ISRC registration, and metadata tagging to safeguard ownership and royalties.'
+                  ? 'Gắn đầy đủ tên bài hát, tên người thể hiện và nhạc sĩ sáng tác, giúp bài hát của bạn được hiển thị đẹp mắt và bảo vệ quyền sở hữu.'
+                  : 'Complete metadata tagging ensuring your song displays correctly with 100% artist ownership.'
                 }}
               </p>
             </div>
 
             <div class="eco-pillar">
               <div class="pillar-number font-mono">03</div>
-              <h3 class="pillar-title">{{ isVi ? 'Xuất File Đa Định Dạng (Stems)' : 'Multi-format Stem Delivery' }}</h3>
+              <h3 class="pillar-title">{{ isVi ? 'Bàn Giao Đầy Đủ File' : 'Complete File Delivery' }}</h3>
               <p class="pillar-text">
                 {{ isVi
-                  ? 'Cung cấp trọn bộ file Master 24-bit/48kHz, Beat Instrumental, Vocal Stems riêng biệt và phiên bản tối ưu riêng cho TikTok Sound & Reels.'
-                  : 'Delivered in lossless 24-bit/48kHz WAV, instrumental playback tracks, isolated vocal stems, and social-first short audio snippets.'
+                  ? 'Gửi bạn đầy đủ file Master chất lượng cao để nghe, file MP3 gửi bạn bè và beat không lời để bạn tự tin đi hát hoặc biểu diễn.'
+                  : 'Delivered in high-res WAV master, MP3 for easy sharing, and instrumental backing track for live performance.'
                 }}
               </p>
             </div>
@@ -342,8 +342,8 @@
             </h2>
             <p class="banner-desc">
               {{ isVi
-                ? 'Đừng để giai điệu của bạn nằm yên trong bản ghi âm điện thoại. Hãy cùng đội ngũ producer XKProduction hiện thực hoá tác phẩm với chuẩn mực phòng thu hàng đầu.'
-                : 'Do not let your melodies remain hidden in phone voice memos. Partner with XKProduction to shape your next release with world-class studio fidelity.'
+                ? 'Đừng để giai điệu của bạn nằm yên trong bản ghi âm điện thoại. Hãy cùng đội ngũ Producer XKProduction hiện thực hoá tác phẩm với chất lượng âm thanh chuẩn mực.'
+                : 'Do not let your melodies remain hidden in phone voice memos. Partner with XKProduction to shape your next release with pristine production quality.'
               }}
             </p>
 
@@ -438,11 +438,24 @@ useSeoMeta({
     ? 'Tác Phẩm & Master Recordings — XKProduction Studio'
     : 'Selected Works & Master Recordings | XKProduction',
   ogDescription: () => isVi.value
-    ? 'Kho tác phẩm âm nhạc tinh tuyển sản xuất tại XKProduction. Hoà âm độc bản, thu âm & mix master chuẩn streaming quốc tế.'
+    ? 'Kho tác phẩm âm nhạc sản xuất tại XKProduction. Hoà âm riêng biệt, thu âm tận tình và cân chỉnh âm thanh chỉn chu.'
     : 'High-fidelity commercial releases and bespoke music productions from XKProduction.',
   ogImage: 'https://xkproduction.com/images/Xkpreviewnew.png',
-  ogUrl: 'https://xkproduction.com/work'
+  ogImageWidth: '1200',
+  ogImageHeight: '630',
+  ogImageAlt: 'Kho Tác Phẩm Âm Nhạc & Master Recordings - XKProduction',
+  ogUrl: 'https://xkproduction.com/work',
+  twitterCard: 'summary_large_image',
+  twitterImage: 'https://xkproduction.com/images/Xkpreviewnew.png'
 })
+
+useSchemaOrg([
+  defineWebPage({
+    '@type': 'CollectionPage',
+    name: 'Kho Tác Phẩm & Master Recordings — XKProduction',
+    description: 'Tuyển tập các tác phẩm âm nhạc, bài hát thu âm, bản phối khí độc bản và dự án sản xuất tại XKProduction Studio.'
+  })
+])
 </script>
 
 <style scoped>

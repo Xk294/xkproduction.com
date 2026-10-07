@@ -44,63 +44,59 @@
 
 <script setup lang="ts">
 useSeoMeta({
-  title: 'Hỏi & Đáp - Câu hỏi thường gặp về Thu âm, Mix Master | XKProduction',
-  description: 'Giải đáp câu hỏi về giá thu âm (từ 499k), quy trình, thời gian hoàn thành, nhận mix master online, phát hành Spotify... tại XKProduction.',
-  ogTitle: 'Câu hỏi thường gặp về Dịch vụ Thu âm & Mix Master - XKProduction',
-  ogDescription: 'Tìm hiểu về giá thu âm, quy trình, hỗ trợ online, phát hành Spotify & các dịch vụ tại XKProduction.',
+  title: 'Hỏi & Đáp - Câu hỏi thường gặp về Sản Xuất Âm Nhạc, Phối Khí & Kí Âm | XKProduction',
+  description: 'Giải đáp câu hỏi về sản xuất âm nhạc, hoà âm phối khí, dịch vụ kí âm viết sheet nhạc (từ 200k), hỗ trợ phát hành nhạc số miễn phí Spotify... tại XKProduction.',
+  ogTitle: 'Câu hỏi thường gặp về Sản Xuất Âm Nhạc & Kí Âm - XKProduction',
+  ogDescription: 'Tìm hiểu về dịch vụ hoà âm phối khí, quy trình sản xuất, kí âm sheet nhạc và chính sách hỗ trợ phát hành Spotify miễn phí tại XKProduction.',
   ogImage: 'https://xkproduction.com/images/Xkpreviewnew.png',
   ogImageWidth: '1200',
   ogImageHeight: '630',
   ogUrl: 'https://xkproduction.com/faq',
   twitterCard: 'summary_large_image',
   twitterImage: 'https://xkproduction.com/images/Xkpreviewnew.png',
-  keywords: 'faq thu âm, câu hỏi phòng thu, giá thu âm bao nhiêu, mix master online, phát hành Spotify, XKProduction'
+  keywords: 'faq sản xuất âm nhạc, hoà âm phối khí, kí âm viết sheet nhạc, giá kí âm, phát hành spotify miễn phí, XKProduction'
 })
 
 const faqs = [
   {
+    question: 'Trọng tâm dịch vụ chính của XKProduction là gì?',
+    answer: 'Trọng tâm của XKProduction là Sản Xuất Âm Nhạc và Hoà Âm Phối Khí độc bản. Dù xuất phát điểm chỉ là một giai điệu mộc mạc hay bản thu thô trên điện thoại, Producer của chúng tôi sẽ cùng bạn phát triển thành một tác phẩm hoàn chỉnh: từ định hình phong cách, sáng tác beat may đo theo màu giọng, thu thanh tỉ mỉ đến hoàn thiện master đạt chuẩn streaming và đồng hành phát hành số đưa âm nhạc đến với khán giả.'
+  },
+  {
+    question: 'XKProduction có dịch vụ Kí âm (viết sheet nhạc) không? Chi phí thế nào?',
+    answer: 'Có. Dịch vụ Kí âm (Transcription) tại XKProduction giúp chuyển tải giai điệu, ca từ và hợp âm từ bản thu mộc hoặc tệp âm thanh thành bản sheet nhạc (Lead Sheet / Score) chuẩn mực. Tác phẩm được trình bày chỉn chu, bàn giao định dạng PDF chuẩn in ấn và file MIDI phục vụ tập dượt cùng ban nhạc hoặc hoàn thiện hồ sơ đăng ký quyền tác giả. Chi phí dao động từ 200.000₫ – 500.000₫/bài tuỳ độ dài và độ phức tạp cấu trúc.'
+  },
+  {
+    question: 'XKProduction hỗ trợ phát hành nhạc lên Spotify và các nền tảng số có mất phí không?',
+    answer: 'Hoàn toàn 0đ. Đối với mọi dự án sản xuất âm nhạc và hoà âm phối khí tại XKProduction, chúng tôi hỗ trợ phát hành tác phẩm lên toàn bộ các nền tảng streaming âm nhạc phổ biến (Spotify, Apple Music, YouTube Music, Zing MP3, TikTok...). Toàn bộ bản quyền tác phẩm và 100% doanh thu nhạc số thuộc về nghệ sĩ.'
+  },
+  {
+    question: 'Làm thế nào để bắt đầu làm nhạc hoặc đặt lịch với studio?',
+    answer: 'Bạn có thể gửi tệp demo qua mục "Khởi Động Dự Án" hoặc liên hệ trực tiếp qua Hotline/Zalo 0355.356.294. Music Producer Nguyễn Xuân Kiệt sẽ trực tiếp lắng nghe bản demo, trao đổi định hướng âm nhạc và đề xuất giải pháp sản xuất tối ưu nhất cho tác phẩm.'
+  },
+  {
+    question: 'XKProduction có hỗ trợ làm việc online từ xa không?',
+    answer: 'Có. XKProduction thường xuyên hợp tác sản xuất từ xa với các nghệ sĩ trên toàn quốc và hải ngoại. Quy trình làm việc online được chuẩn hóa chặt chẽ qua Google Drive và trao đổi trực tiếp: Producer cập nhật bản phối từng giai đoạn để bạn duyệt chi tiết, đảm bảo sự ăn ý và chất lượng tương đương làm việc tại studio.'
+  },
+  {
+    question: 'Thời gian hoàn thành một bài hát thường mất bao lâu?',
+    answer: 'Kí âm sheet nhạc hoàn thành trong 1 — 2 ngày. Bản phác thảo hoà âm demo để bạn duyệt nghe thử thực hiện trong 3 — 5 ngày. Dự án sản xuất hoàn thiện từ giai điệu mộc đến bản master cuối cùng thường từ 7 — 10 ngày làm việc.'
+  },
+  {
     question: 'Chi phí thu âm tại XKProduction là bao nhiêu?',
-    answer: 'Chi phí thu âm tại XKProduction bắt đầu từ 499.000₫/bài đối với gói Demo/Cơ Bản (thu 1-2h, chỉnh sửa tuning và timing cơ bản) và lên đến 1.800.000₫+ cho các gói chuyên nghiệp không giới hạn thời gian thu, tích hợp coaching biểu cảm và vocal direction chuyên sâu. Vui lòng xem chi tiết đầy đủ tại bảng giá dịch vụ để chọn gói phù hợp.'
+    answer: 'Chi phí thu âm tại studio từ 499.000₫/buổi (khoảng 2 — 3 giờ). Không gian phòng thu được xử lý âm học tiêu chuẩn, trang bị microphone condenser cao cấp và luôn có kỹ thuật viên kiên nhẫn định hướng xử lý thanh nhạc, cách bắt nhịp và biểu cảm câu chữ để bạn tự tin thể hiện trọn vẹn cảm xúc.'
   },
   {
-    question: 'Làm thế nào để đặt lịch thu âm hoặc sản xuất?',
-    answer: 'Bạn có thể liên hệ trực tiếp qua Zalo Hotline 0355.356.294 hoặc hoàn thành form tại trang Liên hệ. Đội ngũ tiếp nhận sẽ phản hồi, tư vấn phương án phù hợp nhất trong vòng 2 giờ, sau đó hỗ trợ xếp lịch thu và gửi checklist chuẩn bị cụ thể cho bạn.'
-  },
-  {
-    question: 'XKProduction có hỗ trợ thu âm online không?',
-    answer: 'Có, chúng tôi hỗ trợ dịch vụ Hoà âm Phối khí Online và Mix & Master Online cực kỳ linh hoạt. Bạn chỉ cần gửi file thu âm vocal mộc (file thô thu tại nhà hoặc từ phòng thu địa phương khác) kèm demo qua Zalo hoặc Google Drive. Chúng tôi sẽ sản xuất bản phối mới, cân chỉnh vocal và hoàn thiện master đạt chuẩn Spotify.'
-  },
-  {
-    question: 'XKProduction có hỗ trợ sản xuất MV, TVC, podcast không?',
-    answer: 'Có, bên cạnh sản xuất âm thanh, chúng tôi sở hữu ekip media chuyên nghiệp chuyên sản xuất MV ca nhạc (Music Video), TVC quảng cáo doanh nghiệp, quay Live Session ban nhạc, và sản xuất Video Podcast trọn gói từ khâu lên ý tưởng kịch bản, quay phim đến dựng hậu kỳ, phân màu.'
-  },
-  {
-    question: 'Thời gian hoàn thành dự án bao lâu?',
-    answer: 'Thời gian hoàn thiện tuỳ thuộc vào quy mô dự án: Bản phối demo/beat cơ bản có thể bàn giao trong vòng 2-3 ngày làm việc; dịch vụ Mixing & Mastering chuyên nghiệp thường mất từ 3-7 ngày; đối với các dự án sản xuất MV, TVC quảng cáo trọn gói cần thời gian từ 2-4 tuần để chuẩn bị tiền kỳ và hậu kỳ kỹ lưỡng.'
-  },
-  {
-    question: 'XKProduction hỗ trợ phát hành nhạc lên Spotify không?',
-    answer: 'Có, khi đăng ký gói chuyên nghiệp hoặc gói combo sản xuất trọn gói, XKProduction sẽ hỗ trợ tư vấn và thực hiện thủ tục phân phối bản nhạc của bạn lên tất cả các nền tảng nhạc số lớn như Spotify, Apple Music, YouTube Music, TikTok... một cách chuyên nghiệp với đầy đủ thông tin tác giả và bản quyền.'
-  },
-  {
-    question: 'Tôi có thể tham quan phòng thu trước khi đặt lịch không?',
-    answer: 'Hoàn toàn có thể. Hãy liên hệ qua Hotline 0355.356.294 để đặt lịch hẹn ghé thăm phòng thu của chúng tôi hoàn toàn miễn phí, tham quan cơ sở vật chất, hệ thống trang thiết bị và trao đổi trực tiếp ý tưởng âm nhạc với đội ngũ kỹ sư âm thanh.'
-  },
-  {
-    question: 'XKProduction có nhận dự án từ tỉnh thành khác không?',
-    answer: 'Có, với quy trình làm việc từ xa chuẩn hoá, XKProduction thường xuyên hợp tác với các nghệ sĩ, khách hàng trên khắp cả nước (TP.HCM, Hà Nội, Đà Nẵng, các tỉnh miền Tây và Tây Nguyên). Việc trao đổi ý tưởng, gửi file demo và nhận phản hồi chỉnh sửa đều được thực hiện trực tuyến vô cùng thuận tiện.'
-  },
-  {
-    question: 'Giờ làm việc của XKProduction là mấy giờ?',
-    answer: 'Phòng thu hoạt động linh hoạt từ Thứ 2 đến Thứ 6 (7:00 – 22:00) và Thứ 7 – Chủ nhật (8:00 – 20:00). Để đảm bảo trải nghiệm thu âm không bị gián đoạn và nhận được sự hỗ trợ tốt nhất từ kỹ sư âm thanh, quý khách vui lòng đặt lịch hẹn trước tối thiểu 24 tiếng.'
+    question: 'Tôi có thể ghé thăm studio trước khi làm việc không?',
+    answer: 'Chúng tôi luôn sẵn sàng đón tiếp bạn. Bạn vui lòng liên hệ trước qua Zalo 0355.356.294 để sắp xếp lịch hẹn, trải nghiệm không gian làm việc của studio và trao đổi trực tiếp cùng Music Producer về định hướng tác phẩm trước khi tiến hành dự án.'
   },
   {
     question: 'Tôi cần chuẩn bị gì trước khi đến thu âm?',
-    answer: 'Để đạt hiệu quả thu âm cao nhất, bạn nên: 1. Học thuộc lòng lời bài hát và tập hát chuẩn nhịp với beat ở nhà; 2. Giữ sức khoẻ và giọng hát ở trạng thái tốt nhất (hạn chế thức khuya, uống nước đá hoặc rượu bia trước ngày thu); 3. Gửi trước beat hoặc demo (nếu có) để kỹ sư phòng thu setup project sẵn sàng.'
+    answer: 'Để buổi thu đạt chất lượng tốt nhất, bạn nên: 1. Nắm chắc ca từ và cấu trúc bài hát; 2. Giữ giọng và tinh thần thoải mái, hạn chế thức khuya và đồ uống lạnh trước ngày thu; 3. Giữ tâm lý thư giãn — Producer sẽ đồng hành hướng dẫn kỹ thuật thanh nhạc và bắt nhịp trong suốt buổi thu.'
   },
   {
-    question: 'Sau khi thu âm tôi nhận được những file gì?',
-    answer: 'Sau khi hoàn thành dự án, bạn sẽ nhận được các file xuất chất lượng cao bao gồm: Bản Master hoàn chỉnh dạng WAV (24-bit/48kHz chuẩn phát hành) & MP3 (320kbps), bản Beat đã mix lại khớp với Vocal (nếu hát karaoke/cover) và các file Multi-track/Stems lẻ nếu gói dịch vụ của bạn có hỗ trợ.'
+    question: 'Sau khi hoàn thành tôi nhận được những file gì?',
+    answer: 'Bạn sẽ nhận được trọn bộ sản phẩm hoàn thiện: File Master chất lượng cao (WAV 24-bit không nén & MP3 320kbps) đạt chuẩn streaming, Beat Playback (Instrumental/Karaoke) để biểu diễn, và bộ Stems đa kênh (theo yêu cầu) để lưu trữ vĩnh viễn.'
   }
 ]
 

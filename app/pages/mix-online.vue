@@ -78,7 +78,7 @@
               <li><i class="fa-solid fa-check"></i> Nhận multi-track stems</li>
               <li><i class="fa-solid fa-check"></i> Full mixing xử lý từng track</li>
               <li><i class="fa-solid fa-check"></i> Vocal treatment riêng</li>
-              <li><i class="fa-solid fa-check"></i> Mastering chuẩn phát hành quốc tế</li>
+              <li><i class="fa-solid fa-check"></i> Mastering âm thanh to rõ, êm tai</li>
               <li><i class="fa-solid fa-check"></i> 2 revisions</li>
             </ul>
             <button type="button" class="btn btn-primary btn-full-width mt-auto btn-pulse" @click="selectPackage('Pro')">Chọn gói Pro</button>
@@ -226,11 +226,14 @@ import { reactive, ref, onUnmounted } from 'vue'
 
 useSeoMeta({
   title: 'Mix & Master Online — Gửi File Nhận Bản Mix Chuyên Nghiệp | XKProduction',
-  description: 'Dịch vụ mix và master online toàn quốc. Gửi file qua Google Drive, nhận bản mix chuẩn Spotify trong 48-72h. Từ 350.000₫/bài.',
+  description: 'Dịch vụ mix và master online toàn quốc. Gửi file qua Google Drive, nhận bản mix chuẩn Spotify trong 48-72h. Từ 300.000₫/bài.',
   keywords: 'mix master online, gửi file mix master, mixing online Việt Nam, mastering online, mix nhạc online',
   ogTitle: 'Mix & Master Online — XKProduction Studio',
   ogDescription: 'Dịch vụ mix và master online chuẩn Spotify -14 LUFS toàn quốc. Nhận bài trong 48-72h.',
   ogImage: 'https://xkproduction.com/images/Xkpreviewnew.png',
+  ogImageWidth: '1200',
+  ogImageHeight: '630',
+  ogImageAlt: 'Dịch vụ Mix & Master Online - XKProduction',
   ogUrl: 'https://xkproduction.com/mix-online',
   ogType: 'website',
   twitterCard: 'summary_large_image',
@@ -240,7 +243,7 @@ useSeoMeta({
 useSchemaOrg([
   defineWebPage({
     name: 'Mix & Master Online — Gửi File Nhận Bản Mix Chuyên Nghiệp | XKProduction',
-    description: 'Dịch vụ mix và master online toàn quốc. Gửi file qua Google Drive, nhận bản mix chuẩn Spotify trong 48-72h. Từ 350.000₫/bài.'
+    description: 'Dịch vụ mix và master online toàn quốc. Gửi file qua Google Drive, nhận bản mix chuẩn Spotify trong 48-72h. Từ 300.000₫/bài.'
   }),
   defineLocalBusiness({
     '@id': 'https://xkproduction.com/#localbusiness',

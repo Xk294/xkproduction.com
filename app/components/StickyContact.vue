@@ -34,7 +34,7 @@ onMounted(() => {
     <div class="desktop-contact-dock glass-card">
       <div class="dock-status-pill">
         <span class="pulse-dot"></span>
-        <span class="status-txt">{{ isVi ? 'Phòng Thu Hoạt Động' : 'Studio Active' }}</span>
+        <span class="status-txt">{{ isVi ? 'Sẵn Sàng Nhận Dự Án' : 'Booking Open' }}</span>
       </div>
 
       <div class="dock-divider"></div>

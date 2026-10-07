@@ -125,8 +125,12 @@ useSeoMeta({
   ogTitle: 'Dịch Vụ Thu Âm Bài Hát Chuyên Nghiệp - XKProduction',
   ogDescription: 'Thu âm bài hát chất lượng cao từ 499k tại TP. Hồ Chí Minh. Đội ngũ kỹ sư âm thanh 7 năm kinh nghiệm hỗ trợ bè phối, vocal coaching tận tình.',
   ogImage: 'https://xkproduction.com/images/Xkpreviewnew.png',
+  ogImageWidth: '1200',
+  ogImageHeight: '630',
+  ogImageAlt: 'Dịch vụ Thu Âm Bài Hát Chuyên Nghiệp - XKProduction',
   ogUrl: 'https://xkproduction.com/thu-am',
   twitterCard: 'summary_large_image',
+  twitterImage: 'https://xkproduction.com/images/Xkpreviewnew.png',
   keywords: 'thu âm bài hát, dịch vụ thu âm, phòng thu âm Thủ Đức, phòng thu âm TP.HCM, giá thu âm bao nhiêu, studio thu âm uy tín, thu âm bài hát giá bao nhiêu, phòng thu âm chuyên nghiệp'
 })
 

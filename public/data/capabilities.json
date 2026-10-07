@@ -5,24 +5,26 @@
     "title": "Music Production",
     "viTitle": "Sản Xuất & Phối Khí",
     "enTitle": "Music Production",
-    "subtitle": "Biến giai điệu mộc mạc của bạn thành bài hát hoàn chỉnh đầy cảm xúc",
+    "subtitle": "Hiện thực hóa giai điệu mộc thành tác phẩm âm nhạc hoàn chỉnh, giàu bản sắc nghệ thuật",
     "enSubtitle": "Turning Your Raw Musical Sketches Into Expressive Bespoke Tracks",
     "badge": "SẢN XUẤT & PHỐI KHÍ",
     "enBadge": "MUSIC PRODUCTION",
-    "summary": "Bạn không cần phải biết nhạc lý hay biết chơi nhạc cụ. Dù chỉ là một đoạn ngâm nga trong điện thoại hay vài câu hát mộc mạc, XKProduction luôn trân trọng và lắng nghe câu chuyện của bạn. Chúng tôi đồng hành phối khí riêng biệt theo đúng màu giọng và cảm xúc thật của bạn, tuyệt đối không dùng beat rập khuôn đại trà.",
+    "summary": "Dù chỉ khởi đầu từ một đoạn ngâm nga ngẫu hứng hay giai điệu mộc mạc, XKProduction trân trọng từng ý niệm âm nhạc của bạn. Chúng tôi đồng hành kiến tạo bản phối độc bản — đo ni đóng giày theo âm sắc giọng hát và phong cách riêng biệt, không sử dụng beat mẫu đại trà.",
     "enSummary": "No musical theory or instrument skills needed. Even from a rough voice memo sketch, we listen deeply to your story. We build an original musical arrangement tailored to your voice and emotion, zero generic loops.",
     "deliverables": [
-      "Bản hoà âm phối khí trọn vẹn được làm riêng cho chất giọng của bạn",
-      "Bản beat playback chất lượng cao để bạn tự tin biểu diễn sân khấu",
-      "Bản beat có bè hỗ trợ giúp bạn dễ hát và tự tin hơn",
-      "Tư vấn tone giọng thoải mái nhất, không lo bị quá cao hay quá trầm",
-      "Toàn quyền sở hữu bài hát và tự do chia sẻ cùng mọi người"
+      "Bản hoà âm phối khí độc bản (Full Production) đo ni đóng giày theo chất giọng",
+      "Beat Playback (Mastered Instrumental) chất lượng cao phục vụ biểu diễn",
+      "Bản phối kèm bè mẫu (Guide Vocals) hỗ trợ bắt nhịp và nâng tầm cảm xúc",
+      "Tư vấn xác lập tone giọng tối ưu, tôn vinh quãng âm đẹp nhất của bạn",
+      "Hỗ trợ phát hành nhạc số 0đ lên Spotify, Apple Music, YouTube Music, Zing MP3...",
+      "Toàn quyền sở hữu 100% bản quyền tác phẩm và doanh thu phát hành"
     ],
     "enDeliverables": [
       "Complete custom musical arrangement tailored to your voice",
       "High-fidelity backing track for stage performance",
       "Accompaniment track with backing vocals for easy singing",
       "Vocal key consultation for maximum singing comfort",
+      "100% Free digital music distribution support (Spotify, Apple Music, YouTube Music)",
       "Full artist ownership to freely share with everyone"
     ],
     "investmentStarting": "Từ 2.000.000₫ / tác phẩm",
@@ -1076,6 +1078,149 @@
         "answer": "Chúng tôi luôn có mặt và hoàn tất việc lắp đặt, kiểm tra âm thanh trước giờ đón khách tối thiểu 2 tiếng để bạn hoàn toàn an tâm đón tiếp người thân và bạn bè.",
         "enQuestion": "How early does the crew set up before guests arrive?",
         "enAnswer": "We always arrive and finish setup and soundchecks at least 2 hours before your guests walk in, giving you complete peace of mind."
+      }
+    ]
+  },
+  {
+    "id": "ki-am",
+    "slug": "ki-am",
+    "title": "Music Sheet Transcription",
+    "viTitle": "Kí Âm (Viết Sheet Nhạc)",
+    "enTitle": "Music Sheet Transcription",
+    "subtitle": "Kí âm chuẩn xác nốt nhạc, ca từ và hợp âm từ giai điệu mộc — Phục vụ tập dượt & Đăng ký tác quyền",
+    "enSubtitle": "Accurate Sheet Music Transcription for Copyright & Rehearsals",
+    "badge": "KÍ ÂM SHEET NHẠC",
+    "enBadge": "SHEET TRANSCRIPTION",
+    "summary": "XKProduction cung cấp dịch vụ kí âm (Music Transcription) chuyên nghiệp từ bản thu mộc, bản ghi âm điện thoại hoặc ý tưởng ngẫu hứng của tác giả. Chúng tôi chuyển tải chính xác cao độ, trường độ, ca từ và cấu trúc hợp âm thành bản sheet nhạc hoàn chỉnh theo chuẩn ký âm âm nhạc. Tác phẩm được trình bày thẩm mỹ, thuận tiện in ấn, bàn giao file số MIDI/MusicXML hỗ trợ tập dượt ban nhạc và hoàn thiện hồ sơ đăng ký quyền tác giả.",
+    "enSummary": "Have an original melody, phone voice memo, or recorded track you want converted into clear sheet music? XKProduction listens and transcribes exact notes, lyrics, and chords into clean notation ready for printing, rehearsal, or copyright filing.",
+    "deliverables": [
+      "Bản sheet nhạc định dạng PDF vector sắc nét (đầy đủ nốt nhạc, ca từ và hệ thống hợp âm)",
+      "Tệp âm thanh kỹ thuật số MIDI & MusicXML tương thích mọi phần mềm làm nhạc",
+      "Trình bày chuẩn mực theo thể thức đăng ký bảo hộ quyền tác giả",
+      "Tệp âm thanh tham chiếu (Audio Guide Preview) đối chiếu chuẩn xác từng nốt nhạc",
+      "Hỗ trợ tinh chỉnh chu đáo theo phản hồi của tác giả"
+    ],
+    "enDeliverables": [
+      "Clean printable PDF score (notes, chords, lyrics)",
+      "Standard MIDI / MusicXML digital files for notation software",
+      "Clear format ready for copyright filing or band rehearsal",
+      "Audio preview to cross-check melody",
+      "Friendly revisions for minor adjustments"
+    ],
+    "investmentStarting": "200.000₫ — 500.000₫ / bài",
+    "enInvestmentStarting": "200,000₫ — 500,000₫ / track",
+    "originalPrice": "600.000₫",
+    "discountBadge": "Ưu đãi trực tiếp",
+    "enDiscountBadge": "Special rate",
+    "timeline": "1 — 3 ngày làm việc",
+    "enTimeline": "1 — 3 business days",
+    "icon": "fa-solid fa-file-lines",
+    "techSpecs": [
+      {
+        "label": "ĐỘ CHÍNH XÁC",
+        "value": "Nốt & Nhịp Rõ Ràng",
+        "desc": "Chép tỉ mỉ từng câu hát, nhịp phách và chỗ luyến láy tự nhiên.",
+        "enLabel": "ACCURACY",
+        "enValue": "Clear Pitch & Rhythm",
+        "enDesc": "Detailed transcription of melody and natural phrasing."
+      },
+      {
+        "label": "HỢP ÂM ĐỆM",
+        "value": "Hợp Âm Đầy Đủ & Dễ Nhìn",
+        "desc": "Đặt hợp âm chuẩn, giúp bạn hoặc ban nhạc đệm piano, guitar rất dễ dàng.",
+        "enLabel": "HARMONY",
+        "enValue": "Easy-to-Read Chords",
+        "enDesc": "Clear chord symbols tailored for easy piano and guitar accompaniment."
+      },
+      {
+        "label": "ĐĂNG KÝ TÁC QUYỀN",
+        "value": "Dễ Dàng Nộp Hồ Sơ",
+        "desc": "Trình bày theo đúng thể thức để bạn thuận tiện đăng ký bản quyền bài hát.",
+        "enLabel": "COPYRIGHT",
+        "enValue": "Registration Ready",
+        "enDesc": "Proper layout formatted for smooth copyright office filing."
+      },
+      {
+        "label": "ĐỊNH DẠNG FILE",
+        "value": "File In PDF & File MIDI",
+        "desc": "Vừa có bản đẹp để in ra giấy, vừa có file nhạc số mở trên máy tính.",
+        "enLabel": "FORMATS",
+        "enValue": "Printable PDF & MIDI",
+        "enDesc": "High-quality vector printable PDF and digital source files."
+      }
+    ],
+    "features": [
+      {
+        "title": "Kí Âm Từ Mọi Nguồn Tư Liệu",
+        "desc": "Chỉ cần gửi đoạn ghi âm điện thoại, video hát mộc hoặc file thu âm, chúng tôi sẽ kí âm chính xác.",
+        "enTitle": "Transcribing from Any Source",
+        "enDesc": "Simply send a voice memo, acoustic phone video, or demo audio."
+      },
+      {
+        "title": "Hợp Âm Soạn Khoa Học & Dễ Đọc",
+        "desc": "Ký hiệu hợp âm rõ ràng, thống nhất, giúp nhạc công dễ nhìn và đệm hát chuẩn xác ngay từ lần đọc đầu tiên.",
+        "enTitle": "Clean & Legible Notation",
+        "enDesc": "Intuitive chord nomenclature allowing musicians to read and accompany effortlessly."
+      },
+      {
+        "title": "Bàn Giao Nhanh Chóng Trong 24-48 Giờ",
+        "desc": "Đáp ứng tiến độ kịp thời cho các lịch nộp hồ sơ bản quyền hoặc lịch tập dượt ban nhạc gấp.",
+        "enTitle": "Fast Turnaround in 24-48 Hours",
+        "enDesc": "Rapid delivery to meet urgent copyright filing deadlines or concert rehearsals."
+      }
+    ],
+    "workflow": [
+      {
+        "step": "BƯỚC 01",
+        "title": "Tiếp Nhận File Audio & Lời Bài Hát",
+        "desc": "Khách hàng gửi file ghi âm mộc hoặc demo kèm văn bản lời bài hát (nếu có).",
+        "enStep": "STEP 01",
+        "enTitle": "Receive Audio & Lyrics",
+        "enDesc": "Submit your demo recording, voice memo, and written lyrics."
+      },
+      {
+        "step": "BƯỚC 02",
+        "title": "Xác Định Giọng & Đo Nhịp Điệu",
+        "desc": "Xác định tông giọng (Key), chỉ số nhịp (Time Signature) và tốc độ (BPM) chính xác.",
+        "enStep": "STEP 02",
+        "enTitle": "Key & Tempo Analysis",
+        "enDesc": "Detect musical key, time signature, and precise BPM."
+      },
+      {
+        "step": "BƯỚC 03",
+        "title": "Soạn Thảo Nốt Nhạc & Đặt Hợp Âm",
+        "desc": "Soạn thảo nốt giai điệu, gắn lời chuẩn xác từng nốt và đặt chuỗi hợp âm hoà thanh phù hợp.",
+        "enStep": "STEP 03",
+        "enTitle": "Melody & Chord Notation",
+        "enDesc": "Notate melodic lines, align lyric syllables, and assign musical chords."
+      },
+      {
+        "step": "BƯỚC 04",
+        "title": "Kiểm Âm & Bàn Giao File Chuẩn",
+        "desc": "Xuất file audio MIDI đối chiếu, kiểm tra chính tả và bàn giao trọn bộ PDF + MIDI + MusicXML.",
+        "enStep": "STEP 04",
+        "enTitle": "Verification & Final Delivery",
+        "enDesc": "Audio verification, proofreading, and package delivery in PDF, MIDI, and MusicXML."
+      }
+    ],
+    "faq": [
+      {
+        "question": "Tôi chỉ có đoạn ghi âm hát mộc trên điện thoại thì có kí âm được không?",
+        "answer": "Hoàn toàn được! Bạn chỉ cần gửi file ghi âm hoặc gửi qua Zalo, chúng tôi sẽ lắng nghe và kí âm chính xác giai điệu và đặt hợp âm chuẩn cho bài hát.",
+        "enQuestion": "Can you transcribe from just a phone voice recording?",
+        "enAnswer": "Yes, absolutely! Just send your voice memo and we will listen, transcribe the melody, and assign suitable chords."
+      },
+      {
+        "question": "Chi phí kí âm cụ thể là bao nhiêu?",
+        "answer": "Chi phí dao động từ 200.000₫ đến 500.000₫/bài tuỳ theo độ dài tác phẩm và độ phức tạp của giai điệu (bài đơn giản thường là 200k-300k, bài nhiều đoạn chuyển tone hoặc phức tạp là 400k-500k).",
+        "enQuestion": "How much does music sheet transcription cost?",
+        "enAnswer": "Pricing ranges between 200,000₫ and 500,000₫ per song depending on length and melodic complexity."
+      },
+      {
+        "question": "Bản sheet có dùng để nộp hồ sơ Cục Bản quyền tác giả được không?",
+        "answer": "Có, bản sheet được trình bày theo đúng định dạng chuẩn mực (tên tác giả, nốt nhạc, lời bài hát dưới từng nốt) đáp ứng đầy đủ yêu cầu đăng ký quyền tác giả âm nhạc.",
+        "enQuestion": "Can this sheet be used for official copyright registration?",
+        "enAnswer": "Yes, the format strictly follows the standard presentation required by copyright offices."
       }
     ]
   }

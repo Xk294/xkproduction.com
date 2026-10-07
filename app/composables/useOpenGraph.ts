@@ -166,9 +166,10 @@ function generateJsonLd(config: OpenGraphOptions & { siteName?: string }): Recor
     jsonLd.logo = config.image;
     jsonLd.description = config.description;
     jsonLd.sameAs = [
-      'https://www.facebook.com/xkproduction',
-      'https://www.youtube.com/@xkproduction',
-      'https://www.instagram.com/xkproduction',
+      'https://www.facebook.com/ngxkiet',
+      'https://www.youtube.com/@Xkstudio29',
+      'https://www.tiktok.com/@xkstudio',
+      'https://zalo.me/0355356294',
     ];
   }
 

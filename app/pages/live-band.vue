@@ -171,7 +171,7 @@
 
           <div class="cta-buttons">
             <NuxtLink to="/contact?service=live-band" class="btn btn-primary btn-pulse btn-large">Nhận báo giá ngay</NuxtLink>
-            <NuxtLink to="/services" class="btn btn-secondary btn-large">Xem thêm dịch vụ phòng thu</NuxtLink>
+            <NuxtLink to="/services" class="btn btn-secondary btn-large">Xem dịch vụ sản xuất âm nhạc</NuxtLink>
           </div>
 
           <div class="cta-footer-methods">

@@ -49,7 +49,7 @@
       <div class="hero-action-split">
         <div class="hero-primary-ctas">
           <NuxtLink to="/work" class="btn-hero-primary">
-            <span>{{ isVi ? 'NGHE BÀI HÁT ĐÃ LÀM' : 'EXPLORE WORK' }}</span>
+            <span>{{ isVi ? 'DANH MỤC TÁC PHẨM' : 'EXPLORE WORK' }}</span>
             <i class="fa-solid fa-arrow-right"></i>
           </NuxtLink>
 
@@ -62,14 +62,14 @@
             class="btn-hero-play-demo"
             :class="{ 'is-playing': isPlaying }"
             @click="handleTogglePlayDemo"
-            :aria-label="isPlaying ? (isVi ? 'Tạm dừng demo' : 'Pause demo') : (isVi ? 'Nghe thử chất âm' : 'Listen studio demo')"
+            :aria-label="isPlaying ? (isVi ? 'Tạm dừng demo' : 'Pause demo') : (isVi ? 'Nghe thử bản phối master' : 'Listen master demo')"
           >
             <span class="play-icon-box">
               <i :class="isPlaying ? 'fa-solid fa-pause' : 'fa-solid fa-play'"></i>
             </span>
             <div class="play-info-wrap">
-              <span class="play-label">{{ isPlaying ? (isVi ? 'Đang phát demo...' : 'Playing Demo...') : (isVi ? 'Nghe Thử Chất Âm' : 'Listen Studio Demo') }}</span>
-              <span class="play-sub text-meta-mono font-mono">{{ isVi ? 'Chất âm thực tế' : 'Master Quality' }}</span>
+              <span class="play-label">{{ isPlaying ? (isVi ? 'Đang phát demo...' : 'Playing Demo...') : (isVi ? 'Nghe Thử Bản Phối' : 'Listen Master Demo') }}</span>
+              <span class="play-sub text-meta-mono font-mono">{{ isVi ? 'Chất Âm Master' : 'Master Quality' }}</span>
             </div>
           </button>
         </div>
@@ -177,7 +177,7 @@
             @click="handleTogglePlayDemo"
             role="button"
             tabindex="0"
-            :aria-label="isPlaying ? (isVi ? 'Tạm dừng demo âm thanh' : 'Pause studio demo') : (isVi ? 'Bấm để nghe Demo chất âm Master phòng thu' : 'Click to preview studio master quality')"
+            :aria-label="isPlaying ? (isVi ? 'Tạm dừng demo âm thanh' : 'Pause master demo') : (isVi ? 'Bấm để nghe Demo bản phối Master' : 'Click to preview master production')"
             @keydown.enter.prevent="handleTogglePlayDemo"
             @keydown.space.prevent="handleTogglePlayDemo"
           >
@@ -199,8 +199,8 @@
                 <i :class="isPlaying ? 'fa-solid fa-pause' : 'fa-solid fa-play'"></i>
               </div>
               <div class="trigger-label-group">
-                <span class="trigger-state font-mono">{{ isPlaying ? (isVi ? 'PAUSE DEMO' : 'PAUSE DEMO') : (isVi ? 'NGHE CHẤT ÂM' : 'HEAR QUALITY') }}</span>
-                <span class="trigger-sub text-meta-mono">{{ isPlaying ? (isVi ? 'Đang phát...' : 'Playing...') : (isVi ? 'Master 24-bit' : 'Studio Master') }}</span>
+                <span class="trigger-state font-mono">{{ isPlaying ? (isVi ? 'PAUSE DEMO' : 'PAUSE DEMO') : (isVi ? 'NGHE BẢN PHỐI' : 'HEAR QUALITY') }}</span>
+                <span class="trigger-sub text-meta-mono">{{ isPlaying ? (isVi ? 'Đang phát...' : 'Playing...') : (isVi ? 'Master 24-bit' : '24-bit Master') }}</span>
               </div>
             </div>
 
@@ -222,7 +222,7 @@
                 <span class="bento-micro-kicker text-meta-mono">{{ isVi ? 'BẢN PHỐI ĐỘC BẢN' : 'BESPOKE ARRANGEMENT' }}</span>
                 <h2 class="bento-card-title">{{ isVi ? 'Hoà Âm Phối Khí & Sản Xuất Nhạc' : 'Music Production & Arrangement' }}</h2>
                 <p class="bento-card-desc">
-                  {{ isVi ? 'Biến ý tưởng mộc thành bản phối hoàn chỉnh đa thể loại, trau chuốt từng âm sắc và master chuẩn phát hành quốc tế.' : 'Transforming raw sketches into release-ready master productions with bespoke multi-genre arrangement.' }}
+                  {{ isVi ? 'Biến giai điệu mộc thành tác phẩm hoàn chỉnh giàu bản sắc — sáng tạo bản phối độc bản theo màu giọng và hỗ trợ phát hành nhạc số 0đ.' : 'Transforming raw sketches into expressive complete tracks with custom arrangements and free release support.' }}
                 </p>
               </div>
             </div>

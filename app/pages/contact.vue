@@ -249,7 +249,7 @@
         
         <div class="map-container-glass glass-card">
           <iframe
-            src="https://www.google.com/maps?q=Th%E1%BB%A7+%C4%90%E1%BB%A9c,+Th%C3%A0nh+ph%E1%BB%91+H%E1%BB%93+Ch%C3%AD+Minh&output=embed"
+            src="https://www.google.com/maps?q=10.8494,106.7537&hl=vi&z=15&output=embed"
             width="100%"
             height="420"
             style="border:0;"
@@ -259,7 +259,7 @@
             title="Vị trí XKProduction trên Google Maps - Thủ Đức, Thành phố Hồ Chí Minh"
           ></iframe>
           <a
-            href="https://www.google.com/maps/search/?api=1&query=Th%E1%BB%A7+%C4%90%E1%BB%A9c,+Th%C3%A0nh+ph%E1%BB%91+H%E1%BB%93+Ch%C3%AD+Minh"
+            href="https://www.google.com/maps/dir/?api=1&destination=10.8494,106.7537"
             target="_blank" rel="noopener"
             class="map-directions-link"
           >

@@ -128,9 +128,9 @@
         <div class="layer-badge right-badge" @click.stop="selectChannel('master')">
           <span class="badge-title">
             <span class="badge-status-dot master" :class="{ 'is-lit': activeChannel === 'master' }"></span>
-            {{ isVi ? 'MASTER CHUẨN QUỐC TẾ' : 'SPOTIFY-STANDARD MASTER' }}
+            {{ isVi ? 'BẢN MASTER HOÀN THIỆN' : 'FINISHED MASTER' }}
           </span>
-          <span class="badge-desc">{{ isVi ? '-14 LUFS · Dải trầm sâu sắc · Không gian Stereo 3D' : '-14 LUFS · Deep punchy low-end · Immersive 3D soundstage' }}</span>
+          <span class="badge-desc">{{ isVi ? 'Âm thanh to rõ · Dày dặn · Êm ái trên mọi thiết bị' : 'Clear & warm · Balanced loudness across all devices' }}</span>
         </div>
       </div>
 

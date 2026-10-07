@@ -79,7 +79,7 @@
               <li>
                 <i class="fa-solid fa-circle-check"></i>
                 <div>
-                  <strong>Gửi file ghi âm bạn có sẵn:</strong> Có thể là file thu tại phòng thu, hoặc bạn tự thu bằng điện thoại, tai nghe ở nhà. Studio luôn hỗ trợ nghe thử và tư vấn trước cho bạn.
+                  <strong>Gửi file ghi âm bạn có sẵn:</strong> Có thể là file thu âm mộc tại nhà, tai nghe hoặc điện thoại. Studio luôn hỗ trợ nghe thử và tư vấn trước cho bạn.
                 </div>
               </li>
               <li>
@@ -126,36 +126,13 @@ useSeoMeta({
   ogTitle: 'Mix & Master Cảm Xúc, Tự Nhiên - XKProduction',
   ogDescription: 'Trau chuốt bản thu của bạn thành tác phẩm êm ái, nâng đỡ giọng hát sáng rõ và giữ trọn hồn giọng thật trên mọi thiết bị.',
   ogImage: 'https://xkproduction.com/images/Xkpreviewnew.png',
+  ogImageWidth: '1200',
+  ogImageHeight: '630',
+  ogImageAlt: 'Dịch vụ Mix & Master Bài Hát - XKProduction',
   ogUrl: 'https://xkproduction.com/mix-master',
   twitterCard: 'summary_large_image',
+  twitterImage: 'https://xkproduction.com/images/Xkpreviewnew.png',
   keywords: 'mix master, mixing mastering, mix master online, mix nhạc, làm nhạc kỷ niệm, xkproduction'
-})
-
-useHead({
-  script: [
-    {
-      type: 'application/ld+json',
-      innerHTML: JSON.stringify({
-        "@context": "https://schema.org",
-        "@type": "Service",
-        "serviceType": "Trau chuốt & Hoàn thiện âm thanh bài hát",
-        "provider": {
-          "@type": "MusicStore",
-          "name": "XKProduction",
-          "url": "https://xkproduction.com"
-        },
-        "name": "Dịch vụ Mix & Master Bài Hát",
-        "description": "Nâng đỡ giọng hát sáng rõ, tự nhiên không robot, âm thanh êm tai trên mọi thiết bị nghe nhạc.",
-        "offers": {
-          "@type": "AggregateOffer",
-          "lowPrice": "350000",
-          "highPrice": "500000",
-          "priceCurrency": "VND",
-          "offerCount": "2"
-        }
-      })
-    }
-  ]
 })
 
 useSchemaOrg([
